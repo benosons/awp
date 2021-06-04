@@ -1,1294 +1,713 @@
 {% extends "admin/layout.html" %} {% block content %}
-<!-- #section:basics/content.breadcrumbs -->
-					<div class="breadcrumbs breadcrumbs-fixed" id="breadcrumbs">
-						<script type="text/javascript">
-							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
-						</script>
-
-						<ul class="breadcrumb">
-							<li>
-								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Home</a>
-							</li>
-							<li class="active">Dashboard</li>
-						</ul><!-- /.breadcrumb -->
-
-						<!-- #section:basics/content.searchbox -->
-						<div class="nav-search" id="nav-search">
-							<form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-							</form>
-						</div><!-- /.nav-search -->
-
-						<!-- /section:basics/content.searchbox -->
-					</div>
-
-          <div class="page-content">
-						<!-- #section:settings.box -->
-						<div class="ace-settings-container" id="ace-settings-container">
-							<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
-								<i class="ace-icon fa fa-cog bigger-130"></i>
-							</div>
-
-							<div class="ace-settings-box clearfix" id="ace-settings-box">
-								<div class="pull-left width-50">
-									<!-- #section:settings.skins -->
-									<div class="ace-settings-item">
-										<div class="pull-left">
-											<select id="skin-colorpicker" class="hide">
-												<option data-skin="no-skin" value="#438EB9">#438EB9</option>
-												<option data-skin="skin-1" value="#222A2D">#222A2D</option>
-												<option data-skin="skin-2" value="#C6487E">#C6487E</option>
-												<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-											</select>
-										</div>
-										<span>&nbsp; Choose Skin</span>
-									</div>
-
-									<!-- /section:settings.skins -->
-
-									<!-- #section:settings.navbar -->
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
-										<label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
-									</div>
-
-									<!-- /section:settings.navbar -->
-
-									<!-- #section:settings.sidebar -->
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
-										<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
-									</div>
-
-									<!-- /section:settings.sidebar -->
-
-									<!-- #section:settings.breadcrumbs -->
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs" />
-										<label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-									</div>
-
-									<!-- /section:settings.breadcrumbs -->
-
-									<!-- #section:settings.rtl -->
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" />
-										<label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
-									</div>
-
-									<!-- /section:settings.rtl -->
-
-									<!-- #section:settings.container -->
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
-										<label class="lbl" for="ace-settings-add-container">
-											Inside
-											<b>.container</b>
-										</label>
-									</div>
-
-									<!-- /section:settings.container -->
-								</div><!-- /.pull-left -->
-
-								<div class="pull-left width-50">
-									<!-- #section:basics/sidebar.options -->
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" />
-										<label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" />
-										<label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" />
-										<label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
-									</div>
-
-									<!-- /section:basics/sidebar.options -->
-								</div><!-- /.pull-left -->
-							</div><!-- /.ace-settings-box -->
-						</div><!-- /.ace-settings-container -->
-
-						<!-- /section:settings.box -->
-						<div class="page-header">
-							<h1>
-								Dashboard
-								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									overview &amp; stats
-								</small>
-							</h1>
-						</div><!-- /.page-header -->
-
-						<div class="row">
-							<div class="col-xs-12">
-								<!-- PAGE CONTENT BEGINS -->
-								<div class="alert alert-block alert-success">
-									<button type="button" class="close" data-dismiss="alert">
-										<i class="ace-icon fa fa-times"></i>
-									</button>
-
-									<i class="ace-icon fa fa-check green"></i>
-
-									Welcome to
-									<strong class="green">
-										Ace
-										<small>(v1.3.2)</small>
-									</strong>,
-	the lightweight, feature-rich and easy to use admin template.
-								</div>
-
-								<div class="row">
-									<div class="space-6"></div>
-
-									<div class="col-sm-7 infobox-container">
-										<!-- #section:pages/dashboard.infobox -->
-										<div class="infobox infobox-green">
-											<div class="infobox-icon">
-												<i class="ace-icon fa fa-comments"></i>
-											</div>
-
-											<div class="infobox-data">
-												<span class="infobox-data-number">32</span>
-												<div class="infobox-content">comments + 2 reviews</div>
-											</div>
-
-											<!-- #section:pages/dashboard.infobox.stat -->
-											<div class="stat stat-success">8%</div>
-
-											<!-- /section:pages/dashboard.infobox.stat -->
-										</div>
-
-										<div class="infobox infobox-blue">
-											<div class="infobox-icon">
-												<i class="ace-icon fa fa-twitter"></i>
-											</div>
-
-											<div class="infobox-data">
-												<span class="infobox-data-number">11</span>
-												<div class="infobox-content">new followers</div>
-											</div>
-
-											<div class="badge badge-success">
-												+32%
-												<i class="ace-icon fa fa-arrow-up"></i>
-											</div>
-										</div>
-
-										<div class="infobox infobox-pink">
-											<div class="infobox-icon">
-												<i class="ace-icon fa fa-shopping-cart"></i>
-											</div>
-
-											<div class="infobox-data">
-												<span class="infobox-data-number">8</span>
-												<div class="infobox-content">new orders</div>
-											</div>
-											<div class="stat stat-important">4%</div>
-										</div>
-
-										<div class="infobox infobox-red">
-											<div class="infobox-icon">
-												<i class="ace-icon fa fa-flask"></i>
-											</div>
-
-											<div class="infobox-data">
-												<span class="infobox-data-number">7</span>
-												<div class="infobox-content">experiments</div>
-											</div>
-										</div>
-
-										<div class="infobox infobox-orange2">
-											<!-- #section:pages/dashboard.infobox.sparkline -->
-											<div class="infobox-chart">
-												<span class="sparkline" data-values="196,128,202,177,154,94,100,170,224"></span>
-											</div>
-
-											<!-- /section:pages/dashboard.infobox.sparkline -->
-											<div class="infobox-data">
-												<span class="infobox-data-number">6,251</span>
-												<div class="infobox-content">pageviews</div>
-											</div>
-
-											<div class="badge badge-success">
-												7.2%
-												<i class="ace-icon fa fa-arrow-up"></i>
-											</div>
-										</div>
-
-										<div class="infobox infobox-blue2">
-											<div class="infobox-progress">
-												<!-- #section:pages/dashboard.infobox.easypiechart -->
-												<div class="easy-pie-chart percentage" data-percent="42" data-size="46">
-													<span class="percent">42</span>%
-												</div>
-
-												<!-- /section:pages/dashboard.infobox.easypiechart -->
-											</div>
-
-											<div class="infobox-data">
-												<span class="infobox-text">traffic used</span>
-
-												<div class="infobox-content">
-													<span class="bigger-110">~</span>
-													58GB remaining
-												</div>
-											</div>
-										</div>
-
-										<!-- /section:pages/dashboard.infobox -->
-										<div class="space-6"></div>
-
-										<!-- #section:pages/dashboard.infobox.dark -->
-										<div class="infobox infobox-green infobox-small infobox-dark">
-											<div class="infobox-progress">
-												<!-- #section:pages/dashboard.infobox.easypiechart -->
-												<div class="easy-pie-chart percentage" data-percent="61" data-size="39">
-													<span class="percent">61</span>%
-												</div>
-
-												<!-- /section:pages/dashboard.infobox.easypiechart -->
-											</div>
-
-											<div class="infobox-data">
-												<div class="infobox-content">Task</div>
-												<div class="infobox-content">Completion</div>
-											</div>
-										</div>
-
-										<div class="infobox infobox-blue infobox-small infobox-dark">
-											<!-- #section:pages/dashboard.infobox.sparkline -->
-											<div class="infobox-chart">
-												<span class="sparkline" data-values="3,4,2,3,4,4,2,2"></span>
-											</div>
-
-											<!-- /section:pages/dashboard.infobox.sparkline -->
-											<div class="infobox-data">
-												<div class="infobox-content">Earnings</div>
-												<div class="infobox-content">$32,000</div>
-											</div>
-										</div>
-
-										<div class="infobox infobox-grey infobox-small infobox-dark">
-											<div class="infobox-icon">
-												<i class="ace-icon fa fa-download"></i>
-											</div>
-
-											<div class="infobox-data">
-												<div class="infobox-content">Downloads</div>
-												<div class="infobox-content">1,205</div>
-											</div>
-										</div>
-
-										<!-- /section:pages/dashboard.infobox.dark -->
-									</div>
-
-									<div class="vspace-12-sm"></div>
-
-									<div class="col-sm-5">
-										<div class="widget-box">
-											<div class="widget-header widget-header-flat widget-header-small">
-												<h5 class="widget-title">
-													<i class="ace-icon fa fa-signal"></i>
-													Traffic Sources
-												</h5>
-
-												<div class="widget-toolbar no-border">
-													<div class="inline dropdown-hover">
-														<button class="btn btn-minier btn-primary">
-															This Week
-															<i class="ace-icon fa fa-angle-down icon-on-right bigger-110"></i>
-														</button>
-
-														<ul class="dropdown-menu dropdown-menu-right dropdown-125 dropdown-lighter dropdown-close dropdown-caret">
-															<li class="active">
-																<a href="#" class="blue">
-																	<i class="ace-icon fa fa-caret-right bigger-110">&nbsp;</i>
-																	This Week
-																</a>
-															</li>
-
-															<li>
-																<a href="#">
-																	<i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
-																	Last Week
-																</a>
-															</li>
-
-															<li>
-																<a href="#">
-																	<i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
-																	This Month
-																</a>
-															</li>
-
-															<li>
-																<a href="#">
-																	<i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
-																	Last Month
-																</a>
-															</li>
-														</ul>
-													</div>
-												</div>
-											</div>
-
-											<div class="widget-body">
-												<div class="widget-main">
-													<!-- #section:plugins/charts.flotchart -->
-													<div id="piechart-placeholder"></div>
-
-													<!-- /section:plugins/charts.flotchart -->
-													<div class="hr hr8 hr-double"></div>
-
-													<div class="clearfix">
-														<!-- #section:custom/extra.grid -->
-														<div class="grid3">
-															<span class="grey">
-																<i class="ace-icon fa fa-facebook-square fa-2x blue"></i>
-																&nbsp; likes
-															</span>
-															<h4 class="bigger pull-right">1,255</h4>
-														</div>
-
-														<div class="grid3">
-															<span class="grey">
-																<i class="ace-icon fa fa-twitter-square fa-2x purple"></i>
-																&nbsp; tweets
-															</span>
-															<h4 class="bigger pull-right">941</h4>
-														</div>
-
-														<div class="grid3">
-															<span class="grey">
-																<i class="ace-icon fa fa-pinterest-square fa-2x red"></i>
-																&nbsp; pins
-															</span>
-															<h4 class="bigger pull-right">1,050</h4>
-														</div>
-
-														<!-- /section:custom/extra.grid -->
-													</div>
-												</div><!-- /.widget-main -->
-											</div><!-- /.widget-body -->
-										</div><!-- /.widget-box -->
-									</div><!-- /.col -->
-								</div><!-- /.row -->
-
-								<!-- #section:custom/extra.hr -->
-								<div class="hr hr32 hr-dotted"></div>
-
-								<!-- /section:custom/extra.hr -->
-								<div class="row">
-									<div class="col-sm-5">
-										<div class="widget-box transparent">
-											<div class="widget-header widget-header-flat">
-												<h4 class="widget-title lighter">
-													<i class="ace-icon fa fa-star orange"></i>
-													Popular Domains
-												</h4>
-
-												<div class="widget-toolbar">
-													<a href="#" data-action="collapse">
-														<i class="ace-icon fa fa-chevron-up"></i>
-													</a>
-												</div>
-											</div>
-
-											<div class="widget-body">
-												<div class="widget-main no-padding">
-													<table class="table table-bordered table-striped">
-														<thead class="thin-border-bottom">
-															<tr>
-																<th>
-																	<i class="ace-icon fa fa-caret-right blue"></i>name
-																</th>
-
-																<th>
-																	<i class="ace-icon fa fa-caret-right blue"></i>price
-																</th>
-
-																<th class="hidden-480">
-																	<i class="ace-icon fa fa-caret-right blue"></i>status
-																</th>
-															</tr>
-														</thead>
-
-														<tbody>
-															<tr>
-																<td>internet.com</td>
-
-																<td>
-																	<small>
-																		<s class="red">$29.99</s>
-																	</small>
-																	<b class="green">$19.99</b>
-																</td>
-
-																<td class="hidden-480">
-																	<span class="label label-info arrowed-right arrowed-in">on sale</span>
-																</td>
-															</tr>
-
-															<tr>
-																<td>online.com</td>
-
-																<td>
-																	<b class="blue">$16.45</b>
-																</td>
-
-																<td class="hidden-480">
-																	<span class="label label-success arrowed-in arrowed-in-right">approved</span>
-																</td>
-															</tr>
-
-															<tr>
-																<td>newnet.com</td>
-
-																<td>
-																	<b class="blue">$15.00</b>
-																</td>
-
-																<td class="hidden-480">
-																	<span class="label label-danger arrowed">pending</span>
-																</td>
-															</tr>
-
-															<tr>
-																<td>web.com</td>
-
-																<td>
-																	<small>
-																		<s class="red">$24.99</s>
-																	</small>
-																	<b class="green">$19.95</b>
-																</td>
-
-																<td class="hidden-480">
-																	<span class="label arrowed">
-																		<s>out of stock</s>
-																	</span>
-																</td>
-															</tr>
-
-															<tr>
-																<td>domain.com</td>
-
-																<td>
-																	<b class="blue">$12.00</b>
-																</td>
-
-																<td class="hidden-480">
-																	<span class="label label-warning arrowed arrowed-right">SOLD</span>
-																</td>
-															</tr>
-														</tbody>
-													</table>
-												</div><!-- /.widget-main -->
-											</div><!-- /.widget-body -->
-										</div><!-- /.widget-box -->
-									</div><!-- /.col -->
-
-									<div class="col-sm-7">
-										<div class="widget-box transparent">
-											<div class="widget-header widget-header-flat">
-												<h4 class="widget-title lighter">
-													<i class="ace-icon fa fa-signal"></i>
-													Sale Stats
-												</h4>
-
-												<div class="widget-toolbar">
-													<a href="#" data-action="collapse">
-														<i class="ace-icon fa fa-chevron-up"></i>
-													</a>
-												</div>
-											</div>
-
-											<div class="widget-body">
-												<div class="widget-main padding-4">
-													<div id="sales-charts"></div>
-												</div><!-- /.widget-main -->
-											</div><!-- /.widget-body -->
-										</div><!-- /.widget-box -->
-									</div><!-- /.col -->
-								</div><!-- /.row -->
-
-								<div class="hr hr32 hr-dotted"></div>
-
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="widget-box transparent" id="recent-box">
-											<div class="widget-header">
-												<h4 class="widget-title lighter smaller">
-													<i class="ace-icon fa fa-rss orange"></i>RECENT
-												</h4>
-
-												<div class="widget-toolbar no-border">
-													<ul class="nav nav-tabs" id="recent-tab">
-														<li class="active">
-															<a data-toggle="tab" href="#task-tab">Tasks</a>
-														</li>
-
-														<li>
-															<a data-toggle="tab" href="#member-tab">Members</a>
-														</li>
-
-														<li>
-															<a data-toggle="tab" href="#comment-tab">Comments</a>
-														</li>
-													</ul>
-												</div>
-											</div>
-
-											<div class="widget-body">
-												<div class="widget-main padding-4">
-													<div class="tab-content padding-8">
-														<div id="task-tab" class="tab-pane active">
-															<h4 class="smaller lighter green">
-																<i class="ace-icon fa fa-list"></i>
-																Sortable Lists
-															</h4>
-
-															<!-- #section:pages/dashboard.tasks -->
-															<ul id="tasks" class="item-list">
-																<li class="item-orange clearfix">
-																	<label class="inline">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"> Answering customer questions</span>
-																	</label>
-
-																	<div class="pull-right easy-pie-chart percentage" data-size="30" data-color="#ECCB71" data-percent="42">
-																		<span class="percent">42</span>%
-																	</div>
-																</li>
-
-																<li class="item-red clearfix">
-																	<label class="inline">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"> Fixing bugs</span>
-																	</label>
-
-																	<!-- #section:custom/extra.action-buttons -->
-																	<div class="pull-right action-buttons">
-																		<a href="#" class="blue">
-																			<i class="ace-icon fa fa-pencil bigger-130"></i>
-																		</a>
-
-																		<span class="vbar"></span>
-
-																		<a href="#" class="red">
-																			<i class="ace-icon fa fa-trash-o bigger-130"></i>
-																		</a>
-
-																		<span class="vbar"></span>
-
-																		<a href="#" class="green">
-																			<i class="ace-icon fa fa-flag bigger-130"></i>
-																		</a>
-																	</div>
-
-																	<!-- /section:custom/extra.action-buttons -->
-																</li>
-
-																<li class="item-default clearfix">
-																	<label class="inline">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"> Adding new features</span>
-																	</label>
-
-																	<!-- #section:elements.dropdown.hover -->
-																	<div class="inline pull-right position-relative dropdown-hover">
-																		<button class="btn btn-minier bigger btn-primary">
-																			<i class="ace-icon fa fa-cog icon-only bigger-120"></i>
-																		</button>
-
-																		<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-caret dropdown-close dropdown-menu-right">
-																			<li>
-																				<a href="#" class="tooltip-success" data-rel="tooltip" title="Mark&nbsp;as&nbsp;done">
-																					<span class="green">
-																						<i class="ace-icon fa fa-check bigger-110"></i>
-																					</span>
-																				</a>
-																			</li>
-
-																			<li>
-																				<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-																					<span class="red">
-																						<i class="ace-icon fa fa-trash-o bigger-110"></i>
-																					</span>
-																				</a>
-																			</li>
-																		</ul>
-																	</div>
-
-																	<!-- /section:elements.dropdown.hover -->
-																</li>
-
-																<li class="item-blue clearfix">
-																	<label class="inline">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"> Upgrading scripts used in template</span>
-																	</label>
-																</li>
-
-																<li class="item-grey clearfix">
-																	<label class="inline">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"> Adding new skins</span>
-																	</label>
-																</li>
-
-																<li class="item-green clearfix">
-																	<label class="inline">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"> Updating server software up</span>
-																	</label>
-																</li>
-
-																<li class="item-pink clearfix">
-																	<label class="inline">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"> Cleaning up</span>
-																	</label>
-																</li>
-															</ul>
-
-															<!-- /section:pages/dashboard.tasks -->
-														</div>
-
-														<div id="member-tab" class="tab-pane">
-															<!-- #section:pages/dashboard.members -->
-															<div class="clearfix">
-																<div class="itemdiv memberdiv">
-																	<div class="user">
-																		<img alt="Bob Doe's avatar" src="{{baseURL}}/assets/distro/avatars/user.jpg" />
-																	</div>
-
-																	<div class="body">
-																		<div class="name">
-																			<a href="#">Bob Doe</a>
-																		</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o"></i>
-																			<span class="green">20 min</span>
-																		</div>
-
-																		<div>
-																			<span class="label label-warning label-sm">pending</span>
-
-																			<div class="inline position-relative">
-																				<button class="btn btn-minier btn-yellow btn-no-border dropdown-toggle" data-toggle="dropdown" data-position="auto">
-																					<i class="ace-icon fa fa-angle-down icon-only bigger-120"></i>
-																				</button>
-
-																				<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-																					<li>
-																						<a href="#" class="tooltip-success" data-rel="tooltip" title="Approve">
-																							<span class="green">
-																								<i class="ace-icon fa fa-check bigger-110"></i>
-																							</span>
-																						</a>
-																					</li>
-
-																					<li>
-																						<a href="#" class="tooltip-warning" data-rel="tooltip" title="Reject">
-																							<span class="orange">
-																								<i class="ace-icon fa fa-times bigger-110"></i>
-																							</span>
-																						</a>
-																					</li>
-
-																					<li>
-																						<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-																							<span class="red">
-																								<i class="ace-icon fa fa-trash-o bigger-110"></i>
-																							</span>
-																						</a>
-																					</li>
-																				</ul>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-
-																<div class="itemdiv memberdiv">
-																	<div class="user">
-																		<img alt="Joe Doe's avatar" src="{{baseURL}}/assets/distro/avatars/avatar2.png" />
-																	</div>
-
-																	<div class="body">
-																		<div class="name">
-																			<a href="#">Joe Doe</a>
-																		</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o"></i>
-																			<span class="green">1 hour</span>
-																		</div>
-
-																		<div>
-																			<span class="label label-warning label-sm">pending</span>
-
-																			<div class="inline position-relative">
-																				<button class="btn btn-minier btn-yellow btn-no-border dropdown-toggle" data-toggle="dropdown" data-position="auto">
-																					<i class="ace-icon fa fa-angle-down icon-only bigger-120"></i>
-																				</button>
-
-																				<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-																					<li>
-																						<a href="#" class="tooltip-success" data-rel="tooltip" title="Approve">
-																							<span class="green">
-																								<i class="ace-icon fa fa-check bigger-110"></i>
-																							</span>
-																						</a>
-																					</li>
-
-																					<li>
-																						<a href="#" class="tooltip-warning" data-rel="tooltip" title="Reject">
-																							<span class="orange">
-																								<i class="ace-icon fa fa-times bigger-110"></i>
-																							</span>
-																						</a>
-																					</li>
-
-																					<li>
-																						<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-																							<span class="red">
-																								<i class="ace-icon fa fa-trash-o bigger-110"></i>
-																							</span>
-																						</a>
-																					</li>
-																				</ul>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-
-																<div class="itemdiv memberdiv">
-																	<div class="user">
-																		<img alt="Jim Doe's avatar" src="{{baseURL}}/assets/distro/avatars/avatar.png" />
-																	</div>
-
-																	<div class="body">
-																		<div class="name">
-																			<a href="#">Jim Doe</a>
-																		</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o"></i>
-																			<span class="green">2 hour</span>
-																		</div>
-
-																		<div>
-																			<span class="label label-warning label-sm">pending</span>
-
-																			<div class="inline position-relative">
-																				<button class="btn btn-minier btn-yellow btn-no-border dropdown-toggle" data-toggle="dropdown" data-position="auto">
-																					<i class="ace-icon fa fa-angle-down icon-only bigger-120"></i>
-																				</button>
-
-																				<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-																					<li>
-																						<a href="#" class="tooltip-success" data-rel="tooltip" title="Approve">
-																							<span class="green">
-																								<i class="ace-icon fa fa-check bigger-110"></i>
-																							</span>
-																						</a>
-																					</li>
-
-																					<li>
-																						<a href="#" class="tooltip-warning" data-rel="tooltip" title="Reject">
-																							<span class="orange">
-																								<i class="ace-icon fa fa-times bigger-110"></i>
-																							</span>
-																						</a>
-																					</li>
-
-																					<li>
-																						<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-																							<span class="red">
-																								<i class="ace-icon fa fa-trash-o bigger-110"></i>
-																							</span>
-																						</a>
-																					</li>
-																				</ul>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-
-																<div class="itemdiv memberdiv">
-																	<div class="user">
-																		<img alt="Alex Doe's avatar" src="{{baseURL}}/assets/distro/avatars/avatar5.png" />
-																	</div>
-
-																	<div class="body">
-																		<div class="name">
-																			<a href="#">Alex Doe</a>
-																		</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o"></i>
-																			<span class="green">3 hour</span>
-																		</div>
-
-																		<div>
-																			<span class="label label-danger label-sm">blocked</span>
-																		</div>
-																	</div>
-																</div>
-
-																<div class="itemdiv memberdiv">
-																	<div class="user">
-																		<img alt="Bob Doe's avatar" src="{{baseURL}}/assets/distro/avatars/avatar2.png" />
-																	</div>
-
-																	<div class="body">
-																		<div class="name">
-																			<a href="#">Bob Doe</a>
-																		</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o"></i>
-																			<span class="green">6 hour</span>
-																		</div>
-
-																		<div>
-																			<span class="label label-success label-sm arrowed-in">approved</span>
-																		</div>
-																	</div>
-																</div>
-
-																<div class="itemdiv memberdiv">
-																	<div class="user">
-																		<img alt="Susan's avatar" src="{{baseURL}}/assets/distro/avatars/avatar3.png" />
-																	</div>
-
-																	<div class="body">
-																		<div class="name">
-																			<a href="#">Susan</a>
-																		</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o"></i>
-																			<span class="green">yesterday</span>
-																		</div>
-
-																		<div>
-																			<span class="label label-success label-sm arrowed-in">approved</span>
-																		</div>
-																	</div>
-																</div>
-
-																<div class="itemdiv memberdiv">
-																	<div class="user">
-																		<img alt="Phil Doe's avatar" src="{{baseURL}}/assets/distro/avatars/avatar4.png" />
-																	</div>
-
-																	<div class="body">
-																		<div class="name">
-																			<a href="#">Phil Doe</a>
-																		</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o"></i>
-																			<span class="green">2 days ago</span>
-																		</div>
-
-																		<div>
-																			<span class="label label-info label-sm arrowed-in arrowed-in-right">online</span>
-																		</div>
-																	</div>
-																</div>
-
-																<div class="itemdiv memberdiv">
-																	<div class="user">
-																		<img alt="Alexa Doe's avatar" src="{{baseURL}}/assets/distro/avatars/avatar1.png" />
-																	</div>
-
-																	<div class="body">
-																		<div class="name">
-																			<a href="#">Alexa Doe</a>
-																		</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o"></i>
-																			<span class="green">3 days ago</span>
-																		</div>
-
-																		<div>
-																			<span class="label label-success label-sm arrowed-in">approved</span>
-																		</div>
-																	</div>
-																</div>
-															</div>
-
-															<div class="space-4"></div>
-
-															<div class="center">
-																<i class="ace-icon fa fa-users fa-2x green middle"></i>
-
-																&nbsp;
-																<a href="#" class="btn btn-sm btn-white btn-info">
-																	See all members &nbsp;
-																	<i class="ace-icon fa fa-arrow-right"></i>
-																</a>
-															</div>
-
-															<div class="hr hr-double hr8"></div>
-
-															<!-- /section:pages/dashboard.members -->
-														</div><!-- /.#member-tab -->
-
-														<div id="comment-tab" class="tab-pane">
-															<!-- #section:pages/dashboard.comments -->
-															<div class="comments">
-																<div class="itemdiv commentdiv">
-																	<div class="user">
-																		<img alt="Bob Doe's Avatar" src="{{baseURL}}/assets/distro/avatars/avatar.png" />
-																	</div>
-
-																	<div class="body">
-																		<div class="name">
-																			<a href="#">Bob Doe</a>
-																		</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o"></i>
-																			<span class="green">6 min</span>
-																		</div>
-
-																		<div class="text">
-																			<i class="ace-icon fa fa-quote-left"></i>
-																			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis &hellip;
-																		</div>
-																	</div>
-
-																	<div class="tools">
-																		<div class="inline position-relative">
-																			<button class="btn btn-minier bigger btn-yellow dropdown-toggle" data-toggle="dropdown">
-																				<i class="ace-icon fa fa-angle-down icon-only bigger-120"></i>
-																			</button>
-
-																			<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-																				<li>
-																					<a href="#" class="tooltip-success" data-rel="tooltip" title="Approve">
-																						<span class="green">
-																							<i class="ace-icon fa fa-check bigger-110"></i>
-																						</span>
-																					</a>
-																				</li>
-
-																				<li>
-																					<a href="#" class="tooltip-warning" data-rel="tooltip" title="Reject">
-																						<span class="orange">
-																							<i class="ace-icon fa fa-times bigger-110"></i>
-																						</span>
-																					</a>
-																				</li>
-
-																				<li>
-																					<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-																						<span class="red">
-																							<i class="ace-icon fa fa-trash-o bigger-110"></i>
-																						</span>
-																					</a>
-																				</li>
-																			</ul>
-																		</div>
-																	</div>
-																</div>
-
-																<div class="itemdiv commentdiv">
-																	<div class="user">
-																		<img alt="Jennifer's Avatar" src="{{baseURL}}/assets/distro/avatars/avatar1.png" />
-																	</div>
-
-																	<div class="body">
-																		<div class="name">
-																			<a href="#">Jennifer</a>
-																		</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o"></i>
-																			<span class="blue">15 min</span>
-																		</div>
-
-																		<div class="text">
-																			<i class="ace-icon fa fa-quote-left"></i>
-																			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis &hellip;
-																		</div>
-																	</div>
-
-																	<div class="tools">
-																		<div class="action-buttons bigger-125">
-																			<a href="#">
-																				<i class="ace-icon fa fa-pencil blue"></i>
-																			</a>
-
-																			<a href="#">
-																				<i class="ace-icon fa fa-trash-o red"></i>
-																			</a>
-																		</div>
-																	</div>
-																</div>
-
-																<div class="itemdiv commentdiv">
-																	<div class="user">
-																		<img alt="Joe's Avatar" src="{{baseURL}}/assets/distro/avatars/avatar2.png" />
-																	</div>
-
-																	<div class="body">
-																		<div class="name">
-																			<a href="#">Joe</a>
-																		</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o"></i>
-																			<span class="orange">22 min</span>
-																		</div>
-
-																		<div class="text">
-																			<i class="ace-icon fa fa-quote-left"></i>
-																			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis &hellip;
-																		</div>
-																	</div>
-
-																	<div class="tools">
-																		<div class="action-buttons bigger-125">
-																			<a href="#">
-																				<i class="ace-icon fa fa-pencil blue"></i>
-																			</a>
-
-																			<a href="#">
-																				<i class="ace-icon fa fa-trash-o red"></i>
-																			</a>
-																		</div>
-																	</div>
-																</div>
-
-																<div class="itemdiv commentdiv">
-																	<div class="user">
-																		<img alt="Rita's Avatar" src="{{baseURL}}/assets/distro/avatars/avatar3.png" />
-																	</div>
-
-																	<div class="body">
-																		<div class="name">
-																			<a href="#">Rita</a>
-																		</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o"></i>
-																			<span class="red">50 min</span>
-																		</div>
-
-																		<div class="text">
-																			<i class="ace-icon fa fa-quote-left"></i>
-																			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis &hellip;
-																		</div>
-																	</div>
-
-																	<div class="tools">
-																		<div class="action-buttons bigger-125">
-																			<a href="#">
-																				<i class="ace-icon fa fa-pencil blue"></i>
-																			</a>
-
-																			<a href="#">
-																				<i class="ace-icon fa fa-trash-o red"></i>
-																			</a>
-																		</div>
-																	</div>
-																</div>
-															</div>
-
-															<div class="hr hr8"></div>
-
-															<div class="center">
-																<i class="ace-icon fa fa-comments-o fa-2x green middle"></i>
-
-																&nbsp;
-																<a href="#" class="btn btn-sm btn-white btn-info">
-																	See all comments &nbsp;
-																	<i class="ace-icon fa fa-arrow-right"></i>
-																</a>
-															</div>
-
-															<div class="hr hr-double hr8"></div>
-
-															<!-- /section:pages/dashboard.comments -->
-														</div>
-													</div>
-												</div><!-- /.widget-main -->
-											</div><!-- /.widget-body -->
-										</div><!-- /.widget-box -->
-									</div><!-- /.col -->
-
-									<div class="col-sm-6">
-										<div class="widget-box">
-											<div class="widget-header">
-												<h4 class="widget-title lighter smaller">
-													<i class="ace-icon fa fa-comment blue"></i>
-													Conversation
-												</h4>
-											</div>
-
-											<div class="widget-body">
-												<div class="widget-main no-padding">
-													<!-- #section:pages/dashboard.conversations -->
-													<div class="dialogs">
-														<div class="itemdiv dialogdiv">
-															<div class="user">
-																<img alt="Alexa's Avatar" src="{{baseURL}}/assets/distro/avatars/avatar1.png" />
-															</div>
-
-															<div class="body">
-																<div class="time">
-																	<i class="ace-icon fa fa-clock-o"></i>
-																	<span class="green">4 sec</span>
-																</div>
-
-																<div class="name">
-																	<a href="#">Alexa</a>
-																</div>
-																<div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis.</div>
-
-																<div class="tools">
-																	<a href="#" class="btn btn-minier btn-info">
-																		<i class="icon-only ace-icon fa fa-share"></i>
-																	</a>
-																</div>
-															</div>
-														</div>
-
-														<div class="itemdiv dialogdiv">
-															<div class="user">
-																<img alt="John's Avatar" src="{{baseURL}}/assets/distro/avatars/avatar.png" />
-															</div>
-
-															<div class="body">
-																<div class="time">
-																	<i class="ace-icon fa fa-clock-o"></i>
-																	<span class="blue">38 sec</span>
-																</div>
-
-																<div class="name">
-																	<a href="#">John</a>
-																</div>
-																<div class="text">Raw denim you probably haven&#39;t heard of them jean shorts Austin.</div>
-
-																<div class="tools">
-																	<a href="#" class="btn btn-minier btn-info">
-																		<i class="icon-only ace-icon fa fa-share"></i>
-																	</a>
-																</div>
-															</div>
-														</div>
-
-														<div class="itemdiv dialogdiv">
-															<div class="user">
-																<img alt="Bob's Avatar" src="{{baseURL}}/assets/distro/avatars/user.jpg" />
-															</div>
-
-															<div class="body">
-																<div class="time">
-																	<i class="ace-icon fa fa-clock-o"></i>
-																	<span class="orange">2 min</span>
-																</div>
-
-																<div class="name">
-																	<a href="#">Bob</a>
-																	<span class="label label-info arrowed arrowed-in-right">admin</span>
-																</div>
-																<div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis.</div>
-
-																<div class="tools">
-																	<a href="#" class="btn btn-minier btn-info">
-																		<i class="icon-only ace-icon fa fa-share"></i>
-																	</a>
-																</div>
-															</div>
-														</div>
-
-														<div class="itemdiv dialogdiv">
-															<div class="user">
-																<img alt="Jim's Avatar" src="{{baseURL}}/assets/distro/avatars/avatar4.png" />
-															</div>
-
-															<div class="body">
-																<div class="time">
-																	<i class="ace-icon fa fa-clock-o"></i>
-																	<span class="grey">3 min</span>
-																</div>
-
-																<div class="name">
-																	<a href="#">Jim</a>
-																</div>
-																<div class="text">Raw denim you probably haven&#39;t heard of them jean shorts Austin.</div>
-
-																<div class="tools">
-																	<a href="#" class="btn btn-minier btn-info">
-																		<i class="icon-only ace-icon fa fa-share"></i>
-																	</a>
-																</div>
-															</div>
-														</div>
-
-														<div class="itemdiv dialogdiv">
-															<div class="user">
-																<img alt="Alexa's Avatar" src="{{baseURL}}/assets/distro/avatars/avatar1.png" />
-															</div>
-
-															<div class="body">
-																<div class="time">
-																	<i class="ace-icon fa fa-clock-o"></i>
-																	<span class="green">4 min</span>
-																</div>
-
-																<div class="name">
-																	<a href="#">Alexa</a>
-																</div>
-																<div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-
-																<div class="tools">
-																	<a href="#" class="btn btn-minier btn-info">
-																		<i class="icon-only ace-icon fa fa-share"></i>
-																	</a>
-																</div>
-															</div>
-														</div>
-													</div>
-
-													<!-- /section:pages/dashboard.conversations -->
-													<form>
-														<div class="form-actions">
-															<div class="input-group">
-																<input placeholder="Type your message here ..." type="text" class="form-control" name="message" />
-																<span class="input-group-btn">
-																	<button class="btn btn-sm btn-info no-radius" type="button">
-																		<i class="ace-icon fa fa-share"></i>
-																		Send
-																	</button>
-																</span>
-															</div>
-														</div>
-													</form>
-												</div><!-- /.widget-main -->
-											</div><!-- /.widget-body -->
-										</div><!-- /.widget-box -->
-									</div><!-- /.col -->
-								</div><!-- /.row -->
-
-								<!-- PAGE CONTENT ENDS -->
-							</div><!-- /.col -->
-						</div><!-- /.row -->
-					</div><!-- /.page-content -->
+<div class="main-body">
+  <div class="page-wrapper">
+      <div class="page-header">
+          <div class="page-header-title">
+              <h4>Dashboard</h4>
+          </div>
+          <div class="page-header-breadcrumb">
+              <ul class="breadcrumb-title">
+                  <li class="breadcrumb-item">
+                      <a href="index.html">
+                          <i class="icofont icofont-home"></i>
+                      </a>
+                  </li>
+                  <li class="breadcrumb-item"><a href="index.html#!">Pages</a>
+                  </li>
+                  <li class="breadcrumb-item"><a href="index.html#!">Dashboard</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+      <div class="page-body">
+          <div class="row">
+              <div class="col-md-12 col-xl-4">
+                  <!-- table card start -->
+                  <div class="card table-card">
+                      <div class="">
+                          <div class="row-table">
+                              <div class="col-sm-6 card-block-big br">
+                                  <div class="row">
+                                      <div class="col-sm-4">
+                                          <i class="icofont icofont-eye-alt text-success"></i>
+                                      </div>
+                                      <div class="col-sm-8 text-center">
+                                          <h5>10k</h5>
+                                          <span>Visitors</span>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-sm-6 card-block-big">
+                                  <div class="row">
+                                      <div class="col-sm-4">
+                                          <i class="icofont icofont-ui-music text-danger"></i>
+                                      </div>
+                                      <div class="col-sm-8 text-center">
+                                          <h5>100%</h5>
+                                          <span>Volume</span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="">
+                          <div class="row-table">
+                              <div class="col-sm-6 card-block-big br">
+                                  <div class="row">
+                                      <div class="col-sm-4">
+                                          <i class="icofont icofont-files text-info"></i>
+                                      </div>
+                                      <div class="col-sm-8 text-center">
+                                          <h5>2000 +</h5>
+                                          <span>Files</span>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-sm-6 card-block-big">
+                                  <div class="row">
+                                      <div class="col-sm-4">
+                                          <i class="icofont icofont-envelope-open text-warning"></i>
+                                      </div>
+                                      <div class="col-sm-8 text-center">
+                                          <h5>120</h5>
+                                          <span>Mails</span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- table card end -->
+              </div>
+              <div class="col-md-12 col-xl-4">
+                  <!-- table card start -->
+                  <div class="card table-card">
+                      <div class="">
+                          <div class="row-table">
+                              <div class="col-sm-6 card-block-big br">
+                                  <div class="row">
+                                      <div class="col-sm-4">
+                                          <div id="barchart" style="height:40px;width:40px;"></div>
+                                      </div>
+                                      <div class="col-sm-8 text-center">
+                                          <h5>1000</h5>
+                                          <span>Shares</span>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-sm-6 card-block-big">
+                                  <div class="row ">
+                                      <div class="col-sm-4">
+                                          <i class="icofont icofont-network text-primary"></i>
+                                      </div>
+                                      <div class="col-sm-8 text-center">
+                                          <h5>600</h5>
+                                          <span>Network</span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="">
+                          <div class="row-table">
+                              <div class="col-sm-6 card-block-big br">
+                                  <div class="row ">
+                                      <div class="col-sm-4">
+                                          <div id="barchart2" style="height:40px;width:40px;"></div>
+                                      </div>
+                                      <div class="col-sm-8 text-center">
+                                          <h5>350</h5>
+                                          <span>Returns</span>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-sm-6 card-block-big">
+                                  <div class="row ">
+                                      <div class="col-sm-4">
+                                          <i class="icofont icofont-network-tower text-primary"></i>
+                                      </div>
+                                      <div class="col-sm-8 text-center">
+                                          <h5>100%</h5>
+                                          <span>Connections</span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- table card end -->
+              </div>
+              <div class="col-md-12 col-xl-4">
+                  <!-- widget primary card start -->
+                  <div class="card table-card widget-primary-card">
+                      <div class="">
+                          <div class="row-table">
+                              <div class="col-sm-3 card-block-big">
+                                  <i class="icofont icofont-star"></i>
+                              </div>
+                              <div class="col-sm-9">
+                                  <h4>4000 +</h4>
+                                  <h6>Ratings Received</h6>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- widget primary card end -->
+                  <!-- widget-success-card start -->
+                  <div class="card table-card widget-success-card">
+                      <div class="">
+                          <div class="row-table">
+                              <div class="col-sm-3 card-block-big">
+                                  <i class="icofont icofont-trophy-alt"></i>
+                              </div>
+                              <div class="col-sm-9">
+                                  <h4>17</h4>
+                                  <h6>Achievements</h6>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- widget-success-card end -->
+              </div>
+              <div class="col-lg-6">
+                  <div class="card">
+                      <div class="card-block">
+                          <div id="chartdiv"></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-6">
+                  <div class="card">
+                      <div class="card-block">
+                          <div class="cd-horizontal-timeline">
+                              <div class="timeline">
+                                  <div class="events-wrapper">
+                                      <div class="events">
+                                          <ol>
+                                              <li><a href="index.html#0" data-date="16/01/2014" class="selected">16 Jan</a></li>
+                                              <li><a href="index.html#0" data-date="28/02/2014">28 Feb</a></li>
+                                              <li><a href="index.html#0" data-date="20/04/2014">20 Mar</a></li>
+                                              <li><a href="index.html#0" data-date="20/05/2014">20 May</a></li>
+                                              <li><a href="index.html#0" data-date="09/07/2014">09 Jul</a></li>
+                                              <li><a href="index.html#0" data-date="30/08/2014">30 Aug</a></li>
+                                              <li><a href="index.html#0" data-date="15/09/2014">15 Sep</a></li>
+                                              <li><a href="index.html#0" data-date="01/11/2014">01 Nov</a></li>
+                                              <li><a href="index.html#0" data-date="10/12/2014">10 Dec</a></li>
+                                              <li><a href="index.html#0" data-date="19/01/2015">29 Jan</a></li>
+                                              <li><a href="index.html#0" data-date="03/03/2015">3 Mar</a></li>
+                                          </ol>
+                                          <span class="filling-line" aria-hidden="true"></span>
+                                      </div>
+                                      <!-- .events -->
+                                  </div>
+                                  <!-- .events-wrapper -->
+                                  <ul class="cd-timeline-navigation">
+                                      <li><a href="index.html#0" class="prev inactive">Prev</a></li>
+                                      <li><a href="index.html#0" class="next">Next</a></li>
+                                  </ul>
+                                  <!-- .cd-timeline-navigation -->
+                              </div>
+                              <!-- .timeline -->
+                              <div class="events-content">
+                                  <ol>
+                                      <li class="selected" data-date="16/01/2014">
+                                          <h2>Horizontal Timeline</h2>
+                                          <em>January 16th, 2014</em>
+                                          <p class="m-b-0">
+                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi
+                                              reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.Illum praesentium officia, fugit recusandae ipsa, quia
+                                              velit nulla adipisci? Consequuntur aspernatur at,
+                                          </p>
+                                          <div class="m-t-20 d-timeline-btn">
+                                              <button class="btn btn-danger">Read More</button>
+                                              <button class="btn btn-primary f-right"><i class="icofont icofont-plus m-r-0"></i></button>
+                                          </div>
+                                      </li>
+                                      <li data-date="28/02/2014">
+                                          <h2>Event title here</h2>
+                                          <em>February 28th, 2014</em>
+                                          <p class="m-b-0">
+                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi
+                                              reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.Illum praesentium officia, fugit recusandae ipsa, quia
+                                              velit nulla adipisci? Consequuntur aspernatur at,
+                                          </p>
+                                          <div class="m-t-20 d-timeline-btn">
+                                              <button class="btn btn-danger">Read More</button>
+                                              <button class="btn btn-primary f-right"><i class="icofont icofont-plus m-r-0"></i></button>
+                                          </div>
+                                      </li>
+                                      <li data-date="20/04/2014">
+                                          <h2>Event title here</h2>
+                                          <em>March 20th, 2014</em>
+                                          <p class="m-b-0">
+                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi
+                                              reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.Illum praesentium officia, fugit recusandae ipsa, quia
+                                              velit nulla adipisci? Consequuntur aspernatur at,
+                                          </p>
+                                          <div class="m-t-20 d-timeline-btn">
+                                              <button class="btn btn-danger">Read More</button>
+                                              <button class="btn btn-primary f-right"><i class="icofont icofont-plus m-r-0"></i></button>
+                                          </div>
+                                      </li>
+                                      <li data-date="20/05/2014">
+                                          <h2>Event title here</h2>
+                                          <em>May 20th, 2014</em>
+                                          <p class="m-b-0">
+                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi
+                                              reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.Illum praesentium officia, fugit recusandae ipsa, quia
+                                              velit nulla adipisci? Consequuntur aspernatur at,
+                                          </p>
+                                          <div class="m-t-20 d-timeline-btn">
+                                              <button class="btn btn-danger">Read More</button>
+                                              <button class="btn btn-primary f-right"><i class="icofont icofont-plus m-r-0"></i></button>
+                                          </div>
+                                      </li>
+                                      <li data-date="09/07/2014">
+                                          <h2>Event title here</h2>
+                                          <em>July 9th, 2014</em>
+                                          <p class="m-b-0">
+                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi
+                                              reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.Illum praesentium officia, fugit recusandae ipsa, quia
+                                              velit nulla adipisci? Consequuntur aspernatur at,
+                                          </p>
+                                          <div class="m-t-20 d-timeline-btn">
+                                              <button class="btn btn-danger">Read More</button>
+                                              <button class="btn btn-primary f-right"><i class="icofont icofont-plus m-r-0"></i></button>
+                                          </div>
+                                      </li>
+                                      <li data-date="30/08/2014">
+                                          <h2>Event title here</h2>
+                                          <em>August 30th, 2014</em>
+                                          <p class="m-b-0">
+                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi
+                                              reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.Illum praesentium officia, fugit recusandae ipsa, quia
+                                              velit nulla adipisci? Consequuntur aspernatur at,
+                                          </p>
+                                          <div class="m-t-20 d-timeline-btn">
+                                              <button class="btn btn-danger">Read More</button>
+                                              <button class="btn btn-primary f-right"><i class="icofont icofont-plus m-r-0"></i></button>
+                                          </div>
+                                      </li>
+                                      <li data-date="15/09/2014">
+                                          <h2>Event title here</h2>
+                                          <em>September 15th, 2014</em>
+                                          <p class="m-b-0">
+                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi
+                                              reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.Illum praesentium officia, fugit recusandae ipsa, quia
+                                              velit nulla adipisci? Consequuntur aspernatur at,
+                                          </p>
+                                          <div class="m-t-20 d-timeline-btn">
+                                              <button class="btn btn-danger">Read More</button>
+                                              <button class="btn btn-primary f-right"><i class="icofont icofont-plus m-r-0"></i></button>
+                                          </div>
+                                      </li>
+                                      <li data-date="01/11/2014">
+                                          <h2>Event title here</h2>
+                                          <em>November 1st, 2014</em>
+                                          <p class="m-b-0">
+                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi
+                                              reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.Illum praesentium officia, fugit recusandae ipsa, quia
+                                              velit nulla adipisci? Consequuntur aspernatur at,
+                                          </p>
+                                          <div class="m-t-20 d-timeline-btn">
+                                              <button class="btn btn-danger">Read More</button>
+                                              <button class="btn btn-primary f-right"><i class="icofont icofont-plus m-r-0"></i></button>
+                                          </div>
+                                      </li>
+                                      <li data-date="10/12/2014">
+                                          <h2>Event title here</h2>
+                                          <em>December 10th, 2014</em>
+                                          <p class="m-b-0">
+                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi
+                                              reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.Illum praesentium officia, fugit recusandae ipsa, quia
+                                              velit nulla adipisci? Consequuntur aspernatur at,
+                                          </p>
+                                          <div class="m-t-20 d-timeline-btn">
+                                              <button class="btn btn-danger">Read More</button>
+                                              <button class="btn btn-primary f-right"><i class="icofont icofont-plus m-r-0"></i></button>
+                                          </div>
+                                      </li>
+                                      <li data-date="19/01/2015">
+                                          <h2>Event title here</h2>
+                                          <em>January 19th, 2015</em>
+                                          <p class="m-b-0">
+                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi
+                                              reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.Illum praesentium officia, fugit recusandae ipsa, quia
+                                              velit nulla adipisci? Consequuntur aspernatur at,
+                                          </p>
+                                          <div class="m-t-20 d-timeline-btn">
+                                              <button class="btn btn-danger">Read More</button>
+                                              <button class="btn btn-primary f-right"><i class="icofont icofont-plus m-r-0"></i></button>
+                                          </div>
+                                      </li>
+                                      <li data-date="03/03/2015">
+                                          <h2>Event title here</h2>
+                                          <em>March 3rd, 2015</em>
+                                          <p class="m-b-0">
+                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi
+                                              reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.Illum praesentium officia, fugit recusandae ipsa, quia
+                                              velit nulla adipisci? Consequuntur aspernatur at,
+                                          </p>
+                                          <div class="m-t-20 d-timeline-btn">
+                                              <button class="btn btn-danger">Read More</button>
+                                              <button class="btn btn-primary f-right"><i class="icofont icofont-plus m-r-0"></i></button>
+                                          </div>
+                                      </li>
+                                  </ol>
+                              </div>
+                              <!-- .events-content -->
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4">
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <div class="card card-border-primary">
+                              <div class="card-header">
+                                  <h5>John Doe </h5>
+                                  <!-- <span class="label label-default f-right"> 28 January, 2015 </span> -->
+                                  <div class="dropdown-secondary dropdown f-right">
+                                      <button class="btn btn-primary btn-mini dropdown-toggle waves-effect waves-light" type="button" id="dropdown6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Overdue</button>
+                                      <div class="dropdown-menu" aria-labelledby="dropdown6" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                          <a class="dropdown-item waves-light waves-effect" href="index.html#!"><span class="point-marker bg-danger"></span>Pending</a>
+                                          <a class="dropdown-item waves-light waves-effect" href="index.html#!"><span class="point-marker bg-warning"></span>Paid</a>
+                                          <div class="dropdown-divider"></div>
+                                          <a class="dropdown-item waves-light waves-effect active" href="index.html#!"><span class="point-marker bg-success"></span>On Hold</a>
+                                          <a class="dropdown-item waves-light waves-effect" href="index.html#!"><span class="point-marker bg-info"></span>Canceled</a>
+                                      </div>
+                                      <!-- end of dropdown menu -->
+                                      <span class="f-left m-r-5 text-inverse">Status : </span>
+                                  </div>
+                              </div>
+                              <div class="card-block">
+                                  <div class="row">
+                                      <div class="col-sm-6">
+                                          <ul class="list list-unstyled">
+                                              <li>Invoice #: &nbsp;0028</li>
+                                              <li>Issued on: <span class="text-semibold">2015/01/25</span></li>
+                                          </ul>
+                                      </div>
+                                      <div class="col-sm-6">
+                                          <ul class="list list-unstyled text-right">
+                                              <li>$8,750</li>
+                                              <li>Method: <span class="text-semibold">Paypal</span></li>
+                                          </ul>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="card-footer">
+                                  <div class="task-list-table">
+                                      <p class="task-due"><strong> Due : </strong><strong class="label label-success">23 hours</strong></p>
+                                  </div>
+                                  <div class="task-board m-0">
+                                      <a href="http://html.phoenixcoded.net/flatable/html/invoice.html" class="btn btn-info btn-mini b-none"><i class="icofont icofont-eye-alt m-0"></i></a>
+                                      <!-- end of dropdown-secondary -->
+                                      <div class="dropdown-secondary dropdown">
+                                          <button class="btn btn-info btn-mini dropdown-toggle waves-light b-none txt-muted" type="button" id="dropdown3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icofont icofont-navigation-menu"></i></button>
+                                          <div class="dropdown-menu" aria-labelledby="dropdown3" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                              <a class="dropdown-item waves-light waves-effect" href="index.html#!"><i class="icofont icofont-ui-alarm"></i> Print Invoice</a>
+                                              <a class="dropdown-item waves-light waves-effect" href="index.html#!"><i class="icofont icofont-attachment"></i> Download invoice</a>
+                                              <div class="dropdown-divider"></div>
+                                              <a class="dropdown-item waves-light waves-effect" href="index.html#!"><i class="icofont icofont-spinner-alt-5"></i> Edit Invoice</a>
+                                              <a class="dropdown-item waves-light waves-effect" href="index.html#!"><i class="icofont icofont-ui-edit"></i> Remove Invoice</a>
+                                          </div>
+                                          <!-- end of dropdown menu -->
+                                      </div>
+                                      <!-- end of seconadary -->
+                                  </div>
+                                  <!-- end of pull-right class -->
+                              </div>
+                              <!-- end of card-footer -->
+                          </div>
+                      </div>
+                      <div class="col-lg-12">
+                          <!-- Invoice list card start -->
+                          <div class="card card-border-primary">
+                              <div class="card-header">
+                                  <h5>John Doe </h5>
+                                  <!-- <span class="label label-default f-right"> 28 January, 2015 </span> -->
+                                  <div class="dropdown-secondary dropdown f-right">
+                                      <button class="btn btn-primary btn-mini dropdown-toggle waves-effect waves-light" type="button" id="dropdown12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Overdue</button>
+                                      <div class="dropdown-menu" aria-labelledby="dropdown12" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                          <a class="dropdown-item waves-light waves-effect" href="index.html#!"><span class="point-marker bg-danger"></span>Pending</a>
+                                          <a class="dropdown-item waves-light waves-effect" href="index.html#!"><span class="point-marker bg-warning"></span>Paid</a>
+                                          <div class="dropdown-divider"></div>
+                                          <a class="dropdown-item waves-light waves-effect active" href="index.html#!"><span class="point-marker bg-success"></span>On Hold</a>
+                                          <a class="dropdown-item waves-light waves-effect" href="index.html#!"><span class="point-marker bg-info"></span>Canceled</a>
+                                      </div>
+                                      <!-- end of dropdown menu -->
+                                      <span class="f-left m-r-5 text-inverse">Status : </span>
+                                  </div>
+                              </div>
+                              <div class="card-block">
+                                  <div class="row">
+                                      <div class="col-sm-6">
+                                          <ul class="list list-unstyled">
+                                              <li>Invoice #: &nbsp;0028</li>
+                                              <li>Issued on: <span class="text-semibold">2015/01/25</span></li>
+                                          </ul>
+                                      </div>
+                                      <div class="col-sm-6">
+                                          <ul class="list list-unstyled text-right">
+                                              <li>$8,750</li>
+                                              <li>Method: <span class="text-semibold">Paypal</span></li>
+                                          </ul>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="card-footer">
+                                  <div class="task-list-table">
+                                      <p class="task-due"><strong> Due : </strong><strong class="label label-warning">23 hours</strong></p>
+                                  </div>
+                                  <div class="task-board m-0">
+                                      <a href="http://html.phoenixcoded.net/flatable/html/invoice.html" class="btn btn-info btn-mini b-none"><i class="icofont icofont-eye-alt m-0"></i></a>
+                                      <!-- end of dropdown-secondary -->
+                                      <div class="dropdown-secondary dropdown">
+                                          <button class="btn btn-info btn-mini dropdown-toggle waves-light b-none txt-muted" type="button" id="dropdown8" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icofont icofont-navigation-menu"></i></button>
+                                          <div class="dropdown-menu" aria-labelledby="dropdown8" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                              <a class="dropdown-item waves-light waves-effect" href="index.html#!"><i class="icofont icofont-ui-alarm"></i> Print Invoice</a>
+                                              <a class="dropdown-item waves-light waves-effect" href="index.html#!"><i class="icofont icofont-attachment"></i> Download invoice</a>
+                                              <div class="dropdown-divider"></div>
+                                              <a class="dropdown-item waves-light waves-effect" href="index.html#!"><i class="icofont icofont-spinner-alt-5"></i> Edit Invoice</a>
+                                              <a class="dropdown-item waves-light waves-effect" href="index.html#!"><i class="icofont icofont-ui-edit"></i> Remove Invoice</a>
+                                          </div>
+                                          <!-- end of dropdown menu -->
+                                      </div>
+                                      <!-- end of seconadary -->
+                                  </div>
+                                  <!-- end of pull-right class -->
+                              </div>
+                              <!-- end of card-footer -->
+                          </div>
+                          <!-- Invoice list card end -->
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-8">
+                  <div class="card">
+                      <div class="card-header">
+                          <button class="btn btn-primary btn-sm">Week</button>
+                          <button class="btn btn-primary btn-sm">Month</button>
+                          <button class="btn btn-primary btn-sm">Year</button>
+                      </div>
+                      <div class="card-block">
+                          <div id="morris-extra-area"></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-8">
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <div class="card table-1-card">
+                              <div class="card-block">
+                                  <div class="table-responsive">
+                                      <table class="table">
+                                          <thead>
+                                              <tr class="text-capitalize">
+                                                  <th>Type</th>
+                                                  <th>Lead Name</th>
+                                                  <th>Views</th>
+                                                  <th>Favourites</th>
+                                                  <th>Last Visit</th>
+                                                  <th>Last Action</th>
+                                                  <th>Last Date</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <tr>
+                                                  <td><a href="index.html#!">Buyer</a>
+                                                  </td>
+                                                  <td>Denish Ann</td>
+                                                  <td>153</td>
+                                                  <td>100</td>
+                                                  <td>20</td>
+                                                  <td>9.23 A.M.</td>
+                                                  <td>9/27/2015</td>
+                                              </tr>
+                                              <tr>
+                                                  <td><a class="text-danger" href="index.html#!">Lanload</a>
+                                                  </td>
+                                                  <td>John Doe</td>
+                                                  <td>121</td>
+                                                  <td>100</td>
+                                                  <td>20</td>
+                                                  <td>6.23 A.M.</td>
+                                                  <td>8/27/2015</td>
+                                              </tr>
+                                              <tr>
+                                                  <td><a href="index.html#!">Buyer</a>
+                                                  </td>
+                                                  <td>Henry Joe</td>
+                                                  <td>154</td>
+                                                  <td>140</td>
+                                                  <td>30</td>
+                                                  <td>7.54 P.M.</td>
+                                                  <td>4/30/2015</td>
+                                              </tr>
+                                              <tr>
+                                                  <td><a class="text-danger" href="index.html#!">Lanload</a>
+                                                  </td>
+                                                  <td>Sara Soudein</td>
+                                                  <td>153</td>
+                                                  <td>100</td>
+                                                  <td>20</td>
+                                                  <td>9.23 A.M.</td>
+                                                  <td>5/20/2016</td>
+                                              </tr>
+                                              <tr>
+                                                  <td><a href="index.html#!">Buyer</a>
+                                                  </td>
+                                                  <td>Denish Ann</td>
+                                                  <td>153</td>
+                                                  <td>100</td>
+                                                  <td>20</td>
+                                                  <td>9.23 A.M.</td>
+                                                  <td>3/26/2015</td>
+                                              </tr>
+                                              <tr>
+                                                  <td><a class="text-info" href="index.html#!">Lanload</a>
+                                                  </td>
+                                                  <td>Stefen Joe</td>
+                                                  <td>153</td>
+                                                  <td>100</td>
+                                                  <td>20</td>
+                                                  <td>11.45 A.M.</td>
+                                                  <td>5/20/2017</td>
+                                              </tr>
+                                              <tr>
+                                                  <td><a href="index.html#!">Buyer</a>
+                                                  </td>
+                                                  <td>Mark Backlus</td>
+                                                  <td>153</td>
+                                                  <td>100</td>
+                                                  <td>20</td>
+                                                  <td>12.40 A.M.</td>
+                                                  <td>3/27/2017</td>
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-12">
+                          <div class="card table-card group-widget">
+                              <div class="">
+                                  <div class="row-table">
+                                      <div class="col-sm-4 bg-primary card-block-big">
+                                          <i class="icofont icofont-music"></i>
+                                          <p>1,586</p>
+                                      </div>
+                                      <div class="col-sm-4 bg-dark-primary card-block-big">
+                                          <i class="icofont icofont-video-clapper"></i>
+                                          <p>1,743</p>
+                                      </div>
+                                      <div class="col-sm-4 bg-darkest-primary card-block-big">
+                                          <i class="icofont icofont-email"></i>
+                                          <p>1,096</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4">
+                  <div class="card widget-chat-box">
+                      <div class="card-header">
+                          <div class="row">
+                              <div class="col-sm-2">
+                                  <i class="icofont icofont-navigation-menu pop-up"></i>
+                              </div>
+                              <div class="col-sm-8 text-center">
+                                  <h5>
+                                   John Henry
+                               </h5>
+                           </div>
+                           <div class="col-sm-2 text-right">
+                              <i class="icofont icofont-ui-edit"></i>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card-block">
+                      <p class="text-center">12:05 A.M.</p>
+                      <div class="media">
+                          <img class="d-flex mr-3 img-circle img-40 img-thumbnail" src="assets/images/user-card/img-round1.jpg" alt="Generic placeholder image">
+                          <div class="media-body send-chat">
+                              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at
+                              <span class="time">3 min ago</span>
+                          </div>
+                      </div>
+                      <div class="media col-sm-8 offset-md-4">
+                          <div class="media-body  receive-chat">
+                              Cras sit amet nibh libero, in gravida nulla.vel metus scelerisque ante
+                              <span class="time">
+                                  <i class="icofont icofont-check m-r-5"></i>Seen 2 sec ago
+                              </span>
+                          </div>
+                      </div>
+                      <div class="media">
+                          <img class="d-flex mr-3 img-circle img-40 img-thumbnail" src="assets/images/user-card/img-round1.jpg" alt="Generic placeholder image">
+                          <div class="media-body send-chat">
+                              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at
+                              <span class="time">3 min ago</span>
+                          </div>
+                      </div>
+                      <div class="media col-sm-8 offset-md-4">
+                          <div class="media-body  receive-chat">
+                              Cras sit amet nibh libero, in gravida nulla.Vel metus scelerisque ante
+                              <span class="time">
+                                  <i class="icofont icofont-check m-r-5"></i>Seen 2 sec ago
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card-footer">
+                      <input type="text" class="form-control" placeholder="Your Message">
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6 col-xl-3">
+              <div class="card social-widget-card">
+                  <div class="card-block-big bg-facebook">
+                      <h3>1165 +</h3>
+                      <span class="m-t-10">Facebook Users</span>
+                      <i class="icofont icofont-social-facebook"></i>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6 col-xl-3">
+              <div class="card social-widget-card">
+                  <div class="card-block-big bg-twitter">
+                      <h3>780 +</h3>
+                      <span class="m-t-10">Twitter Users</span>
+                      <i class="icofont icofont-social-twitter"></i>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6 col-xl-3">
+              <div class="card social-widget-card">
+                  <div class="card-block-big bg-linkein">
+                      <h3>998 +</h3>
+                      <span class="m-t-10">Linked In Users</span>
+                      <i class="icofont icofont-brand-linkedin"></i>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6 col-xl-3">
+              <div class="card social-widget-card">
+                  <div class="card-block-big bg-google-plus">
+                      <h3>650 +</h3>
+                      <span class="m-t-10">Google Plus Users</span>
+                      <i class="icofont icofont-social-google-plus"></i>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div id="styleSelector">
+</div>
+</div>
 {% endblock %}
