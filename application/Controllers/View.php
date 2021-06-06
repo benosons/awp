@@ -84,7 +84,7 @@ class View extends \CodeIgniter\Controller
 				if($this->logged){
 					helper('form');
 					$this->data['script'] = $this->data['baseURL'].'/action-js/admin/users/users-index.js';
-					return \Twig::instance()->display('admin/users/index.html', $this->data);
+					return \Twig::instance()->display('admin/users/users-index.html', $this->data);
 				}else{
 					return redirect('home');
 				}

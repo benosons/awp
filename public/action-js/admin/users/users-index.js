@@ -1,10 +1,11 @@
 "use strict";
 console.log('You are running jQuery version: ' + $.fn.jquery);
 $(document).ready(function(){
-  $('#nav-menu li').removeClass();
-  $('#nav-menu li#menu-users').addClass('active');
+  $('.main-menu').find('.active').removeClass("active");
+  $('.main-menu').find('.pcoded-trigger').removeClass("pcoded-trigger");
+  $('#menu_user').addClass('active');
 
-  $('#setting-user').DataTable();
+  $('#setting-users').DataTable();
   $('.user-tambah').hide();
 
   loadusers('');
@@ -12,16 +13,14 @@ $(document).ready(function(){
   $('#save-user').on('click', function(){
       let user_name = $('#user_name').val();
       let user_password = 12345;
-      let user_role = $('#user_role').val();
+      // let user_role = $('#user_role').val();
       let user_fullname = $('#user_fullname').val();
-      let user_nip = $('#user_nip').val();
 
       var formData = new FormData();
       formData.append('user_name', user_name);
       formData.append('user_password', user_password);
-      formData.append('user_role', user_role);
+      // formData.append('user_role', user_role);
       formData.append('user_fullname', user_fullname);
-      formData.append('nip', user_nip);
 
       var Validator = {
           rules: {
@@ -94,7 +93,6 @@ function loadusers(param){
                 { 'mDataProp': 'user_id', 'width':'10%'},
                 { 'mDataProp': 'user_name'},
                 { 'mDataProp': 'user_fullname'},
-                { 'mDataProp': 'nip'},
                 { 'mDataProp': 'role_name'},
                 { 'mDataProp': 'user_status'},
                 { 'mDataProp': 'user_status'},
@@ -110,7 +108,7 @@ function loadusers(param){
                       }
                       return data;
                   },
-                  aTargets: [ 4 ]
+                  aTargets: [ 3 ]
               },
               {
                   mRender: function ( data, type, row ) {
@@ -125,32 +123,30 @@ function loadusers(param){
 
                       return el;
                   },
-                  aTargets: [ 5 ]
+                  aTargets: [ 4 ]
               },
               {
                   mRender: function ( data, type, row ) {
 
                     var el = '';
                       if(row.isLogin == 1){
-                        el ='<span class="label label-sm label-success arrowed-in">online</span>';
+                        el = '<label class="label label-success">online</label>';
                       }else{
-                        el ='<span class="label label-sm label-dafault arrowed-in">offline</span>';
+                        el = '<label class="label label-default">offline</label>';
                       }
 
                       return el;
                   },
-                  aTargets: [ 6 ]
+                  aTargets: [ 5 ]
               },
               {
                   mRender: function ( data, type, row ) {
 
-                    var el = `<button class="btn btn-xs btn-danger" onclick="action('delete','`+row.user_id+`','')">
-																<i class="ace-icon fa fa-trash-o bigger-120"></i>
-															</button>`;
+                    var el = `<button class="btn btn-danger btn-sm" onclick="action('delete','`+row.user_id+`','')" ><i class="icofont icofont icofont-trash"></i>Hapus</button>`;
 
                       return el;
                   },
-                  aTargets: [ 7 ]
+                  aTargets: [ 6 ]
               },
             ],
             fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull){

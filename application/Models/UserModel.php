@@ -5,7 +5,7 @@ use CodeIgniter\Model;
 class UserModel extends Model{
     protected $table = 'users';
     protected $primaryKey = 'user_id';
-    protected $allowedFields = ['user_name','user_email','user_password','user_created_at', 'user_role', 'user_fullname', 'user_status', 'isLogin', 'update_by', 'update_date', 'user_satuan', 'nip'];
+    protected $allowedFields = ['user_name','user_email','user_password','user_created_at', 'user_role', 'user_fullname', 'user_status', 'isLogin', 'update_by', 'update_date'];
 
     public function getUsers($id = null)
     {

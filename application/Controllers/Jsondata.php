@@ -2139,8 +2139,7 @@ class Jsondata extends \CodeIgniter\Controller
 
 						foreach ($datauser as $keyuser => $valueuser) {
 							$datafiles = $modelfiles->getWhere(['id_parent' => $valueuser['user_id']])->getRow();
-							$datasatuan= $model->getSatuanByCode($valueuser['user_satuan']);
-							$obj_merged = (object) array_merge((array) $valueuser, (array) $datafiles, (array) $datasatuan);
+							$obj_merged = (object) array_merge((array) $valueuser, (array) $datafiles);
 							array_push($fulldata, $obj_merged);
 						}
 						$users = $fulldata;
