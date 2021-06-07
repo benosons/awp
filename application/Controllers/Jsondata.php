@@ -1429,6 +1429,105 @@ class Jsondata extends \CodeIgniter\Controller
 
 	}
 
+	public function addData(){
+
+		$request  = $this->request;
+		$param 	  = $request->getVar('param');
+		$userid		= $this->data['userid'];
+		$role 		= $this->data['role'];
+
+		$model 	  = new \App\Models\DataModel();
+
+		if($param == 'data_pelaksana'){
+			$data = [
+				'nama_pelaksana' => $request->getVar('nama_pelaksana'),
+				'created_by'	 => $userid,
+				'created_date' => $this->now,
+				'updated_date' => $this->now
+			];
+
+		}else if($param == 'data_komponen'){
+			$data = [
+				'komponen_ke' => $request->getVar('komponen_ke'),
+				'nama_komponen' => $request->getVar('nama_komponen'),
+				'created_by'	 => $userid,
+				'created_date' => $this->now,
+				'updated_date' => $this->now
+			];
+		}else if($param == 'data_program'){
+			$data = [
+				'id_komponen' => $request->getVar('id_komponen'),
+				'nama_program' => $request->getVar('nama_program'),
+				'created_by'	 => $userid,
+				'created_date' => $this->now,
+				'updated_date' => $this->now
+			];
+		}else if($param == 'data_kegiatan'){
+			$data = [
+				'id_program' => $request->getVar('id_program'),
+				'nama_kegiatan' => $request->getVar('nama_kegiatan'),
+				'id_pelaksana' => $request->getVar('id_pelaksana'),
+				'value' => $request->getVar('value'),
+				'created_by'	 => $userid,
+				'created_date' => $this->now,
+				'updated_date' => $this->now
+			];
+		}
+
+		$res = $model->saveData($param, $data);
+		$id  = $model->insertID();
+
+		$response = [
+				'status'   => 'sukses',
+				'code'     => '0',
+				'data' 		 => 'terkirim'
+		];
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+
+	}
+
+	public function loaddata()
+	{
+		try
+		{
+				$request  = $this->request;
+				$param 	  = $request->getVar('param');
+				$id		 	  = $request->getVar('id');
+				$role 		= $this->data['role'];
+				$userid		= $this->data['userid'];
+
+					$model = new \App\Models\DataModel();
+					$modelfiles = new \App\Models\FilesModel();
+
+					$data = $model->getData($param, $id);
+
+					if($data){
+						$response = [
+							'status'   => 'sukses',
+							'code'     => '1',
+							'data' 		 => $data
+						];
+					}else{
+						$response = [
+						    'status'   => 'gagal',
+						    'code'     => '0',
+						    'data'     => 'tidak ada data',
+						];
+					}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
+
 	public function addProgram(){
 
 		$request  = $this->request;
@@ -2198,6 +2297,49 @@ class Jsondata extends \CodeIgniter\Controller
 
 		}else{
 			$res = $model->delete(['user_id' => $id]);
+		}
+		$response = [
+				'status'   => 'sukses',
+				'code'     => '0',
+				'data' 		 => 'terupdate'
+		];
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+
+	}
+
+	public function actionData(){
+
+		$request  = $this->request;
+		$mode 	  = $request->getVar('mode');
+		$id 	  	= $request->getVar('id');
+		$status 	= $request->getVar('status');
+		$table	 	= $request->getVar('table');
+		$role 		= $this->data['role'];
+		$userid		= $this->data['userid'];
+
+		switch ($status) {
+			case 'false':
+					$status = 0;
+				break;
+
+			default:
+					$status = 1;
+				break;
+		}
+		$model 	  = new \App\Models\DataModel();
+
+		$data = [
+						'update_date' => $this->now,
+						'update_by' 	=> $userid,
+						'user_status' => $status,
+        ];
+		if($mode == 'update'){
+			$res = $model->update($id, $data);
+
+		}else{
+			$res = $model->delete($table, $id);
 		}
 		$response = [
 				'status'   => 'sukses',

@@ -1,0 +1,158 @@
+{% extends "admin/layout.html" %} {% block content %}
+
+<div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page-header start -->
+            <div class="page-header">
+              <input hidden id="userid" value="{{userid}}">
+              <input hidden id="role" value="{{role}}">
+                <div class="page-header-title">
+                    <h4>DATA PELAKSANA</h4>
+                    <span>Easy to customise core stylesheets</span>
+                </div>
+                <div class="page-header-breadcrumb">
+                    <ul class="breadcrumb-title">
+                        <li class="breadcrumb-item">
+                            <a href="{{baseURL}}">
+                                <i class="icofont icofont-home"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="dt-styling.html#!">Data</a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="dt-styling.html#!">Pelaksana</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Page-header end -->
+            <!-- Page-body start -->
+            <div class="page-body">
+                <!-- Base style - Hover table start -->
+                <div class="card">
+                    <div class="card-header" style="padding-top:2.5rem;">
+                        <!-- <h5>Base style - hover</h5> -->
+                        <!-- <span>This example shows DataTables with just the hover class specified. This class will instruct DataTables' styling to highlight a row when the mouse is hovered over it.</span> -->
+                        <div class="card-header-right" style="padding-right:0.5rem;">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#sign-in-modal" data-backdrop="static"><i class="icofont icofont icofont-ui-add"></i>Tambah Pelaksana</button>
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <div class="dt-responsive table-responsive">
+                            <table id="setting-pelaksana" class="table table-striped table-hover table-bordered nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama Pelaksana</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Base style - Hover table end -->
+            </div>
+            <!-- Page-body end -->
+        </div>
+    </div>
+    <div id="styleSelector">
+
+    </div>
+
+
+    <!-- Sign in modal start -->
+    <div class="modal fade" id="sign-in-modal" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Form Pelaksana</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-b-0">
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div>
+                                    <label class="form-control-label">Nama Pelaksana</label>
+                                    <input type="text" id="nama_pelaksana" class="form-control" placeholder="Enter your Username">
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="ti-close"></i> Batal </button>
+                    <button type="button" class="btn btn-primary" id="save-pelaksana"><i class="ti-check-box"></i> Simpan </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sign in modal end -->
+
+<div id="modal_user" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Program</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form">
+					<!-- #section:elements.form -->
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_name"> Username </label>
+
+						<div class="col-sm-9">
+							<input type="text" id="user_name" placeholder="username" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_fullname"> Fullname </label>
+
+						<div class="col-sm-9">
+							<input type="text" id="user_fullname" placeholder="Full Name" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_fullname"> NIP </label>
+
+						<div class="col-sm-9">
+							<input type="text" id="user_nip" placeholder="NIP" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_role"> Role Level </label>
+
+						<div class="col-sm-9">
+						  	<select class="chosen-select form-control" id="user_role" data-placeholder="select role...">
+						  		<option value="">  </option>
+						  		<option value="10">admin</option>
+						  		<option value="20">operator</option>
+						  		<option value="30">ppk</option>
+						  		<option value="40">pptk</option>
+
+						  	</select>
+						</div>
+					</div>
+
+				</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-xs btn-danger" data-dismiss="modal"><i class="ace-icon fa fa-close"></i>close</button>
+        <button type="button" class="btn btn-xs btn-success" data-dismiss="modal"  ><i class="ace-icon fa fa-check"></i>submit</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- <script src="{{baseURL}}/assets/action-js/admin/datapengaduan.js"></script> -->
+{% endblock %}

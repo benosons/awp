@@ -90,12 +90,34 @@ class View extends \CodeIgniter\Controller
 				}
 	}
 
+	public function komponen()
+	{
+				if($this->logged){
+					helper('form');
+					$this->data['script'] = $this->data['baseURL'].'/action-js/admin/data/komponen-index.js';
+					return \Twig::instance()->display('admin/data/komponen-index.html', $this->data);
+				}else{
+					return redirect('home');
+				}
+	}
+
+	public function pelaksana()
+	{
+				if($this->logged){
+					helper('form');
+					$this->data['script'] = $this->data['baseURL'].'/action-js/admin/data/pelaksana-index.js';
+					return \Twig::instance()->display('admin/data/pelaksana-index.html', $this->data);
+				}else{
+					return redirect('home');
+				}
+	}
+
 	public function program()
 	{
 				if($this->logged){
 					helper('form');
-					$this->data['script'] = $this->data['baseURL'].'/action-js/admin/program/program-index.js';
-					return \Twig::instance()->display('admin/program/program-index.html', $this->data);
+					$this->data['script'] = $this->data['baseURL'].'/action-js/admin/data/program-index.js';
+					return \Twig::instance()->display('admin/data/program-index.html', $this->data);
 				}else{
 					return redirect('home');
 				}
@@ -105,8 +127,8 @@ class View extends \CodeIgniter\Controller
 	{
 				if($this->logged){
 					helper('form');
-					$this->data['script'] = $this->data['baseURL'].'/action-js/admin/kegiatan/kegiatan-index.js';
-					return \Twig::instance()->display('admin/kegiatan/kegiatan-index.html', $this->data);
+					$this->data['script'] = $this->data['baseURL'].'/action-js/admin/data/kegiatan-index.js';
+					return \Twig::instance()->display('admin/data/kegiatan-index.html', $this->data);
 				}else{
 					return redirect('home');
 				}

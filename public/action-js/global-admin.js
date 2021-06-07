@@ -14,4 +14,10 @@ $(document).ready(function(){
   $('.pcoded-navbar').attr("navbar-theme", 'theme6');
   $('.pcoded-navbar').attr("active-item-theme", 'theme4');
 
+  $(".js-example-basic-single").select2();
+
+  $(".js-example-basic-single-modal").select2({
+    dropdownParent: $("[name='in-modal']")
+  });
+
 });
