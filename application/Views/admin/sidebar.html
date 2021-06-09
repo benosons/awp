@@ -11,6 +11,7 @@
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
+                    {% if role == 100 %}
                     <li id="menu_data_parent" class="pcoded-hasmenu">
                         <a href="javascript:void(0)">
                             <span class="pcoded-micon"><i class="ti-folder"></i></span>
@@ -50,6 +51,14 @@
                             </li>
 
                         </ul>
+                    </li>
+                    {% endif %}
+                    <li id="menu_data" class="">
+                        <a href="data" data-i18n="nav.widget.main">
+                            <span class="pcoded-micon"><i class="ti-folder"></i></span>
+                            <span class="pcoded-mtext" >Data Input</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
                     </li>
                     <!-- <li class="pcoded-hasmenu">
                         <a href="javascript:void(0)" data-i18n="nav.navigate.main">

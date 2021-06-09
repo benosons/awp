@@ -66,4 +66,14 @@ class DataModel extends Model{
         return  $query->delete();
     }
 
+    public function updateData($id, $data)
+    {
+      $builder = $this->db->table('data');
+      $query   = $builder->where('param', $id);
+      $query->update($data);
+      // echo $this->db->getLastQuery();
+
+      return true;
+    }
+
 }

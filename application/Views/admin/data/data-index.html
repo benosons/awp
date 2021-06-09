@@ -1,0 +1,837 @@
+{% extends "admin/layout.html" %} {% block content %}
+
+<div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page-header start -->
+            <div class="page-header">
+              <input hidden id="userid" value="{{userid}}">
+              <input hidden id="role" value="{{role}}">
+                <div class="page-header-title">
+                    <h4>DATA KEGIATAN</h4>
+                    <span>Easy to customise core stylesheets</span>
+                </div>
+                <div class="page-header-breadcrumb">
+                    <ul class="breadcrumb-title">
+                        <li class="breadcrumb-item">
+                            <a href="{{baseURL}}">
+                                <i class="icofont icofont-home"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="dt-styling.html#!">Data</a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="dt-styling.html#!">Kegiatan</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Page-header end -->
+            <!-- Page-body start -->
+            <div class="page-body">
+                <!-- Base style - Hover table start -->
+                <div class="card">
+                    <div class="card-header" style="padding-top:2.5rem;">
+                        <!-- <h5>Base style - hover</h5> -->
+                        <!-- <span>This example shows DataTables with just the hover class specified. This class will instruct DataTables' styling to highlight a row when the mouse is hovered over it.</span> -->
+                        <div class="card-header-right" style="padding-right:0.5rem;">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#sign-in-modal" data-backdrop="static"><i class="icofont icofont icofont-ui-add"></i>Tambah Kegiatan</button>
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <div class="dt-responsive table-responsive">
+                            <table id="all-data" class="table table-hover table-bordered nowrap" style="font-size:12px;width: 100%;">
+                                <thead>
+                                    <tr class="bg-inverse">
+                                        <th width="50px">Program</th>
+                                        <th colspan="2">Kegiatan</th>
+                                        <th>CPIU Pelaksana</th>
+                                        <th>Pemenuhan Kegiatan (%)</th>
+                                    </tr>
+                                    <tr class="bg-inverse">
+                                      <td colspan="5">Komponen 1 : Peningkatan Kapasitas Kelembagaan dan Pengembangan Kebijakan Pengelolaan Persampahan</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                      <td rowspan="2">Pengembangan Platform Pengelolaan Sampah Nasional</td>
+                                      <td colspan="2">Finalisasi Platform Pengelolaan Sampah</td>
+                                      <td>Bappenas</td>
+                                      <td><div class="input-group input-group-sm input-group-button">
+                                              <input name="input_pemenuhan" id="input_1" type="text" class="form-control" placeholder="">
+                                              <span class="input-group-addon" id="">
+                                                  <button class="btn btn-primary" name="button_pemenuhan" id="button_1"><i class="icofont icofont-check"></i></button>
+                                               </span>
+                                          </div>
+                                      </td>
+
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2" >Diseminasi Platform Pengelolaan Sampah kepada Daerah (Provinsi dan Kabupaten/Kota)</td>
+                                      <td>Bappenas</td>
+                                      <td><div class="input-group input-group-sm input-group-button">
+                                              <input name="input_pemenuhan" id="input_2" type="text" class="form-control" placeholder="">
+                                              <span class="input-group-addon" id="">
+                                                  <button class="btn btn-primary" name="button_pemenuhan" id="button_2" ><i class="icofont icofont-check"></i></button>
+                                               </span>
+                                          </div>
+                                      </td>
+
+                                    </tr>
+                                    <tr>
+                                      <td rowspan="3">Penguatan Peraturan Terkait Penanganan dan Pengurangan Sampah</td>
+                                      <td colspan="2">Pengembangan kebijakan terkait pengurangan dan penanganan sampah rumah tangga dan sampah sejenis sampah rumah tangga</td>
+                                      <td>KLHK</td>
+                                      <td><div class="input-group input-group-sm input-group-button">
+                                              <input name="input_pemenuhan" id="input_3" type="text" class="form-control" placeholder="">
+                                              <span class="input-group-addon" id="">
+                                                  <button class="btn btn-primary" name="button_pemenuhan" id="button_3" ><i class="icofont icofont-check"></i></button>
+                                               </span>
+                                          </div>
+                                      </td>
+
+                                    </tr>
+                                    <tr>
+                                      <td>a</td>
+                                      <td>Finalisasi pedoman turunan dari Permen LHK No. P.75 Tahun 2019 tentang Peta Jalan Pengurangan Sampah oleh Produsen</td>
+                                      <td>KLHK</td>
+                                      <td><div class="input-group input-group-sm input-group-button">
+                                              <input name="input_pemenuhan" id="input_4" type="text" class="form-control" placeholder="">
+                                              <span class="input-group-addon" id="">
+                                                  <button class="btn btn-primary" name="button_pemenuhan" id="button_4" ><i class="icofont icofont-check"></i></button>
+                                               </span>
+                                          </div>
+                                      </td>
+
+                                    </tr>
+                                    <tr>
+                                      <td>b</td>
+                                      <td>Penyusunan Pedoman terkait RDF</td>
+                                      <td>KLHK</td>
+                                      <td><div class="input-group input-group-sm input-group-button">
+                                              <input name="input_pemenuhan" id="input_5" type="text" class="form-control" placeholder="">
+                                              <span class="input-group-addon" id="">
+                                                  <button class="btn btn-primary" name="button_pemenuhan" id="button_5" ><i class="icofont icofont-check"></i></button>
+                                               </span>
+                                          </div>
+                                      </td>
+
+                                    </tr>
+                                    <tr>
+                                      <td rowspan="2">Penguatan Peraturan Tentang Sistem dan Mekanisme Pembiayaan Pengelolaan Sampah</td>
+                                      <td colspan="2">Penyusunan Kajian Model Bisnis Pengelolaan Sampah</td>
+                                      <td>Bappenas</td>
+                                      <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_6" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_6" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">Penyusunan Kajian Mekanisme Insentif dan Disinsentif dalam Pengelolaan Sampah</td>
+                                      <td>Bappenas</td>
+                                      <td><div class="input-group input-group-sm input-group-button">
+                                              <input name="input_pemenuhan" id="input_7" type="text" class="form-control" placeholder="">
+                                              <span class="input-group-addon" id="">
+                                                  <button class="btn btn-primary" name="button_pemenuhan" id="button_7" ><i class="icofont icofont-check"></i></button>
+                                               </span>
+                                          </div>
+                                      </td>
+
+                                    </tr>
+                                    <tr>
+                                      <td>Pengembangan Kebijakan dan Strategi Pelibatan Seluruh Pelaku dan Konsep Komunikasi, Informasi dan Edukasi dalam Pengelolaan Sampah</td>
+                                      <td colspan="2">Penyusunan Permen LHK tentang Sistem Informasi Pengelolaan Sampah Nasional</td>
+                                      <td>KLHK</td>
+                                      <td><div class="input-group input-group-sm input-group-button">
+                                              <input name="input_pemenuhan" id="input_8" type="text" class="form-control" placeholder="">
+                                              <span class="input-group-addon" id="">
+                                                  <button class="btn btn-primary" name="button_pemenuhan" id="button_8" ><i class="icofont icofont-check"></i></button>
+                                               </span>
+                                          </div>
+                                      </td>
+
+                                    </tr>
+                                </tbody>
+                                <thead>
+                                    <tr class="bg-inverse">
+                                      <td colspan="5">Komponen 2 : Perencanaan Terpadu dan Peningkatan Kapasitas Bagi Pemerintah Daerah dan Masyarakat</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td rowspan="5">Perencanaan Terpadu Sistem Pengelolaan Sampah</td>
+                                    <td colspan="2">Penyusunan Rencana Induk Pengelolaan Sampah Skala Regional Metro Bandung</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_9" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_9" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2">Optimalisasi Sistem Pengelolaan Sampah di Kawasan Pembangunan Infrastruktur (Kota Bandung, Kabupaten Karawang dan Kabupaten Purwakarta)</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_10" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_10" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2">Studi Kelayakan Pembangunan Infrastruktur Tahap II</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_11" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_11" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2">Penyusunan Rencana Teknis Pengelolaan Sampah di Wilayah Pelayanan Infrastruktur Tahap II</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_12" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_12" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2">Penyusunan Dokumen DED Infrastruktur Tahap II</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_13" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_13" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <!--  -->
+                                  <tr>
+                                    <td rowspan="6">Peningkatan Kapasitas Bagi Pemerintah Daerah</td>
+                                    <td colspan="2">Pendampingan Integrasi kebijakan pengelolaan sampah terpadu dalam dokumen perencanaan pembangunan daerah</td>
+                                    <td>Kemendagri</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_14" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_14" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>a</td>
+                                    <td>Bantuan teknis Perencanaan Terpadu dan peningkatan kapasitas Pemda (IPCI – Integrated planning and Capacity Improvement)</td>
+                                    <td>Kemendagri</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                              <input name="input_pemenuhan" id="input_15" type="text" class="form-control" placeholder="">
+                                              <span class="input-group-addon" id="">
+                                                  <button class="btn btn-primary" name="button_pemenuhan" id="button_15" ><i class="icofont icofont-check"></i></button>
+                                               </span>
+                                          </div>
+                                      </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>b</td>
+                                    <td>Asistensi Peningkatan Kualitas perencanaan pengelolaan sampah terpadu</td>
+                                    <td>Kemendagri</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_16" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_16" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>c</td>
+                                    <td>Workshop integrasi kebijakan pengelolaan sampah terpadu dalam dokumen Perencanaan Pembangunan Daerah</td>
+                                    <td>Kemendagri</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                          <input name="input_pemenuhan" id="input_17" type="text" class="form-control" placeholder="">
+                                          <span class="input-group-addon" id="">
+                                              <button class="btn btn-primary" name="button_pemenuhan" id="button_17" ><i class="icofont icofont-check"></i></button>
+                                           </span>
+                                      </div>
+                                  </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>d</td>
+                                    <td>Lokakarya peningkatan kapasitas Pemda dalam pengelolaan sampah terpadu</td>
+                                    <td>Kemendagri</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_18" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_18" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>e</td>
+                                    <td>Asistensi Penyusunan Program dan Kegiatan Tahunan</td>
+                                    <td>Kemendagri</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_19" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_19" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <!--  -->
+                                  <tr>
+                                    <td rowspan="5">Peningkatan Kapasitas Seluruh Pelaku Pengelolaan Sampah</td>
+                                    <td colspan="2">Kampanye Publik (Penyadaran Publik)</td>
+                                    <td>Kemendagri</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_20" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_20" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>a</td>
+                                    <td>Kampanye publik berbasis media sosial</td>
+                                    <td>KLHK dan Kemendagri</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_21" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_21" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>b</td>
+                                    <td>Kampanye publik berbasis media cetak</td>
+                                    <td>KLHK dan Kemendagri</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_22" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_22" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>c</td>
+                                    <td>Penyiaran serial film dan video tentang pengelolaan sampah</td>
+                                    <td>KLHK dan Kemendagri</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_23" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_23" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2">Bantuan Teknis Pemberdayaan Masyarakat</td>
+                                    <td>Kemendagri</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_24" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_24" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+
+                                </tbody>
+                                <thead>
+                                    <tr class="bg-inverse">
+                                      <td colspan="5">Komponen 3 : Peningkatan Infrastruktur Pengelolaan Sampah</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td rowspan="16">Pelaksanaan Pembangunan Sarana dan Prasarana Pengelolaan Sampah</td>
+                                    <td colspan="2">Konstruksi Infrastruktur Pengelolaan Sampah</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_25" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_25" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2">Kota Bandung (Metro Bandung)</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_26" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_26" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>a</td>
+                                    <td>Pembangunan TPST RDF Kota Bandung (2 lokasi)</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_27" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_27" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2">Kabupaten Purwakarta (Non-Metro Bandung)</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_28" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_28" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>a</td>
+                                    <td>Pembangunan TPST RDF Kab. Purwakarta (1 lokasi)</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_29" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_29" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>b</td>
+                                    <td>Pembangunan TPST Konvensional Kab. Purwakarta (2 unit)</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_30" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_30" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2">Kabupaten Karawang (Non-Metro Bandung)</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_31" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_31" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>a</td>
+                                    <td>Pembangunan TPST RDF Karawang (1 lokasi)</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                          <input name="input_pemenuhan" id="input_32" type="text" class="form-control" placeholder="">
+                                          <span class="input-group-addon" id="">
+                                              <button class="btn btn-primary" name="button_pemenuhan" id="button_32" ><i class="icofont icofont-check"></i></button>
+                                           </span>
+                                      </div>
+                                  </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>b</td>
+                                    <td>Pembangunan TPST Konvensional Kab. Karawang (2 unit)</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_33" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_33" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2">Pengadaan prasarana dan sarana pendukung</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                              <input name="input_pemenuhan" id="input_34" type="text" class="form-control" placeholder="">
+                                              <span class="input-group-addon" id="">
+                                                  <button class="btn btn-primary" name="button_pemenuhan" id="button_34" ><i class="icofont icofont-check"></i></button>
+                                               </span>
+                                          </div>
+                                      </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2">Pendampingan sistem dan operasional infrastruktur</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_35" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_35" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>a</td>
+                                    <td>Pendampingan sistem dan operasional infrastruktur TPST Konvensional Kab. Karawang dan Purwakarta (4 unit)</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_36" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_36" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2">Supervisi konstruksi infrastruktur</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_37" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_37" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>a</td>
+                                    <td>Supervisi Pembangunan TPST RDF Karawang dan Purwakarta (2 lokasi)</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_38" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_38" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>b</td>
+                                    <td>Supervisi Pembangunan TPST RDF Kota Bandung (2 lokasi)</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_39" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_39" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>c</td>
+                                    <td>Supervisi Pembangunan TPST Konvensional Karawang dan Purwakarta (4 lokasi)</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                              <input name="input_pemenuhan" id="input_40" type="text" class="form-control" placeholder="">
+                                              <span class="input-group-addon" id="">
+                                                  <button class="btn btn-primary" name="button_pemenuhan" id="button_40" ><i class="icofont icofont-check"></i></button>
+                                               </span>
+                                          </div>
+                                      </td>
+
+                                  </tr>
+                                </tbody>
+                                <thead>
+                                    <tr class="bg-inverse">
+                                      <td colspan="5">Komponen 4: Dukungan Pelaksanaan Program, Bantuan Teknis dan Monitoring dan Evaluasi</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>Penguatan Sistem Informasi Persampahan Nasional</td>
+                                    <td colspan="2">Pelaksanaan pendampingan penyampaian data sistem informasi pengelolaan sampah</td>
+                                    <td>KLHK</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_41" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_41" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <!--  -->
+                                  <tr>
+                                    <td rowspan="3">Monitoring & Evaluasi dan Pelaporan Program ISWMP</td>
+                                    <td colspan="2">Pengembangan sistem monitoring dan evaluasi Platform</td>
+                                    <td>Bappenas</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                              <input name="input_pemenuhan" id="input_42" type="text" class="form-control" placeholder="">
+                                              <span class="input-group-addon" id="">
+                                                  <button class="btn btn-primary" name="button_pemenuhan" id="button_42" ><i class="icofont icofont-check"></i></button>
+                                               </span>
+                                          </div>
+                                      </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2">Pelaksanaan monitoring & evaluasi (Pengendalian, Evaluasi dan Pelaporan)</td>
+                                    <td>Bappenas, KLHK, Kemen PUPR, Kemendagri</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                          <input name="input_pemenuhan" id="input_43" type="text" class="form-control" placeholder="">
+                                          <span class="input-group-addon" id="">
+                                              <button class="btn btn-primary" name="button_pemenuhan" id="button_43" ><i class="icofont icofont-check"></i></button>
+                                           </span>
+                                      </div>
+                                  </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2">Bantuan Hibah Sarana Pengelolaan Sampah kepada Kelompok Masyarakat (Reward untuk desa/kelurahan dengan tingkat pengurangan tinggi)</td>
+                                    <td>Kemendagri</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_44" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_44" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <!--  -->
+                                  <tr>
+                                    <td rowspan="5">Dukungan Pelaksanaan Program ISWMP</td>
+                                    <td colspan="2">Pelaksanaan Kegiatan NPMC</td>
+                                    <td>Kemen PUPR</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_45" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_45" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2">Dukungan operasional dan manajemen kesekretariatan</td>
+                                    <td>Kemendagri</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_46" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_46" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2">Koordinasi Stakeholder (CPMU, CPIU, PIU)</td>
+                                    <td>Bappenas Kemen PUPR, Kemendagri, KLHK</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                          <input name="input_pemenuhan" id="input_47" type="text" class="form-control" placeholder="">
+                                          <span class="input-group-addon" id="">
+                                              <button class="btn btn-primary" name="button_pemenuhan" id="button_47" ><i class="icofont icofont-check"></i></button>
+                                           </span>
+                                      </div>
+                                  </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2">Dukungan Penyelenggaraan Seminar Nasional</td>
+                                    <td>Bappenas</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                              <input name="input_pemenuhan" id="input_48" type="text" class="form-control" placeholder="">
+                                              <span class="input-group-addon" id="">
+                                                  <button class="btn btn-primary" name="button_pemenuhan" id="button_48" ><i class="icofont icofont-check"></i></button>
+                                               </span>
+                                          </div>
+                                      </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2">Pembelajaran horizontal bagi pemerintah kota/kabupaten</td>
+                                    <td>Bappenas</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_49" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_49" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+
+                                  </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Base style - Hover table end -->
+            </div>
+            <!-- Page-body end -->
+        </div>
+    </div>
+    <div id="styleSelector">
+
+    </div>
+
+
+    <!-- Sign in modal start -->
+    <div class="modal fade" id="sign-in-modal" name="in-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Form Kegiatan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-b-0">
+                      <div class="row">
+                        <div class="col-sm-12">
+                            <label class="form-control-label">Pilih Komponen</label>
+                            <select id="pilih_komponen" class="js-example-basic-single-modal col-sm-12">
+                            </select>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                            <label class="form-control-label">Pilih Program</label>
+                            <select id="pilih_program" class="js-example-basic-single-modal col-sm-12">
+                              <option> - Pilih - </option>
+                            </select>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-sm-12">
+                            <div>
+                                <label class="form-control-label">Nama Kegiatan</label>
+                                <input type="text" id="nama_kegiatan" class="form-control" placeholder="">
+                            </div>
+                          </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                            <label class="form-control-label">CPIU Pelaksana</label>
+                            <select id="pilih_pelaksana" class="js-example-basic-single-modal col-sm-12">
+                              <option> - Pilih - </option>
+                            </select>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-sm-12">
+                            <div>
+                                <label class="form-control-label">Pemenuhan Kegiatan (%)</label>
+                                <input type="text" id="value_kegiatan" class="form-control" placeholder="">
+                            </div>
+                          </div>
+                      </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="ti-close"></i> Batal </button>
+                    <button type="button" class="btn btn-primary" id="save-kegiatan"><i class="ti-check-box"></i> Simpan </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sign in modal end -->
+
+<div id="modal_user" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Program</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form">
+					<!-- #section:elements.form -->
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_name"> Username </label>
+
+						<div class="col-sm-9">
+							<input type="text" id="user_name" placeholder="username" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_fullname"> Fullname </label>
+
+						<div class="col-sm-9">
+							<input type="text" id="user_fullname" placeholder="Full Name" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_fullname"> NIP </label>
+
+						<div class="col-sm-9">
+							<input type="text" id="user_nip" placeholder="NIP" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_role"> Role Level </label>
+
+						<div class="col-sm-9">
+						  	<select class="chosen-select form-control" id="user_role" data-placeholder="select role...">
+						  		<option value="">  </option>
+						  		<option value="10">admin</option>
+						  		<option value="20">operator</option>
+						  		<option value="30">ppk</option>
+						  		<option value="40">pptk</option>
+
+						  	</select>
+						</div>
+					</div>
+
+				</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-xs btn-danger" data-dismiss="modal"><i class="ace-icon fa fa-close"></i>close</button>
+        <button type="button" class="btn btn-xs btn-success" data-dismiss="modal"  ><i class="ace-icon fa fa-check"></i>submit</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- <script src="{{baseURL}}/assets/action-js/admin/datapengaduan.js"></script> -->
+{% endblock %}

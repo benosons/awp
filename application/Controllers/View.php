@@ -134,6 +134,17 @@ class View extends \CodeIgniter\Controller
 				}
 	}
 
+	public function data()
+	{
+				if($this->logged){
+					helper('form');
+					$this->data['script'] = $this->data['baseURL'].'/action-js/admin/data/data-index.js';
+					return \Twig::instance()->display('admin/data/data-index.html', $this->data);
+				}else{
+					return redirect('home');
+				}
+	}
+
 	public function subkegiatan()
 	{
 				if($this->logged){

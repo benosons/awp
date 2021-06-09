@@ -86,7 +86,7 @@ $routes->add('pelaksana', 'View::pelaksana');
 $routes->add('komponen', 'View::komponen');
 $routes->add('program', 'View::program');
 $routes->add('kegiatan', 'View::kegiatan');
-$routes->add('kegiatan', 'View::kegiatan');
+$routes->add('data', 'View::data');
 
 $routes->add('auth', 'Auth::auth');
 $routes->add('reg', 'Auth::reg');
@@ -99,6 +99,7 @@ $routes->post('actionUsers', 'Jsondata::actionUsers');
 $routes->post('actionData', 'Jsondata::actionData');
 $routes->post('addUser', 'Jsondata::addUser');
 $routes->post('addData', 'Jsondata::addData');
+$routes->post('updateData', 'Jsondata::updateData');
 
 
 

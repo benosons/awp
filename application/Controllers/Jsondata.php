@@ -1401,22 +1401,22 @@ class Jsondata extends \CodeIgniter\Controller
 
 	}
 
-	public function update(){
+	public function updateData(){
 
 		$request  = $this->request;
-		$id 	  = $request->getVar('id');
+		$id 	  = $request->getVar('id_param');
 		$role 		= $this->data['role'];
 		$userid		= $this->data['userid'];
 
-		$model 	  = new \App\Models\PengaduanModel();
+		$model 	  = new \App\Models\DataModel();
 
 		$data = [
-						'update_date' => $this->now,
-						'update_by' 	=> $userid,
-						'status' 			=> 1,
+						'updated_date'=> $this->now,
+						'updated_by' 	=> $userid,
+						'value' 			=> $request->getVar('value'),
         ];
-
-		$res = $model->update($id, $data);
+		
+		$res = $model->updateData($id, $data);
 
 		$response = [
 				'status'   => 'sukses',
@@ -2230,12 +2230,10 @@ class Jsondata extends \CodeIgniter\Controller
 				$userid		= $this->data['userid'];
 
 					$model = new \App\Models\UserModel();
-					$modelparam = new \App\Models\ParamModel();
 					$modelfiles = new \App\Models\FilesModel();
 
 						$fulldata = [];
 						$datauser = $model->getUsers($userid);
-
 						foreach ($datauser as $keyuser => $valueuser) {
 							$datafiles = $modelfiles->getWhere(['id_parent' => $valueuser['user_id']])->getRow();
 							$obj_merged = (object) array_merge((array) $valueuser, (array) $datafiles);
