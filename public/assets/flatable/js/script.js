@@ -239,7 +239,7 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event) {
         Color picker - demo only
         --------------------------------------------------------   */
         (function() {
-          $(`<div class="selector-toggle">
+          $(`<div class="selector-toggle" hidden>
               <a href="javascript:void(0)"></a>
             </div>
             <div class="style-cont">
