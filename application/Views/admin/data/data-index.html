@@ -33,133 +33,160 @@
                         <!-- <h5>Base style - hover</h5> -->
                         <!-- <span>This example shows DataTables with just the hover class specified. This class will instruct DataTables' styling to highlight a row when the mouse is hovered over it.</span> -->
                         <div class="card-header-right" style="padding-right:0.5rem;">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#sign-in-modal" data-backdrop="static"><i class="icofont icofont icofont-ui-add"></i>Tambah Kegiatan</button>
+                            <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#sign-in-modal" data-backdrop="static"><i class="icofont icofont icofont-ui-add"></i>Tambah Kegiatan</button> -->
                         </div>
                     </div>
                     <div class="card-block">
                         <div class="dt-responsive table-responsive">
-                            <table id="all-data" class="table table-hover table-bordered nowrap" style="font-size:12px;width: 100%;">
+                            <table id="all-data" class="table table-hover table-bordered" style="font-size:12px;width: 100%;" cellspacing="0">
                                 <thead>
                                     <tr class="bg-inverse">
-                                        <th width="50px">Program</th>
+                                        <th>Program</th>
                                         <th colspan="2">Kegiatan</th>
                                         <th>CPIU Pelaksana</th>
                                         <th>Pemenuhan Kegiatan (%)</th>
-                                    </tr>
-                                    <tr class="bg-inverse">
-                                      <td colspan="5">Komponen 1 : Peningkatan Kapasitas Kelembagaan dan Pengembangan Kebijakan Pengelolaan Persampahan</td>
+                                        <th style="display: none"></th>
+                                        <th style="display: none"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                      <td rowspan="2">Pengembangan Platform Pengelolaan Sampah Nasional</td>
-                                      <td colspan="2">Finalisasi Platform Pengelolaan Sampah</td>
-                                      <td>Bappenas</td>
-                                      <td><div class="input-group input-group-sm input-group-button">
-                                              <input name="input_pemenuhan" id="input_1" type="text" class="form-control" placeholder="">
-                                              <span class="input-group-addon" id="">
-                                                  <button class="btn btn-primary" name="button_pemenuhan" id="button_1"><i class="icofont icofont-check"></i></button>
-                                               </span>
-                                          </div>
-                                      </td>
-
-                                    </tr>
-                                    <tr>
-                                      <td colspan="2" >Diseminasi Platform Pengelolaan Sampah kepada Daerah (Provinsi dan Kabupaten/Kota)</td>
-                                      <td>Bappenas</td>
-                                      <td><div class="input-group input-group-sm input-group-button">
-                                              <input name="input_pemenuhan" id="input_2" type="text" class="form-control" placeholder="">
-                                              <span class="input-group-addon" id="">
-                                                  <button class="btn btn-primary" name="button_pemenuhan" id="button_2" ><i class="icofont icofont-check"></i></button>
-                                               </span>
-                                          </div>
-                                      </td>
-
-                                    </tr>
-                                    <tr>
-                                      <td rowspan="3">Penguatan Peraturan Terkait Penanganan dan Pengurangan Sampah</td>
-                                      <td colspan="2">Pengembangan kebijakan terkait pengurangan dan penanganan sampah rumah tangga dan sampah sejenis sampah rumah tangga</td>
-                                      <td>KLHK</td>
-                                      <td><div class="input-group input-group-sm input-group-button">
-                                              <input name="input_pemenuhan" id="input_3" type="text" class="form-control" placeholder="">
-                                              <span class="input-group-addon" id="">
-                                                  <button class="btn btn-primary" name="button_pemenuhan" id="button_3" ><i class="icofont icofont-check"></i></button>
-                                               </span>
-                                          </div>
-                                      </td>
-
-                                    </tr>
-                                    <tr>
-                                      <td>a</td>
-                                      <td>Finalisasi pedoman turunan dari Permen LHK No. P.75 Tahun 2019 tentang Peta Jalan Pengurangan Sampah oleh Produsen</td>
-                                      <td>KLHK</td>
-                                      <td><div class="input-group input-group-sm input-group-button">
-                                              <input name="input_pemenuhan" id="input_4" type="text" class="form-control" placeholder="">
-                                              <span class="input-group-addon" id="">
-                                                  <button class="btn btn-primary" name="button_pemenuhan" id="button_4" ><i class="icofont icofont-check"></i></button>
-                                               </span>
-                                          </div>
-                                      </td>
-
-                                    </tr>
-                                    <tr>
-                                      <td>b</td>
-                                      <td>Penyusunan Pedoman terkait RDF</td>
-                                      <td>KLHK</td>
-                                      <td><div class="input-group input-group-sm input-group-button">
-                                              <input name="input_pemenuhan" id="input_5" type="text" class="form-control" placeholder="">
-                                              <span class="input-group-addon" id="">
-                                                  <button class="btn btn-primary" name="button_pemenuhan" id="button_5" ><i class="icofont icofont-check"></i></button>
-                                               </span>
-                                          </div>
-                                      </td>
-
-                                    </tr>
-                                    <tr>
-                                      <td rowspan="2">Penguatan Peraturan Tentang Sistem dan Mekanisme Pembiayaan Pengelolaan Sampah</td>
-                                      <td colspan="2">Penyusunan Kajian Model Bisnis Pengelolaan Sampah</td>
-                                      <td>Bappenas</td>
-                                      <td><div class="input-group input-group-sm input-group-button">
-                                            <input name="input_pemenuhan" id="input_6" type="text" class="form-control" placeholder="">
+                                  <tr class="bg-inverse">
+                                    <td colspan="5">Komponen 1 : Peningkatan Kapasitas Kelembagaan dan Pengembangan Kebijakan Pengelolaan Persampahan</td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                  </tr>
+                                  <tr>
+                                    <td rowspan="2">Pengembangan Platform Pengelolaan Sampah Nasional</td>
+                                    <td colspan="2">Finalisasi Platform Pengelolaan Sampah</td>
+                                    <td>Bappenas</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_1" type="text" class="form-control" placeholder="">
                                             <span class="input-group-addon" id="">
-                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_6" ><i class="icofont icofont-check"></i></button>
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_1"><i class="icofont icofont-check"></i></button>
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
-                                    </tr>
-                                    <tr>
-                                      <td colspan="2">Penyusunan Kajian Mekanisme Insentif dan Disinsentif dalam Pengelolaan Sampah</td>
-                                      <td>Bappenas</td>
-                                      <td><div class="input-group input-group-sm input-group-button">
-                                              <input name="input_pemenuhan" id="input_7" type="text" class="form-control" placeholder="">
-                                              <span class="input-group-addon" id="">
-                                                  <button class="btn btn-primary" name="button_pemenuhan" id="button_7" ><i class="icofont icofont-check"></i></button>
-                                               </span>
-                                          </div>
-                                      </td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2" >Diseminasi Platform Pengelolaan Sampah kepada Daerah (Provinsi dan Kabupaten/Kota)</td>
+                                    <td>Bappenas</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_2" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_2" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
-                                    </tr>
-                                    <tr>
-                                      <td>Pengembangan Kebijakan dan Strategi Pelibatan Seluruh Pelaku dan Konsep Komunikasi, Informasi dan Edukasi dalam Pengelolaan Sampah</td>
-                                      <td colspan="2">Penyusunan Permen LHK tentang Sistem Informasi Pengelolaan Sampah Nasional</td>
-                                      <td>KLHK</td>
-                                      <td><div class="input-group input-group-sm input-group-button">
-                                              <input name="input_pemenuhan" id="input_8" type="text" class="form-control" placeholder="">
-                                              <span class="input-group-addon" id="">
-                                                  <button class="btn btn-primary" name="button_pemenuhan" id="button_8" ><i class="icofont icofont-check"></i></button>
-                                               </span>
-                                          </div>
-                                      </td>
+                                  </tr>
+                                  <tr>
+                                    <td rowspan="3">Penguatan Peraturan Terkait Penanganan dan Pengurangan Sampah</td>
+                                    <td colspan="2">Pengembangan kebijakan terkait pengurangan dan penanganan sampah rumah tangga dan sampah sejenis sampah rumah tangga</td>
+                                    <td>KLHK</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_3" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_3" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
-                                    </tr>
-                                </tbody>
-                                <thead>
-                                    <tr class="bg-inverse">
+                                  </tr>
+                                  <tr>
+                                    <td>a</td>
+                                    <td>Finalisasi pedoman turunan dari Permen LHK No. P.75 Tahun 2019 tentang Peta Jalan Pengurangan Sampah oleh Produsen</td>
+                                    <td>KLHK</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_4" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_4" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>b</td>
+                                    <td>Penyusunan Pedoman terkait RDF</td>
+                                    <td>KLHK</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_5" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_5" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+
+                                  </tr>
+                                  <tr>
+                                    <td rowspan="2">Penguatan Peraturan Tentang Sistem dan Mekanisme Pembiayaan Pengelolaan Sampah</td>
+                                    <td colspan="2">Penyusunan Kajian Model Bisnis Pengelolaan Sampah</td>
+                                    <td>Bappenas</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                          <input name="input_pemenuhan" id="input_6" type="text" class="form-control" placeholder="">
+                                          <span class="input-group-addon" id="">
+                                              <button class="btn btn-primary" name="button_pemenuhan" id="button_6" ><i class="icofont icofont-check"></i></button>
+                                           </span>
+                                      </div>
+                                  </td>
+                                  <td style="display: none"></td>
+                                  <td style="display: none"></td>
+
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2">Penyusunan Kajian Mekanisme Insentif dan Disinsentif dalam Pengelolaan Sampah</td>
+                                    <td>Bappenas</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_7" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_7" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>Pengembangan Kebijakan dan Strategi Pelibatan Seluruh Pelaku dan Konsep Komunikasi, Informasi dan Edukasi dalam Pengelolaan Sampah</td>
+                                    <td colspan="2">Penyusunan Permen LHK tentang Sistem Informasi Pengelolaan Sampah Nasional</td>
+                                    <td>KLHK</td>
+                                    <td><div class="input-group input-group-sm input-group-button">
+                                            <input name="input_pemenuhan" id="input_8" type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon" id="">
+                                                <button class="btn btn-primary" name="button_pemenuhan" id="button_8" ><i class="icofont icofont-check"></i></button>
+                                             </span>
+                                        </div>
+                                    </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+
+                                  </tr>
+
+                                  <tr class="bg-inverse">
                                       <td colspan="5">Komponen 2 : Perencanaan Terpadu dan Peningkatan Kapasitas Bagi Pemerintah Daerah dan Masyarakat</td>
+                                      <td style="display: none"></td>
+                                      <td style="display: none"></td>
+                                      <td style="display: none"></td>
+                                      <td style="display: none"></td>
+                                      <td style="display: none"></td>
                                     </tr>
-                                </thead>
-                                <tbody>
+
                                   <tr>
                                     <td rowspan="5">Perencanaan Terpadu Sistem Pengelolaan Sampah</td>
                                     <td colspan="2">Penyusunan Rencana Induk Pengelolaan Sampah Skala Regional Metro Bandung</td>
@@ -171,6 +198,8 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -183,6 +212,9 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -195,6 +227,9 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -207,6 +242,9 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -219,6 +257,9 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <!--  -->
@@ -233,6 +274,8 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -246,6 +289,8 @@
                                                </span>
                                           </div>
                                       </td>
+                                      <td style="display: none"></td>
+                                      <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -259,6 +304,8 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -271,7 +318,9 @@
                                               <button class="btn btn-primary" name="button_pemenuhan" id="button_17" ><i class="icofont icofont-check"></i></button>
                                            </span>
                                       </div>
-                                  </td>
+                                    </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -285,6 +334,8 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -298,6 +349,8 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <!--  -->
@@ -312,6 +365,8 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -325,6 +380,8 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -338,6 +395,8 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -351,6 +410,8 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -363,16 +424,21 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
 
-                                </tbody>
-                                <thead>
                                     <tr class="bg-inverse">
                                       <td colspan="5">Komponen 3 : Peningkatan Infrastruktur Pengelolaan Sampah</td>
+                                      <td style="display: none"></td>
+                                      <td style="display: none"></td>
+                                      <td style="display: none"></td>
+                                      <td style="display: none"></td>
+                                      <td style="display: none"></td>
                                     </tr>
-                                </thead>
-                                <tbody>
+
                                   <tr>
                                     <td rowspan="16">Pelaksanaan Pembangunan Sarana dan Prasarana Pengelolaan Sampah</td>
                                     <td colspan="2">Konstruksi Infrastruktur Pengelolaan Sampah</td>
@@ -384,6 +450,8 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -396,6 +464,9 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -409,6 +480,7 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -421,6 +493,9 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -434,6 +509,8 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -447,6 +524,8 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -459,6 +538,9 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -471,7 +553,9 @@
                                               <button class="btn btn-primary" name="button_pemenuhan" id="button_32" ><i class="icofont icofont-check"></i></button>
                                            </span>
                                       </div>
-                                  </td>
+                                    </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -485,6 +569,8 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -497,6 +583,9 @@
                                                </span>
                                           </div>
                                       </td>
+                                      <td style="display: none"></td>
+                                      <td style="display: none"></td>
+                                      <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -509,6 +598,9 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -522,6 +614,8 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -534,6 +628,9 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -547,6 +644,8 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -560,6 +659,8 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -573,15 +674,18 @@
                                                </span>
                                           </div>
                                       </td>
+                                      <td style="display: none"></td>
+                                      <td style="display: none"></td>
 
                                   </tr>
-                                </tbody>
-                                <thead>
                                     <tr class="bg-inverse">
                                       <td colspan="5">Komponen 4: Dukungan Pelaksanaan Program, Bantuan Teknis dan Monitoring dan Evaluasi</td>
+                                      <td style="display: none"></td>
+                                      <td style="display: none"></td>
+                                      <td style="display: none"></td>
+                                      <td style="display: none"></td>
+                                      <td style="display: none"></td>
                                     </tr>
-                                </thead>
-                                <tbody>
                                   <tr>
                                     <td>Penguatan Sistem Informasi Persampahan Nasional</td>
                                     <td colspan="2">Pelaksanaan pendampingan penyampaian data sistem informasi pengelolaan sampah</td>
@@ -593,6 +697,8 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <!--  -->
@@ -607,6 +713,8 @@
                                                </span>
                                           </div>
                                       </td>
+                                      <td style="display: none"></td>
+                                      <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -618,7 +726,10 @@
                                               <button class="btn btn-primary" name="button_pemenuhan" id="button_43" ><i class="icofont icofont-check"></i></button>
                                            </span>
                                       </div>
-                                  </td>
+                                    </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -631,6 +742,9 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <!--  -->
@@ -645,6 +759,8 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -657,6 +773,9 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -668,7 +787,10 @@
                                               <button class="btn btn-primary" name="button_pemenuhan" id="button_47" ><i class="icofont icofont-check"></i></button>
                                            </span>
                                       </div>
-                                  </td>
+                                    </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -681,6 +803,9 @@
                                                </span>
                                           </div>
                                       </td>
+                                      <td style="display: none"></td>
+                                      <td style="display: none"></td>
+                                      <td style="display: none"></td>
 
                                   </tr>
                                   <tr>
@@ -693,6 +818,9 @@
                                              </span>
                                         </div>
                                     </td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
+                                    <td style="display: none"></td>
 
                                   </tr>
                                 </tbody>
