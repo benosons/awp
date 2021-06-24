@@ -1,5 +1,6 @@
 "use strict"
 $(document).ready(function(){
+
   $('.pcoded-navbar').attr("pcoded-navbar-position", 'fixed' );
   $('.pcoded-header .pcoded-left-header').attr("pcoded-lheader-position", 'fixed' );
 
@@ -19,5 +20,11 @@ $(document).ready(function(){
   $(".js-example-basic-single-modal").select2({
     dropdownParent: $("[name='in-modal']")
   });
+
+  if($('#is_open').val() == 1){
+    $('.pcoded-navbar').css('display', 'none');
+    $('#pcoded').attr('vertical-nav-type', 'collapsed');
+    $('.pcoded-header').css('display', 'none');
+  }
 
 });
