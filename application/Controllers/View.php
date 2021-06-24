@@ -139,11 +139,11 @@ class View extends \CodeIgniter\Controller
 		helper('form');
 		$request  = $this->request;
 		$param 	  = $request->getGet('param');
-		if($param){
+		if($param == 1){
 			$this->data['isOpen'] = 1;
 			$this->data['script'] = $this->data['baseURL'].'/action-js/admin/data/data-index.js';
 			return \Twig::instance()->display('admin/data/data-index.html', $this->data);
-		}else{
+		}else if($param == 0){
 			if($this->logged){
 			
 				$this->data['isOpen'] = 0;
