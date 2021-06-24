@@ -40,7 +40,18 @@ function loaddata(param, ids){
           let data = result.data;
 
           for (var i = 0; i < data.length; i++) {
-            $('#'+data[i].param).val(data[i].value);
+            if($('#is_open').val() == 1){
+              let val = data[i].value;
+              $('#'+data[i].param).parent().after(val);
+              $('#'+data[i].param).parent().hide();
+              let note = data[i].note;
+              $('#'+data[i].param.replace("input", "catatan")).after(note);
+              $('#'+data[i].param.replace("input", "catatan")).hide();
+              
+            }else{
+              $('#'+data[i].param).val(data[i].value);
+              $('#'+data[i].param.replace("input", "catatan")).val(data[i].note);
+            }
           }
         }
       })
