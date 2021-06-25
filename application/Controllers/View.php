@@ -155,6 +155,17 @@ class View extends \CodeIgniter\Controller
 		}
 	}
 
+	public function budget()
+	{
+				if($this->logged){
+					helper('form');
+					$this->data['script'] = $this->data['baseURL'].'/action-js/admin/budget/budget-index.js';
+					return \Twig::instance()->display('admin/budget/budget-index.html', $this->data);
+				}else{
+					return redirect('home');
+				}
+	}
+
 	public function subkegiatan()
 	{
 				if($this->logged){

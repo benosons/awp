@@ -76,4 +76,20 @@ class DataModel extends Model{
       return true;
     }
 
+    public function getinstansi($table = null, $ids = null)
+    {
+      $builder = $this->db->table('data_instansi');
+      $builder->select('data_instansi.id_instansi, data_instansi.nama_instansi, komponen_instansi.id_komponen, komponen_instansi.nama_komponen, komponen_instansi.revisi_usd as dipa_rev_usd, komponen_instansi.revisi_idr as diva_rev_idr, komponen_instansi.realisasi_usd as real_usd, komponen_instansi.realisasi_idr as real_idr, komponen_instansi.sisa_usd as sisa_usd, komponen_instansi.sisa_idr as sisa_idr, komponen_instansi.persen_usd as persen_usd, komponen_instansi.persen_idr as persen_idr, 
+      (select sum(revisi_usd) from komponen_instansi where id_instansi = data_instansi.id_instansi ) as dipa_rev_total_usd,
+      (select sum(revisi_idr) from komponen_instansi where id_instansi = data_instansi.id_instansi ) as dipa_rev_total_idr,
+      (select sum(realisasi_usd) from komponen_instansi where id_instansi = data_instansi.id_instansi ) as real_total_usd,
+      (select sum(realisasi_idr) from komponen_instansi where id_instansi = data_instansi.id_instansi ) as real_total_idr,
+      (select sum(sisa_usd) from komponen_instansi where id_instansi = data_instansi.id_instansi ) as sisa_total_usd,
+      (select sum(sisa_idr) from komponen_instansi where id_instansi = data_instansi.id_instansi ) as sisa_total_idr ');
+      $builder->join('komponen_instansi', 'komponen_instansi.id_instansi = data_instansi.id_instansi');
+      $query = $builder->get();
+      // echo $this->db->getLastQuery();die;
+      return  $query->getResult();
+    }
+
 }
