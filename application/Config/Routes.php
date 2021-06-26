@@ -102,6 +102,7 @@ $routes->post('addUser', 'Jsondata::addUser');
 $routes->post('addData', 'Jsondata::addData');
 $routes->post('updateData', 'Jsondata::updateData');
 $routes->post('loadinstansi', 'Jsondata::loadinstansi');
+$routes->post('saveRealisasi', 'Jsondata::saveRealisasi');
 
 
 

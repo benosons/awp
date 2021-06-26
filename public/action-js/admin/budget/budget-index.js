@@ -11,19 +11,18 @@ $("#dropper-default").dateDropper({
     dropWidth: 150,
     dropPrimaryColor: "#1abc9c",
     dropBorder: "1px solid #1abc9c",
-    format: 'M - Y'
+    format: 'm/Y'
 }),
 
 $($('div#dd-w-0').children().children().children()[1]).remove()
 
-  $('[name="button_pemenuhan"]').on('click', function(){
-    let ids = $(this).parent().prev().attr('id');
-    let val = $(this).parent().prev().val();
-
+  $('#save-realisasi').on('click', function(){
     var formData = new FormData();
-    formData.append('param', 'data');
-    formData.append('id_param', ids);
-    formData.append('value', val);
+    for (let i = 1; i <= 11; i++) {        
+        formData.append('komponen_'+i+'_usd', $('#komponen_'+i+'_usd').val());
+        formData.append('komponen_'+i+'_idr', $('#komponen_'+i+'_idr').val());
+    }
+    formData.append('id_param', 1);
     save(formData);
   })
 
@@ -92,6 +91,24 @@ function loaddata(param, ids){
                     },
                     {
                         mRender: function ( data, type, row ) {
+      
+                          var el = data+`%`;
+      
+                            return el;
+                        },
+                        aTargets: [ 9 ]
+                    },
+                    {
+                        mRender: function ( data, type, row ) {
+      
+                          var el = data+`%`;
+      
+                            return el;
+                        },
+                        aTargets: [ 10 ]
+                    },
+                    {
+                        mRender: function ( data, type, row ) {
                             
                           var el = rubah(data);
       
@@ -122,8 +139,10 @@ function loaddata(param, ids){
                         let total_rev_idr = rubah(data.dipa_rev_total_idr);
                         let total_real_usd = rubah(data.real_total_usd);
                         let total_real_idr = rubah(data.real_total_idr);
-                        let total_sisa_usd = rubah(data.sisa_total_usd);
-                        let total_sisa_idr = rubah(data.sisa_total_idr);
+                        let total_sisa_usd = data.sisa_total_usd ? rubah(data.sisa_total_usd) : 0;
+                        let total_sisa_idr = data.sisa_total_idr ? rubah(data.sisa_total_idr) : 0;
+                        let total_persen_usd = Math.round(data.real_total_usd / data.dipa_rev_total_usd * 100);
+                        let total_persen_idr = Math.round(data.real_total_idr / data.dipa_rev_total_idr * 100);
                         if ( last !== group ) {
                             console.log();
                             
@@ -137,8 +156,8 @@ function loaddata(param, ids){
                                     <td class="text-right" name="total_real_idr" value=`+total_real_idr+`>`+total_real_idr+`</td>
                                     <td class="text-right" name="total_sisa_usd" value=`+total_sisa_usd+`>`+total_sisa_usd+`</td>
                                     <td class="text-right" name="total_sisa_idr" value=`+total_sisa_idr+`>`+total_sisa_idr+`</td>
-                                    <td class="text-right">7</td>
-                                    <td class="text-right">8</td>
+                                    <td class="text-right">`+total_persen_usd+`%</td>
+                                    <td class="text-right">`+total_persen_idr+`%</td>
                                     <td></td>
                                 </tr>`
                             );
@@ -202,8 +221,8 @@ function loaddata(param, ids){
                     <td class="text-right">`+rubah(real_idr)+`</td>
                     <td class="text-right">`+rubah(sisa_usd)+`</td>
                     <td class="text-right">`+rubah(sisa_idr)+`</td>
-                    <td class="text-right">`+Math.floor(real_usd/rev_usd*100)+`%</td>
-                    <td class="text-right">`+Math.floor(real_idr/rev_idr*100)+`%</td>
+                    <td class="text-right">`+Math.round(real_usd/rev_usd*100)+`%</td>
+                    <td class="text-right">`+Math.round(real_idr/rev_idr*100)+`%</td>
                     <td class="text-right"></td>
                     </tr>
                     </tfoot>`)
@@ -226,10 +245,10 @@ function save(formData){
       type: 'post',
       processData: false,
       contentType: false,
-      url: 'updateData',
+      url: 'saveRealisasi',
       data : formData,
       success: function(result){
-          loaddata('data');
+        //   loaddata('data');
       }
     });
   };

@@ -1776,6 +1776,60 @@ class Jsondata extends \CodeIgniter\Controller
 
 	}
 
+	public function saveRealisasi(){
+
+		$request  = $this->request;
+		$param 	  = $request->getVar('param');
+		$model 	  = new \App\Models\DataModel();
+		$userid		= $this->data['userid'];
+
+		for ($i=1; $i <= 11; $i++) { 
+			
+			$kom = $model->getKomponen($i);
+			$data_komponen = $kom[0];
+			
+			$data_realisasi = [
+				'id_komponen' => $i,
+				'usd' 		  => $request->getVar('komponen_'.$i.'_usd'),
+				'idr' 		  => $request->getVar('komponen_'.$i.'_idr'),
+				'create_date' => $this->now,
+				'create_by'   => $userid
+				
+			];
+			
+			$real = $model->saveData('realisasi', $data_realisasi);
+			$id  = $model->insertID();
+
+			$data_sisa = [
+				'id_parent'   => $id,
+				'usd' 		  => (int)$data_komponen->revisi_usd - (int)$request->getVar('komponen_'.$i.'_usd'),
+				'idr' 		  => (int)$data_komponen->revisi_idr - (int)$request->getVar('komponen_'.$i.'_idr'),
+				
+			];
+
+			$data_persen = [
+				'id_parent'   => $id,
+				'usd' 		  => round(((int)$request->getVar('komponen_'.$i.'_usd') / (int)$data_komponen->revisi_usd) * 100),
+				'idr' 		  => round(((int)$request->getVar('komponen_'.$i.'_idr') / (int)$data_komponen->revisi_idr) * 100),
+				
+			];
+
+			$sisa = $model->saveData('sisa_dipa', $data_sisa);
+			$persen = $model->saveData('persen', $data_persen);
+		}
+
+		$response = [
+				'status'   => 'sukses',
+				'code'     => '0',
+				'data' 		 => 'terkirim'
+		];
+
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+
+	}
+
 	public function addParam(){
 
 		$request  = $this->request;

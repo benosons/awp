@@ -85,59 +85,138 @@
 
     <!-- Sign in modal start -->
     <div class="modal fade" id="sign-in-modal" name="in-modal">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Form Kegiatan</h5>
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title">Form Budget dan Realisasi</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body p-b-0">
-                      <div class="row">
-                        <div class="col-sm-12">
-                            <label class="form-control-label">Pilih Komponen</label>
-                            <select id="pilih_komponen" class="js-example-basic-single-modal col-sm-12">
-                            </select>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-sm-12">
-                            <label class="form-control-label">Pilih Program</label>
-                            <select id="pilih_program" class="js-example-basic-single-modal col-sm-12">
-                              <option> - Pilih - </option>
-                            </select>
-                        </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                            <div>
-                                <label class="form-control-label">Nama Kegiatan</label>
-                                <input type="text" id="nama_kegiatan" class="form-control" placeholder="">
+                    <div class="card-block">
+                        <h4 class="sub-title"><b>CPIU (Direktorat Sanitasi)</b></h4>
+                        <div class="form-group row">
+                            <label name="komponen_1" class="col-sm-4 col-form-label">Komponen 4</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="USD" id="komponen_1_usd">
                             </div>
-                          </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-sm-12">
-                            <label class="form-control-label">CPIU Pelaksana</label>
-                            <select id="pilih_pelaksana" class="js-example-basic-single-modal col-sm-12">
-                              <option> - Pilih - </option>
-                            </select>
-                        </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                            <div>
-                                <label class="form-control-label">Pemenuhan Kegiatan (%)</label>
-                                <input type="text" id="value_kegiatan" class="form-control" placeholder="">
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="IDR" id="komponen_1_idr">
                             </div>
-                          </div>
-                      </div>
+                        </div>
+                    </div>
+                
+                    <div class="card-block">
+                        <h4 class="sub-title"><b>BANGDA ( Dit. SUPD I)</b></h4>
+                        <div class="form-group row">
+                            <label name="komponen_2" class="col-sm-4 col-form-label">Komponen 1</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="USD" id="komponen_2_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="IDR" id="komponen_2_idr">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label name="komponen_3" class="col-sm-4 col-form-label">Komponen 2</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="USD" id="komponen_3_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="IDR" id="komponen_3_idr">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label name="komponen_4" class="col-sm-4 col-form-label">Komponen 4</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="USD" id="komponen_4_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="IDR" id="komponen_4_idr">
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="card-block">
+                        <h4 class="sub-title"><b>BANGDA ( Dit. SUPD II)</b></h4>
+                        <div class="form-group row">
+                            <label name="komponen_5" class="col-sm-4 col-form-label">Komponen 1</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="USD" id="komponen_5_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="IDR" id="komponen_5_idr">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label name="komponen_6" class="col-sm-4 col-form-label">Komponen 2</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="USD" id="komponen_6_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="IDR" id="komponen_6_idr">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label name="komponen_7" class="col-sm-4 col-form-label">Komponen 4</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="USD" id="komponen_7_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="IDR" id="komponen_7_idr">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-block">
+                        <h4 class="sub-title"><b>Pelaksanaan Prasarana Permukiman Wilayah I</b> </h4>
+                        <div class="form-group row">
+                            <label name="komponen_8" class="col-sm-4 col-form-label">Komponen 3</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="USD" id="komponen_8_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="IDR" id="komponen_8_idr">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label name="komponen_9" class="col-sm-4 col-form-label">Komponen 4</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="USD" id="komponen_9_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="IDR" id="komponen_9_idr">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-block">
+                        <h4 class="sub-title"><b>Pelaksanaan Prasarana Permukiman Wilayah II</b> </h4>
+                        <div class="form-group row">
+                            <label name="komponen_10" class="col-sm-4 col-form-label">Komponen 3</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="USD" id="komponen_10_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="IDR" id="komponen_10_idr">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label name="komponen_11" class="col-sm-4 col-form-label">Komponen 4</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="USD" id="komponen_11_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="IDR" id="komponen_11_idr">
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal"><i class="ti-close"></i> Batal </button>
-                    <button type="button" class="btn btn-primary" id="save-kegiatan"><i class="ti-check-box"></i> Simpan </button>
+                    <button type="button" class="btn btn-primary" id="save-realisasi"><i class="ti-check-box"></i> Simpan </button>
                 </div>
             </div>
         </div>
