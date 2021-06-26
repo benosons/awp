@@ -106,7 +106,7 @@ p { font-size: 13px; }
 /*======= Typography css end ========*/
 /**  ===================== Modal css start
 ==========================  **/
-.modal { z-index: 99999999999; }
+.modal { z-index: 1060; }
 
 .bd-example .modal { display: block; position: inherit; background-color: #2C3E50; margin-bottom: 20px; }
 

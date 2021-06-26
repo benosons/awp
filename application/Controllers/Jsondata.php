@@ -1497,7 +1497,7 @@ class Jsondata extends \CodeIgniter\Controller
 				$id		 	  = $request->getVar('id');
 				$role 		= $this->data['role'];
 				$userid		= $this->data['userid'];
-
+				
 					$model = new \App\Models\DataModel();
 					$modelfiles = new \App\Models\FilesModel();
 
@@ -1536,11 +1536,11 @@ class Jsondata extends \CodeIgniter\Controller
 				$id		 	  = $request->getVar('id');
 				$role 		= $this->data['role'];
 				$userid		= $this->data['userid'];
-
+				
 					$model = new \App\Models\DataModel();
 					$modelfiles = new \App\Models\FilesModel();
 
-					$data = $model->getinstansi($param, $id);
+					$data = $model->getinstansi(str_replace("/","",$param), $id);
 
 					if($data){
 						$response = [
@@ -1792,6 +1792,7 @@ class Jsondata extends \CodeIgniter\Controller
 				'id_komponen' => $i,
 				'usd' 		  => $request->getVar('komponen_'.$i.'_usd'),
 				'idr' 		  => $request->getVar('komponen_'.$i.'_idr'),
+				'periode'	  => str_replace('/','',$request->getVar('periode')),
 				'create_date' => $this->now,
 				'create_by'   => $userid
 				

@@ -7,8 +7,8 @@
               <input hidden id="userid" value="{{userid}}">
               <input hidden id="role" value="{{role}}">
                 <div class="page-header-title">
-                    <h4>BUDGET DAN REALISASI TA 2021 LOAN ISWMP</h4>
-                    <span>Easy to customise core stylesheets</span>
+                    <h4>BUDGET DAN REALISASI LOAN ISWMP</h4>
+                    <!-- <span>Easy to customise core stylesheets</span> -->
                 </div>
                 <div class="page-header-breadcrumb">
                     <ul class="breadcrumb-title">
@@ -32,7 +32,7 @@
                         <!-- <span>This example shows DataTables with just the hover class specified. This class will instruct DataTables' styling to highlight a row when the mouse is hovered over it.</span> -->
                         <div class="row">
                             <div class="col-sm-2">
-                                <input id="dropper-default" class="form-control" type="text" placeholder="Select your date" />
+                                <input id="pilih-bulan" data-dd-hide-day="true" name="dropper-default" class="form-control form-control-center" type="text" placeholder="Select your date" />
                             </div>
 
                             <div class="col-sm-6">
@@ -53,7 +53,7 @@
                                         <th rowspan="2"><center>Nama Instansi</center></th>
                                         <th colspan="2"><center>Dipa Revisi</center></th>
                                         <th colspan="2"><center>Realisasi</center></th>
-                                        <th colspan="2"><center>Sisa Diva</center></th>
+                                        <th colspan="2"><center>Sisa Dipa</center></th>
                                         <th colspan="2"><center>%</center></th>
                                         {% if isOpen != 1 %}
                                         <th rowspan="2"><center>Action</center></th>
@@ -96,6 +96,13 @@
                     </button>
                 </div>
                 <div class="modal-body p-b-0">
+                    <div class="card-block">
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <input id="pilih-bulan-input" name="dropper-default" class="form-control form-control-center" type="text" placeholder="Select your date" />
+                            </div>
+                        </div>
+                    </div>
                     <div class="card-block">
                         <h4 class="sub-title"><b>CPIU (Direktorat Sanitasi)</b></h4>
                         <div class="form-group row">

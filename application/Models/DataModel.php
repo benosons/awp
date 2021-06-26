@@ -76,7 +76,7 @@ class DataModel extends Model{
       return true;
     }
 
-    public function getinstansi($table = null, $ids = null)
+    public function getinstansi($param = null, $ids = null)
     {
       $builder = $this->db->table('data_instansi');
       $builder->select('`data_instansi`.`id_instansi`,
@@ -94,26 +94,27 @@ class DataModel extends Model{
       (select sum(revisi_usd) from komponen_instansi ki where ki.id_instansi = data_instansi.id_instansi) as dipa_rev_total_usd, 
       (select sum(revisi_idr) from komponen_instansi ki where ki.id_instansi = data_instansi.id_instansi) as dipa_rev_total_idr, 
 
-      (select sum(r1.usd) from realisasi r1 join komponen_instansi ki on ki.id_komponen = r1.id_komponen join data_instansi di on di.id_instansi = ki.id_instansi where di.id_instansi = data_instansi.id_instansi) as real_total_usd, 
-      (select sum(r1.idr) from realisasi r1 join komponen_instansi ki on ki.id_komponen = r1.id_komponen join data_instansi di on di.id_instansi = ki.id_instansi where di.id_instansi = data_instansi.id_instansi) as real_total_idr, 
+      (select sum(r1.usd) from realisasi r1 join komponen_instansi ki on ki.id_komponen = r1.id_komponen join data_instansi di on di.id_instansi = ki.id_instansi where di.id_instansi = data_instansi.id_instansi and r1.periode = '.$param.') as real_total_usd, 
+      (select sum(r1.idr) from realisasi r1 join komponen_instansi ki on ki.id_komponen = r1.id_komponen join data_instansi di on di.id_instansi = ki.id_instansi where di.id_instansi = data_instansi.id_instansi and r1.periode = '.$param.') as real_total_idr, 
 
       (select sum(s.usd) from sisa_dipa s 
       join realisasi r on r.id = s.id_parent
       join komponen_instansi k on k.id_komponen = r.id_komponen
       join data_instansi d on d.id_instansi = k.id_instansi
-      where d.id_instansi = data_instansi.id_instansi) as sisa_total_usd, 
+      where d.id_instansi = data_instansi.id_instansi and r.periode = '.$param.') as sisa_total_usd, 
 
       (select sum(s.idr) from sisa_dipa s 
       join realisasi r on r.id = s.id_parent
       join komponen_instansi k on k.id_komponen = r.id_komponen
       join data_instansi d on d.id_instansi = k.id_instansi
 
-      where d.id_instansi = data_instansi.id_instansi) as sisa_total_idr ');
+      where d.id_instansi = data_instansi.id_instansi and r.periode = '.$param.') as sisa_total_idr ');
 
       $builder->join('komponen_instansi', 'komponen_instansi.id_instansi = data_instansi.id_instansi');
       $builder->join('realisasi', 'realisasi.id_komponen = komponen_instansi.id_komponen');
       $builder->join('sisa_dipa', 'sisa_dipa.id_parent = realisasi.id');
       $builder->join('persen', 'persen.id_parent = realisasi.id');
+      $builder->where('realisasi.periode', $param);
       $query = $builder->get();
       // echo $this->db->getLastQuery();die;
       return  $query->getResult();

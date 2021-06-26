@@ -7,22 +7,30 @@ $(document).ready(function(){
 
   $('#all-budget').DataTable();
 
-$("#dropper-default").dateDropper({
+  for (let i = 1; i <= 11; i++) {
+      $('#komponen_'+i+'_usd').mask('000.000.000.000.000', {reverse: true});      
+      $('#komponen_'+i+'_idr').mask('000.000.000.000.000', {reverse: true});      
+  }
+
+$("[name='dropper-default']").dateDropper({
     dropWidth: 150,
     dropPrimaryColor: "#1abc9c",
     dropBorder: "1px solid #1abc9c",
-    format: 'm/Y'
+    format: 'm/Y',
+    minYear: "2021",
 }),
 
-$($('div#dd-w-0').children().children().children()[1]).remove()
+// $($('div#dd-w-0').children().children().children()[1]).remove()
+// $($('div#dd-w-1').children().children().children()[1]).remove()
 
   $('#save-realisasi').on('click', function(){
     var formData = new FormData();
-    for (let i = 1; i <= 11; i++) {        
+    for (let i = 1; i <= 11; i++) {  
+        formData.append('periode', $('#pilih-bulan-input').val());
         formData.append('komponen_'+i+'_usd', $('#komponen_'+i+'_usd').val());
         formData.append('komponen_'+i+'_idr', $('#komponen_'+i+'_idr').val());
     }
-    formData.append('id_param', 1);
+    
     save(formData);
   })
 
@@ -31,8 +39,8 @@ $($('div#dd-w-0').children().children().children()[1]).remove()
     loaddata('data_program', this.value);
   });
 
-  $('#dropper-default').on('change', function(){
-      loaddata('');
+  $('#pilih-bulan').on('change', function(){
+      loaddata(this.value);
 
   })
 
@@ -54,7 +62,9 @@ function loaddata(param, ids){
       },
       success: function(result){
           let data = result.data;
-
+          let code = result.code;
+        if(code == '1'){
+            
             var groupColumn = 1;
             var table = $('#all-budget').DataTable({
                 destroy: true,
@@ -244,7 +254,12 @@ function loaddata(param, ids){
                     </tr>
                     </tfoot>`);
                 }
-            } );
+            });
+        }else{
+            var table = $('#all-budget').DataTable();
+            table.clear().draw();
+            $("#all-budget").find("tfoot").remove();
+        }
 
             
         }
@@ -252,6 +267,7 @@ function loaddata(param, ids){
     }
 
 function rubah(angka){
+    angka = angka ? angka : 0;
     var reverse = angka.toString().split('').reverse().join(''),
     ribuan = reverse.match(/\d{1,3}/g);
     ribuan = ribuan.join('.').split('').reverse().join('');
@@ -267,7 +283,7 @@ function save(formData){
       url: 'saveRealisasi',
       data : formData,
       success: function(result){
-        //   loaddata('data');
+        location.reload();
       }
     });
   };
