@@ -38,7 +38,7 @@
                             <div class="col-sm-6">
                             </div>
                             <div class="col-sm-4 ">
-                                <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#sign-in-modal" data-backdrop="static"><i class="icofont icofont icofont-ui-add"></i>Tambah</button>
+                                <button id="btn-tambah" class="btn btn-primary pull-right" data-toggle="modal" data-target="#sign-in-modal" data-backdrop="static"><i class="icofont icofont icofont-ui-add"></i>Tambah</button>
                             </div>
                         
                         </div>
@@ -55,7 +55,9 @@
                                         <th colspan="2"><center>Realisasi</center></th>
                                         <th colspan="2"><center>Sisa Diva</center></th>
                                         <th colspan="2"><center>%</center></th>
+                                        {% if isOpen != 1 %}
                                         <th rowspan="2"><center>Action</center></th>
+                                        {% endif %}
                                     </tr>
                                     <tr class="bg-inverse">
                                         <th><center>USD</center></th>

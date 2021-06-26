@@ -36,6 +36,10 @@ $($('div#dd-w-0').children().children().children()[1]).remove()
 
   })
 
+  if($('#is_open').val() == 1){
+    $('#btn-tambah').hide();
+  }
+
 });
 
 function loaddata(param, ids){
@@ -143,9 +147,12 @@ function loaddata(param, ids){
                         let total_sisa_idr = data.sisa_total_idr ? rubah(data.sisa_total_idr) : 0;
                         let total_persen_usd = Math.round(data.real_total_usd / data.dipa_rev_total_usd * 100);
                         let total_persen_idr = Math.round(data.real_total_idr / data.dipa_rev_total_idr * 100);
+                        let td = '<td></td>';
+                        if($('#is_open').val() == 1){
+                            td = '';
+                        }
+
                         if ( last !== group ) {
-                            console.log();
-                            
                             $(rows).eq( i ).before(
                                 `<tr class="group bg-default" >
                                     <td>`+no+`</td>
@@ -158,7 +165,7 @@ function loaddata(param, ids){
                                     <td class="text-right" name="total_sisa_idr" value=`+total_sisa_idr+`>`+total_sisa_idr+`</td>
                                     <td class="text-right">`+total_persen_usd+`%</td>
                                     <td class="text-right">`+total_persen_idr+`%</td>
-                                    <td></td>
+                                    `+td+`
                                 </tr>`
                             );
         
@@ -177,20 +184,30 @@ function loaddata(param, ids){
                     this.$('tr').click( function () {
                         tr = this;
                     });
-                    let total_rev_usd = $('[name="total_rev_usd"]');
-                    let total_rev_idr = $('[name="total_rev_idr"]');
+                    
+                    if($('#is_open').val() == 1){
+                        this.api().column(11).visible(true);
+                        this.$('tr').each(function() {
+                            $(this).find(':last-child').remove();
+                        });
+                    }
+
+                    let total_rev_usd  = $('[name="total_rev_usd"]');
+                    let total_rev_idr  = $('[name="total_rev_idr"]');
                     let total_real_usd = $('[name="total_real_usd"]');
                     let total_real_idr = $('[name="total_real_idr"]');
                     let total_sisa_usd = $('[name="total_sisa_usd"]');
                     let total_sisa_idr = $('[name="total_sisa_idr"]');
-                    let rev_usd = 0;
-                    let rev_idr = 0;
+                    let rev_usd  = 0;
+                    let rev_idr  = 0;
                     let real_usd = 0;
                     let real_idr = 0;
                     let sisa_usd = 0;
                     let sisa_idr = 0;
-                    
-
+                    let tdr       = '<td class="text-right"></td>';
+                    if($('#is_open').val() == 1){
+                        tdr = '';
+                    }
 
                     for (let i = 0; i < total_rev_usd.length; i++) {
                         rev_usd += parseInt($(total_rev_usd[i]).attr('value').replaceAll('.', ''));
@@ -223,11 +240,13 @@ function loaddata(param, ids){
                     <td class="text-right">`+rubah(sisa_idr)+`</td>
                     <td class="text-right">`+Math.round(real_usd/rev_usd*100)+`%</td>
                     <td class="text-right">`+Math.round(real_idr/rev_idr*100)+`%</td>
-                    <td class="text-right"></td>
+                    `+tdr+`
                     </tr>
-                    </tfoot>`)
+                    </tfoot>`);
                 }
             } );
+
+            
         }
       })
     }
