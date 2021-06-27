@@ -5,6 +5,7 @@ $(document).ready(function(){
   $('.main-menu').find('.pcoded-trigger').removeClass("pcoded-trigger");
   $('#menu_budget').addClass('active');
 
+    window.isExist = 1;
   $('#all-budget').DataTable();
 
   for (let i = 1; i <= 11; i++) {
@@ -12,26 +13,37 @@ $(document).ready(function(){
       $('#komponen_'+i+'_idr').mask('000.000.000.000.000', {reverse: true});      
   }
 
-$("[name='dropper-default']").dateDropper({
-    dropWidth: 150,
-    dropPrimaryColor: "#1abc9c",
-    dropBorder: "1px solid #1abc9c",
-    format: 'm/Y',
-    minYear: "2021",
-}),
+    $("[name='dropper-default']").dateDropper({
+        dropWidth: 150,
+        dropPrimaryColor: "#1abc9c",
+        dropBorder: "1px solid #1abc9c",
+        format: 'm/Y',
+        minYear: "2021",
+    }),
 
 // $($('div#dd-w-0').children().children().children()[1]).remove()
 // $($('div#dd-w-1').children().children().children()[1]).remove()
 
   $('#save-realisasi').on('click', function(){
-    var formData = new FormData();
-    for (let i = 1; i <= 11; i++) {  
-        formData.append('periode', $('#pilih-bulan-input').val());
-        formData.append('komponen_'+i+'_usd', $('#komponen_'+i+'_usd').val());
-        formData.append('komponen_'+i+'_idr', $('#komponen_'+i+'_idr').val());
+
+    if(window.isExist == '1'){
+        $("#isExist").css("display", "block");
+        $('#save-realisasi').prop("disabled", true);
+        setTimeout(function(){
+            $("#isExist").css("display", "none");
+        },2000);
+    }else if(window.isExist == '0'){
+        window.isExist = 0;
+        var formData = new FormData();
+        for (let i = 1; i <= 11; i++) {  
+            formData.append('periode', $('#pilih-bulan-input').val());
+            formData.append('komponen_'+i+'_usd', $('#komponen_'+i+'_usd').val());
+            formData.append('komponen_'+i+'_idr', $('#komponen_'+i+'_idr').val());
+        }
+        
+        // save(formData);
     }
     
-    save(formData);
   })
 
 
@@ -44,9 +56,26 @@ $("[name='dropper-default']").dateDropper({
 
   })
 
+  $('#pilih-bulan-input').on('change', function(){
+    cekperiode($('#pilih-bulan-input').val());
+
+  })
+
   if($('#is_open').val() == 1){
     $('#btn-tambah').hide();
   }
+
+  $('[name="komponen_usd"], [name="komponen_idr"]').on('change', function(){
+        for (let i = 1; i <= 11; i++) {
+            if($('#komponen_'+i+'_usd').val() && $('#komponen_'+i+'_idr').val()){
+                $('#save-realisasi').prop("disabled", false);
+            }else{
+                $('#save-realisasi').prop("disabled", true);
+            }
+            
+        }
+  });
+
 
 });
 
@@ -351,3 +380,29 @@ function save(formData){
           }
         })
       }
+
+      function cekperiode(param){
+
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: 'cekperiode',
+            data : {
+                    param      : param,
+            },
+            success: function(result){
+                let code = result.code;
+                    if(code == '1'){
+                        $("#isExist").css("display", "block");
+                        window.isExist = 1;
+                        setTimeout(function(){
+                            $("#isExist").css("display", "none");
+                            $('#save-realisasi').prop("disabled", false);
+                        },2000);
+                    }else{
+                        window.isExist = 0;
+                        $('#save-realisasi').prop("disabled", false);
+                    }
+                }
+            })
+          }

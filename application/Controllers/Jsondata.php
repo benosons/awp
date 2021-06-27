@@ -1831,6 +1831,52 @@ class Jsondata extends \CodeIgniter\Controller
 
 	}
 
+	public function cekperiode()
+	{
+		try
+		{
+				$request  = $this->request;
+				$param 	  = $request->getVar('param');
+				$id		 	  = $request->getVar('id');
+				$role 		= $this->data['role'];
+				$userid		= $this->data['userid'];
+
+				if($this->logged){
+					$model = new \App\Models\DataModel();
+					$modelfiles = new \App\Models\FilesModel();
+
+					$data = $model->cekperiode(str_replace("/","",$param));
+					
+					if($data){
+						$response = [
+							'status'   => 'exist',
+							'code'     => '1',
+						];
+					}else{
+						$response = [
+						    'status'   => 'not exist',
+						    'code'     => '0',
+						];
+					}
+
+				}else{
+					$response = [
+							'status'   => 'gagal',
+							'code'     => '0',
+							'data' 		 => 'silahkan login'
+					];
+				}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
 	public function addParam(){
 
 		$request  = $this->request;

@@ -144,4 +144,12 @@ class DataModel extends Model{
           return  $query->getResult();
     }
 
+    public function cekperiode($param = null)
+    {
+          $builder = $this->db->table('realisasi');
+          $query   = $builder->getWhere(['periode' => $param]);
+          
+          return  $query->getResult();
+    }
+
 }
