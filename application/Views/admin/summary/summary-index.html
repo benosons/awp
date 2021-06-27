@@ -1,0 +1,296 @@
+{% extends "admin/layout.html" %} {% block content %}
+
+<div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page-header start -->
+            <div class="page-header">
+              <input hidden id="userid" value="{{userid}}">
+              <input hidden id="role" value="{{role}}">
+                <div class="page-header-title">
+                    <h4>SUMMARY OF STATEMENT LOAN ISWMP</h4>
+                    <!-- <span>Easy to customise core stylesheets</span> -->
+                </div>
+                <div class="page-header-breadcrumb">
+                    <ul class="breadcrumb-title">
+                        <li class="breadcrumb-item">
+                            <a href="{{baseURL}}">
+                                <i class="icofont icofont-home"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="#!">SUMMARY OF STATEMENT</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Page-header end -->
+            <!-- Page-body start -->
+            <div class="page-body">
+                <!-- Base style - Hover table start -->
+                <div class="card">
+                    <div class="card-header" style="padding-top:2.5rem;">
+                        <!-- <h5>Base style - hover</h5> -->
+                        <!-- <span>This example shows DataTables with just the hover class specified. This class will instruct DataTables' styling to highlight a row when the mouse is hovered over it.</span> -->
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <input id="pilih-bulan" data-dd-hide-day="true" name="dropper-default" class="form-control form-control-center" type="text" placeholder="Select your date" />
+                            </div>
+
+                            <div class="col-sm-6">
+                            </div>
+                            <div class="col-sm-4 ">
+                                <button id="btn-tambah" class="btn btn-primary pull-right" data-toggle="modal" data-target="#sign-in-modal" data-backdrop="static"><i class="icofont icofont icofont-ui-add"></i>Tambah</button>
+                            </div>
+                        
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <div class="dt-responsive table-responsive">
+                            <table id="all-summary" class="table table-hover table-bordered" style="font-size:12px;width: 100%;" cellspacing="0">
+                                <thead>
+                                    <tr class="bg-inverse">
+                                        <th><center>Componen</center></th>
+                                        <th><center>Category / Component</center></th>
+                                        <th><center>WB Approved Financing Amount</center></th>
+                                        <th><center>Disbursed from WB</center></th>
+                                        <th><center>Undisbursed</center></th>
+                                        <th><center>Payments made from WB SA</center></th>
+                                        <th><center>Amount Remaining in WB SA</center></th>
+                                        <th><center>Remarks</center></th>
+                                        {% if isOpen != 1 %}
+                                        <th><center>Action</center></th>
+                                        {% endif %}
+                                    </tr>
+                                    
+                                </thead>
+                                
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Base style - Hover table end -->
+            </div>
+            <!-- Page-body end -->
+        </div>
+    </div>
+    <div id="styleSelector">
+
+    </div>
+
+
+    <!-- Sign in modal start -->
+    <div class="modal fade" id="sign-in-modal" name="in-modal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title">Form Budget dan Realisasi</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-b-0">
+                    <div class="card-block">
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <input id="pilih-bulan-input" name="dropper-default" class="form-control form-control-center" type="text" placeholder="Select your date" />
+                            </div>
+                            <div class="col-sm-12" id="isExist" style="display:none;">
+                                <div style="margin: auto;
+                                width: 50%;
+                                padding: 10px;
+                                text-align: center;"><h4><code name="komponen_1">Periode Sudah Ada !</code></h4></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <h4 class="sub-title"><b>CPIU (Direktorat Sanitasi)</b></h4>
+                        <div class="form-group row">
+                            <label name="komponen_1" class="col-sm-4 col-form-label">Komponen 4</label>
+                            <div class="col-sm-4">
+                                <input name="komponen_usd" type="text" class="form-control" placeholder="USD" id="komponen_1_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input name="komponen_idr" type="text" class="form-control" placeholder="IDR" id="komponen_1_idr">
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="card-block">
+                        <h4 class="sub-title"><b>BANGDA ( Dit. SUPD I)</b></h4>
+                        <div class="form-group row">
+                            <label name="komponen_2" class="col-sm-4 col-form-label">Komponen 1</label>
+                            <div class="col-sm-4">
+                                <input name="komponen_usd" type="text" class="form-control" placeholder="USD" id="komponen_2_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input name="komponen_idr" type="text" class="form-control" placeholder="IDR" id="komponen_2_idr">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label name="komponen_3" class="col-sm-4 col-form-label">Komponen 2</label>
+                            <div class="col-sm-4">
+                                <input name="komponen_usd" type="text" class="form-control" placeholder="USD" id="komponen_3_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input name="komponen_idr" type="text" class="form-control" placeholder="IDR" id="komponen_3_idr">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label name="komponen_4" class="col-sm-4 col-form-label">Komponen 4</label>
+                            <div class="col-sm-4">
+                                <input name="komponen_usd" type="text" class="form-control" placeholder="USD" id="komponen_4_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input name="komponen_idr" type="text" class="form-control" placeholder="IDR" id="komponen_4_idr">
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="card-block">
+                        <h4 class="sub-title"><b>BANGDA ( Dit. SUPD II)</b></h4>
+                        <div class="form-group row">
+                            <label name="komponen_5" class="col-sm-4 col-form-label">Komponen 1</label>
+                            <div class="col-sm-4">
+                                <input name="komponen_usd" type="text" class="form-control" placeholder="USD" id="komponen_5_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input name="komponen_idr" type="text" class="form-control" placeholder="IDR" id="komponen_5_idr">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label name="komponen_6" class="col-sm-4 col-form-label">Komponen 2</label>
+                            <div class="col-sm-4">
+                                <input name="komponen_usd" type="text" class="form-control" placeholder="USD" id="komponen_6_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input name="komponen_idr" type="text" class="form-control" placeholder="IDR" id="komponen_6_idr">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label name="komponen_7" class="col-sm-4 col-form-label">Komponen 4</label>
+                            <div class="col-sm-4">
+                                <input name="komponen_usd" type="text" class="form-control" placeholder="USD" id="komponen_7_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input name="komponen_idr" type="text" class="form-control" placeholder="IDR" id="komponen_7_idr">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-block">
+                        <h4 class="sub-title"><b>Pelaksanaan Prasarana Permukiman Wilayah I</b> </h4>
+                        <div class="form-group row">
+                            <label name="komponen_8" class="col-sm-4 col-form-label">Komponen 3</label>
+                            <div class="col-sm-4">
+                                <input name="komponen_usd" type="text" class="form-control" placeholder="USD" id="komponen_8_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input name="komponen_idr" type="text" class="form-control" placeholder="IDR" id="komponen_8_idr">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label name="komponen_9" class="col-sm-4 col-form-label">Komponen 4</label>
+                            <div class="col-sm-4">
+                                <input name="komponen_usd" type="text" class="form-control" placeholder="USD" id="komponen_9_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input name="komponen_idr" type="text" class="form-control" placeholder="IDR" id="komponen_9_idr">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-block">
+                        <h4 class="sub-title"><b>Pelaksanaan Prasarana Permukiman Wilayah II</b> </h4>
+                        <div class="form-group row">
+                            <label name="komponen_10" class="col-sm-4 col-form-label">Komponen 3</label>
+                            <div class="col-sm-4">
+                                <input name="komponen_usd" type="text" class="form-control" placeholder="USD" id="komponen_10_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input name="komponen_idr" type="text" class="form-control" placeholder="IDR" id="komponen_10_idr">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label name="komponen_11" class="col-sm-4 col-form-label">Komponen 4</label>
+                            <div class="col-sm-4">
+                                <input name="komponen_usd" type="text" class="form-control" placeholder="USD" id="komponen_11_usd">
+                            </div>
+                            <div class="col-sm-4">
+                                <input name="komponen_idr" type="text" class="form-control" placeholder="IDR" id="komponen_11_idr">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="ti-close"></i> Batal </button>
+                    <button type="button" class="btn btn-primary" id="save-realisasi" disabled><i class="ti-check-box"></i> Simpan </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sign in modal end -->
+
+<div id="modal_user" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Program</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form">
+					<!-- #section:elements.form -->
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_name"> Username </label>
+
+						<div class="col-sm-9">
+							<input type="text" id="user_name" placeholder="username" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_fullname"> Fullname </label>
+
+						<div class="col-sm-9">
+							<input type="text" id="user_fullname" placeholder="Full Name" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_fullname"> NIP </label>
+
+						<div class="col-sm-9">
+							<input type="text" id="user_nip" placeholder="NIP" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_role"> Role Level </label>
+
+						<div class="col-sm-9">
+						  	<select class="chosen-select form-control" id="user_role" data-placeholder="select role...">
+						  		<option value="">  </option>
+						  		<option value="10">admin</option>
+						  		<option value="20">operator</option>
+						  		<option value="30">ppk</option>
+						  		<option value="40">pptk</option>
+
+						  	</select>
+						</div>
+					</div>
+
+				</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-xs btn-danger" data-dismiss="modal"><i class="ace-icon fa fa-close"></i>close</button>
+        <button type="button" class="btn btn-xs btn-success" data-dismiss="modal"  ><i class="ace-icon fa fa-check"></i>submit</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- <script src="{{baseURL}}/assets/action-js/admin/datapengaduan.js"></script> -->
+{% endblock %}

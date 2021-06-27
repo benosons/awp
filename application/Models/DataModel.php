@@ -152,4 +152,27 @@ class DataModel extends Model{
           return  $query->getResult();
     }
 
+    public function getsoe($param = null, $ids = null)
+    {
+      $builder = $this->db->table('soe_komponen ko');
+      $builder->select('
+      ko.id,
+      ko.name as nama_komponen, 
+      ka.code,
+      ka.name as nama_kategori, 
+      ka.amount, 
+      di.disbursed_value, 
+      di.disbursed_persen, 
+      di.undisbursed_value, 
+      di.undisbursed_persen,
+      ka.remark');
+
+      $builder->join('soe_kategori ka', 'ka.id_parent = ko.id');
+      $builder->join('soe_disbursed di', 'di.id_parent = ka.id');
+
+      $query = $builder->get();
+      // echo $this->db->getLastQuery();die;
+      return  $query->getResult();
+    }
+
 }
