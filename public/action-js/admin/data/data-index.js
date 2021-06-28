@@ -24,6 +24,9 @@ $(document).ready(function(){
     loaddata('data_program', this.value);
   });
 
+  $('#btn-monitoring').on('click', function(){
+      window.open('http://plpbm.pu.go.id/tfl/production/', '_blank');
+  });
 
 });
 
