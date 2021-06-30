@@ -25,14 +25,14 @@ $(document).ready(function(){
 // $($('div#dd-w-1').children().children().children()[1]).remove()
 
   $('#save-realisasi').on('click', function(){
-
+    
     if(window.isExist == '1'){
         $("#isExist").css("display", "block");
         $('#save-realisasi').prop("disabled", true);
         setTimeout(function(){
             $("#isExist").css("display", "none");
         },2000);
-    }else if(window.isExist == '0'){
+    }else if(window.isExist == '0' || window.isExist == 0){
         window.isExist = 0;
         var formData = new FormData();
         for (let i = 1; i <= 11; i++) {  
@@ -41,7 +41,7 @@ $(document).ready(function(){
             formData.append('komponen_'+i+'_idr', $('#komponen_'+i+'_idr').val());
         }
         
-        // save(formData);
+        save(formData);
     }
     
   })
@@ -67,7 +67,7 @@ $(document).ready(function(){
 
   $('[name="komponen_usd"], [name="komponen_idr"]').on('change', function(){
         for (let i = 1; i <= 11; i++) {
-            if($('#komponen_'+i+'_usd').val() && $('#komponen_'+i+'_idr').val()){
+            if($('#komponen_'+i+'_usd').val() != '' && $('#komponen_'+i+'_idr').val() != '' || $('#komponen_'+i+'_usd').val() != null && $('#komponen_'+i+'_idr').val() != null){
                 $('#save-realisasi').prop("disabled", false);
             }else{
                 $('#save-realisasi').prop("disabled", true);
