@@ -7,11 +7,14 @@ $(document).ready(function(){
 
     window.isExist = 1;
   $('#all-budget').DataTable();
-
+  loadperiode();
   for (let i = 1; i <= 11; i++) {
       $('#komponen_'+i+'_usd').mask('000.000.000.000.000', {reverse: true});      
       $('#komponen_'+i+'_idr').mask('000.000.000.000.000', {reverse: true});      
   }
+
+  $('#edit_realisasi_usd').mask('000.000.000.000.000', {reverse: true});
+  $('#edit_realisasi_idr').mask('000.000.000.000.000', {reverse: true});
 
     $("[name='dropper-default']").dateDropper({
         dropWidth: 150,
@@ -22,7 +25,7 @@ $(document).ready(function(){
     }),
 
 // $($('div#dd-w-0').children().children().children()[1]).remove()
-// $($('div#dd-w-1').children().children().children()[1]).remove()
+$($('div#dd-w-1').children().children().children()[1]).remove()
 
   $('#save-realisasi').on('click', function(){
     
@@ -76,6 +79,17 @@ $(document).ready(function(){
         }
   });
 
+  $('#save-edit').on('click', function(){
+    let mode_e     = $('#edit_mode_realisasi').val();
+    let id_e       = $('#edit_id_realisasi').val();
+    let rev_usd_e  = $('#edit_revisi_usd').val();
+    let rev_idr_e  = $('#edit_revisi_idr').val();
+    let real_usd_e = $('#edit_realisasi_usd').val();
+    let real_idr_e = $('#edit_realisasi_idr').val();
+
+    action(mode_e, id_e, rev_usd_e, rev_idr_e, real_usd_e, real_idr_e);
+  })
+
 
 });
 
@@ -111,7 +125,7 @@ function loaddata(param, ids){
                     { 'mDataProp': 'nama_instansi'},
                     { 'mDataProp': 'nama_komponen'},
                     { 'mDataProp': 'dipa_rev_usd', className: "text-right"},
-                    { 'mDataProp': 'diva_rev_idr', className: "text-right"},
+                    { 'mDataProp': 'dipa_rev_idr', className: "text-right"},
                     { 'mDataProp': 'real_usd', className: "text-right"},
                     { 'mDataProp': 'real_idr', className: "text-right"},
                     { 'mDataProp': 'sisa_usd', className: "text-right"},
@@ -162,7 +176,7 @@ function loaddata(param, ids){
                     {
                         mRender: function ( data, type, row ) {
       
-                          var el = `<button class="btn btn-info btn-mini"><i class="icofont icofont-edit"></i>Edit</button>`;
+                          var el = `<button class="btn btn-info btn-mini" onclick="editdong('update','`+row.id_realisasi+`','`+row.dipa_rev_usd+`','`+row.dipa_rev_idr+`', '`+row.real_usd+`', '`+row.real_idr+`')"><i class="icofont icofont-edit"></i>Edit</button>`;
       
                             return el;
                         },
@@ -317,7 +331,17 @@ function save(formData){
     });
   };
 
-  function action(mode, id, status){
+  function editdong(mode, id, dipa_rev_usd, dipa_rev_idr, real_usd, real_idr){
+    $('#modal-realisasi').modal('show');
+    $('#edit_mode_realisasi').val(mode);
+    $('#edit_id_realisasi').val(id);
+    $('#edit_revisi_usd').val(dipa_rev_usd);
+    $('#edit_revisi_idr').val(dipa_rev_idr);
+    $('#edit_realisasi_usd').val(real_usd);
+    $('#edit_realisasi_idr').val(real_idr);
+  }
+
+  function action(mode, id, dipa_rev_usd, dipa_rev_idr, real_usd, real_idr){
     if(mode == 'delete'){
       bootbox.confirm({
         message: "Are you sure to <b>Delete</b> ?",
@@ -333,26 +357,30 @@ function save(formData){
        },
         callback : function(result) {
   			if(result) {
-            isAction(mode, id, status);
+            // isAction(mode, id, status);
     			}
     		}
     });
   }else{
-    isAction(mode, id, status);
+    console.log(id);
+    isAction(mode, id, dipa_rev_usd, dipa_rev_idr, real_usd, real_idr);
   }
 }
 
-  function isAction(mode, id, status){
+  function isAction(mode, id, dipa_rev_usd, dipa_rev_idr, real_usd, real_idr){
     var formData = new FormData();
     formData.append('mode', mode);
     formData.append('id', id);
-    formData.append('status', status);
-    formData.append('table', 'data_kegiatan');
+    formData.append('dipa_rev_usd', dipa_rev_usd);
+    formData.append('dipa_rev_idr', dipa_rev_idr);
+    formData.append('real_usd', real_usd);
+    formData.append('real_idr', real_idr);
+    
     $.ajax({
         type: 'post',
         processData: false,
         contentType: false,
-        url: 'actionData',
+        url: 'actionRealisasi',
         data : formData,
         success: function(result){
           location.reload();
@@ -406,3 +434,25 @@ function save(formData){
                 }
             })
           }
+
+          function loadperiode(){
+
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: 'loadperiode',
+                success: function(result){
+                    let data = result.data;
+
+                      let el = '<option value="opt1">-Pilih Periode-</option>';
+                      for (let i = 0; i < data.length; i++) {
+                        el += '<option value="'+data[i].periode+'">'+data[i].periode+'</option>'
+                        
+                      }
+
+                      $('#pilih-bulan').html(el);
+                  }
+                })
+              }
+
+        

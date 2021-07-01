@@ -1841,15 +1841,15 @@ class Jsondata extends \CodeIgniter\Controller
 
 			$data_sisa = [
 				'id_parent'   => $id,
-				'usd' 		  => (int)$data_komponen->revisi_usd - (int)$request->getVar('komponen_'.$i.'_usd'),
-				'idr' 		  => (int)$data_komponen->revisi_idr - (int)$request->getVar('komponen_'.$i.'_idr'),
+				'usd' 		  => (int)str_replace(".","", $data_komponen->revisi_usd) - (int)str_replace(".", "", $request->getVar('komponen_'.$i.'_usd')),
+				'idr' 		  => (int)str_replace(".", "", $data_komponen->revisi_idr) - (int)str_replace(".", "", $request->getVar('komponen_'.$i.'_idr')),
 				
 			];
 
 			$data_persen = [
 				'id_parent'   => $id,
-				'usd' 		  => round(((int)$request->getVar('komponen_'.$i.'_usd') / (int)$data_komponen->revisi_usd) * 100),
-				'idr' 		  => round(((int)$request->getVar('komponen_'.$i.'_idr') / (int)$data_komponen->revisi_idr) * 100),
+				'usd' 		  => round(((int)str_replace(".", "", $request->getVar('komponen_'.$i.'_usd')) / (int)str_replace(".", "", $data_komponen->revisi_usd)) * 100),
+				'idr' 		  => round(((int)str_replace(".", "", $request->getVar('komponen_'.$i.'_idr')) / (int)str_replace(".", "", $data_komponen->revisi_idr)) * 100),
 				
 			];
 
@@ -1893,6 +1893,53 @@ class Jsondata extends \CodeIgniter\Controller
 					}else{
 						$response = [
 						    'status'   => 'not exist',
+						    'code'     => '0',
+						];
+					}
+
+				}else{
+					$response = [
+							'status'   => 'gagal',
+							'code'     => '0',
+							'data' 		 => 'silahkan login'
+					];
+				}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
+	public function loadperiode()
+	{
+		try
+		{
+				$request  = $this->request;
+				$param 	  = $request->getVar('param');
+				$id		 	  = $request->getVar('id');
+				$role 		= $this->data['role'];
+				$userid		= $this->data['userid'];
+
+				if($this->logged){
+					$model = new \App\Models\DataModel();
+					$modelfiles = new \App\Models\FilesModel();
+					
+					$data = $model->loadperiode();
+					
+					if($data){
+						$response = [
+							'status'   => 'success',
+							'code'     => '1',
+							'data'		=> $data
+						];
+					}else{
+						$response = [
+						    'status'   => 'failed',
 						    'code'     => '0',
 						];
 					}
@@ -2473,6 +2520,54 @@ class Jsondata extends \CodeIgniter\Controller
 
 		}else{
 			$res = $model->delete(['user_id' => $id]);
+		}
+		$response = [
+				'status'   => 'sukses',
+				'code'     => '0',
+				'data' 		 => 'terupdate'
+		];
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+
+	}
+
+	public function actionRealisasi(){
+
+		$request  	= $this->request;
+		$mode 	  	= $request->getVar('mode');
+		$id 	  	= $request->getVar('id');
+		$role 		= $this->data['role'];
+		$userid		= $this->data['userid'];
+		
+		$model 	  	= new \App\Models\DataModel();
+		$data = [
+			'update_date' 	=> $this->now,
+			'create_by' 	=> $userid,
+			'usd'		=> $request->getVar('real_usd'),
+			'idr' 		=> $request->getVar('real_idr')
+        ];
+
+		$data_sisa = [
+			'usd' 		  => (int)str_replace(".","", $request->getVar('dipa_rev_usd')) - (int)str_replace(".", "", $request->getVar('real_usd')),
+			'idr' 		  => (int)str_replace(".", "", $request->getVar('dipa_rev_idr')) - (int)str_replace(".", "", $request->getVar('real_idr')),
+			
+		];
+		
+
+		$data_persen = [
+			'usd' 		  => round(((int)str_replace(".", "", $request->getVar('real_usd')) / (int)str_replace(".", "", $request->getVar('dipa_rev_usd'))) * 100),
+			'idr' 		  => round(((int)str_replace(".", "", $request->getVar('real_idr')) / (int)str_replace(".", "", $request->getVar('dipa_rev_idr'))) * 100),
+			
+		];
+		
+		if($mode == 'update'){
+			$res = $model->updateRealisasi('realisasi', 'id', $id, $data);
+			$res1 = $model->updateRealisasi('sisa_dipa', 'id_parent', $id, $data_sisa);
+			$res2 = $model->updateRealisasi('persen', 'id_parent', $id, $data_persen);
+
+		}else{
+			$res = $model->delete($table, $id);
 		}
 		$response = [
 				'status'   => 'sukses',

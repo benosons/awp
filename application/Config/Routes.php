@@ -99,6 +99,7 @@ $routes->post('loaddata', 'Jsondata::loaddata');
 
 $routes->post('actionUsers', 'Jsondata::actionUsers');
 $routes->post('actionData', 'Jsondata::actionData');
+$routes->post('actionRealisasi', 'Jsondata::actionRealisasi');
 $routes->post('addUser', 'Jsondata::addUser');
 $routes->post('addData', 'Jsondata::addData');
 $routes->post('updateData', 'Jsondata::updateData');
@@ -106,6 +107,7 @@ $routes->post('loadinstansi', 'Jsondata::loadinstansi');
 $routes->post('saveRealisasi', 'Jsondata::saveRealisasi');
 $routes->post('cekperiode', 'Jsondata::cekperiode');
 $routes->post('loadsoe', 'Jsondata::loadsoe');
+$routes->post('loadperiode', 'Jsondata::loadperiode');
 
 
 

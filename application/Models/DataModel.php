@@ -79,31 +79,33 @@ class DataModel extends Model{
     public function getinstansi($param = null, $ids = null)
     {
       $builder = $this->db->table('data_instansi');
-      $builder->select('`data_instansi`.`id_instansi`,
+      $builder->select('
+      `realisasi`.`id` as id_realisasi,
+      `data_instansi`.`id_instansi`,
       `data_instansi`.`nama_instansi`,
       `komponen_instansi`.`id_komponen`,
       `komponen_instansi`.`nama_komponen`,
       `komponen_instansi`.`revisi_usd` as `dipa_rev_usd`,
-      `komponen_instansi`.`revisi_idr` as `diva_rev_idr`,
+      `komponen_instansi`.`revisi_idr` as `dipa_rev_idr`,
       `realisasi`.`usd` as `real_usd`,
       `realisasi`.`idr` as `real_idr`,
       `sisa_dipa`.`usd` as `sisa_usd`,
       `sisa_dipa`.`idr` as `sisa_idr`,
       `persen`.`usd` as `persen_usd`,
       `persen`.`idr` as `persen_idr`, 
-      (select sum(revisi_usd) from komponen_instansi ki where ki.id_instansi = data_instansi.id_instansi) as dipa_rev_total_usd, 
-      (select sum(revisi_idr) from komponen_instansi ki where ki.id_instansi = data_instansi.id_instansi) as dipa_rev_total_idr, 
+      (select sum(replace(revisi_usd, ".", "")) from komponen_instansi ki where ki.id_instansi = data_instansi.id_instansi) as dipa_rev_total_usd, 
+      (select sum(replace(revisi_idr, ".", "")) from komponen_instansi ki where ki.id_instansi = data_instansi.id_instansi) as dipa_rev_total_idr, 
 
-      (select sum(r1.usd) from realisasi r1 join komponen_instansi ki on ki.id_komponen = r1.id_komponen join data_instansi di on di.id_instansi = ki.id_instansi where di.id_instansi = data_instansi.id_instansi and r1.periode = '.$param.') as real_total_usd, 
-      (select sum(r1.idr) from realisasi r1 join komponen_instansi ki on ki.id_komponen = r1.id_komponen join data_instansi di on di.id_instansi = ki.id_instansi where di.id_instansi = data_instansi.id_instansi and r1.periode = '.$param.') as real_total_idr, 
+      (select sum(replace(r1.usd, ".", "")) from realisasi r1 join komponen_instansi ki on ki.id_komponen = r1.id_komponen join data_instansi di on di.id_instansi = ki.id_instansi where di.id_instansi = data_instansi.id_instansi and r1.periode = '.$param.') as real_total_usd, 
+      (select sum(replace(r1.idr, ".", "")) from realisasi r1 join komponen_instansi ki on ki.id_komponen = r1.id_komponen join data_instansi di on di.id_instansi = ki.id_instansi where di.id_instansi = data_instansi.id_instansi and r1.periode = '.$param.') as real_total_idr, 
 
-      (select sum(s.usd) from sisa_dipa s 
+      (select sum(replace(s.usd, ".", "")) from sisa_dipa s 
       join realisasi r on r.id = s.id_parent
       join komponen_instansi k on k.id_komponen = r.id_komponen
       join data_instansi d on d.id_instansi = k.id_instansi
       where d.id_instansi = data_instansi.id_instansi and r.periode = '.$param.') as sisa_total_usd, 
 
-      (select sum(s.idr) from sisa_dipa s 
+      (select sum(replace(s.idr, ".", "")) from sisa_dipa s 
       join realisasi r on r.id = s.id_parent
       join komponen_instansi k on k.id_komponen = r.id_komponen
       join data_instansi d on d.id_instansi = k.id_instansi
@@ -152,6 +154,16 @@ class DataModel extends Model{
           return  $query->getResult();
     }
 
+    public function loadperiode()
+    {
+          $builder = $this->db->table('realisasi');
+          $builder->select('periode');
+          $query   = $builder->groupBy("periode")->get();
+          // echo $this->db->getLastQuery();die;
+          
+          return  $query->getResult();
+    }
+
     public function getsoe($param = null, $ids = null)
     {
       $builder = $this->db->table('soe_komponen ko');
@@ -173,6 +185,17 @@ class DataModel extends Model{
       $query = $builder->get();
       // echo $this->db->getLastQuery();die;
       return  $query->getResult();
+    }
+
+    public function updateRealisasi($table, $param, $id, $data)
+    {
+
+      
+      $builder = $this->db->table($table);
+      $query   = $builder->where($param, $id);
+      $query->update($data);
+      // echo $this->db->getLastQuery();die;
+      return true;
     }
 
 }
