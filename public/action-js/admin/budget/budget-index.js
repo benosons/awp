@@ -54,10 +54,11 @@ $($('div#dd-w-1').children().children().children()[1]).remove()
     loaddata('data_program', this.value);
   });
 
-  $('#pilih-bulan').on('change', function(){
-      loaddata(this.value);
+  $('#btn-cari').on('click', function(){
+      loaddata($('#pilih-bulan').val());
 
   })
+  
 
   $('#pilih-bulan-input').on('change', function(){
     cekperiode($('#pilih-bulan-input').val());
