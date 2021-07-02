@@ -1925,7 +1925,6 @@ class Jsondata extends \CodeIgniter\Controller
 				$role 		= $this->data['role'];
 				$userid		= $this->data['userid'];
 
-				if($this->logged){
 					$model = new \App\Models\DataModel();
 					$modelfiles = new \App\Models\FilesModel();
 					
@@ -1943,14 +1942,6 @@ class Jsondata extends \CodeIgniter\Controller
 						    'code'     => '0',
 						];
 					}
-
-				}else{
-					$response = [
-							'status'   => 'gagal',
-							'code'     => '0',
-							'data' 		 => 'silahkan login'
-					];
-				}
 
 				header('Content-Type: application/json');
 				echo json_encode($response);
