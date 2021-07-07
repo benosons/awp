@@ -18,6 +18,17 @@ $(document).ready(function(){
     save(formData);
   })
 
+  $('[name="button_catatan"]').on('click', function(){
+    let ids = $(this).parent().prev().attr('id');
+    let val = $(this).parent().prev().val();
+    
+    var formData = new FormData();
+    formData.append('param', 'data');
+    formData.append('id_param', ids.replace(/catatan_/g, "input_"));
+    formData.append('note', val);
+    save(formData);
+  })
+
   loaddata('data');
 
   $('#pilih_komponen').on('change', function(){
@@ -51,10 +62,12 @@ function loaddata(param, ids){
               let note = data[i].note;
               $('#'+data[i].param.replace("input", "catatan")).after(note);
               $('#'+data[i].param.replace("input", "catatan")).hide();
+              $('[name="button_catatan"]').parent().hide();
               
             }else{
               $('#'+data[i].param).val(data[i].value);
               $('#'+data[i].param.replace("input", "catatan")).val(data[i].note);
+              $('[name="button_catatan"]').parent().show();
             }
           }
         }

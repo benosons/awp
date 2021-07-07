@@ -1413,8 +1413,15 @@ class Jsondata extends \CodeIgniter\Controller
 		$data = [
 						'updated_date'=> $this->now,
 						'updated_by' 	=> $userid,
-						'value' 			=> $request->getVar('value'),
         ];
+
+		if($request->getVar('value')){
+			$data['value'] = $request->getVar('value');
+		}
+
+		if($request->getVar('note')){
+			$data['note'] = $request->getVar('note');
+		}
 		
 		$res = $model->updateData($id, $data);
 
