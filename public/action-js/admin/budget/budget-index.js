@@ -110,6 +110,21 @@ $($('div#dd-w-1').children().children().children()[1]).remove()
     }
   });
 
+  $('#btn-pdf').on('click',function(){
+    html2canvas($('#all-budget'), {
+      onrendered: function (canvas) {
+          var data = canvas.toDataURL();
+          var docDefinition = {
+              content: [{
+                  image: data,
+                  width: 500
+              }]
+          };
+          pdfMake.createPdf(docDefinition).download("Table.pdf");
+      }
+    })
+  })
+
 });
 
 function loaddata(param, ids){
