@@ -39,6 +39,40 @@ $(document).ready(function(){
       window.open('http://plpbm.pu.go.id/tfl/production/', '_blank');
   });
 
+  $("#btn-excel").on('click', function(e){
+    
+    var table = $('#all-data');
+    console.log(table);
+    if(table && table.length){
+      
+      $(table).table2excel({
+        exclude: ".noExl",
+        name: "Excel Document Name",
+        filename: "Excel-" + new Date().toISOString().replace(/[\-\:\.]/g, "") + ".xls",
+        fileext: ".xls",
+        exclude_img: true,
+        exclude_links: true,
+        exclude_inputs: true,
+        preserveColors: true,
+      });
+    }
+  });
+
+  $('#btn-pdf').on('click',function(){
+    html2canvas($('#all-data'), {
+      onrendered: function (canvas) {
+          var data = canvas.toDataURL();
+          var docDefinition = {
+              content: [{
+                  image: data,
+                  width: 500
+              }]
+          };
+          pdfMake.createPdf(docDefinition).download("Table.pdf");
+      }
+    })
+  })
+
 });
 
 function loaddata(param, ids){
