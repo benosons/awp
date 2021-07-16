@@ -91,6 +91,24 @@ $($('div#dd-w-1').children().children().children()[1]).remove()
     action(mode_e, id_e, rev_usd_e, rev_idr_e, real_usd_e, real_idr_e);
   })
 
+  $("#btn-excel").on('click', function(e){
+    
+    var table = $('#all-budget');
+    console.log(table);
+    if(table && table.length){
+      var preserveColors = (table.hasClass('table2excel_with_colors') ? true : false);
+      $(table).table2excel({
+        exclude: ".noExl",
+        name: "Excel Document Name",
+        filename: "Excel-" + new Date().toISOString().replace(/[\-\:\.]/g, "") + ".xls",
+        fileext: ".xls",
+        exclude_img: true,
+        exclude_links: true,
+        exclude_inputs: true,
+        preserveColors: preserveColors
+      });
+    }
+  });
 
 });
 
@@ -133,7 +151,7 @@ function loaddata(param, ids){
                     { 'mDataProp': 'sisa_idr', className: "text-right"},
                     { 'mDataProp': 'persen_usd', className: "text-right"},
                     { 'mDataProp': 'persen_idr', className: "text-right"},
-                    { 'mDataProp': 'id_instansi'},
+                    { 'mDataProp': 'id_instansi', className : "noExl"},
                 ],
                 "columnDefs": [
                     { "targets": "_all", "orderable": false },

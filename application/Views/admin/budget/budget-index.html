@@ -44,6 +44,8 @@
                             </div>
                             <div class="col-sm-4 ">
                                 <button id="btn-tambah" class="btn btn-primary pull-right" data-toggle="modal" data-target="#sign-in-modal" data-backdrop="static"><i class="icofont icofont icofont-ui-add"></i>Tambah</button>
+                                <button id="btn-excel" class="btn btn-success pull-right"><i class="icofont icofont icofont-file-excel"></i>Download Excel</button>
+
                             </div>
                         
                         </div>
@@ -61,7 +63,7 @@
                                         <th colspan="2"><center>Sisa Dipa</center></th>
                                         <th colspan="2"><center>%</center></th>
                                         {% if isOpen != 1 %}
-                                        <th rowspan="2"><center>Action</center></th>
+                                        <th rowspan="2" class="noExl"><center>Action</center></th>
                                         {% endif %}
                                     </tr>
                                     <tr class="bg-inverse">
