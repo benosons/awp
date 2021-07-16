@@ -96,7 +96,7 @@ $($('div#dd-w-1').children().children().children()[1]).remove()
     var table = $('#all-budget');
     console.log(table);
     if(table && table.length){
-      var preserveColors = (table.hasClass('table2excel_with_colors') ? true : false);
+      
       $(table).table2excel({
         exclude: ".noExl",
         name: "Excel Document Name",
@@ -105,7 +105,7 @@ $($('div#dd-w-1').children().children().children()[1]).remove()
         exclude_img: true,
         exclude_links: true,
         exclude_inputs: true,
-        preserveColors: preserveColors
+        preserveColors: true,
       });
     }
   });
