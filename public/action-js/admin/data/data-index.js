@@ -87,7 +87,9 @@ function loaddata(param, ids){
       },
       success: function(result){
           let data = result.data;
+          const sortedActivities = data.sort((a, b) => b.updated_date - a.updated_date)
 
+          $('#last-updated').html('Last Update : '+sortedActivities[0].updated_date);
           for (var i = 0; i < data.length; i++) {
             if($('#is_open').val() == 1){
               let val = data[i].value;
