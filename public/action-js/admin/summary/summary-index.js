@@ -228,7 +228,7 @@ function loaddata(param, ids){
                                       <td></td>
                                       <td></td>
                                       <td></td>
-                                      <td></td>
+                                      `+td+`
                                   </tr>`
                               );
                             }
@@ -257,7 +257,7 @@ function loaddata(param, ids){
                                       <td></td>
                                       <td></td>
                                       <td></td>
-                                      <td></td>
+                                      `+td+`
                                   </tr>`
                               );
                             }
@@ -286,7 +286,7 @@ function loaddata(param, ids){
                                       <td></td>
                                       <td></td>
                                       <td></td>
-                                      <td></td>
+                                      `+td+`
                                   </tr>`
                               );
                             }
@@ -314,6 +314,8 @@ function loaddata(param, ids){
                                     <td></td>
                                     <td></td>
                                     <td></td>
+                                    <td></td>
+                                    `+td+`
                                 </tr>`
                               );
                             }
@@ -321,6 +323,14 @@ function loaddata(param, ids){
                           
                     } );
                 },
+                fnInitComplete: function () {
+                  if($('#is_open').val() == 1){
+                    this.api().column(11).visible(true);
+                    this.$('tr').each(function() {
+                        $(this).find(':last-child').remove();
+                    });
+                  }
+                }
                 // fnInitComplete: function () {
                     
                 //     var that = this;

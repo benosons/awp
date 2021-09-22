@@ -31,11 +31,23 @@
                         <!-- <h5>Base style - hover</h5> -->
                         <!-- <span>This example shows DataTables with just the hover class specified. This class will instruct DataTables' styling to highlight a row when the mouse is hovered over it.</span> -->
                         <div class="row">
-                            <div class="col-sm-2">
-                                <input id="pilih-bulan" data-dd-hide-day="true" name="dropper-default" class="form-control form-control-center" type="text" placeholder="Select your date" />
+                            <div class="col-sm-4">
+                                <!-- <input id="pilih-bulan" data-dd-hide-day="true" name="dropper-default" class="form-control form-control-center" type="text" placeholder="Select your date" /> -->
+                                <div class="form-group row">
+                                    <label class="col-sm-6 col-form-label">Pilih Triwulan Box</label>
+                                    <div class="col-sm-6">
+                                        <select id="pilih-bulan" name="select" class="form-control">
+                                            <option value="opt1">Pilih</option>
+                                            <option value="opt2">Triwulan 1</option>
+                                            <option value="opt3">Triwulan 2</option>
+                                            <option value="opt4">Triwulan 3</option>
+                                            <option value="opt5">Triwulan 4</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                             </div>
                             <div class="col-sm-4 ">
                                 <button id="btn-tambah" class="btn btn-primary pull-right" data-toggle="modal" data-target="#sign-in-modal" data-backdrop="static"><i class="icofont icofont icofont-ui-add"></i>Tambah</button>
@@ -45,6 +57,7 @@
                     </div>
                     <div class="card-block">
                         <div class="dt-responsive table-responsive">
+                            <!-- <input type="hidden" id="is_open" value="{{isOpen}}"> -->
                             <table id="all-summary" class="table table-hover table-bordered" style="font-size:12px;width: 100%;" cellspacing="0">
                                 <thead>
                                     <tr class="bg-inverse">
