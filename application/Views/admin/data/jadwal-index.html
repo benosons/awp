@@ -1,0 +1,198 @@
+{% extends "admin/layout.html" %} {% block content %}
+
+<div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page-header start -->
+            <div class="page-header">
+              <input hidden id="userid" value="{{userid}}">
+              <input hidden id="role" value="{{role}}">
+                <div class="page-header-title">
+                    <h4>LIST JADWAL</h4>
+                    {% if isOpen == 1 %}
+                    <!-- <span>                    
+                      <button id="btn-monitoring" class="btn btn-success pull-right"><i class="icofont icofont icofont-monitor"></i>Monitoring Kegiatan Fisik</button>
+                    </span> -->
+                    {% endif %}
+                </div>
+
+                <div class="page-header-breadcrumb">
+                    <ul class="breadcrumb-title">
+                        <li class="breadcrumb-item">
+                            <a href="{{baseURL}}">
+                                <i class="icofont icofont-home"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="dt-styling.html#!">Data</a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="dt-styling.html#!">Kegiatan</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Page-header end -->
+            <!-- Page-body start -->
+            <div class="page-body">
+                <!-- Base style - Hover table start -->
+                <div class="card">
+                    <div class="card-header" style="padding-top:2.5rem;">
+                        <!-- <h5>Base style - hover</h5> -->
+                        <!-- <span>This example shows DataTables with just the hover class specified. This class will instruct DataTables' styling to highlight a row when the mouse is hovered over it.</span> -->
+                        <div class="card-header-right" style="padding-right:0.5rem;">
+                            {% if isOpen != 1 %}
+                            <div class="card-header-right" style="padding-right:0.5rem;">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#jadwal-modal" data-backdrop="static"><i class="icofont icofont icofont-ui-add"></i>Tambah Jadwal</button>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <div class="dt-responsive table-responsive">
+                            <table id="jadwal-data" class="table table-hover table-bordered" style="font-size:12px;width: 100%;" cellspacing="0">
+                                <thead>
+                                    <tr class="bg-inverse">
+                                        <th>#No</th>
+                                        <th>Bulan</th>
+                                        <th>Tanggal</th>
+                                        <th>Waktu</th>
+                                        <th>Keterangan</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Base style - Hover table end -->
+            </div>
+            <!-- Page-body end -->
+        </div>
+    </div>
+    <div id="styleSelector">
+
+    </div>
+
+
+    <!-- Sign in modal start -->
+    <div class="modal fade" id="jadwal-modal" name="in-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Form Input Jadwal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-b-0">
+                      
+                      <!-- <div class="row">
+                        <div class="col-sm-12">
+                            <label class="form-control-label">Pilih Bulan</label>
+                            <select id="pilih_program" class="js-example-basic-single-modal col-sm-12">
+                              <option> - Pilih - </option>
+                              <option value="1"> Januari </option>
+                              <option value="2"> Februari </option>
+                              <option value="3"> Maret </option>
+                              <option value="4"> April </option>
+                              <option value="5"> Mei </option>
+                              <option value="6"> Juni </option>
+                              <option value="7"> Juli </option>
+                              <option value="8"> Agustus </option>
+                              <option value="9"> September </option>
+                              <option value="10"> Oktober </option>
+                              <option value="11"> November </option>
+                              <option value="12"> Desember </option>
+                            </select>
+                        </div>
+                      </div> -->
+
+                      <div class="row">
+                        <div class="col-sm-12">
+                            <div>
+                                <label class="form-control-label">Waktu</label>
+                                <input class="form-control" type="time" id="detim" />
+                            </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-sm-12">
+                            <div>
+                                <label class="form-control-label">Keterangan</label>
+                                <input type="text" id="keterangan_jadwal" class="form-control" placeholder="">
+                            </div>
+                          </div>
+                      </div>
+                    
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="ti-close"></i> Batal </button>
+                    <button type="button" class="btn btn-primary" id="save-jadwal"><i class="ti-check-box"></i> Simpan </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sign in modal end -->
+
+<div id="modal_user" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Program</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form">
+					<!-- #section:elements.form -->
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_name"> Username </label>
+
+						<div class="col-sm-9">
+							<input type="text" id="user_name" placeholder="username" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_fullname"> Fullname </label>
+
+						<div class="col-sm-9">
+							<input type="text" id="user_fullname" placeholder="Full Name" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_fullname"> NIP </label>
+
+						<div class="col-sm-9">
+							<input type="text" id="user_nip" placeholder="NIP" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_role"> Role Level </label>
+
+						<div class="col-sm-9">
+						  	<select class="chosen-select form-control" id="user_role" data-placeholder="select role...">
+						  		<option value="">  </option>
+						  		<option value="10">admin</option>
+						  		<option value="20">operator</option>
+						  		<option value="30">ppk</option>
+						  		<option value="40">pptk</option>
+
+						  	</select>
+						</div>
+					</div>
+
+				</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-xs btn-danger" data-dismiss="modal"><i class="ace-icon fa fa-close"></i>close</button>
+        <button type="button" class="btn btn-xs btn-success" data-dismiss="modal"  ><i class="ace-icon fa fa-check"></i>submit</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- <script src="{{baseURL}}/assets/action-js/admin/datapengaduan.js"></script> -->
+{% endblock %}

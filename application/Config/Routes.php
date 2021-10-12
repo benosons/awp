@@ -89,6 +89,7 @@ $routes->add('kegiatan', 'View::kegiatan');
 $routes->add('data', 'View::data');
 $routes->add('budget', 'View::budget');
 $routes->add('summary', 'View::summary');
+$routes->add('jadwal', 'View::jadwal');
 
 $routes->add('auth', 'Auth::auth');
 $routes->add('reg', 'Auth::reg');
@@ -108,6 +109,8 @@ $routes->post('saveRealisasi', 'Jsondata::saveRealisasi');
 $routes->post('cekperiode', 'Jsondata::cekperiode');
 $routes->post('loadsoe', 'Jsondata::loadsoe');
 $routes->post('loadperiode', 'Jsondata::loadperiode');
+$routes->post('loadjadwal', 'Jsondata::loadjadwal');
+$routes->post('addjadwal', 'Jsondata::addjadwal');
 
 
 

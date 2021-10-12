@@ -195,6 +195,26 @@ class View extends \CodeIgniter\Controller
 		}
 	}
 
+	public function jadwal()
+	{
+		helper('form');
+		$request  = $this->request;
+		$param 	  = $request->getGet('param');
+		if($param == 1){
+			$this->data['isOpen'] = 1;
+			$this->data['script'] = $this->data['baseURL'].'/action-js/admin/data/jadwal-index.js';
+			return \Twig::instance()->display('admin/data/jadwal-index.html', $this->data);
+		}else if($param == 0){
+			if($this->logged){
+				$this->data['isOpen'] = 0;
+				$this->data['script'] = $this->data['baseURL'].'/action-js/admin/data/jadwal-index.js';
+				return \Twig::instance()->display('admin/data/jadwal-index.html', $this->data);
+			}else{
+				return redirect('home');
+			}
+		}
+	}
+
 	public function subkegiatan()
 	{
 				if($this->logged){

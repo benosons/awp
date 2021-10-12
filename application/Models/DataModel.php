@@ -164,6 +164,15 @@ class DataModel extends Model{
           return  $query->getResult();
     }
 
+    public function loadjadwal()
+    {
+          $builder = $this->db->table('data_jadwal');
+          $query   = $builder->get();
+          // echo $this->db->getLastQuery();die;
+          
+          return  $query->getResult();
+    }
+
     public function getsoe($param = null, $ids = null)
     {
       $builder = $this->db->table('soe_komponen ko');

@@ -1642,6 +1642,47 @@ class Jsondata extends \CodeIgniter\Controller
 
 	}
 
+	public function addjadwal(){
+		try {
+			$request  = $this->request;
+			$param 	  = $request->getVar('param');
+			$date 	  = $request->getVar('date');
+			$keterangan 	  = $request->getVar('keterangan');
+			
+			$role 		= $this->data['role'];
+			$userid 	= $this->data['userid'];
+			
+			$model = new \App\Models\DataModel();
+			
+			$data = [
+
+								'datetime' => $date,
+								'keterangan' => $keterangan,
+								'create_date' => $this->now,
+								'update_date' => $this->now,
+								'create_by' => $userid,
+
+				];
+
+		$res = $model->saveData($param, $data);
+		$id  = $model->insertID();
+
+		$response = [
+				'status'   => 'sukses',
+				'code'     => '0',
+				'data' 		 => 'terkirim'
+		];
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+		}
+			catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+
+	}
+
 	public function addKegiatan(){
 
 		$request  = $this->request;
@@ -1936,6 +1977,44 @@ class Jsondata extends \CodeIgniter\Controller
 					$modelfiles = new \App\Models\FilesModel();
 					
 					$data = $model->loadperiode();
+					
+					if($data){
+						$response = [
+							'status'   => 'success',
+							'code'     => '1',
+							'data'		=> $data
+						];
+					}else{
+						$response = [
+						    'status'   => 'failed',
+						    'code'     => '0',
+						];
+					}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
+	public function loadjadwal()
+	{
+		try
+		{
+				$request  = $this->request;
+				$param 	  = $request->getVar('param');
+				$id		 	  = $request->getVar('id');
+				$role 		= $this->data['role'];
+				$userid		= $this->data['userid'];
+
+					$model = new \App\Models\DataModel();
+					$modelfiles = new \App\Models\FilesModel();
+					
+					$data = $model->loadjadwal();
 					
 					if($data){
 						$response = [
