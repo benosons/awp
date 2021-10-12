@@ -7,6 +7,11 @@ $(document).ready(function(){
 
   $('#jadwal-data').DataTable();
 
+  $('#jadwal-modal').on('hide.bs.modal', function () {
+    $('#detim').val('');
+    $('#keterangan_jadwal').val('');
+  })
+
   $("#detim").flatpickr({
     enableTime: true,
     dateFormat: "Y-m-d H:i",
@@ -247,6 +252,9 @@ function save(formData){
       data : formData,
       success: function(result){
           loaddata('data_jadwal');
+          $('#jadwal-modal').modal('hide');
+          $('#detim').val('');
+          $('#keterangan_jadwal').val('');
       }
     });
   };
