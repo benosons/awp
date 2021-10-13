@@ -100,6 +100,7 @@ $routes->post('loaddata', 'Jsondata::loaddata');
 
 $routes->post('actionUsers', 'Jsondata::actionUsers');
 $routes->post('actionData', 'Jsondata::actionData');
+$routes->post('actionJadwal', 'Jsondata::actionJadwal');
 $routes->post('actionRealisasi', 'Jsondata::actionRealisasi');
 $routes->post('addUser', 'Jsondata::addUser');
 $routes->post('addData', 'Jsondata::addData');

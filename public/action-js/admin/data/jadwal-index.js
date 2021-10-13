@@ -12,6 +12,8 @@ $(document).ready(function(){
     $('#keterangan_jadwal').val('');
   })
 
+  $('#update-jadwal').hide();
+
   $("#detim").flatpickr({
     enableTime: true,
     dateFormat: "Y-m-d H:i",
@@ -95,7 +97,22 @@ $(document).ready(function(){
     formData.append('keterangan', ket);
     save(formData);
 
-});
+  });
+
+  $('#jadwal-modal').on('hide.bs.modal', function(){
+    $('#idjadwal').val('');
+    $('#detim').val('');
+    $('#keterangan_jadwal').val('');
+
+  });
+
+  $('#update-jadwal').on('click' , function(){
+    var id = $('#idjadwal').val();
+    var date = $('#detim').val();
+    var keterangan = $('#keterangan_jadwal').val();
+
+    isAction('update', id, date, keterangan );
+  });
 
 });
 
@@ -127,6 +144,7 @@ function loaddata(param, ids){
                 { 'mDataProp': 'datetime'},
                 { 'mDataProp': 'datetime'},
                 { 'mDataProp': 'datetime'},
+                { 'mDataProp': 'keterangan'},
                 { 'mDataProp': 'keterangan'},
 
             ],
@@ -190,15 +208,16 @@ function loaddata(param, ids){
               },
               aTargets: [ 3 ]
           },
-              // {
-              //     mRender: function ( data, type, row ) {
+              {
+                  mRender: function ( data, type, row ) {
 
-              //       var el = `<button class="btn btn-danger btn-sm" onclick="action('delete','`+row.id+`','')" ><i class="icofont icofont icofont-trash"></i>Hapus</button>`;
+                    var el = `<button class="btn btn-info btn-mini" style="width:50px;" onclick="action('edit','`+row.id+`','`+row.datetime+`', '`+row.keterangan+`')" ><i class="icofont icofont icofont-edit"></i>Edit</button>`;
+                     el += `<button class="btn btn-danger btn-mini" style="width:50px;" onclick="action('delete','`+row.id+`','', '')" ><i class="icofont icofont icofont-trash"></i>Hapus</button>`;
 
-              //         return el;
-              //     },
-              //     aTargets: [ 6 ]
-              // },
+                      return el;
+                  },
+                  aTargets: [ 5 ]
+              },
             ],
             fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull){
                 var index = iDisplayIndexFull + 1;
@@ -207,15 +226,12 @@ function loaddata(param, ids){
             },
             fnInitComplete: function () {
 
-                var that = this;
-                var td ;
-                var tr ;
-                this.$('td').click( function () {
-                    td = this;
+              if($('#is_open').val() == 1){
+                this.api().column(5).visible(true);
+                this.$('tr').each(function() {
+                    $(this).find(':last-child').remove();
                 });
-                this.$('tr').click( function () {
-                    tr = this;
-                });
+              }
               }
             });
           }
@@ -259,7 +275,7 @@ function save(formData){
     });
   };
 
-  function action(mode, id, status){
+  function action(mode, id, date, keterangan){
     if(mode == 'delete'){
       bootbox.confirm({
         message: "Are you sure to <b>Delete</b> ?",
@@ -275,26 +291,33 @@ function save(formData){
        },
         callback : function(result) {
   			if(result) {
-            isAction(mode, id, status);
+            isAction(mode, id, date, keterangan);
     			}
     		}
     });
   }else{
-    isAction(mode, id, status);
+    $('#jadwal-modal').modal('show');
+    $('#idjadwal').val(id);
+    $('#detim').val(date);
+    $('#keterangan_jadwal').val(keterangan);
+
+    $('#save-jadwal').hide();
+    $('#update-jadwal').show();
   }
 }
 
-  function isAction(mode, id, status){
+  function isAction(mode, id, date, keterangan){
     var formData = new FormData();
     formData.append('mode', mode);
     formData.append('id', id);
-    formData.append('status', status);
-    formData.append('table', 'data_kegiatan');
+    formData.append('date', date);
+    formData.append('keterangan', keterangan);
+    formData.append('table', 'data_jadwal');
     $.ajax({
         type: 'post',
         processData: false,
         contentType: false,
-        url: 'actionData',
+        url: 'actionJadwal',
         data : formData,
         success: function(result){
           location.reload();

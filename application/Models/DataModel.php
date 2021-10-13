@@ -59,6 +59,16 @@ class DataModel extends Model{
       return true;
     }
 
+    public function updateJadwal($id, $data)
+    {
+      $builder = $this->db->table('data_jadwal');
+      $query   = $builder->where('id', $id);
+      $query->update($data);
+      // echo $this->db->getLastQuery();die;
+
+      return true;
+    }
+
     public function delete($table = null, $id = null)
     {
         $builder = $this->db->table($table);

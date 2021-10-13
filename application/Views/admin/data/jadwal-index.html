@@ -46,6 +46,7 @@
                         </div>
                     </div>
                     <div class="card-block">
+                        <input type="hidden" id="is_open" value="{{isOpen}}">
                         <div class="dt-responsive table-responsive">
                             <table id="jadwal-data" class="table table-hover table-bordered" style="font-size:12px;width: 100%;" cellspacing="0">
                                 <thead>
@@ -55,6 +56,9 @@
                                         <th>Tanggal</th>
                                         <th>Waktu</th>
                                         <th>Keterangan</th>
+                                        {% if isOpen != 1 %}
+                                        <th>Action</th>
+                                        {% endif %}
                                     </tr>
                                 </thead>
                             </table>
@@ -82,7 +86,7 @@
                     </button>
                 </div>
                 <div class="modal-body p-b-0">
-                      
+                      <input type="hidden" id="idjadwal">
                       <!-- <div class="row">
                         <div class="col-sm-12">
                             <label class="form-control-label">Pilih Bulan</label>
@@ -126,6 +130,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal"><i class="ti-close"></i> Batal </button>
                     <button type="button" class="btn btn-primary" id="save-jadwal"><i class="ti-check-box"></i> Simpan </button>
+                    <button type="button" class="btn btn-primary" id="update-jadwal"><i class="ti-check-box"></i> Update </button>
                 </div>
             </div>
         </div>

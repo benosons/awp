@@ -2700,6 +2700,43 @@ class Jsondata extends \CodeIgniter\Controller
 
 	}
 
+	public function actionJadwal(){
+
+		$request  = $this->request;
+		$mode 	  = $request->getVar('mode');
+		$id 	  	= $request->getVar('id');
+		$date 	= $request->getVar('date');
+		$keterangan 	= $request->getVar('keterangan');
+		$table	 	= $request->getVar('table');
+		$role 		= $this->data['role'];
+		$userid		= $this->data['userid'];
+
+		
+		$model 	  = new \App\Models\DataModel();
+
+		$data = [
+						'update_date' => $this->now,
+						'update_by' 	=> $userid,
+						'keterangan' => $keterangan,
+						'datetime' => $date,
+        ];
+		if($mode == 'update'){
+			$res = $model->updateJadwal($id, $data);
+
+		}else{
+			$res = $model->delete($table, $id);
+		}
+		$response = [
+				'status'   => 'sukses',
+				'code'     => '0',
+				'data' 		 => 'terupdate'
+		];
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+
+	}
+
 	public function loadkota(){
 		try
 		{
