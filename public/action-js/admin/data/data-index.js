@@ -88,8 +88,27 @@ function loaddata(param, ids){
       success: function(result){
           let data = result.data;
           const sortedActivities = data.sort((a, b) => b.updated_date - a.updated_date)
+          var isdate = [];
 
-          $('#last-updated').html('Last Update : '+sortedActivities[0].updated_date);
+          for (let index = 0; index < sortedActivities.length; index++) {
+            var det = sortedActivities[index]['updated_date'];
+            isdate.push(new Date(det))
+          }
+          var maximumDate = new Date(Math.max.apply(null, isdate));
+          const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+          ];
+          
+          var year = maximumDate.getFullYear();
+          var month = maximumDate.getMonth() + 1;
+          var date = maximumDate.getDate();
+          var hours = maximumDate.getHours();
+          var minutes = maximumDate.getMinutes();
+          var seconds = maximumDate.getSeconds();
+          var last_update = monthNames[month]+'-'+year;
+          // var last_update = year+'-'+monthNames[month]+'-'+date+' '+hours+':'+minutes+':'+seconds;
+
+          $('#last-updated').html('Last Update : '+last_update);
           for (var i = 0; i < data.length; i++) {
             if($('#is_open').val() == 1){
               let val = data[i].value;
