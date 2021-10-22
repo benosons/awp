@@ -47,7 +47,7 @@
                     </div>
                     <div class="card-block">
                         <input type="hidden" id="is_open" value="{{isOpen}}">
-                        <div class="dt-responsive table-responsive">
+                        <div class="dt-responsive table-responsive" hidden>
                             <table id="jadwal-data" class="table table-hover table-bordered" style="font-size:12px;width: 100%;" cellspacing="0">
                                 <thead>
                                     <tr class="bg-inverse">
@@ -63,6 +63,8 @@
                                 </thead>
                             </table>
                         </div>
+                                    
+                                        <div id="clndr-selected-date" class="overflow-hidden bg-grey bg-lighten-3"></div>
                     </div>
                 </div>
                 <!-- Base style - Hover table end -->
@@ -197,6 +199,50 @@
     </div>
 
   </div>
+</div>
+
+<div id="clndr" class="clearfix">
+    <script type="text/template" id="clndr-template">
+        <div class="clndr-controls">
+            <div class="clndr-previous-button">&lt;</div>
+            <div class="clndr-next-button">&gt;</div>
+            <div class="current-month">
+                <%= month %>
+                    <%= year %>
+            </div>
+        </div>
+        <div class="clndr-grid">
+            <div class="days-of-the-week clearfix">
+                <% _.each(daysOfTheWeek, function(day) { %>
+                    <div class="header-day">
+                        <%= day %>
+                    </div>
+                    <% }); %>
+            </div>
+            <div class="days">
+                <% _.each(days, function(day) { %>
+                    <div class="<%= day.classes %>" id="<%= day.id %>"><span class="day-number"><%= day.day %></span></div>
+                    <% }); %>
+            </div>
+        </div>
+        <div class="event-listing">
+            <div class="event-listing-title">Event</div>
+            <% _.each(eventsThisMonth, function(event) { %>
+                <div class="event-item font-small-3">
+                    <div class="event-item-day font-small-2">
+                        <b>Tanggal :</b> <%= event.date %>
+                    </div>
+                    <div class="event-item-name text-bold-600">
+                        <b>Keterangan :</b> <%= event.title %>
+                    </div>
+                    <div class="event-item-location">
+                        <%= event.location %>
+                    </div>
+                </div>
+            <hr/>
+                <% }); %>
+        </div>
+    </script>
 </div>
 
 <!-- <script src="{{baseURL}}/assets/action-js/admin/datapengaduan.js"></script> -->

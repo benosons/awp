@@ -128,6 +128,7 @@ function loaddata(param, ids){
       },
       success: function(result){
           let data = result.data;
+          clndr(data);
           var dt = $('#jadwal-data').DataTable({
             destroy: true,
             paging: true,
@@ -267,10 +268,11 @@ function save(formData){
       url: 'addjadwal',
       data : formData,
       success: function(result){
-          loaddata('data_jadwal');
-          $('#jadwal-modal').modal('hide');
-          $('#detim').val('');
-          $('#keterangan_jadwal').val('');
+          // loaddata('data_jadwal');
+          // $('#jadwal-modal').modal('hide');
+          // $('#detim').val('');
+          // $('#keterangan_jadwal').val('');
+          location.reload()
       }
     });
   };
@@ -343,5 +345,69 @@ function save(formData){
 
             $('#user_satuan').append(opt);
           }
+        })
+      }
+
+      function clndr(datas){
+
+          var a = moment().format("YYYY-MM"),
+          b = moment().add(1, "month").format("YYYY-MM");
+          var c = [];
+          for (let index = 0; index < datas.length; index++) {
+            const element = datas[index];
+            console.log(element);
+            var det = {
+                        date: element.datetime,
+                        title: element.keterangan,
+                        id:  element.id,
+                        location:  `<button class="btn btn-danger btn-mini" onclick="action('delete','`+element.id+`','', '')" ><i class="icofont icofont icofont-trash"></i>Hapus</button>`
+                      }
+                      c.push(det);
+          }
+          // var c = [
+          //     {
+          //         date: a + "-10",
+          //         title: "Robot war",
+          //         location: "Center of Science"
+          //     }, 
+          //     {
+          //         date: a + "-19",
+          //         title: "Cat Frisbee",
+          //         location: "Jefferson Park"
+          //     }, 
+          //     {
+          //         date: a + "-23",
+          //         title: "Elephent fight",
+          //         location: "Natural Park"
+          //     }, 
+          //     {
+          //         date: b + "-07",
+          //         title: "Small Cat Photo Session",
+          //         location: "Center for Cat Photography"
+          //     }
+          //   ];
+
+        $("#clndr-selected-date").clndr({
+          template: $("#clndr-template").html(),
+          events: c,
+          trackSelectedDate: !0,
+          clickEvents: {
+            click: function(target) {
+              var selectedClass = target.date.format('YYYY-MM-DD');
+              if(target.events.length){
+                  // $('#jadwal-modal').modal('show');
+                  // $('#detim').val(selectedClass);
+                  // $('#keterangan_jadwal').val(target.events[0].title);
+                  // console.log(target.events[0].id);
+                  action('edit', target.events[0].id , selectedClass , target.events[0].title);
+                }
+                // $('.event-item:not('+selectedClass+')').hide();
+                // $('.event-item'+selectedClass).show();
+              
+            },
+            onMonthChange: function(month) {
+              console.log('you just went to ' + month.format('MMMM, YYYY'));
+            }
+          },
         })
       }
