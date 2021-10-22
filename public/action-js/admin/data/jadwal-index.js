@@ -399,7 +399,9 @@ function save(formData){
                   // $('#detim').val(selectedClass);
                   // $('#keterangan_jadwal').val(target.events[0].title);
                   // console.log(target.events[0].id);
-                  action('edit', target.events[0].id , selectedClass , target.events[0].title);
+                  if($('#is_open').val() != '1'){
+                    action('edit', target.events[0].id , selectedClass , target.events[0].title);
+                  }
                 }
                 // $('.event-item:not('+selectedClass+')').hide();
                 // $('.event-item'+selectedClass).show();

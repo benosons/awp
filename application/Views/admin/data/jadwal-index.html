@@ -235,9 +235,11 @@
                     <div class="event-item-name text-bold-600">
                         <b>Keterangan :</b> <%= event.title %>
                     </div>
+                    {% if isOpen != 1 %}
                     <div class="event-item-location">
                         <%= event.location %>
                     </div>
+                    {% endif %}
                 </div>
             <hr/>
                 <% }); %>
