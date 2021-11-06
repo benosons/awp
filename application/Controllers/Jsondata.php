@@ -1548,12 +1548,21 @@ class Jsondata extends \CodeIgniter\Controller
 					$modelfiles = new \App\Models\FilesModel();
 					
 					$data = $model->getaspek($param, $kode);
+					$newdata = [];
+					foreach ($data as $key => $value) {
+						$monev = $model->cekmonev($value->kode, $value->kode_parent);
+						if(empty($monev)){
+							array_push($newdata, $value);
+						}
+					}
 
-					if($data){
+					// print_r($newdata);die;
+
+					if($newdata){
 						$response = [
 							'status'   => 'sukses',
 							'code'     => '1',
-							'data' 		 => $data
+							'data' 		 => $newdata
 						];
 					}else{
 						$response = [

@@ -141,7 +141,6 @@ class DataModel extends Model{
       (select `desc` from data_aspek where type = 'indikator' and kode = data_monev.kode_indikator) as desc_indikator,
       (select `desc` from data_aspek where type = 'parameter' and kode = data_monev.kode_parameter) as desc_parameter
 
-      
       ");
       // $builder->where('realisasi.periode', $param);
       $builder->orderBy('kode_aspek ASC');
@@ -240,10 +239,20 @@ class DataModel extends Model{
           $builder = $this->db->table('data_aspek');
           
           if($value){
+            
             $query   = $builder->getWhere(['type' => $param, 'kode_parent' => $value]);
           }else{
             $query = $builder->getWhere(['type' => $param]);
           }
+          
+          return  $query->getResult();
+    }
+
+    public function cekmonev($kode, $kode_parent)
+    {
+          $builder = $this->db->table('data_monev');
+          $query   = $builder->getWhere(['kode_aspek' => $kode_parent]);
+          $query   = $builder->getWhere(['kode_indikator' => $kode]);
           
           return  $query->getResult();
     }
