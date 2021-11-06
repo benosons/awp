@@ -3126,7 +3126,7 @@ div.DTFC_LeftWrapper table.dataTable, div.DTFC_RightWrapper table.dataTable { ma
 
 div.DTFC_LeftWrapper table.dataTable.no-footer, div.DTFC_RightWrapper table.dataTable.no-footer { border-bottom: none; }
 
-th, td { white-space: nowrap; }
+th, td { white-space: normal; }
 
 /*===== Fixed-header data-table ===== */
 table.fixedHeader-floating { position: fixed !important; background-color: white; }

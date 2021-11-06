@@ -132,6 +132,24 @@ class DataModel extends Model{
       return  $query->getResult();
     }
 
+    public function getmonev($param = null, $ids = null)
+    {
+      $builder = $this->db->table('data_monev');
+      $builder->select("data_monev.*,
+      (select `kode` from data_aspek where type = 'aspek' and kode = data_monev.kode_aspek) as nomor_aspek,
+      (select `desc` from data_aspek where type = 'aspek' and kode = data_monev.kode_aspek) as desc_aspek,
+      (select `desc` from data_aspek where type = 'indikator' and kode = data_monev.kode_indikator) as desc_indikator,
+      (select `desc` from data_aspek where type = 'parameter' and kode = data_monev.kode_parameter) as desc_parameter
+
+      
+      ");
+      // $builder->where('realisasi.periode', $param);
+      $builder->orderBy('kode_aspek ASC');
+      $query = $builder->get();
+      // echo $this->db->getLastQuery();die;
+      return  $query->getResult();
+    }
+
     // public function getinstansi($table = null, $ids = null)
     // {
     //   $builder = $this->db->table('data_instansi');
@@ -215,6 +233,19 @@ class DataModel extends Model{
       $query->update($data);
       // echo $this->db->getLastQuery();die;
       return true;
+    }
+
+    public function getaspek($param, $value)
+    {
+          $builder = $this->db->table('data_aspek');
+          
+          if($value){
+            $query   = $builder->getWhere(['type' => $param, 'kode_parent' => $value]);
+          }else{
+            $query = $builder->getWhere(['type' => $param]);
+          }
+          
+          return  $query->getResult();
     }
 
 }

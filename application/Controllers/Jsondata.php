@@ -1534,6 +1534,45 @@ class Jsondata extends \CodeIgniter\Controller
 		}
 	}
 
+	public function loadaspek()
+	{
+		try
+		{
+				$request  = $this->request;
+				$param 	  = $request->getVar('param');
+				$kode		 	  = $request->getVar('kode');
+				$role 		= $this->data['role'];
+				$userid		= $this->data['userid'];
+				
+					$model = new \App\Models\DataModel();
+					$modelfiles = new \App\Models\FilesModel();
+					
+					$data = $model->getaspek($param, $kode);
+
+					if($data){
+						$response = [
+							'status'   => 'sukses',
+							'code'     => '1',
+							'data' 		 => $data
+						];
+					}else{
+						$response = [
+						    'status'   => 'gagal',
+						    'code'     => '0',
+						    'data'     => 'tidak ada data',
+						];
+					}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
 	public function loadinstansi()
 	{
 		try
@@ -1587,6 +1626,45 @@ class Jsondata extends \CodeIgniter\Controller
 					$modelfiles = new \App\Models\FilesModel();
 
 					$data = $model->getsoe(str_replace("/","",$param), $id);
+
+					if($data){
+						$response = [
+							'status'   => 'sukses',
+							'code'     => '1',
+							'data' 		 => $data
+						];
+					}else{
+						$response = [
+						    'status'   => 'gagal',
+						    'code'     => '0',
+						    'data'     => 'tidak ada data',
+						];
+					}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+	
+	public function loadmonev()
+	{
+		try
+		{
+				$request  = $this->request;
+				$param 	  = $request->getVar('param');
+				$id		 	  = $request->getVar('id');
+				$role 		= $this->data['role'];
+				$userid		= $this->data['userid'];
+				
+					$model = new \App\Models\DataModel();
+					$modelfiles = new \App\Models\FilesModel();
+
+					$data = $model->getmonev($param, $id);
 
 					if($data){
 						$response = [
@@ -2052,6 +2130,43 @@ class Jsondata extends \CodeIgniter\Controller
         ];
 
 		$res = $model->saveParam($param, $data);
+		$id  = $model->insertID();
+
+		$response = [
+				'status'   => 'sukses',
+				'code'     => '0',
+				'data' 		 => 'terkirim'
+		];
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+
+	}
+
+
+	public function saveAspek(){
+
+		$request  = $this->request;
+		$param 	  = $request->getVar('param');
+		$role 		= $this->data['role'];
+		$userid		= $this->data['userid'];
+		$model 	  = new \App\Models\DataModel();
+
+		$data = [
+						'kode_aspek' => $request->getVar('kode_aspek'),
+						'kode_indikator' => $request->getVar('kode_indikator'),
+						'kode_parameter' => $request->getVar('kode_parameter'),
+						'keterangan' => $request->getVar('keterangan'),
+						'sumber' => $request->getVar('sumber'),
+						'url' => $request->getVar('url'),
+						'tahun' => $request->getVar('tahun'),
+						'catatan' => $request->getVar('catatan'),
+						'create_date' => $this->now,
+						'create_by' => $userid,
+
+        ];
+
+		$res = $model->saveData('data_monev', $data);
 		$id  = $model->insertID();
 
 		$response = [
