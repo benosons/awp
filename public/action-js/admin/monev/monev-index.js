@@ -38,8 +38,8 @@ $(document).ready(function(){
         save(formData);    
   })
 
-  loaddata();
-  loadaspek('aspek')
+  // loaddata();
+  // loadaspek('aspek')
   $('#pilih-aspek').on('change', function(){
     loadaspek('indikator', this.value)
   });

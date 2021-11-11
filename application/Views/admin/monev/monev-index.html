@@ -33,15 +33,12 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <!-- <input id="pilih-bulan" data-dd-hide-day="true" name="dropper-default" class="form-control form-control-center" type="text" placeholder="Select your date" /> -->
-                                <div class="form-group row" hidden>
-                                    <label class="col-sm-6 col-form-label">Pilih Triwulan Box</label>
+                                <div class="form-group row">
+                                    <label class="col-sm-6 col-form-label">Kabupaten/ Kota</label>
                                     <div class="col-sm-6">
                                         <select id="pilih-bulan" name="select" class="form-control">
                                             <option value="opt1">Pilih</option>
-                                            <option value="opt2">Triwulan 1</option>
-                                            <option value="opt3">Triwulan 2</option>
-                                            <option value="opt4">Triwulan 3</option>
-                                            <option value="opt5">Triwulan 4</option>
+                                            <option value="kota_bandung">Kota Bandung</option>
                                         </select>
                                     </div>
                                 </div>
@@ -49,7 +46,7 @@
 
                             <div class="col-sm-4">
                             </div>
-                            <div class="col-sm-4 ">
+                            <div class="col-sm-4 " hidden>
                                 <button id="btn-tambah" class="btn btn-primary pull-right" data-toggle="modal" data-target="#sign-in-modal" data-backdrop="static"><i class="icofont icofont icofont-ui-add"></i>Tambah</button>
                             </div>
                         
@@ -57,8 +54,8 @@
                     </div>
                     <div class="card-block">
                         <div class="dt-responsive table-responsive">
-                            <!-- <input type="hidden" id="is_open" value="{{isOpen}}"> -->
-                            <table id="all-monev" class="table table-hover table-bordered" style="font-size:12px;width: 100%;" cellspacing="0">
+                            
+                            <!-- <table id="all-monev" class="table table-hover table-bordered" style="font-size:12px;width: 100%;" cellspacing="0">
                                 <thead>
                                     <tr class="bg-inverse">
                                         <th><center>No</center></th>
@@ -78,6 +75,206 @@
                                     </tr>
                                     
                                 </thead>
+                                
+                            </table> -->
+
+                            <table id="all-monev" class="table table-bordered" style="font-size:12px;width: 100%;" cellspacing="0">
+                                <thead>
+                                    <tr class="bg-inverse">
+                                        <th><center>No</center></th>
+                                        <th><center>INDIKATOR</center></th>
+                                        <th><center>PARAMETER</center></th>
+                                        <th><center>BOBOT</center></th>
+                                        <th><center>NILAI</center></th>
+                                        <th><center>KETERANGAN</center></th>
+                                        <th><center>SUMBER</center></th>
+                                        <th><center>TAHUN</center></th>
+                                        <th><center>Keterangan</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="group bg-default">
+                                        <td colspan="9"><center>Aspek Peraturan<center></center></center></td>
+                                        <!-- <td ><center>11<center></center></center></td>
+                                        <td colspan="4"></td> -->
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2">1</td>
+                                        <td rowspan="2">Perda RPJMD memuat kebijakan pengelolaan lingkungan hidup dan/atau pengelolaan sampah</td>
+                                        <td>Perda RPJMD telah memuat kebijakan pengelolaan lingkungan hidup dan/atau pengelolaan sampah</td>
+                                        <td>1</td>
+                                        <td rowspan="2">1</td>
+                                        <td rowspan="2">Tertuang dalam Peraturan Daerah (Perda) tentang Rencana Pembangunan Jangka Menengah Daerah (RPJMD) Tahun 2018 - 2023</td>
+                                        <td rowspan="2">*)JDIH</td>
+                                        <td rowspan="2">2019</td>
+                                        <td rowspan="2">Perda nya ada di Bangda, tapi gaada nomor surat nya, jadi ngambil dari JDIH aja https://peraturan.bpk.go.id/Home/Details/136661/perda-kota-bandung-no-3-tahun-2019</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Perda RPJMD belum memuat kebijakan pengelolaan lingkungan hidup dan/atau pengelolaan sampah</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!--  -->
+                                    <tr>
+                                        <td rowspan="2">2</td>
+                                        <td rowspan="2">Ketersediaan Perda Pengelolaan Sampah RT dan SSSRT yang telah disesuaikan dengan Permendagri 7 2021</td>
+                                        <td>Tersedia Perda mengenai pengelolaan sampah rumah tangga dan sampah sejenis sampah rumah tangga</td>
+                                        <td>1</td>
+                                        <td rowspan="2">1</td>
+                                        <td rowspan="2">Peraturan Daerah Kota Bandung No. 9 Tahun 2018 tentang Pengelolaan Sampah Kota Bandung</td>
+                                        <td rowspan="2">BANGDA</td>
+                                        <td rowspan="2">2018</td>
+                                        <td rowspan="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Belum tersedia Perda mengenai pengelolaan sampah rumah tangga dan  sampah sejenis sampah rumah tangga</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!--  -->
+                                    <tr>
+                                        <td rowspan="2">3</td>
+                                        <td rowspan="2">Ketersediaan Perda Tarif/Retribusi Sampah</td>
+                                        <td>Tersedia Perda mengenai tarif/retribusi sampah yang telah disesuaikan dengan Permendagri 7 2021</td>
+                                        <td>1</td>
+                                        <td rowspan="2">1</td>
+                                        <td rowspan="2">Peraturan Walikota (Perwali) No. 91 Tahun 2021 Tentang Terif Layanan Sampah pada UPTD Pengelolaan Sampah dengan Pola BLUD</td>
+                                        <td rowspan="2">BANGDA</td>
+                                        <td rowspan="2">2013</td>
+                                        <td rowspan="2">di BANGDA gaada, Adanya di JDIH https://peraturan.bpk.go.id/Home/Details/170674/perwali-kota-bandung-no-316-tahun-2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tidak tersedianya Perda mengenai tarif/retribusi sampah dan/atau belum disesuaikan dengan Permendagri 7 2021</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!-- 4 -->
+                                    <tr>
+                                        <td rowspan="2">4</td>
+                                        <td rowspan="2">Ketersediaan Perkada Pengurangan Sampah</td>
+                                        <td>Tersedia Perbup / Perwali yang memuat pengaturan operasional pengurangan sampah</td>
+                                        <td>1</td>
+                                        <td rowspan="2">1</td>
+                                        <td rowspan="2">Peraturan Wali Kota Bandung Nomor 037 Tahun 2019 tentang Petunjuk Pelaksanaan Peraturan Daerah Kota Bandung Nomor 17 Tahun 2012 Tentang Pengurangan Penggunaan Kantong Plastik</td>
+                                        <td rowspan="2">*)JDIH, Dokumen kajian GAP</td>
+                                        <td rowspan="2">2019</td>
+                                        <td rowspan="2">Perwal No 37 Tahun 2019 tentang Petunjuk Pekasanaan PERDA Kota Bandung No 17 Tahun 2012 tentang Pengurangan Penggunaan Kantong Plastik</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Belum tersedia Perbup / Perwali yang memuat pengaturan operasional pengurangan sampah </td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!-- 5 -->
+                                    <tr>
+                                        <td rowspan="2">5</td>
+                                        <td rowspan="2">Ketersediaan Perkada Penanganan Sampah</td>
+                                        <td>Tersedia Perbup / Perwali yang memuat pengaturan operasional penanganan sampah</td>
+                                        <td>1</td>
+                                        <td rowspan="2">0</td>
+                                        <td rowspan="2">Belum terdapat Perbup/Perwal Penanganan Sampah </td>
+                                        <td rowspan="2">*)JDIH, Dokumen kajian GAP</td>
+                                        <td rowspan="2"></td>
+                                        <td rowspan="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Belum tersedia Perbup / Perwali yang memuat pengaturan operasional penanganan sampah</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!-- 6 -->
+                                    <tr>
+                                        <td rowspan="2">6</td>
+                                        <td rowspan="2">Ketersediaan Perkada Pembatasan Sampah (khusus sampah spesifik)</td>
+                                        <td>Tersedia Perbup / Perwali yang memuat pengaturan pembatasan sampah khusus dan sampah spesifik</td>
+                                        <td>1</td>
+                                        <td rowspan="2">0</td>
+                                        <td rowspan="2">Belum terdapat Perbup/Perwal Penanganan Sampah Spesifik</td>
+                                        <td rowspan="2">BANGDA</td>
+                                        <td rowspan="2"></td>
+                                        <td rowspan="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Belum tersedia Perbup / Perwali yang memuat pengaturan pembatasan sampah khusus dan sampah spesifik</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!-- 7 -->
+                                    <tr>
+                                        <td rowspan="2">7</td>
+                                        <td rowspan="2">Ketersediaan Perbup/Perwali Jakstrada</td>
+                                        <td>Tersedia Perbup / Perwali yang memuat pengaturan Jakstrada Pengelolaan Sampah</td>
+                                        <td>1</td>
+                                        <td rowspan="2">1</td>
+                                        <td rowspan="2">Peraturan Wali Kota Bandung No. 1426 Tahun 2018 tentang Kebijakan Dan Strategi Daerah dalam Pengelolaan Sampah Rumah Tangga dan Sampah Sejenis Sampah Rumah Tangga </td>
+                                        <td rowspan="2">BANGDA</td>
+                                        <td rowspan="2">2018</td>
+                                        <td rowspan="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Belum tersedia Perbup / Perwali yang memuat pengaturan Jakstrada Pengelolaan Sampah</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!-- 8 -->
+                                    <tr>
+                                        <td rowspan="2">8</td>
+                                        <td rowspan="2">Ketersediaan dokumen perencanaan persampahan di daerah (SSK) yang masih berlaku</td>
+                                        <td>Tersedia dokumen perencanaan persampahan di daerah (SSK) final yang masih berlaku</td>
+                                        <td>1</td>
+                                        <td rowspan="2">0</td>
+                                        <td rowspan="2">Dokumen SSK Kota Bandung tahun 2015  - 2019 sudah tidak berlaku</td>
+                                        <td rowspan="2">*)portal NAWASIS (kota bandung blm update) http://portal.nawasis.info/</td>
+                                        <td rowspan="2">2015</td>
+                                        <td rowspan="2">adanya buku putih aja di website NAWASIS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Belum tersedia dokumen perencanaan persampahan di daerah (SSK) dan/atau SSK yang sudah tidak berlaku</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!-- 9 -->
+                                    <tr>
+                                        <td rowspan="2">9</td>
+                                        <td rowspan="2">Ketersediaan dokumen perencanaan persampahan di daerah (RIS/ PTMP) yang masih berlaku</td>
+                                        <td>Tersedia dokumen perencanaan persampahan di daerah (RIS/ PTMP) yang masih berlaku</td>
+                                        <td>1</td>
+                                        <td rowspan="2">1</td>
+                                        <td rowspan="2">Rencana Induk Persampahan Kota Bandung tahun 2017-2037 tertuang dalam Perwal No 74 Tahun 2021 tentang Rencana Induk Pengelolaan Sampah</td>
+                                        <td rowspan="2">BANGDA</td>
+                                        <td rowspan="2">2017</td>
+                                        <td rowspan="2">adanya buku putih aja di website NAWASIS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Belum tersedia dokumen perencanaan persampahan di daerah (SSK) dan/atau SSK yang sudah tidak berlaku</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!-- 10 -->
+                                    <tr>
+                                        <td rowspan="2">10</td>
+                                        <td rowspan="2">Ketersediaan dokumen perencanaan persampahan di daerah (Jakstrada)</td>
+                                        <td>Tersedia dokumen perencanaan persampahan di daerah (Jakstrada)</td>
+                                        <td>1</td>
+                                        <td rowspan="2">1</td>
+                                        <td rowspan="2">Laporan Akhir Jakstrada Kota Bandung 2018-2025</td>
+                                        <td rowspan="2">BANGDA</td>
+                                        <td rowspan="2">2018</td>
+                                        <td rowspan="2">adanya buku putih aja di website NAWASIS"di BANGDA gaada, adanya di data KKO YPBB https://docs.google.com/document/d/1tXqVQmBX6QeqPFUd9bSYts0i0qBoQmQQAoSMaghLjPw/edit </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Belum tersedia dokumen perencanaan persampahan di daerah (Jakstrada)</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!-- 11 -->
+                                    <tr>
+                                        <td rowspan="2">11</td>
+                                        <td rowspan="2">Ketersediaan muatan pengarusutamaan gender dalam dokumen perencanaan persampahan</td>
+                                        <td>Terakomodasinya isu gender dan upaya penanganannya dalam dokumen kebijakan dan perencanaan persampahan kota/kab </td>
+                                        <td>1</td>
+                                        <td rowspan="2">0</td>
+                                        <td rowspan="2">belum dilakukan review terhadap dokumen perencanaan persampahan yang didalamnya memuat isu gender dalam persampahan dan rencana penanganannya</td>
+                                        <td rowspan="2">BANGDA</td>
+                                        <td rowspan="2"></td>
+                                        <td rowspan="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Belum terakomodasinya isu gender dan upaya penanganannya dalam dokumen kebijakan dan perencanaan persampahan kota/kab </td>
+                                        <td>0</td>
+                                    </tr>
+
+                                </tbody>
                                 
                             </table>
                         </div>
