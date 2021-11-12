@@ -302,7 +302,7 @@ function submit(param, aspek, number){
       formData.append('sumber',$('#sumber_'+aspek+'_'+number).val());
       formData.append('tahun',$('#tahun_'+aspek+'_'+number).val());
       formData.append('note',$('#new_keterangan_'+aspek+'_'+number).val());
-      formData.append('url','');
+      formData.append('url',$('#url'+aspek+'_'+number).val());
       
       if($('#pilih-kota-kab').val() == ''){
         
