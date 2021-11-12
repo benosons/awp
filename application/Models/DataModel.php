@@ -132,7 +132,7 @@ class DataModel extends Model{
       return  $query->getResult();
     }
 
-    public function getmonev($param = null, $ids = null)
+    public function getmonev_old($param = null, $ids = null)
     {
       $builder = $this->db->table('data_monev');
       $builder->select("data_monev.*,
@@ -143,6 +143,16 @@ class DataModel extends Model{
 
       ");
       // $builder->where('realisasi.periode', $param);
+      $builder->orderBy('kode_aspek ASC');
+      $query = $builder->get();
+      // echo $this->db->getLastQuery();die;
+      return  $query->getResult();
+    }
+
+    public function getmonev($param = null, $ids = null)
+    {
+      $builder = $this->db->table('data_monev');
+      $builder->where('kota', $param);
       $builder->orderBy('kode_aspek ASC');
       $query = $builder->get();
       // echo $this->db->getLastQuery();die;
@@ -255,6 +265,17 @@ class DataModel extends Model{
           $query   = $builder->getWhere(['kode_indikator' => $kode]);
           
           return  $query->getResult();
+    }
+
+    public function updateMonev($id, $data)
+    {
+      
+      $builder = $this->db->table('data_monev');
+      $query   = $builder->where('id', $id);
+      $query->update($data);
+      // echo $this->db->getLastQuery();die;
+
+      return true;
     }
 
 }

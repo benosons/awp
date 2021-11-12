@@ -2160,23 +2160,57 @@ class Jsondata extends \CodeIgniter\Controller
 		$role 		= $this->data['role'];
 		$userid		= $this->data['userid'];
 		$model 	  = new \App\Models\DataModel();
-
-		$data = [
+		
+		if($request->getVar('id')){
+			$datas = [
+				'aspek' => $request->getVar('aspek'),
+				'kode_aspek' => $request->getVar('kode_aspek'),
+				'nomor' => $request->getVar('nomor'),
+				'kota' => $request->getVar('kota'),
+				'nilai' => $request->getVar('nilai'),
+				'keterangan' => $request->getVar('keterangan'),
+				'sumber' => $request->getVar('sumber'),
+				'tahun' => $request->getVar('tahun'),
+				'note' => $request->getVar('note'),
+				'url' => $request->getVar('url'),
+				'update_by' => $userid,
+				'update_Date' => $this->now
+			];
+			;
+			$res = $model->updateMonev($request->getVar('id'), $datas);
+		}else{
+			$data = [
+							// 'kode_aspek' => $request->getVar('kode_aspek'),
+							// 'kode_indikator' => $request->getVar('kode_indikator'),
+							// 'kode_parameter' => $request->getVar('kode_parameter'),
+							// 'keterangan' => $request->getVar('keterangan'),
+							// 'sumber' => $request->getVar('sumber'),
+							// 'url' => $request->getVar('url'),
+							// 'tahun' => $request->getVar('tahun'),
+							// 'catatan' => $request->getVar('catatan'),
+							// 'create_date' => $this->now,
+							// 'create_by' => $userid,
+						'aspek' => $request->getVar('aspek'),
 						'kode_aspek' => $request->getVar('kode_aspek'),
-						'kode_indikator' => $request->getVar('kode_indikator'),
-						'kode_parameter' => $request->getVar('kode_parameter'),
+						'nomor' => $request->getVar('nomor'),
+						'kota' => $request->getVar('kota'),
+						'nilai' => $request->getVar('nilai'),
 						'keterangan' => $request->getVar('keterangan'),
 						'sumber' => $request->getVar('sumber'),
-						'url' => $request->getVar('url'),
 						'tahun' => $request->getVar('tahun'),
-						'catatan' => $request->getVar('catatan'),
-						'create_date' => $this->now,
+						'note' => $request->getVar('note'),
+						'url' => $request->getVar('url'),
 						'create_by' => $userid,
+						'update_by' => $userid,
+						'create_date' => $this->now,
+						'update_Date' => $this->now,
 
-        ];
 
-		$res = $model->saveData('data_monev', $data);
-		$id  = $model->insertID();
+			];
+			$res = $model->saveData('data_monev', $data);
+			$id  = $model->insertID();
+		}
+
 
 		$response = [
 				'status'   => 'sukses',
