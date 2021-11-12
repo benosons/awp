@@ -113,6 +113,7 @@ function loaddata(param, ids){
           $('#nilai_'+element['kode_aspek']+'_'+element['nomor']).val(element['nilai']);
           $('#keterangan_'+element['kode_aspek']+'_'+element['nomor']).val(element['keterangan']);
           $('#sumber_'+element['kode_aspek']+'_'+element['nomor']).val(element['sumber']);
+          $('#url_'+element['kode_aspek']+'_'+element['nomor']).val(element['url']);
           $('#tahun_'+element['kode_aspek']+'_'+element['nomor']).val(element['tahun']);
           $('#new_keterangan_'+element['kode_aspek']+'_'+element['nomor']).val(element['note']);
           
