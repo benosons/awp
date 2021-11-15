@@ -222,8 +222,8 @@ class View extends \CodeIgniter\Controller
 		$param 	  = $request->getGet('param');
 		if($param == 1){
 			$this->data['isOpen'] = 1;
-			$this->data['script'] = $this->data['baseURL'].'/action-js/admin/monev/monev-index.js';
-			return \Twig::instance()->display('admin/monev/monev-index.html', $this->data);
+			$this->data['script'] = $this->data['baseURL'].'/action-js/admin/monev/monev-user-index.js';
+			return \Twig::instance()->display('admin/monev/monev-user-index.html', $this->data);
 		}else if($param == 0){
 			if($this->logged){
 				$this->data['isOpen'] = 0;
