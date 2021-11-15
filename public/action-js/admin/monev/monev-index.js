@@ -38,7 +38,7 @@ $(document).ready(function(){
         save(formData);    
   })
 
-  loaddata();
+  // loaddata();
   // loadaspek('aspek')
   $('#pilih-aspek').on('change', function(){
     loadaspek('indikator', this.value)
@@ -49,7 +49,8 @@ $(document).ready(function(){
   })
 
   $('#pilih-kota-kab').on('change', function(){
-    loaddata(this.value)
+    loaddata(this.value);
+    loadinformasi(this.value);
   })
 
 
@@ -268,6 +269,66 @@ function loaddata(param, ids){
       })
     }
 
+function loadinformasi(param, ids){
+
+      $.ajax({
+          type: 'post',
+          dataType: 'json',
+          url: 'loadinformasi',
+          data : {
+                  param      : param,
+                  id         : ids,
+          },
+          success: function(result){
+              let data = result.data;
+              let code = result.code;
+    
+            if(code){
+              for (let index = 0; index < data.length; index++) {
+                const element = data[index];
+
+                if(element['nomor']){
+                  if(element['group'] == '1'){
+                    $('#id_'+element['kode']+'_'+element['nomor']).val(element['id']);
+                    $('#isian_'+element['kode']+'_'+element['nomor']).val(element['isian']);
+                    $('#sumber_'+element['kode']+'_'+element['nomor']).val(element['sumber']);
+                    $('#tahun_'+element['kode']+'_'+element['nomor']).val(element['tahun']);
+                    $('#keterangan_'+element['kode']+'_'+element['nomor']).val(element['keterangan']);
+                  }else if(element['group'] == '2'){
+                    $('#id_'+element['kode']+'_'+element['nomor']).val(element['id']);
+                    $('#jumlah1_'+element['kode']+'_'+element['nomor']).val(element['jumlah1']);
+                    $('#kapasitas1_'+element['kode']+'_'+element['nomor']).val(element['kapasitas1']);
+                    $('#sumber1_'+element['kode']+'_'+element['nomor']).val(element['sumber1']);
+                    $('#tahun1_'+element['kode']+'_'+element['nomor']).val(element['tahun1']);
+                    $('#kapasitas2_'+element['kode']+'_'+element['nomor']).val(element['kapasitas2']);
+                    $('#ritasi_'+element['kode']+'_'+element['nomor']).val(element['ritasi']);
+                    $('#jumlah2_'+element['kode']+'_'+element['nomor']).val(element['jumlah2']);
+                    $('#kapasitas3_'+element['kode']+'_'+element['nomor']).val(element['kapasitas3']);
+                    $('#sumber2_'+element['kode']+'_'+element['nomor']).val(element['sumber2']);
+                    $('#tahun2_'+element['kode']+'_'+element['nomor']).val(element['tahun2']);
+                    $('#keterangan_'+element['kode']+'_'+element['nomor']).val(element['keterangan']);
+                  }
+                }else{
+                  if(element['group'] == '1'){
+                    $('#id_'+element['kode']).val(element['id']);
+                    $('#isian_'+element['kode']).val(element['isian']);
+                    $('#sumber_'+element['kode']).val(element['sumber']);
+                    $('#tahun_'+element['kode']).val(element['tahun']);
+                    $('#keterangan_'+element['kode']).val(element['keterangan']);
+                  }
+                }
+              }
+            }else{
+              
+              $('[name="informasi_umum"]').val('');
+            }            
+    
+                
+            }
+          })
+    }    
+
+
 function rubah(angka){
     angka = angka ? angka : 0;
     var reverse = angka.toString().split('').reverse().join(''),
@@ -290,51 +351,109 @@ function save(formData){
     });
   };
 
-function submit(param, aspek, number){
+function submit(param, aspek, number, group){
   
-  var formData = new FormData();
-      formData.append('id', $('#id_'+aspek+'_'+number).val());
-      formData.append('aspek', param);
-      formData.append('kode_aspek', aspek);
-      formData.append('nomor', number);
-      formData.append('kota', $('#pilih-kota-kab').val());
-      formData.append('nilai',$('#nilai_'+aspek+'_'+number).val());
-      formData.append('keterangan',$('#keterangan_'+aspek+'_'+number).val());
-      formData.append('sumber',$('#sumber_'+aspek+'_'+number).val());
-      formData.append('tahun',$('#tahun_'+aspek+'_'+number).val());
-      formData.append('note',$('#new_keterangan_'+aspek+'_'+number).val());
-      formData.append('url',$('#url_'+aspek+'_'+number).val());
+  if(param == 'informasi_umum'){
+    var formData = new FormData();
+    if(number){
+      if(group == '1'){
+        formData.append('id', $('#id_'+aspek+'_'+number).val());
+        formData.append('isian', $('#isian_'+aspek+'_'+number).val());
+        formData.append('sumber', $('#sumber_'+aspek+'_'+number).val());
+        formData.append('tahun', $('#tahun_'+aspek+'_'+number).val());
+        formData.append('keterangan', $('#keterangan_'+aspek+'_'+number).val());
+        formData.append('tipe', param);
+        formData.append('kode', aspek);
+        formData.append('nomor', number);
+        formData.append('kota', $('#pilih-kota-kab').val());
+        formData.append('group', group);
+      }else if(group == '2'){
+        formData.append('jumlah1', $('#jumlah1_'+aspek+'_'+number).val());
+        formData.append('kapasitas1', $('#kapasitas1_'+aspek+'_'+number).val());
+        formData.append('sumber1', $('#sumber1_'+aspek+'_'+number).val());
+        formData.append('tahun1', $('#tahun1_'+aspek+'_'+number).val());
+        formData.append('kapasitas2', $('#kapasitas2_'+aspek+'_'+number).val());
+        formData.append('ritasi', $('#ritasi_'+aspek+'_'+number).val());
+        formData.append('jumlah2', $('#jumlah2_'+aspek+'_'+number).val());
+        formData.append('kapasitas3', $('#kapasitas3_'+aspek+'_'+number).val());
+        formData.append('sumber2', $('#sumber2_'+aspek+'_'+number).val());
+        formData.append('tahun2', $('#tahun2_'+aspek+'_'+number).val());
+        formData.append('keterangan', $('#keterangan_'+aspek+'_'+number).val());
+        formData.append('tipe', param);
+        formData.append('kode', aspek);
+        formData.append('nomor', number);
+        formData.append('kota', $('#pilih-kota-kab').val());
+        formData.append('group', group);
+      }
+    }else{
+      if(group == '1'){
+        formData.append('id', $('#id_'+aspek).val());
+        formData.append('isian', $('#isian_'+aspek).val());
+        formData.append('sumber', $('#sumber_'+aspek).val());
+        formData.append('tahun', $('#tahun_'+aspek).val());
+        formData.append('keterangan', $('#keterangan_'+aspek).val());
+        formData.append('tipe', param);
+        formData.append('kode', aspek);
+        formData.append('nomor', '');
+        formData.append('kota', $('#pilih-kota-kab').val());
+        formData.append('group', group);
+      }
+    }
+
+    if($('#pilih-kota-kab').val() == ''){
+        
+      bootbox.alert({
+          message: "Silahkan pilih Kota/ Kabupaten!",
+          size: 'small',
+          buttons: {
+            ok: {
+              label: '<i class="fa fa-check"></i> Ok',
+              className: 'btn-success btn-mini',
+            }
+          }
+      });
+
+    }else{
+
+      $.ajax({
+          type: 'post',
+          processData: false,
+          contentType: false,
+          url: 'saveInformasi',
+          data : formData,
+          success: function(result){
+            location.reload();
+          }
+        });
+  }
+
+  }else{
+      var formData = new FormData();
+          formData.append('id', $('#id_'+aspek+'_'+number).val());
+          formData.append('aspek', param);
+          formData.append('kode_aspek', aspek);
+          formData.append('nomor', number);
+          formData.append('kota', $('#pilih-kota-kab').val());
+          formData.append('nilai',$('#nilai_'+aspek+'_'+number).val());
+          formData.append('keterangan',$('#keterangan_'+aspek+'_'+number).val());
+          formData.append('sumber',$('#sumber_'+aspek+'_'+number).val());
+          formData.append('tahun',$('#tahun_'+aspek+'_'+number).val());
+          formData.append('note',$('#new_keterangan_'+aspek+'_'+number).val());
+          formData.append('url',$('#url_'+aspek+'_'+number).val());
       
       if($('#pilih-kota-kab').val() == ''){
         
-        bootbox.alert({
-            message: "Silahkan pilih Kota/ Kabupaten!",
-            size: 'small',
-            buttons: {
-              ok: {
-                label: '<i class="fa fa-check"></i> Ok',
-                className: 'btn-success btn-mini',
-              }
-            }
-        });
-        // bootbox.confirm({
-        //       message: "Silahkan pilih Kota/ Kabupaten !",
-        //       buttons: {
-        //       confirm: {
-        //           label: '<i class="fa fa-check"></i> Ok',
-        //           className: 'btn-success btn-xs',
-        //       },
-        //       cancel: {
-        //           label: '<i class="fa fa-times"></i> No',
-        //           className: 'btn-danger btn-xs',
-        //       }
-        //     },
-        //       callback : function(result) {
-        //       // if(result) {
-        //       //     isAction(mode, id, status);
-        //       //   }
-        //       }
-        //     });
+            bootbox.alert({
+                message: "Silahkan pilih Kota/ Kabupaten!",
+                size: 'small',
+                buttons: {
+                  ok: {
+                    label: '<i class="fa fa-check"></i> Ok',
+                    className: 'btn-success btn-mini',
+                  }
+                }
+            });
+
           }else{
 
             $.ajax({
@@ -348,6 +467,7 @@ function submit(param, aspek, number){
                 }
               });
       }
+    }
   };
 
   function action(mode, id, status){

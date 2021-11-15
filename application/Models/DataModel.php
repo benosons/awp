@@ -159,6 +159,16 @@ class DataModel extends Model{
       return  $query->getResult();
     }
 
+    public function getinformasi($param = null, $ids = null)
+    {
+      $builder = $this->db->table('data_informasi_umum');
+      $builder->where('kota', $param);
+      $builder->orderBy('kode ASC');
+      $query = $builder->get();
+      // echo $this->db->getLastQuery();die;
+      return  $query->getResult();
+    }
+
     // public function getinstansi($table = null, $ids = null)
     // {
     //   $builder = $this->db->table('data_instansi');
@@ -271,6 +281,17 @@ class DataModel extends Model{
     {
       
       $builder = $this->db->table('data_monev');
+      $query   = $builder->where('id', $id);
+      $query->update($data);
+      // echo $this->db->getLastQuery();die;
+
+      return true;
+    }
+
+    public function updateInformasi($id, $data)
+    {
+      
+      $builder = $this->db->table('data_informasi_umum');
       $query   = $builder->where('id', $id);
       $query->update($data);
       // echo $this->db->getLastQuery();die;

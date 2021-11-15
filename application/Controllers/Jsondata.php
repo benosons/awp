@@ -1699,6 +1699,45 @@ class Jsondata extends \CodeIgniter\Controller
 		}
 	}
 
+	public function loadinformasi()
+	{
+		try
+		{
+				$request  = $this->request;
+				$param 	  = $request->getVar('param');
+				$id		 	  = $request->getVar('id');
+				$role 		= $this->data['role'];
+				$userid		= $this->data['userid'];
+				
+					$model = new \App\Models\DataModel();
+					$modelfiles = new \App\Models\FilesModel();
+
+					$data = $model->getinformasi($param, $id);
+
+					if($data){
+						$response = [
+							'status'   => 'sukses',
+							'code'     => '1',
+							'data' 		 => $data
+						];
+					}else{
+						$response = [
+						    'status'   => 'gagal',
+						    'code'     => '0',
+						    'data'     => 'tidak ada data',
+						];
+					}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
 	public function addProgram(){
 
 		$request  = $this->request;
@@ -2208,6 +2247,91 @@ class Jsondata extends \CodeIgniter\Controller
 
 			];
 			$res = $model->saveData('data_monev', $data);
+			$id  = $model->insertID();
+		}
+
+
+		$response = [
+				'status'   => 'sukses',
+				'code'     => '0',
+				'data' 		 => 'terkirim'
+		];
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+
+	}
+
+	public function saveInformasi(){
+
+		$request  = $this->request;
+		$param 	  = $request->getVar('param');
+		$role 		= $this->data['role'];
+		$userid		= $this->data['userid'];
+		$model 	  = new \App\Models\DataModel();
+		
+		if($request->getVar('id')){
+			$datas = [
+				'tipe' => $request->getVar('tipe'),
+				'kode' => $request->getVar('kode'),
+				'nomor' => $request->getVar('nomor'),
+				'isian' => $request->getVar('isian'),
+				'sumber' => $request->getVar('sumber'),
+				'tahun' => $request->getVar('tahun'),
+				'keterangan' => $request->getVar('keterangan'),
+				'update_by' => $userid,
+				'update_date' => $this->now,
+				'kota' => $request->getVar('kota'),
+				'group' => $request->getVar('group'),
+			];
+			
+			$res = $model->updateInformasi($request->getVar('id'), $datas);
+		}else{
+			
+			if($request->getVar('group') == '1'){
+				$data = [
+
+					'tipe' => $request->getVar('tipe'),
+					'kode' => $request->getVar('kode'),
+					'nomor' => $request->getVar('nomor'),
+					'isian' => $request->getVar('isian'),
+					'sumber' => $request->getVar('sumber'),
+					'tahun' => $request->getVar('tahun'),
+					'keterangan' => $request->getVar('keterangan'),
+					'create_by' => $userid,
+					'update_by' => $userid,
+					'create_date' => $this->now,
+					'update_date' => $this->now,
+					'kota' => $request->getVar('kota'),
+					'group' => $request->getVar('group'),
+
+				];
+			}else if($request->getVar('group') == '2'){
+				$data = [
+					'tipe' => $request->getVar('tipe'),
+					'kode' => $request->getVar('kode'),
+					'nomor' => $request->getVar('nomor'),
+					'jumlah1' => $request->getVar('jumlah1'),
+					'kapasitas1' => $request->getVar('kapasitas1'),
+					'sumber1' => $request->getVar('sumber1'),
+					'tahun1' => $request->getVar('tahun1'),
+					'kapasitas2' => $request->getVar('kapasitas2'),
+					'ritasi' => $request->getVar('ritasi'),
+					'jumlah2' => $request->getVar('jumlah2'),
+					'kapasitas3' => $request->getVar('kapasitas3'),
+					'sumber2' => $request->getVar('sumber2'),
+					'tahun2' => $request->getVar('tahun2'),
+					'create_by' => $userid,
+					'update_by' => $userid,
+					'create_date' => $this->now,
+					'update_date' => $this->now,
+					'kota' => $request->getVar('kota'),
+					'group' => $request->getVar('group'),
+				];
+
+			}
+
+			$res = $model->saveData('data_informasi_umum', $data);
 			$id  = $model->insertID();
 		}
 

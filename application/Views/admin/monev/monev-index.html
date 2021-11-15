@@ -65,7 +65,7 @@
                                     <tr class="bg-inverse">
                                         <th><center>No</center></th>
                                         <th><center>Uraian</center></th>
-                                        <th><center>Isian Data</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
                                         <th><center>Satuan</center></th>
                                         <th><center>Sumber Data</center></th>
                                         <th><center>Tahun Data</center></th>
@@ -77,122 +77,405 @@
                                     <tr>
                                         <td>a</td>
                                         <td>Jumlah penduduk kota/kabupaten</td>
-                                        <td class="text-right">2,444,160.00</td>
+                                        <td class="text-right">
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="isian_a" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
                                         <td>jiwa</td>
-                                        <td>BPS (Susenas)</td>
-                                        <td>2020</td>
-                                        <td></td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_a" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_a" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_a" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_a">
+                                            <button type="button" onclick="submit('informasi_umum', 'a', '', 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>b</td>
                                         <td>Jumlah timbulan sampah perkapita</td>
-                                        <td class="text-right">3.15</td>
+                                        <td class="text-right">
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="isian_b" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
                                         <td>liter/jiwa/hari</td>
-                                        <td>formulasi</td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_b" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_b" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_b" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_b">
+                                            <button type="button" onclick="submit('informasi_umum', 'b', '', 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                         
                                     </tr>
                                     <tr>
                                         <td>c</td>
                                         <td>Densitas sampah </td>
-                                        <td class="text-right">200.00</td>
+                                        <td class="text-right">
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="isian_c" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
                                         <td>kg/m3</td>
-                                        <td>Data primer</td>
-                                        <td>2020</td>
-                                        <td>data didapatkan dari RIS</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_c" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_c" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_c" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_c">
+                                            <button type="button" onclick="submit('informasi_umum', 'c', '', 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                         
                                     </tr>
                                     <tr>
                                         <td>d</td>
                                         <td>Jumlah timbulan sampah kota/kabupaten </td>
-                                        <td class="text-right">562,034.59</td>
+                                        <td class="text-right">
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="isian_d" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
                                         <td>ton/tahun</td>
-                                        <td>SIPSN</td>
-                                        <td>2020</td>
-                                        <td></td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_d" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_d" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_d" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_d">
+                                            <button type="button" onclick="submit('informasi_umum', 'd', '', 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                         
                                     </tr>
                                     <tr>
                                         <td rowspan="5">e</td>
                                         <td>Pengumpulan oleh pemerintah</td>
-                                        <td class="text-right">-</td>
+                                        <td class="text-right">
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="isian_e_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
                                         <td>Kelurahan</td>
-                                        <td>Data primer</td>
-                                        <td>2020</td>
-                                        <td></td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_e_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_e_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_e_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_e_1">
+                                            <button type="button" onclick="submit('informasi_umum', 'e', 1 , 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Pengumpulan oleh non pemerintah</td>
-                                        <td class="text-right">-</td>
+                                        <td class="text-right">
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="isian_e_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
                                         <td>Kelurahan</td>
-                                        <td>Data primer</td>
-                                        <td>2020</td>
-                                        <td></td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_e_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_e_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_e_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_e_2">
+                                            <button type="button" onclick="submit('informasi_umum', 'e', 2, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Belum ada data pengumpulan</td>
-                                        <td class="text-right">-</td>
+                                        <td class="text-right">
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="isian_e_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
                                         <td>Kelurahan</td>
-                                        <td>Data primer</td>
-                                        <td>2020</td>
-                                        <td></td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_e_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_e_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_e_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_e_3">
+                                            <button type="button" onclick="submit('informasi_umum', 'e', 3, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Jumlah RW terlayani pengumpulan</td>
-                                        <td class="text-right">151</td>
+                                        <td class="text-right">
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="isian_e_4" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
                                         <td>Kelurahan</td>
-                                        <td>Data primer</td>
-                                        <td>2020</td>
-                                        <td></td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_e_4" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_e_4" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_e_4" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_e_4">
+                                            <button type="button" onclick="submit('informasi_umum', 'e', 4, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Total RW satu kota/kab</td>
-                                        <td class="text-right">151</td>
+                                        <td class="text-right">
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="isian_e_5" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
                                         <td>Kelurahan</td>
-                                        <td>Data primer</td>
-                                        <td>2020</td>
-                                        <td></td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_e_5" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_e_5" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_e_5" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_e_5">
+                                            <button type="button" onclick="submit('informasi_umum', 'e', 5, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td rowspan="2">f</td>
                                         <td>Target pengolahan dalam RIS</td>
-                                        <td class="text-right">397.00</td>
+                                        <td class="text-right">
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="isian_f_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
                                         <td> ton/hari </td>
-                                        <td>RIS</td>
-                                        <td>2020</td>
-                                        <td></td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_f_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_f_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_f_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_f_1">
+                                            <button type="button" onclick="submit('informasi_umum', 'f', 1, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Kapasitas pengolahan eksisting</td>
-                                        <td class="text-right">46.88</td>
+                                        <td class="text-right">
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="isian_f_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
                                         <td> ton/hari </td>
-                                        <td>formulasi</td>
-                                        <td>2020</td>
-                                        <td></td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_f_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_f_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_f_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_f_2">
+                                            <button type="button" onclick="submit('informasi_umum', 'f', 2, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td rowspan="2">g</td>
                                         <td>Target Pengangkutan ke TPA dalam RIS</td>
-                                        <td class="text-right">1,324.00</td>
+                                        <td class="text-right">
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="isian_g_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
                                         <td>Ton/hari</td>
-                                        <td>RIS</td>
-                                        <td>2020</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_g_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_g_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_g_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_g_1">
+                                            <button type="button" onclick="submit('informasi_umum', 'g' , 1, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Kapasitas Pengangkutan ke TPA Eksisting</td>
-                                        <td class="text-right">1,335.00</td>
+                                        <td class="text-right">
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="isian_g_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
                                         <td>Ton/hari</td>
-                                        <td>formulasi</td>
-                                        <td>2020</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_g_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_g_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_g_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_g_2">
+                                            <button type="button" onclick="submit('informasi_umum', 'g', 2, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>h</td>
                                         <td>Beban Pelayanan dalam RIS</td>
-                                        <td class="text-right">1,628.00</td>
+                                        <td class="text-right">
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="isian_h" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
                                         <td>Ton/hari</td>
-                                        <td>RIS</td>
-                                        <td>2020</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_h" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_h" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_h" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_h">
+                                            <button type="button" onclick="submit('informasi_umum', 'h', '', 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -230,20 +513,68 @@
                                         <td rowspan="3">i</td>
                                         <td rowspan="3">Jumlah sarana prasarana pengolahan sampah</td>
                                         <td>Gerobak Sampah</td>
-                                        <td>0</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah1_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
                                         <td>m3</td>
-                                        <td></td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas1_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
                                         <td>m3</td>
-                                        <td>SIINSAN</td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber1_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun1_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas2_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
                                         <td>m3</td>
-                                        <td></td>
-                                        <td>0</td>
-                                        <td></td>
-                                        <td>SIINSAN</td>
-                                        <td></td>
-                                        <td>data sudah ada </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="ritasi_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah2_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas3_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber2_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun2_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_i_1">
+                                            <button type="button" onclick="submit('informasi_umum', 'i', 1, 2)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Motor Sampah</td>
@@ -436,6 +767,145 @@
                                         <td>SIPSN</td>
                                         <td>2020</td>
                                         <td>SIINSAN</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Informasi Umum 3 -->
+                    <div class="card-block">
+                        <div class="dt-responsive table-responsive">
+                            <table id="" class="table table-bordered" style="font-size:12px;">
+                                <thead>
+                                    <tr class="bg-inverse">
+                                        <th><center>No</center></th>
+                                        <th colspan="2"><center style="width: 250px;">Uraian</center></th>
+                                        <th><center>Jumlah</center></th>
+                                        <th><center>Satuan</center></th>
+                                        <th><center>Sumber Data</center></th>
+                                        <th><center>Tahun Data</center></th>
+                                        <th><center>Action</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="3">l</td>
+                                        <td rowspan="3">Jumlah SDM yang menangani pengelolaan sampah di Dinas</td>
+                                        <td>Terdiri dari SDM total Institusi (Dinas/UPT/BLUD/dll) terdiri dari pejabat struktural,petugas lapangan, pegawai honorer/pegawai tidak tetap</td>
+                                        <td>855</td>
+                                        <td>Orang</td>
+                                        <td>Data Primer</td>
+                                        <td>2020</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Terdiri dari petugas lapangan/operasional (pegawai tetap dan tidak tetap)</td>
+                                        <td>839</td>
+                                        <td>Orang</td>
+                                        <td>Data Primer</td>
+                                        <td>2020</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>Terdiri dari SDM total Institusi (Dinas/UPT/BLUD/dll) terdiri dari pejabat struktural</td>
+                                        <td>16</td>
+                                        <td>Orang</td>
+                                        <td>Data Primer</td>
+                                        <td></td>	
+                                    </tr>
+                                    <tr>
+                                        <td>m</td>
+                                        <td>Jumlah SDM yang mendapatkan pelatihan/training</td>
+                                        <td>Terdiri dari ASN di Dinas terkait pengelolaan sampah</td>
+                                        <td>0</td>
+                                        <td> Orang/tahun </td>
+                                        <td>Data Primer</td>
+                                        <td>Data DLHK</td>
+                                    </tr>
+                                    <tr>
+                                        <td>n</td>
+                                        <td>Jumlah SDM khusus perempuan yang mendapatkan pelatihan/training</td>
+                                        <td>Terdiri dari SDM perempuan yang terlibat dalam pelatihan pengelolaan sampah</td>
+                                        <td>0</td>
+                                        <td>Orang/tahun</td>
+                                        <td>Data Primer</td>
+                                        <td>tidak terdapat data pelatihan</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- informasi umum 4 -->
+                    <div class="card-block">
+                        <div class="dt-responsive table-responsive">
+                            <table id="" class="table table-bordered" style="font-size:12px;">
+                                <thead>
+                                    <tr class="bg-inverse">
+                                        <th><center>No</center></th>
+                                        <th><center style="width: 250px;">Uraian</center></th>
+                                        <th><center>Jumlah</center></th>
+                                        <th><center>Satuan</center></th>
+                                        <th><center>Sumber Data</center></th>
+                                        <th><center>Tahun Data</center></th>
+                                        <th><center>Keterangan</center></th>
+                                        <th><center>Action</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>o</td>
+                                        <td>Total Alokasi APBD (PAGU) Kab/kota</td>
+                                        <td>Rp5,934,058,938,784</td>
+                                        <td> Rp/tahun </td>
+                                        <td>BANGDA</td>
+                                        <td>2022</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>p</td>
+                                        <td>PAGU Persampahan Urusan LH</td>
+                                        <td>Rp312,252,491,090</td>
+                                        <td> Rp/tahun </td>
+                                        <td>BANGDA</td>
+                                        <td>2022</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>q</td>
+                                        <td>PAGU Persampahan Urusan PU</td>
+                                        <td>Rp0</td>
+                                        <td> Rp/tahun </td>
+                                        <td>BANGDA</td>
+                                        <td>2022</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>r</td>
+                                        <td>Total PAGU Persampahan</td>
+                                        <td>Rp312,252,491,090</td>
+                                        <td> Rp/tahun </td>
+                                        <td>BANGDA</td>
+                                        <td>2022</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>s</td>
+                                        <td>Target penarikan tarif/retibusi</td>
+                                        <td>Rp47,943,542,249</td>
+                                        <td> Rp/tahun </td>
+                                        <td>Data primer</td>
+                                        <td>2020</td>
+                                        <td>belum ada data</td>
+                                    </tr>
+                                    <tr>
+                                        <td>t</td>
+                                        <td>Capaian penarikan tarif/retibusi</td>
+                                        <td>Rp48,943,542,000</td>
+                                        <td> Rp/tahun </td>
+                                        <td>Data primer</td>
+                                        <td>2020</td>
+                                        <td>belum ada data</td>
                                     </tr>
                                 </tbody>
                             </table>
