@@ -2271,19 +2271,72 @@ class Jsondata extends \CodeIgniter\Controller
 		$model 	  = new \App\Models\DataModel();
 		
 		if($request->getVar('id')){
-			$datas = [
-				'tipe' => $request->getVar('tipe'),
-				'kode' => $request->getVar('kode'),
-				'nomor' => $request->getVar('nomor'),
-				'isian' => $request->getVar('isian'),
-				'sumber' => $request->getVar('sumber'),
-				'tahun' => $request->getVar('tahun'),
-				'keterangan' => $request->getVar('keterangan'),
-				'update_by' => $userid,
-				'update_date' => $this->now,
-				'kota' => $request->getVar('kota'),
-				'group' => $request->getVar('group'),
-			];
+			if($request->getVar('group') == '1'){
+				$datas = [
+					'tipe' => $request->getVar('tipe'),
+					'kode' => $request->getVar('kode'),
+					'nomor' => $request->getVar('nomor'),
+					'isian' => $request->getVar('isian'),
+					'sumber' => $request->getVar('sumber'),
+					'tahun' => $request->getVar('tahun'),
+					'keterangan' => $request->getVar('keterangan'),
+					'update_by' => $userid,
+					'update_date' => $this->now,
+					'kota' => $request->getVar('kota'),
+					'group' => $request->getVar('group'),
+				];
+			}else if($request->getVar('group') == '2'){
+				$datas = [
+					'tipe' => $request->getVar('tipe'),
+					'kode' => $request->getVar('kode'),
+					'nomor' => $request->getVar('nomor'),
+					'jumlah1' => $request->getVar('jumlah1'),
+					'kapasitas1' => $request->getVar('kapasitas1'),
+					'sumber1' => $request->getVar('sumber1'),
+					'tahun1' => $request->getVar('tahun1'),
+					'kapasitas2' => $request->getVar('kapasitas2'),
+					'ritasi' => $request->getVar('ritasi'),
+					'jumlah2' => $request->getVar('jumlah2'),
+					'kapasitas3' => $request->getVar('kapasitas3'),
+					'sumber2' => $request->getVar('sumber2'),
+					'tahun2' => $request->getVar('tahun2'),
+					'keterangan' => $request->getVar('keterangan'),
+					'update_by' => $userid,
+					'update_date' => $this->now,
+					'kota' => $request->getVar('kota'),
+					'group' => $request->getVar('group'),
+				];
+
+				
+
+			}else if($request->getVar('group') == '3'){
+				$datas = [
+					'tipe' => $request->getVar('tipe'),
+					'kode' => $request->getVar('kode'),
+					'nomor' => $request->getVar('nomor'),
+					'jumlah' => $request->getVar('jumlah'),
+					'sumber' => $request->getVar('sumber'),
+					'tahun' => $request->getVar('tahun'),
+					'update_by' => $userid,
+					'update_date' => $this->now,
+					'kota' => $request->getVar('kota'),
+					'group' => $request->getVar('group'),
+				];
+			}else if($request->getVar('group') == '4'){
+				$datas = [
+					'tipe' => $request->getVar('tipe'),
+					'kode' => $request->getVar('kode'),
+					'nomor' => $request->getVar('nomor'),
+					'jumlah' => $request->getVar('jumlah'),
+					'sumber' => $request->getVar('sumber'),
+					'tahun' => $request->getVar('tahun'),
+					'keterangan' => $request->getVar('keterangan'),
+					'update_by' => $userid,
+					'update_date' => $this->now,
+					'kota' => $request->getVar('kota'),
+					'group' => $request->getVar('group'),
+				];
+			}
 			
 			$res = $model->updateInformasi($request->getVar('id'), $datas);
 		}else{
@@ -2330,6 +2383,38 @@ class Jsondata extends \CodeIgniter\Controller
 					'group' => $request->getVar('group'),
 				];
 
+			}else if($request->getVar('group') == '3'){
+				
+				$data = [
+					'tipe' => $request->getVar('tipe'),
+					'kode' => $request->getVar('kode'),
+					'nomor' => $request->getVar('nomor'),
+					'jumlah' => $request->getVar('jumlah'),
+					'sumber' => $request->getVar('sumber'),
+					'tahun' => $request->getVar('tahun'),
+					'create_by' => $userid,
+					'update_by' => $userid,
+					'create_date' => $this->now,
+					'update_date' => $this->now,
+					'kota' => $request->getVar('kota'),
+					'group' => $request->getVar('group'),
+				];
+			}else if($request->getVar('group') == '4'){
+				$data = [
+					'tipe' => $request->getVar('tipe'),
+					'kode' => $request->getVar('kode'),
+					'nomor' => $request->getVar('nomor'),
+					'jumlah' => $request->getVar('jumlah'),
+					'sumber' => $request->getVar('sumber'),
+					'tahun' => $request->getVar('tahun'),
+					'keterangan' => $request->getVar('keterangan'),
+					'create_by' => $userid,
+					'update_by' => $userid,
+					'create_date' => $this->now,
+					'update_date' => $this->now,
+					'kota' => $request->getVar('kota'),
+					'group' => $request->getVar('group'),
+				];
 			}
 
 			$res = $model->saveData('data_informasi_umum', $data);

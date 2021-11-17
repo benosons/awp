@@ -307,11 +307,27 @@ function loadinformasi(param, ids){
                     $('#sumber2_'+element['kode']+'_'+element['nomor']).val(element['sumber2']);
                     $('#tahun2_'+element['kode']+'_'+element['nomor']).val(element['tahun2']);
                     $('#keterangan_'+element['kode']+'_'+element['nomor']).val(element['keterangan']);
+                  }else if(element['group'] == '3'){
+                    $('#id_'+element['kode']+'_'+element['nomor']).val(element['id']);
+                    $('#jumlah_'+element['kode']+'_'+element['nomor']).val(element['jumlah']);
+                    $('#sumber_'+element['kode']+'_'+element['nomor']).val(element['sumber']);
+                    $('#tahun_'+element['kode']+'_'+element['nomor']).val(element['tahun']);
                   }
                 }else{
                   if(element['group'] == '1'){
                     $('#id_'+element['kode']).val(element['id']);
                     $('#isian_'+element['kode']).val(element['isian']);
+                    $('#sumber_'+element['kode']).val(element['sumber']);
+                    $('#tahun_'+element['kode']).val(element['tahun']);
+                    $('#keterangan_'+element['kode']).val(element['keterangan']);
+                  }else if(element['group'] == '3'){
+                    $('#id_'+element['kode']).val(element['id']);
+                    $('#jumlah_'+element['kode']).val(element['jumlah']);
+                    $('#sumber_'+element['kode']).val(element['sumber']);
+                    $('#tahun_'+element['kode']).val(element['tahun']);
+                  }else if(element['group'] == '4'){
+                    $('#id_'+element['kode']).val(element['id']);
+                    $('#jumlah_'+element['kode']).val(element['jumlah']);
                     $('#sumber_'+element['kode']).val(element['sumber']);
                     $('#tahun_'+element['kode']).val(element['tahun']);
                     $('#keterangan_'+element['kode']).val(element['keterangan']);
@@ -368,6 +384,8 @@ function submit(param, aspek, number, group){
         formData.append('kota', $('#pilih-kota-kab').val());
         formData.append('group', group);
       }else if(group == '2'){
+        
+        formData.append('id', $('#id_'+aspek+'_'+number).val());
         formData.append('jumlah1', $('#jumlah1_'+aspek+'_'+number).val());
         formData.append('kapasitas1', $('#kapasitas1_'+aspek+'_'+number).val());
         formData.append('sumber1', $('#sumber1_'+aspek+'_'+number).val());
@@ -384,11 +402,60 @@ function submit(param, aspek, number, group){
         formData.append('nomor', number);
         formData.append('kota', $('#pilih-kota-kab').val());
         formData.append('group', group);
+      }else if(group == '3'){
+        formData.append('id', $('#id_'+aspek+'_'+number).val());
+        formData.append('jumlah', $('#jumlah_'+aspek+'_'+number).val());
+        formData.append('sumber', $('#sumber_'+aspek+'_'+number).val());
+        formData.append('tahun', $('#tahun_'+aspek+'_'+number).val());
+        formData.append('tipe', param);
+        formData.append('kode', aspek);
+        formData.append('nomor', number);
+        formData.append('kota', $('#pilih-kota-kab').val());
+        formData.append('group', group);
       }
     }else{
       if(group == '1'){
         formData.append('id', $('#id_'+aspek).val());
         formData.append('isian', $('#isian_'+aspek).val());
+        formData.append('sumber', $('#sumber_'+aspek).val());
+        formData.append('tahun', $('#tahun_'+aspek).val());
+        formData.append('keterangan', $('#keterangan_'+aspek).val());
+        formData.append('tipe', param);
+        formData.append('kode', aspek);
+        formData.append('nomor', '');
+        formData.append('kota', $('#pilih-kota-kab').val());
+        formData.append('group', group);
+      }else if(group == '2'){
+        formData.append('id', $('#id_'+aspek).val());
+        formData.append('jumlah1', $('#jumlah1_'+aspek).val());
+        formData.append('kapasitas1', $('#kapasitas1_'+aspek).val());
+        formData.append('sumber1', $('#sumber1_'+aspek).val());
+        formData.append('tahun1', $('#tahun1_'+aspek).val());
+        formData.append('kapasitas2', $('#kapasitas2_'+aspek).val());
+        formData.append('ritasi', $('#ritasi_'+aspek).val());
+        formData.append('jumlah2', $('#jumlah2_'+aspek).val());
+        formData.append('kapasitas3', $('#kapasitas3_'+aspek).val());
+        formData.append('sumber2', $('#sumber2_'+aspek).val());
+        formData.append('tahun2', $('#tahun2_'+aspek).val());
+        formData.append('keterangan', $('#keterangan_'+aspek).val());
+        formData.append('tipe', param);
+        formData.append('kode', aspek);
+        formData.append('nomor', '');
+        formData.append('kota', $('#pilih-kota-kab').val());
+        formData.append('group', group);
+      }else if(group == '3'){
+        formData.append('id', $('#id_'+aspek).val());
+        formData.append('jumlah', $('#jumlah_'+aspek).val());
+        formData.append('sumber', $('#sumber_'+aspek).val());
+        formData.append('tahun', $('#tahun_'+aspek).val());
+        formData.append('tipe', param);
+        formData.append('kode', aspek);
+        formData.append('nomor', '');
+        formData.append('kota', $('#pilih-kota-kab').val());
+        formData.append('group', group);
+      }else if(group == '4'){
+        formData.append('id', $('#id_'+aspek).val());
+        formData.append('jumlah', $('#jumlah_'+aspek).val());
         formData.append('sumber', $('#sumber_'+aspek).val());
         formData.append('tahun', $('#tahun_'+aspek).val());
         formData.append('keterangan', $('#keterangan_'+aspek).val());
