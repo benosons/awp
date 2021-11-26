@@ -11,7 +11,7 @@
               <input hidden id="userid" value="{{userid}}">
               <input hidden id="role" value="{{role}}">
                 <div class="page-header-title">
-                    <h4>MONEV OUTPUT ISWMP</h4>
+                    <h4>MONEV LEMBAR KONTROL ISWMP</h4>
                     <!-- <span>Easy to customise core stylesheets</span> -->
                 </div>
                 <div class="page-header-breadcrumb">
@@ -21,7 +21,7 @@
                                 <i class="icofont icofont-home"></i>
                             </a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Monev Output</a>
+                        <li class="breadcrumb-item"><a href="#!">Monev Lembar Kontrol</a>
                         </li>
                     </ul>
                 </div>
@@ -34,457 +34,236 @@
                     <div class="card-header" style="padding-top:2.5rem;">
                         <!-- <h5>Base style - hover</h5> -->
                         <!-- <span>This example shows DataTables with just the hover class specified. This class will instruct DataTables' styling to highlight a row when the mouse is hovered over it.</span> -->
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <!-- <input id="pilih-bulan" data-dd-hide-day="true" name="dropper-default" class="form-control form-control-center" type="text" placeholder="Select your date" /> -->
-                                <div class="form-group row">
-                                    <label class="col-sm-6 col-form-label">Kabupaten/ Kota</label>
-                                    <div class="col-sm-6">
-                                        <select id="pilih-kota-kab" name="select" class="form-control">
-                                            <option value="">Pilih</option>
-                                            <option value="kota_bandung">Kota Bandung</option>
-                                            <option value="kota_cimahi">Kota Cimahi</option>
-                                            <option value="kab_bandung_barat">Kab Bandung Barat</option>
-                                            <option value="kab_bandung">Kab Bandung</option>
-                                            <option value="kab_purwakarta">Kab Purwakarta</option>
-                                            <option value="kab_karawang">Kab Karawang</option>
-                                            <option value="kab_cianjur">Kab Cianjur</option>
-                                            <option value="kab_bekasi">Kab Bekasi</option>
-                                            <option value="kab_garut">Kab Garut</option>
-                                            <option value="kab_sumedang">Kab Sumedang</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-4">
-                            </div>
-                            <div class="col-sm-4 " hidden>
-                                <button id="btn-tambah" class="btn btn-primary pull-right" data-toggle="modal" data-target="#sign-in-modal" data-backdrop="static"><i class="icofont icofont icofont-ui-add"></i>Tambah</button>
-                            </div>
                         
-                        </div>
                     </div>
                     <!-- INformasi Umum 1 -->
                     <div class="card-block">
-                        <h5>Informasi Umum</h5>
                         <div class="dt-responsive table-responsive">
                             <table id="" class="table table-bordered" style="font-size:12px;">
                                 <thead>
                                     <tr class="bg-inverse">
+                                        <th colspan="2"><center style="width: 200px;">Informasi Umum</center></th>
+                                        <th><center style="width: 100px;">Kota Bandung</center></th>
+                                        <th><center style="width: 100px;">Kota Cimahi</center></th>
+                                        <th><center style="width: 100px;">Kab Bandung Barat</center></th>
+                                        <th><center style="width: 100px;">Kab Bandung</center></th>
+                                        <th><center style="width: 100px;">Kab Purwakarta</center></th>
+                                        <th><center style="width: 100px;">Kab Karawang</center></th>
+                                        <th><center style="width: 100px;">Kab Cianjur</center></th>
+                                        <th><center style="width: 100px;">Kab Bekasi</center></th>
+                                        <th><center style="width: 100px;">Kab Garut</center></th>
+                                        <th><center style="width: 100px;">Kab Sumedang</center></th>
+                                    </tr>
+                                    <tr class="bg-inverse">
                                         <th><center>No</center></th>
-                                        <th><center>Uraian</center></th>
+                                        <th><center style="width: 200px;">Informasi Umum</center></th>
                                         <th><center style="width: 100px;">Isian Data</center></th>
-                                        <th><center>Satuan</center></th>
-                                        <th><center>Sumber Data</center></th>
-                                        <th><center>Tahun Data</center></th>
-                                        <th><center>Keterangan</center></th>
-                                        <th><center>Action</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>a</td>
                                         <td>Jumlah penduduk kota/kabupaten</td>
-                                        <td class="text-right">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="isian_a" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>jiwa</td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="sumber_a" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="tahun_a" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="keterangan_a" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" id="id_a">
-                                            <button type="button" onclick="submit('informasi_umum', 'a', '', 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
+                                        <td><span id="kota_bandung_isian_a"></span></td>
+                                        <td><span id="kota_cimahi_isian_a"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_a"></span></td>
+                                        <td><span id="kab_bandung_isian_a"></span></td>
+                                        <td><span id="kab_purwakarta_isian_a"></span></td>
+                                        <td><span id="kab_karawang_isian_a"></span></td>
+                                        <td><span id="kab_cianjur_isian_a"></span></td>
+                                        <td><span id="kab_bekasi_isian_a"></span></td>
+                                        <td><span id="kab_garut_isian_a"></span></td>
+                                        <td><span id="kab_sumedang_isian_a"></span></td>
+                                        
+                                        
                                     </tr>
                                     <tr>
                                         <td>b</td>
                                         <td>Jumlah timbulan sampah perkapita</td>
-                                        <td class="text-right">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="isian_b" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>liter/jiwa/hari</td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="sumber_b" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="tahun_b" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="keterangan_b" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" id="id_b">
-                                            <button type="button" onclick="submit('informasi_umum', 'b', '', 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
+                                        <td><span id="kota_bandung_isian_b"></span></td>
+                                        <td><span id="kota_cimahi_isian_b"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_b"></span></td>
+                                        <td><span id="kab_bandung_isian_b"></span></td>
+                                        <td><span id="kab_purwakarta_isian_b"></span></td>
+                                        <td><span id="kab_karawang_isian_b"></span></td>
+                                        <td><span id="kab_cianjur_isian_b"></span></td>
+                                        <td><span id="kab_bekasi_isian_b"></span></td>
+                                        <td><span id="kab_garut_isian_b"></span></td>
+                                        <td><span id="kab_sumedang_isian_b"></span></td>
                                         
                                     </tr>
                                     <tr>
                                         <td>c</td>
                                         <td>Densitas sampah </td>
-                                        <td class="text-right">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="isian_c" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>kg/m3</td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="sumber_c" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="tahun_c" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="keterangan_c" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" id="id_c">
-                                            <button type="button" onclick="submit('informasi_umum', 'c', '', 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
+                                        <td><span id="kota_bandung_isian_c"></span></td>
+                                        <td><span id="kota_cimahi_isian_c"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_c"></span></td>
+                                        <td><span id="kab_bandung_isian_c"></span></td>
+                                        <td><span id="kab_purwakarta_isian_c"></span></td>
+                                        <td><span id="kab_karawang_isian_c"></span></td>
+                                        <td><span id="kab_cianjur_isian_c"></span></td>
+                                        <td><span id="kab_bekasi_isian_c"></span></td>
+                                        <td><span id="kab_garut_isian_c"></span></td>
+                                        <td><span id="kab_sumedang_isian_c"></span></td>
                                         
                                     </tr>
                                     <tr>
                                         <td>d</td>
                                         <td>Jumlah timbulan sampah kota/kabupaten </td>
-                                        <td class="text-right">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="isian_d" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>ton/tahun</td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="sumber_d" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="tahun_d" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="keterangan_d" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" id="id_d">
-                                            <button type="button" onclick="submit('informasi_umum', 'd', '', 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
+                                        <td><span id="kota_bandung_isian_d"></span></td>
+                                        <td><span id="kota_cimahi_isian_d"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_d"></span></td>
+                                        <td><span id="kab_bandung_isian_d"></span></td>
+                                        <td><span id="kab_purwakarta_isian_d"></span></td>
+                                        <td><span id="kab_karawang_isian_d"></span></td>
+                                        <td><span id="kab_cianjur_isian_d"></span></td>
+                                        <td><span id="kab_bekasi_isian_d"></span></td>
+                                        <td><span id="kab_garut_isian_d"></span></td>
+                                        <td><span id="kab_sumedang_isian_d"></span></td>
                                         
                                     </tr>
                                     <tr>
                                         <td rowspan="5">e</td>
                                         <td>Pengumpulan oleh pemerintah</td>
-                                        <td class="text-right">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="isian_e_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>Kelurahan</td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="sumber_e_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="tahun_e_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="keterangan_e_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" id="id_e_1">
-                                            <button type="button" onclick="submit('informasi_umum', 'e', 1 , 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
+                                        <td><span id="kota_bandung_isian_e_1"></span></td>
+                                        <td><span id="kota_cimahi_isian_e_1"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_e_1"></span></td>
+                                        <td><span id="kab_bandung_isian_e_1"></span></td>
+                                        <td><span id="kab_purwakarta_isian_e_1"></span></td>
+                                        <td><span id="kab_karawang_isian_e_1"></span></td>
+                                        <td><span id="kab_cianjur_isian_e_1"></span></td>
+                                        <td><span id="kab_bekasi_isian_e_1"></span></td>
+                                        <td><span id="kab_garut_isian_e_1"></span></td>
+                                        <td><span id="kab_sumedang_isian_e_1"></span></td>
                                     </tr>
                                     <tr>
                                         <td>Pengumpulan oleh non pemerintah</td>
-                                        <td class="text-right">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="isian_e_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>Kelurahan</td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="sumber_e_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="tahun_e_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="keterangan_e_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" id="id_e_2">
-                                            <button type="button" onclick="submit('informasi_umum', 'e', 2, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
+                                        <td><span id="kota_bandung_isian_e_2"></span></td>
+                                        <td><span id="kota_cimahi_isian_e_2"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_e_2"></span></td>
+                                        <td><span id="kab_bandung_isian_e_2"></span></td>
+                                        <td><span id="kab_purwakarta_isian_e_2"></span></td>
+                                        <td><span id="kab_karawang_isian_e_2"></span></td>
+                                        <td><span id="kab_cianjur_isian_e_2"></span></td>
+                                        <td><span id="kab_bekasi_isian_e_2"></span></td>
+                                        <td><span id="kab_garut_isian_e_2"></span></td>
+                                        <td><span id="kab_sumedang_isian_e_2"></span></td>
                                     </tr>
                                     <tr>
                                         <td>Belum ada data pengumpulan</td>
-                                        <td class="text-right">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="isian_e_3" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>Kelurahan</td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="sumber_e_3" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="tahun_e_3" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="keterangan_e_3" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" id="id_e_3">
-                                            <button type="button" onclick="submit('informasi_umum', 'e', 3, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
+                                        <td><span id="kota_bandung_e_3"></span></td>
+                                        <td><span id="kota_cimahi_e_3"></span></td>
+                                        <td><span id="kab_bandung_barat_e_3"></span></td>
+                                        <td><span id="kab_bandung_e_3"></span></td>
+                                        <td><span id="kab_purwakarta_e_3"></span></td>
+                                        <td><span id="kab_karawang_e_3"></span></td>
+                                        <td><span id="kab_cianjur_e_3"></span></td>
+                                        <td><span id="kab_bekasi_e_3"></span></td>
+                                        <td><span id="kab_garut_e_3"></span></td>
+                                        <td><span id="kab_sumedang_e_3"></span></td>
                                     </tr>
                                     <tr>
                                         <td>Jumlah RW terlayani pengumpulan</td>
-                                        <td class="text-right">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="isian_e_4" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>Kelurahan</td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="sumber_e_4" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="tahun_e_4" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="keterangan_e_4" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" id="id_e_4">
-                                            <button type="button" onclick="submit('informasi_umum', 'e', 4, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
+                                        <td><span id="kota_bandung_e_4"></span></td>
+                                        <td><span id="kota_cimahi_e_4"></span></td>
+                                        <td><span id="kab_bandung_barat_e_4"></span></td>
+                                        <td><span id="kab_bandung_e_4"></span></td>
+                                        <td><span id="kab_purwakarta_e_4"></span></td>
+                                        <td><span id="kab_karawang_e_4"></span></td>
+                                        <td><span id="kab_cianjur_e_4"></span></td>
+                                        <td><span id="kab_bekasi_e_4"></span></td>
+                                        <td><span id="kab_garut_e_4"></span></td>
+                                        <td><span id="kab_sumedang_e_4"></span></td>
                                     </tr>
                                     <tr>
                                         <td>Total RW satu kota/kab</td>
-                                        <td class="text-right">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="isian_e_5" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>Kelurahan</td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="sumber_e_5" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="tahun_e_5" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="keterangan_e_5" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" id="id_e_5">
-                                            <button type="button" onclick="submit('informasi_umum', 'e', 5, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
+                                        <td><span id="kota_bandung_isian_e_5"></span></td>
+                                        <td><span id="kota_cimahi_isian_e_5"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_e_5"></span></td>
+                                        <td><span id="kab_bandung_isian_e_5"></span></td>
+                                        <td><span id="kab_purwakarta_isian_e_5"></span></td>
+                                        <td><span id="kab_karawang_isian_e_5"></span></td>
+                                        <td><span id="kab_cianjur_isian_e_5"></span></td>
+                                        <td><span id="kab_bekasi_isian_e_5"></span></td>
+                                        <td><span id="kab_garut_isian_e_5"></span></td>
+                                        <td><span id="kab_sumedang_isian_e_5"></span></td>
                                     </tr>
                                     <tr>
                                         <td rowspan="2">f</td>
                                         <td>Target pengolahan dalam RIS</td>
-                                        <td class="text-right">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="isian_f_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td> ton/hari </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="sumber_f_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="tahun_f_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="keterangan_f_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" id="id_f_1">
-                                            <button type="button" onclick="submit('informasi_umum', 'f', 1, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
+                                        <td><span id="kota_bandung_isian_f_1"></span></td>
+                                        <td><span id="kota_cimahi_isian_f_1"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_f_1"></span></td>
+                                        <td><span id="kab_bandung_isian_f_1"></span></td>
+                                        <td><span id="kab_purwakarta_isian_f_1"></span></td>
+                                        <td><span id="kab_karawang_isian_f_1"></span></td>
+                                        <td><span id="kab_cianjur_isian_f_1"></span></td>
+                                        <td><span id="kab_bekasi_isian_f_1"></span></td>
+                                        <td><span id="kab_garut_isian_f_1"></span></td>
+                                        <td><span id="kab_sumedang_isian_f_1"></span></td>
                                     </tr>
                                     <tr>
                                         <td>Kapasitas pengolahan eksisting</td>
-                                        <td class="text-right">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="isian_f_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td> ton/hari </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="sumber_f_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="tahun_f_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="keterangan_f_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" id="id_f_2">
-                                            <button type="button" onclick="submit('informasi_umum', 'f', 2, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
+                                        <td><span id="kota_bandung_isian_f_2"></span></td>
+                                        <td><span id="kota_cimahi_isian_f_2"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_f_2"></span></td>
+                                        <td><span id="kab_bandung_isian_f_2"></span></td>
+                                        <td><span id="kab_purwakarta_isian_f_2"></span></td>
+                                        <td><span id="kab_karawang_isian_f_2"></span></td>
+                                        <td><span id="kab_cianjur_isian_f_2"></span></td>
+                                        <td><span id="kab_bekasi_isian_f_2"></span></td>
+                                        <td><span id="kab_garut_isian_f_2"></span></td>
+                                        <td><span id="kab_sumedang_isian_f_2"></span></td>
                                     </tr>
                                     <tr>
                                         <td rowspan="2">g</td>
                                         <td>Target Pengangkutan ke TPA dalam RIS</td>
-                                        <td class="text-right">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="isian_g_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>Ton/hari</td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="sumber_g_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="tahun_g_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="keterangan_g_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" id="id_g_1">
-                                            <button type="button" onclick="submit('informasi_umum', 'g' , 1, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
+                                        <td><span id="kota_bandung_isian_g_1"></span></td>
+                                        <td><span id="kota_cimahi_isian_g_1"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_g_1"></span></td>
+                                        <td><span id="kab_bandung_isian_g_1"></span></td>
+                                        <td><span id="kab_purwakarta_isian_g_1"></span></td>
+                                        <td><span id="kab_karawang_isian_g_1"></span></td>
+                                        <td><span id="kab_cianjur_isian_g_1"></span></td>
+                                        <td><span id="kab_bekasi_isian_g_1"></span></td>
+                                        <td><span id="kab_garut_isian_g_1"></span></td>
+                                        <td><span id="kab_sumedang_isian_g_1"></span></td>
                                     </tr>
                                     <tr>
                                         <td>Kapasitas Pengangkutan ke TPA Eksisting</td>
-                                        <td class="text-right">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="isian_g_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>Ton/hari</td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="sumber_g_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="tahun_g_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="keterangan_g_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" id="id_g_2">
-                                            <button type="button" onclick="submit('informasi_umum', 'g', 2, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
+                                        <td><span id="kota_bandung_isian_g_2"></span></td>
+                                        <td><span id="kota_cimahi_isian_g_2"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_g_2"></span></td>
+                                        <td><span id="kab_bandung_isian_g_2"></span></td>
+                                        <td><span id="kab_purwakarta_isian_g_2"></span></td>
+                                        <td><span id="kab_karawang_isian_g_2"></span></td>
+                                        <td><span id="kab_cianjur_isian_g_2"></span></td>
+                                        <td><span id="kab_bekasi_isian_g_2"></span></td>
+                                        <td><span id="kab_garut_isian_g_2"></span></td>
+                                        <td><span id="kab_sumedang_isian_g_2"></span></td>
                                     </tr>
                                     <tr>
                                         <td>h</td>
                                         <td>Beban Pelayanan dalam RIS</td>
-                                        <td class="text-right">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="isian_h" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>Ton/hari</td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="sumber_h" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="tahun_h" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="informasi_umum" id="keterangan_h" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" id="id_h">
-                                            <button type="button" onclick="submit('informasi_umum', 'h', '', 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
+                                        <td><span id="kota_bandung_isian_h"></span></td>
+                                        <td><span id="kota_cimahi_isian_h"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_h"></span></td>
+                                        <td><span id="kab_bandung_isian_h"></span></td>
+                                        <td><span id="kab_purwakarta_isian_h"></span></td>
+                                        <td><span id="kab_karawang_isian_h"></span></td>
+                                        <td><span id="kab_cianjur_isian_h"></span></td>
+                                        <td><span id="kab_bekasi_isian_h"></span></td>
+                                        <td><span id="kab_garut_isian_h"></span></td>
+                                        <td><span id="kab_sumedang_isian_h"></span></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -492,7 +271,7 @@
                     </div>
 
                     <!-- Informasi Umum 2 -->
-                    <div class="card-block">
+                    <div class="card-block" hidden>
                         <div class="dt-responsive table-responsive">
                             <table id="" class="table table-bordered" style="font-size:12px;">
                                 <thead>
@@ -1311,7 +1090,7 @@
                     </div>
 
                     <!-- Informasi Umum 3 -->
-                    <div class="card-block">
+                    <div class="card-block" hidden>
                         <div class="dt-responsive table-responsive">
                             <table id="" class="table table-bordered" style="font-size:12px;">
                                 <thead>
@@ -1454,7 +1233,7 @@
                     </div>
 
                     <!-- informasi umum 4 -->
-                    <div class="card-block">
+                    <div class="card-block" hidden>
                         <div class="dt-responsive table-responsive">
                             <table id="" class="table table-bordered" style="font-size:12px;">
                                 <thead>

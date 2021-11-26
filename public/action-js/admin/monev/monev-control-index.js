@@ -3,7 +3,7 @@ console.log('You are running jQuery version: ' + $.fn.jquery);
 $(document).ready(function(){
   $('.main-menu').find('.active').removeClass("active");
   $('.main-menu').find('.pcoded-trigger').removeClass("pcoded-trigger");
-  $('#menu_monev').addClass('active');
+  $('#menu_monev_kontrol').addClass('active');
 
     window.isExist = 1;
   $('#all-monev').DataTable();
@@ -53,7 +53,8 @@ $(document).ready(function(){
     loadinformasi(this.value);
   })
 
-
+  // loaddata();
+  loadinformasi();
 
   if($('#is_open').val() == 1){
     $('#btn-tambah').hide();
@@ -285,14 +286,10 @@ function loadinformasi(param, ids){
             if(code == 1){
               for (let index = 0; index < data.length; index++) {
                 const element = data[index];
-
+                console.log(element);
                 if(element['nomor']){
                   if(element['group'] == '1'){
-                    $('#id_'+element['kode']+'_'+element['nomor']).val(element['id']);
-                    $('#isian_'+element['kode']+'_'+element['nomor']).val(element['isian']);
-                    $('#sumber_'+element['kode']+'_'+element['nomor']).val(element['sumber']);
-                    $('#tahun_'+element['kode']+'_'+element['nomor']).val(element['tahun']);
-                    $('#keterangan_'+element['kode']+'_'+element['nomor']).val(element['keterangan']);
+                    $('#'+element['kota']+'_'+'isian_'+element['kode']+'_'+element['nomor']).html(element['isian']);
                   }else if(element['group'] == '2'){
                     $('#id_'+element['kode']+'_'+element['nomor']).val(element['id']);
                     $('#jumlah1_'+element['kode']+'_'+element['nomor']).val(element['jumlah1']);
@@ -314,11 +311,7 @@ function loadinformasi(param, ids){
                   }
                 }else{
                   if(element['group'] == '1'){
-                    $('#id_'+element['kode']).val(element['id']);
-                    $('#isian_'+element['kode']).val(element['isian']);
-                    $('#sumber_'+element['kode']).val(element['sumber']);
-                    $('#tahun_'+element['kode']).val(element['tahun']);
-                    $('#keterangan_'+element['kode']).val(element['keterangan']);
+                    $('#'+element['kota']+'_'+'isian_'+element['kode']).html(element['isian']);
                   }else if(element['group'] == '3'){
                     $('#id_'+element['kode']).val(element['id']);
                     $('#jumlah_'+element['kode']).val(element['jumlah']);
