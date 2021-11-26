@@ -100,12 +100,13 @@ function loaddata(param, ids){
           ];
           
           var year = maximumDate.getFullYear();
-          var month = maximumDate.getMonth() + 1;
+          var month = maximumDate.getMonth();
           var date = maximumDate.getDate();
           var hours = maximumDate.getHours();
           var minutes = maximumDate.getMinutes();
           var seconds = maximumDate.getSeconds();
           var last_update = monthNames[month]+'-'+year;
+          console.log(month);
           // var last_update = year+'-'+monthNames[month]+'-'+date+' '+hours+':'+minutes+':'+seconds;
 
           $('#last-updated').html('Last Update : '+last_update);
