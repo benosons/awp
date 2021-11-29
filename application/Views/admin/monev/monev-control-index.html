@@ -1460,1210 +1460,561 @@
                             <table id="all" class="table table-bordered" style="font-size:12px;">
                                 <thead>
                                     <tr class="bg-inverse">
+                                        <th colspan="2"><center style="width: 300px;">Aspek Peraturan</center></th>
+                                        <th><center style="width: 100px;">Kota Bandung</center></th>
+                                        <th><center style="width: 100px;">Kota Cimahi</center></th>
+                                        <th><center style="width: 100px;">Kab Bandung Barat</center></th>
+                                        <th><center style="width: 100px;">Kab Bandung</center></th>
+                                        <th><center style="width: 100px;">Kab Purwakarta</center></th>
+                                        <th><center style="width: 100px;">Kab Karawang</center></th>
+                                        <th><center style="width: 100px;">Kab Cianjur</center></th>
+                                        <th><center style="width: 100px;">Kab Bekasi</center></th>
+                                        <th><center style="width: 100px;">Kab Garut</center></th>
+                                        <th><center style="width: 100px;">Kab Sumedang</center></th>
+                                    </tr>
+                                    <tr class="group bg-inverse">
                                         <th><center>No</center></th>
-                                        <th><center style="width: 300px;">INDIKATOR</center></th>
-                                        <th><center style="width: 200px;">PARAMETER</center></th>
-                                        <th><center>BOBOT</center></th>
-                                        <th><center style="width: 50px;">NILAI</center></th>
-                                        <th><center style="width: 200px;">KETERANGAN</center></th>
-                                        <th><center style="width: 200px;">SUMBER</center></th>
-                                        <th><center style="width: 50px;">TAHUN</center></th>
-                                        <th><center>Keterangan</center></th>
-                                        <th><center>Action</center></th>
+                                        <td><center>Indikator</center></td>
+                                        <th><center style="width: 100px;">Nilai</center></th>
+                                        <th><center style="width: 100px;">Nilai</center></th>
+                                        <th><center style="width: 100px;">Nilai</center></th>
+                                        <th><center style="width: 100px;">Nilai</center></th>
+                                        <th><center style="width: 100px;">Nilai</center></th>
+                                        <th><center style="width: 100px;">Nilai</center></th>
+                                        <th><center style="width: 100px;">Nilai</center></th>
+                                        <th><center style="width: 100px;">Nilai</center></th>
+                                        <th><center style="width: 100px;">Nilai</center></th>
+                                        <th><center style="width: 100px;">Nilai</center></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="group bg-default">
-                                        <td colspan="10"><center>Aspek Peraturan<center></center></center></td>
-                                        <!-- <td ><center>11<center></center></center></td>
-                                        <td colspan="4"></td> -->
-                                    </tr>
                                     <!-- 1 -->
                                     <tr>
-                                        <td rowspan="2">1</td>
-                                        <td rowspan="2">Perda RPJMD memuat kebijakan pengelolaan lingkungan hidup dan/atau pengelolaan sampah</td>
-                                        <td>Perda RPJMD telah memuat kebijakan pengelolaan lingkungan hidup dan/atau pengelolaan sampah</td>
                                         <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="nilai_1_1" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="keterangan_1_1" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="sumber_1_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="url_1_1" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="tahun_1_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="new_keterangan_1_1" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_1_1">
-                                            <button type="button" onclick="submit('peraturan', 1, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
+                                        <td>Perda RPJMD memuat kebijakan pengelolaan lingkungan hidup dan/atau pengelolaan sampah</td>
+                                        <td><span id="kota_bandung_nilai_1_1"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_1"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_1"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_1"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_1"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_1"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_1"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_1"></span></td>
+                                        <td><span id="kab_garut_nilai_1_1"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_1"></span></td>
                                     </tr>
-                                    <tr>
-                                        <td>Perda RPJMD belum memuat kebijakan pengelolaan lingkungan hidup dan/atau pengelolaan sampah</td>
-                                        <td>0</td>
-                                    </tr>
+
                                     <!-- 2 -->
                                     <tr>
-                                        <td rowspan="2">2</td>
-                                        <td rowspan="2">Ketersediaan Perda Pengelolaan Sampah RT dan SSSRT yang telah disesuaikan dengan Permendagri 7 2021</td>
-                                        <td>Tersedia Perda mengenai pengelolaan sampah rumah tangga dan sampah sejenis sampah rumah tangga</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="nilai_1_2" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="keterangan_1_2" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="sumber_1_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="url_1_2" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="tahun_1_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="new_keterangan_1_2" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_1_2">
-                                            <button type="button" onclick="submit('peraturan', 1, 2)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
+                                        <td>2</td>
+                                        <td>Ketersediaan Perda Pengelolaan Sampah RT dan SSSRT yang telah disesuaikan dengan Permendagri 7 2021</td>
+                                        <td><span id="kota_bandung_nilai_1_2"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_2"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_2"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_2"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_2"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_2"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_2"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_2"></span></td>
+                                        <td><span id="kab_garut_nilai_1_2"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_2"></span></td>
                                     </tr>
-                                    <tr>
-                                        <td>Belum tersedia Perda mengenai pengelolaan sampah rumah tangga dan  sampah sejenis sampah rumah tangga</td>
-                                        <td>0</td>
-                                    </tr>
+                                        
                                     <!-- 3 -->
                                     <tr>
-                                        <td rowspan="2">3</td>
-                                        <td rowspan="2">Ketersediaan Perda Tarif/Retribusi Sampah</td>
-                                        <td>Tersedia Perda mengenai tarif/retribusi sampah yang telah disesuaikan dengan Permendagri 7 2021</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="nilai_1_3" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="keterangan_1_3" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="sumber_1_3" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="url_1_3" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="tahun_1_3" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="new_keterangan_1_3" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_1_3">
-                                            <button type="button" onclick="submit('peraturan', 1, 3)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tidak tersedianya Perda mengenai tarif/retribusi sampah dan/atau belum disesuaikan dengan Permendagri 7 2021</td>
-                                        <td>0</td>
+                                        <td>3</td>
+                                        <td>Ketersediaan Perda Tarif/Retribusi Sampah</td>
+                                        <td><span id="kota_bandung_nilai_1_3"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_3"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_3"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_3"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_3"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_3"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_3"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_3"></span></td>
+                                        <td><span id="kab_garut_nilai_1_3"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_3"></span></td>
                                     </tr>
                                     <!-- 4 -->
                                     <tr>
-                                        <td rowspan="2">4</td>
-                                        <td rowspan="2">Ketersediaan Perkada Pengurangan Sampah</td>
-                                        <td>Tersedia Perbup / Perwali yang memuat pengaturan operasional pengurangan sampah</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="nilai_1_4" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="keterangan_1_4" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="sumber_1_4" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="url_1_4" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="tahun_1_4" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="new_keterangan_1_4" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_1_4">
-                                            <button type="button" onclick="submit('peraturan', 1, 4)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Belum tersedia Perbup / Perwali yang memuat pengaturan operasional pengurangan sampah </td>
-                                        <td>0</td>
+                                        <td>4</td>
+                                        <td>Ketersediaan Perkada Pengurangan Sampah</td>
+                                        <td><span id="kota_bandung_nilai_1_4"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_4"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_4"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_4"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_4"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_4"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_4"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_4"></span></td>
+                                        <td><span id="kab_garut_nilai_1_4"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_4"></span></td>
                                     </tr>
                                     <!-- 5 -->
                                     <tr>
-                                        <td rowspan="2">5</td>
-                                        <td rowspan="2">Ketersediaan Perkada Penanganan Sampah</td>
-                                        <td>Tersedia Perbup / Perwali yang memuat pengaturan operasional penanganan sampah</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="nilai_1_5" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="keterangan_1_5" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="sumber_1_5" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="url_1_5" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="tahun_1_5" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="new_keterangan_1_5" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_1_5">
-                                            <button type="button" onclick="submit('peraturan', 1, 5)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Belum tersedia Perbup / Perwali yang memuat pengaturan operasional penanganan sampah</td>
-                                        <td>0</td>
+                                        <td>5</td>
+                                        <td>Ketersediaan Perkada Penanganan Sampah</td>
+                                        <td><span id="kota_bandung_nilai_1_5"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_5"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_5"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_5"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_5"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_5"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_5"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_5"></span></td>
+                                        <td><span id="kab_garut_nilai_1_5"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_5"></span></td>
                                     </tr>
                                     <!-- 6 -->
                                     <tr>
-                                        <td rowspan="2">6</td>
-                                        <td rowspan="2">Ketersediaan Perkada Pembatasan Sampah (khusus sampah spesifik)</td>
-                                        <td>Tersedia Perbup / Perwali yang memuat pengaturan pembatasan sampah khusus dan sampah spesifik</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="nilai_1_6" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="keterangan_1_6" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="sumber_1_6" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="url_1_6" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="tahun_1_6" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="new_keterangan_1_6" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_1_6">
-                                            <button type="button" onclick="submit('peraturan', 1, 6)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Belum tersedia Perbup / Perwali yang memuat pengaturan pembatasan sampah khusus dan sampah spesifik</td>
-                                        <td>0</td>
+                                        <td>6</td>
+                                        <td>Ketersediaan Perkada Pembatasan Sampah (khusus sampah spesifik)</td>
+                                        <td><span id="kota_bandung_nilai_1_6"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_6"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_6"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_6"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_6"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_6"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_6"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_6"></span></td>
+                                        <td><span id="kab_garut_nilai_1_6"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_6"></span></td>
                                     </tr>
                                     <!-- 7 -->
                                     <tr>
-                                        <td rowspan="2">7</td>
-                                        <td rowspan="2">Ketersediaan Perbup/Perwali Jakstrada</td>
-                                        <td>Tersedia Perbup / Perwali yang memuat pengaturan Jakstrada Pengelolaan Sampah</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="nilai_1_7" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="keterangan_1_7" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="sumber_1_7" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="url_1_7" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="tahun_1_7" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="new_keterangan_1_7" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_1_7">
-                                            <button type="button" onclick="submit('peraturan', 1, 7)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Belum tersedia Perbup / Perwali yang memuat pengaturan Jakstrada Pengelolaan Sampah</td>
-                                        <td>0</td>
+                                        <td>7</td>
+                                        <td>Ketersediaan Perbup/Perwali Jakstrada</td>
+                                        <td><span id="kota_bandung_nilai_1_7"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_7"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_7"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_7"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_7"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_7"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_7"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_7"></span></td>
+                                        <td><span id="kab_garut_nilai_1_7"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_7"></span></td>
                                     </tr>
                                     <!-- 8 -->
                                     <tr>
-                                        <td rowspan="2">8</td>
-                                        <td rowspan="2">Ketersediaan dokumen perencanaan persampahan di daerah (SSK) yang masih berlaku</td>
-                                        <td>Tersedia dokumen perencanaan persampahan di daerah (SSK) final yang masih berlaku</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="nilai_1_8" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="keterangan_1_8" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="sumber_1_8" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="url_1_8" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="tahun_1_8" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="new_keterangan_1_8" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_1_8">
-                                            <button type="button" onclick="submit('peraturan', 1, 8)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Belum tersedia dokumen perencanaan persampahan di daerah (SSK) dan/atau SSK yang sudah tidak berlaku</td>
-                                        <td>0</td>
+                                        <td>8</td>
+                                        <td>Ketersediaan dokumen perencanaan persampahan di daerah (SSK) yang masih berlaku</td>
+                                        <td><span id="kota_bandung_nilai_1_8"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_8"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_8"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_8"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_8"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_8"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_8"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_8"></span></td>
+                                        <td><span id="kab_garut_nilai_1_8"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_8"></span></td>
                                     </tr>
                                     <!-- 9 -->
                                     <tr>
-                                        <td rowspan="2">9</td>
-                                        <td rowspan="2">Ketersediaan dokumen perencanaan persampahan di daerah (RIS/ PTMP) yang masih berlaku</td>
-                                        <td>Tersedia dokumen perencanaan persampahan di daerah (RIS/ PTMP) yang masih berlaku</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="nilai_1_9" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="keterangan_1_9" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="sumber_1_9" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="url_1_9" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="tahun_1_9" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="new_keterangan_1_9" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_1_9">
-                                            <button type="button" onclick="submit('peraturan', 1, 9)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Belum tersedia dokumen perencanaan persampahan di daerah (SSK) dan/atau SSK yang sudah tidak berlaku</td>
-                                        <td>0</td>
+                                        <td>9</td>
+                                        <td>Ketersediaan dokumen perencanaan persampahan di daerah (RIS/ PTMP) yang masih berlaku</td>
+                                        <td><span id="kota_bandung_nilai_1_9"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_9"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_9"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_9"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_9"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_9"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_9"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_9"></span></td>
+                                        <td><span id="kab_garut_nilai_1_9"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_9"></span></td>
                                     </tr>
                                     <!-- 10 -->
                                     <tr>
-                                        <td rowspan="2">10</td>
-                                        <td rowspan="2">Ketersediaan dokumen perencanaan persampahan di daerah (Jakstrada)</td>
-                                        <td>Tersedia dokumen perencanaan persampahan di daerah (Jakstrada)</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="nilai_1_10" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="keterangan_1_10" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="sumber_1_10" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="url_1_10" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="tahun_1_10" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="new_keterangan_1_10" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_1_10">
-                                            <button type="button" onclick="submit('peraturan', 1, 10)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Belum tersedia dokumen perencanaan persampahan di daerah (Jakstrada)</td>
-                                        <td>0</td>
+                                        <td>10</td>
+                                        <td>Ketersediaan dokumen perencanaan persampahan di daerah (Jakstrada)</td>
+                                        <td><span id="kota_bandung_nilai_1_10"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_10"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_10"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_10"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_10"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_10"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_10"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_10"></span></td>
+                                        <td><span id="kab_garut_nilai_1_10"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_10"></span></td>
                                     </tr>
                                     <!-- 11 -->
                                     <tr>
-                                        <td rowspan="2">11</td>
-                                        <td rowspan="2">Ketersediaan muatan pengarusutamaan gender dalam dokumen perencanaan persampahan</td>
-                                        <td>Terakomodasinya isu gender dan upaya penanganannya dalam dokumen kebijakan dan perencanaan persampahan kota/kab </td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="nilai_1_11" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="keterangan_1_11" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="sumber_1_11" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="url_1_11" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_peraturan" id="tahun_1_11" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_peraturan" id="new_keterangan_1_11" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_1_11">
-                                            <button type="button" onclick="submit('peraturan', 1, 11)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Belum terakomodasinya isu gender dan upaya penanganannya dalam dokumen kebijakan dan perencanaan persampahan kota/kab </td>
-                                        <td>0</td>
+                                        <td>11</td>
+                                        <td>Ketersediaan muatan pengarusutamaan gender dalam dokumen perencanaan persampahan</td>
+                                        <td><span id="kota_bandung_nilai_1_11"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_11"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_11"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_11"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_11"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_11"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_11"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_11"></span></td>
+                                        <td><span id="kab_garut_nilai_1_11"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_11"></span></td>
                                     </tr>
 
                                     <!-- Aspek Kelembagaan/SDM -->
-                                    <tr class="group bg-default">
-                                        <td colspan="10"><center>Aspek Kelembagaan/SDM</center></td>
-                                        <!-- <td ><center>11<center></center></center></td>
-                                        <td colspan="4"></td> -->
-                                    </tr>
+                                    <thead>
+                                        <tr class="bg-inverse">
+                                            <th colspan="2"><center style="width: 300px;">Aspek Kelembagaan/SDM</center></th>
+                                            <th><center style="width: 100px;">Kota Bandung</center></th>
+                                            <th><center style="width: 100px;">Kota Cimahi</center></th>
+                                            <th><center style="width: 100px;">Kab Bandung Barat</center></th>
+                                            <th><center style="width: 100px;">Kab Bandung</center></th>
+                                            <th><center style="width: 100px;">Kab Purwakarta</center></th>
+                                            <th><center style="width: 100px;">Kab Karawang</center></th>
+                                            <th><center style="width: 100px;">Kab Cianjur</center></th>
+                                            <th><center style="width: 100px;">Kab Bekasi</center></th>
+                                            <th><center style="width: 100px;">Kab Garut</center></th>
+                                            <th><center style="width: 100px;">Kab Sumedang</center></th>
+                                        </tr>
+                                        <tr class="group bg-inverse">
+                                            <th><center>No</center></th>
+                                            <td><center>Indikator</center></td>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                        </tr>
+                                    </thead>
                                     <tr>
-                                        <td rowspan="2">1</td>
-                                        <td rowspan="2">Rasio Beban Pengelolaan Sampah terhadap Jumlah SDM Operator Pengelola Sampah di OPD terkait (ton/hari/orang)</td>
-                                        <td>3,5 -6,5</td>
                                         <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_kelembagaan" id="nilai_2_1" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_kelembagaan" id="keterangan_2_1" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_kelembagaan" id="sumber_2_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_kelembagaan" id="url_2_1" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_kelembagaan" id="tahun_2_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_kelembagaan" id="new_keterangan_2_1" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_2_1">
-                                            <button type="button" onclick="submit('kelembagaan', 2, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
+                                        <td>Rasio Beban Pengelolaan Sampah terhadap Jumlah SDM Operator Pengelola Sampah di OPD terkait (ton/hari/orang)</td>
+                                        <td><span id="kota_bandung_nilai_2_1"></span></td>
+                                        <td><span id="kota_cimahi_nilai_2_1"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_2_1"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_11"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_2_1"></span></td>
+                                        <td><span id="kab_karawang_nilai_2_1"></span></td>
+                                        <td><span id="kab_cianjur_nilai_2_1"></span></td>
+                                        <td><span id="kab_bekasi_nilai_2_1"></span></td>
+                                        <td><span id="kab_garut_nilai_2_1"></span></td>
+                                        <td><span id="kab_sumedang_nilai_2_1"></span></td>
                                     </tr>
-                                    <tr>
-                                        <td><3,5 atau >6,5</td>
-                                        <td>0</td>
-                                    </tr>
+                                        
                                     <!-- 2 -->
                                     <tr>
-                                        <td rowspan="2">2</td>
-                                        <td rowspan="2">Keberadaan Regulator dan Operator Pengelola Sampah</td>
-                                        <td>Ada pemisahan lembaga pengelola antara regulator (Dinas) dan operator (UPTD/BLUD/dst) berdasarkan peraturan yang berlaku (Perda/SK)</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_kelembagaan" id="nilai_2_2" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_kelembagaan" id="keterangan_2_2" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_kelembagaan" id="sumber_2_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_kelembagaan" id="url_2_2" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_kelembagaan" id="tahun_2_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_kelembagaan" id="new_keterangan_2_2" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_2_2">
-                                            <button type="button" onclick="submit('kelembagaan', 2, 2)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Belum ada pemisahan lembaga pengelola antara regulator (Dinas) dan operator (UPTD/BLUD/dst) berdasarkan peraturan yang berlaku (Perda/SK)</td>
-                                        <td>0</td>
+                                        <td>2</td>
+                                        <td>Keberadaan Regulator dan Operator Pengelola Sampah</td>
+                                        <td><span id="kota_bandung_nilai_2_2"></span></td>
+                                        <td><span id="kota_cimahi_nilai_2_2"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_2_2"></span></td>
+                                        <td><span id="kab_bandung_nilai_2_2"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_2_2"></span></td>
+                                        <td><span id="kab_karawang_nilai_2_2"></span></td>
+                                        <td><span id="kab_cianjur_nilai_2_2"></span></td>
+                                        <td><span id="kab_bekasi_nilai_2_2"></span></td>
+                                        <td><span id="kab_garut_nilai_2_2"></span></td>
+                                        <td><span id="kab_sumedang_nilai_2_2"></span></td>
                                     </tr>
                                     <!-- 3 -->
                                     <tr>
-                                        <td rowspan="2">3</td>
-                                        <td rowspan="2">Persentase SDM (operasional dan manajemen) di Dinas yang telah melaksanakan training/pelatihan</td>
-                                        <td>SDM (operasional dan manajemen) telah mendapatkan training/pelatihan Manajemen dan Teknis Pengelolaan Sampah yang diselenggarakan oleh Badan Diklat SDM terkait Sanitasi dan Air Bersih, Kementerian PU</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_kelembagaan" id="nilai_2_3" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_kelembagaan" id="keterangan_2_3" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_kelembagaan" id="sumber_2_3" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_kelembagaan" id="url_2_3" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_kelembagaan" id="tahun_2_3" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_kelembagaan" id="new_keterangan_2_3" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_2_3">
-                                            <button type="button" onclick="submit('kelembagaan', 2, 3)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>SDM (operasional dan manajemen) belum terlibat dalam training/pelatihan Manajemen dan Teknis Pengelolaan Sampah yang diselenggarakan oleh Badan Diklat SDM terkait Sanitasi dan Air Bersih, Kementerian PU</td>
-                                        <td>0</td>
+                                        <td>3</td>
+                                        <td>Persentase SDM (operasional dan manajemen) di Dinas yang telah melaksanakan training/pelatihan</td>
+                                        <td><span id="kota_bandung_nilai_2_3"></span></td>
+                                        <td><span id="kota_cimahi_nilai_2_3"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_2_3"></span></td>
+                                        <td><span id="kab_bandung_nilai_2_3"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_2_3"></span></td>
+                                        <td><span id="kab_karawang_nilai_2_3"></span></td>
+                                        <td><span id="kab_cianjur_nilai_2_3"></span></td>
+                                        <td><span id="kab_bekasi_nilai_2_3"></span></td>
+                                        <td><span id="kab_garut_nilai_2_3"></span></td>
+                                        <td><span id="kab_sumedang_nilai_2_3"></span></td>
                                     </tr>
                                     <!-- 4 -->
                                     <tr>
-                                        <td rowspan="2">4</td>
-                                        <td rowspan="2">Persentase keterlibatan perempuan dalam pelatihan</td>
-                                        <td>Terdapat keterlibatan pelatihan perempuan dalam pelatihan pengelolaan sampah</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_kelembagaan" id="nilai_2_4" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_kelembagaan" id="keterangan_2_4" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_kelembagaan" id="sumber_2_4" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_kelembagaan" id="url_2_4" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_kelembagaan" id="tahun_2_4" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_kelembagaan" id="new_keterangan_2_4" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_2_4">
-                                            <button type="button" onclick="submit('kelembagaan', 2, 4)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tidak adanya keterlibatan perempuan dalam pelatihan pengelolaan sampah </td>
-                                        <td>0</td>
+                                        <td>4</td>
+                                        <td>Persentase keterlibatan perempuan dalam pelatihan</td>
+                                        <td><span id="kota_bandung_nilai_2_4"></span></td>
+                                        <td><span id="kota_cimahi_nilai_2_4"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_2_4"></span></td>
+                                        <td><span id="kab_bandung_nilai_2_4"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_2_4"></span></td>
+                                        <td><span id="kab_karawang_nilai_2_4"></span></td>
+                                        <td><span id="kab_cianjur_nilai_2_4"></span></td>
+                                        <td><span id="kab_bekasi_nilai_2_4"></span></td>
+                                        <td><span id="kab_garut_nilai_2_4"></span></td>
+                                        <td><span id="kab_sumedang_nilai_2_4"></span></td>
                                     </tr>
 
-                                    <!-- Aspek Kelembagaan/SDM -->
-                                    <tr class="group bg-default">
-                                        <td colspan="10"><center>Aspek Pendanaan/Pembiayaan</center></td>
-                                        <!-- <td ><center>11<center></center></center></td>
-                                        <td colspan="4"></td> -->
-                                    </tr>
+                                    <!-- Aspek Pendanaan/Pembiayaan -->
+                                    <thead>
+                                        <tr class="bg-inverse">
+                                            <th colspan="2"><center style="width: 300px;">Aspek Pendanaan/Pembiayaan</center></th>
+                                            <th><center style="width: 100px;">Kota Bandung</center></th>
+                                            <th><center style="width: 100px;">Kota Cimahi</center></th>
+                                            <th><center style="width: 100px;">Kab Bandung Barat</center></th>
+                                            <th><center style="width: 100px;">Kab Bandung</center></th>
+                                            <th><center style="width: 100px;">Kab Purwakarta</center></th>
+                                            <th><center style="width: 100px;">Kab Karawang</center></th>
+                                            <th><center style="width: 100px;">Kab Cianjur</center></th>
+                                            <th><center style="width: 100px;">Kab Bekasi</center></th>
+                                            <th><center style="width: 100px;">Kab Garut</center></th>
+                                            <th><center style="width: 100px;">Kab Sumedang</center></th>
+                                        </tr>
+                                        <tr class="group bg-inverse">
+                                            <th><center>No</center></th>
+                                            <td><center>Indikator</center></td>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                        </tr>
+                                    </thead>
                                     <tr>
-                                        <td rowspan="2">1</td>
-                                        <td rowspan="2">Persentase total alokasi dana pengelolaan sampah terhadap total alokasi APBD Kota/Kab</td>
-                                        <td>>2,5% dari total APBD</td>
                                         <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_pendanaan" id="nilai_3_1" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_pendanaan" id="keterangan_3_1" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_pendanaan" id="sumber_3_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_pendanaan" id="url_3_1" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_pendanaan" id="tahun_3_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_pendanaan" id="new_keterangan_3_1" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_3_1">
-                                            <button type="button" onclick="submit('pendanaan', 3, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><2,5% dari total APBD</td>
-                                        <td>0</td>
+                                        <td>Persentase total alokasi dana pengelolaan sampah terhadap total alokasi APBD Kota/Kab</td>
+                                        <td><span id="kota_bandung_nilai_3_1"></span></td>
+                                        <td><span id="kota_cimahi_nilai_3_1"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_3_1"></span></td>
+                                        <td><span id="kab_bandung_nilai_3_1"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_3_1"></span></td>
+                                        <td><span id="kab_karawang_nilai_3_1"></span></td>
+                                        <td><span id="kab_cianjur_nilai_3_1"></span></td>
+                                        <td><span id="kab_bekasi_nilai_3_1"></span></td>
+                                        <td><span id="kab_garut_nilai_3_1"></span></td>
+                                        <td><span id="kab_sumedang_nilai_3_1"></span></td>
                                     </tr>
                                     <!-- 2 -->
                                     <tr>
-                                        <td rowspan="2">2</td>
-                                        <td rowspan="2">Efektivitas penarikan retribusi</td>
-                                        <td>Realisasi total pendapatan retribusi (Rp/Tahun) terhadap target retribusi per tahun >90%</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_pendanaan" id="nilai_3_2" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_pendanaan" id="keterangan_3_2" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_pendanaan" id="sumber_3_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_pendanaan" id="url_3_2" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_pendanaan" id="tahun_3_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_pendanaan" id="new_keterangan_3_2" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_3_2">
-                                            <button type="button" onclick="submit('pendanaan', 3, 2)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Realisasi total pendapatan retribusi (Rp/Tahun) terhadap target retribusi per tahun <90%</td>
-                                        <td>0</td>
+                                        <td>2</td>
+                                        <td>Efektivitas penarikan retribusi</td>
+                                        <td><span id="kota_bandung_nilai_3_2"></span></td>
+                                        <td><span id="kota_cimahi_nilai_3_2"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_3_2"></span></td>
+                                        <td><span id="kab_bandung_nilai_3_2"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_3_2"></span></td>
+                                        <td><span id="kab_karawang_nilai_3_2"></span></td>
+                                        <td><span id="kab_cianjur_nilai_3_2"></span></td>
+                                        <td><span id="kab_bekasi_nilai_3_2"></span></td>
+                                        <td><span id="kab_garut_nilai_3_2"></span></td>
+                                        <td><span id="kab_sumedang_nilai_3_2"></span></td>
                                     </tr>
                                     <!-- 3 -->
                                     <tr>
-                                        <td rowspan="2">3</td>
-                                        <td rowspan="2">Inovasi penarikan retribusi</td>
-                                        <td>Tersedia inovasi sistem penarikan biaya layanan/retribusi sampah yang dikelola oleh Pemerintah Daerah seperti
-                                            - Penarikan retribusi/tarif secara tidak langsung (metode elektronik atau penggunaan aplikasi dan teknologi informasi (aptika))
-                                            - Penarikan retribusi/tarif terintegrasi dengan sistem lainnya</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_pendanaan" id="nilai_3_3" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_pendanaan" id="keterangan_3_3" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_pendanaan" id="sumber_3_3" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_pendanaan" id="url_3_3" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_pendanaan" id="tahun_3_3" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_pendanaan" id="new_keterangan_3_3" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_3_3">
-                                            <button type="button" onclick="submit('pendanaan', 3, 3)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Belum ada sistem penarikan biaya secara langsung/manual layanan/retribusi sampah yang dikelola oleh Pemerintah Daerah</td>
-                                        <td>0</td>
+                                        <td>3</td>
+                                        <td>Inovasi penarikan retribusi</td>
+                                        <td><span id="kota_bandung_nilai_3_3"></span></td>
+                                        <td><span id="kota_cimahi_nilai_3_3"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_3_3"></span></td>
+                                        <td><span id="kab_bandung_nilai_3_3"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_3_3"></span></td>
+                                        <td><span id="kab_karawang_nilai_3_3"></span></td>
+                                        <td><span id="kab_cianjur_nilai_3_3"></span></td>
+                                        <td><span id="kab_bekasi_nilai_3_3"></span></td>
+                                        <td><span id="kab_garut_nilai_3_3"></span></td>
+                                        <td><span id="kab_sumedang_nilai_3_3"></span></td>
                                     </tr>
                                     <!-- 4 -->
                                     <tr>
-                                        <td rowspan="2">4</td>
-                                        <td rowspan="2">Ketersediaan bauran pendanaan persampahan Pemerintah dan Non Pemerintah</td>
-                                        <td>Ada dana non pemerintah yang ditujukan untuk kegiatan pengelolaan sampah</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_pendanaan" id="nilai_3_4" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_pendanaan" id="keterangan_3_4" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_pendanaan" id="sumber_3_4" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_pendanaan" id="url_3_4" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_pendanaan" id="tahun_3_4" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_pendanaan" id="new_keterangan_3_4" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_3_4">
-                                            <button type="button" onclick="submit('pendanaan', 3, 4)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Belum ada dana non pemerintah yang ditujukan untuk kegiatan pengelolaan sampah</td>
-                                        <td>0</td>
+                                        <td>4</td>
+                                        <td>Ketersediaan bauran pendanaan persampahan Pemerintah dan Non Pemerintah</td>
+                                        <td><span id="kota_bandung_nilai_3_4"></span></td>
+                                        <td><span id="kota_cimahi_nilai_3_4"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_3_4"></span></td>
+                                        <td><span id="kab_bandung_nilai_3_4"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_3_4"></span></td>
+                                        <td><span id="kab_karawang_nilai_3_4"></span></td>
+                                        <td><span id="kab_cianjur_nilai_3_4"></span></td>
+                                        <td><span id="kab_bekasi_nilai_3_4"></span></td>
+                                        <td><span id="kab_garut_nilai_3_4"></span></td>
+                                        <td><span id="kab_sumedang_nilai_3_4"></span></td>
                                     </tr>
 
                                     <!-- Aspek Teknis/Sarana Prasarana -->
-                                    <tr class="group bg-default">
-                                        <td colspan="10"><center>Aspek Teknis/Sarana Prasarana</center></td>
-                                        <!-- <td ><center>11<center></center></center></td>
-                                        <td colspan="4"></td> -->
-                                    </tr>
+                                    <thead>
+                                        <tr class="bg-inverse">
+                                            <th colspan="2"><center style="width: 300px;">Aspek Teknis/Sarana Prasarana</center></th>
+                                            <th><center style="width: 100px;">Kota Bandung</center></th>
+                                            <th><center style="width: 100px;">Kota Cimahi</center></th>
+                                            <th><center style="width: 100px;">Kab Bandung Barat</center></th>
+                                            <th><center style="width: 100px;">Kab Bandung</center></th>
+                                            <th><center style="width: 100px;">Kab Purwakarta</center></th>
+                                            <th><center style="width: 100px;">Kab Karawang</center></th>
+                                            <th><center style="width: 100px;">Kab Cianjur</center></th>
+                                            <th><center style="width: 100px;">Kab Bekasi</center></th>
+                                            <th><center style="width: 100px;">Kab Garut</center></th>
+                                            <th><center style="width: 100px;">Kab Sumedang</center></th>
+                                        </tr>
+                                        <tr class="group bg-inverse">
+                                            <th><center>No</center></th>
+                                            <td><center>Indikator</center></td>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                        </tr>
+                                    </thead>
                                     <tr>
-                                        <td rowspan="2">1</td>
-                                        <td rowspan="2">Sisa Umur Layan TPA milik kota/kab dan/atau provinsi </td>
-                                        <td>Terdapat TPA milik pemda Kota/Kab dan/atau pemerintah Provinsi dengan kapasitas yang dapat beroperasi hingga >3 tahun</td>
                                         <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="nilai_4_1" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_teknis" id="keterangan_4_1" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="sumber_4_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="url_4_1" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="tahun_4_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_teknis" id="new_keterangan_4_1" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_4_1">
-                                            <button type="button" onclick="submit('teknis', 4, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tidak terdapat TPA milik pemda Kota/Kab dan/atau pemerintah Provinsi dan/atau kapasitas yang dapat beroperasi <3 tahun</td>
-                                        <td>0</td>
+                                        <td>Sisa Umur Layan TPA milik kota/kab dan/atau provinsi </td>
+                                        <td><span id="kota_bandung_nilai_4_1"></span></td>
+                                        <td><span id="kota_cimahi_nilai_4_1"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_4_1"></span></td>
+                                        <td><span id="kab_bandung_nilai_4_1"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_4_1"></span></td>
+                                        <td><span id="kab_karawang_nilai_4_1"></span></td>
+                                        <td><span id="kab_cianjur_nilai_4_1"></span></td>
+                                        <td><span id="kab_bekasi_nilai_4_1"></span></td>
+                                        <td><span id="kab_garut_nilai_4_1"></span></td>
+                                        <td><span id="kab_sumedang_nilai_4_1"></span></td>
                                     </tr>
                                     <!-- 2 -->
                                     <tr>
-                                        <td rowspan="2">2</td>
-                                        <td rowspan="2">Jenis Pengoperasian TPA (sanitary landfill/controlled/ open dumping)</td>
-                                        <td>Operasional TPA dengan secara sanitary landfill/controlled landfill</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="nilai_4_2" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_teknis" id="keterangan_4_2" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="sumber_4_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="url_4_2" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="tahun_4_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_teknis" id="new_keterangan_4_2" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_4_2">
-                                            <button type="button" onclick="submit('teknis', 4, 2)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Operasional TPA dengan secara open dumping</td>
-                                        <td>0</td>
+                                        <td>2</td>
+                                        <td>Jenis Pengoperasian TPA (sanitary landfill/controlled/ open dumping)</td>
+                                        <td><span id="kota_bandung_nilai_4_2"></span></td>
+                                        <td><span id="kota_cimahi_nilai_4_2"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_4_2"></span></td>
+                                        <td><span id="kab_bandung_nilai_4_2"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_4_2"></span></td>
+                                        <td><span id="kab_karawang_nilai_4_2"></span></td>
+                                        <td><span id="kab_cianjur_nilai_4_2"></span></td>
+                                        <td><span id="kab_bekasi_nilai_4_2"></span></td>
+                                        <td><span id="kab_garut_nilai_4_2"></span></td>
+                                        <td><span id="kab_sumedang_nilai_4_2"></span></td>
                                     </tr>
                                     <!-- 3 -->
                                     <tr>
-                                        <td rowspan="2">3</td>
-                                        <td rowspan="2">Rasio Kelurahan Terlayani Pengumpulan Sampah</td>
-                                        <td>>0,7</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="nilai_4_3" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_teknis" id="keterangan_4_3" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="sumber_4_3" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="url_4_3" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="tahun_4_3" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_teknis" id="new_keterangan_4_3" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_4_3">
-                                            <button type="button" onclick="submit('teknis', 4, 3)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><0,7</td>
-                                        <td>0</td>
+                                        <td>3</td>
+                                        <td>Rasio Kelurahan Terlayani Pengumpulan Sampah</td>
+                                        <td><span id="kota_bandung_nilai_4_3"></span></td>
+                                        <td><span id="kota_cimahi_nilai_4_3"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_4_3"></span></td>
+                                        <td><span id="kab_bandung_nilai_4_3"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_4_3"></span></td>
+                                        <td><span id="kab_karawang_nilai_4_3"></span></td>
+                                        <td><span id="kab_cianjur_nilai_4_3"></span></td>
+                                        <td><span id="kab_bekasi_nilai_4_3"></span></td>
+                                        <td><span id="kab_garut_nilai_4_3"></span></td>
+                                        <td><span id="kab_sumedang_nilai_4_3"></span></td>
                                     </tr>
                                     <!-- 4 -->
                                     <tr>
-                                        <td rowspan="2">4</td>
-                                        <td rowspan="2">Rasio capaian pengolahan sampah </td>
-                                        <td><0,3</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="nilai_4_4" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_teknis" id="keterangan_4_4" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="sumber_4_4" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="url_4_4" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="tahun_4_4" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_teknis" id="new_keterangan_4_4" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_4_4">
-                                            <button type="button" onclick="submit('teknis', 4, 4)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><0,3</td>
-                                        <td>0</td>
+                                        <td>4</td>
+                                        <td>Rasio capaian pengolahan sampah </td>
+                                        <td><span id="kota_bandung_nilai_4_4"></span></td>
+                                        <td><span id="kota_cimahi_nilai_4_4"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_4_4"></span></td>
+                                        <td><span id="kab_bandung_nilai_4_4"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_4_4"></span></td>
+                                        <td><span id="kab_karawang_nilai_4_4"></span></td>
+                                        <td><span id="kab_cianjur_nilai_4_4"></span></td>
+                                        <td><span id="kab_bekasi_nilai_4_4"></span></td>
+                                        <td><span id="kab_garut_nilai_4_4"></span></td>
+                                        <td><span id="kab_sumedang_nilai_4_4"></span></td>
                                     </tr>
                                     <!-- 5 -->
                                     <tr>
-                                        <td rowspan="2">5</td>
-                                        <td rowspan="2">Rasio capaian pengangkutan</td>
-                                        <td><0,7</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="nilai_4_5" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_teknis" id="keterangan_4_5" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="sumber_4_5" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="url_4_5" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_teknis" id="tahun_4_5" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_teknis" id="new_keterangan_4_5" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_4_5">
-                                            <button type="button" onclick="submit('pendanaan', 4, 5)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><0,7</td>
-                                        <td>0</td>
+                                        <td>5</td>
+                                        <td>Rasio capaian pengangkutan</td>
+                                        <td><span id="kota_bandung_nilai_4_5"></span></td>
+                                        <td><span id="kota_cimahi_nilai_4_5"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_4_5"></span></td>
+                                        <td><span id="kab_bandung_nilai_4_5"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_4_5"></span></td>
+                                        <td><span id="kab_karawang_nilai_4_5"></span></td>
+                                        <td><span id="kab_cianjur_nilai_4_5"></span></td>
+                                        <td><span id="kab_bekasi_nilai_4_5"></span></td>
+                                        <td><span id="kab_garut_nilai_4_5"></span></td>
+                                        <td><span id="kab_sumedang_nilai_4_5"></span></td>
                                     </tr>
 
                                     <!-- Aspek Masyarakat/Pemangku Kepentingan -->
-                                    <tr class="group bg-default">
-                                        <td colspan="10"><center>Aspek Masyarakat/Pemangku Kepentingan</center></td>
-                                        <!-- <td ><center>11<center></center></center></td>
-                                        <td colspan="4"></td> -->
-                                    </tr>
+                                    <thead>
+                                        <tr class="bg-inverse">
+                                            <th colspan="2"><center style="width: 300px;">Aspek Masyarakat/Pemangku Kepentingan</center></th>
+                                            <th><center style="width: 100px;">Kota Bandung</center></th>
+                                            <th><center style="width: 100px;">Kota Cimahi</center></th>
+                                            <th><center style="width: 100px;">Kab Bandung Barat</center></th>
+                                            <th><center style="width: 100px;">Kab Bandung</center></th>
+                                            <th><center style="width: 100px;">Kab Purwakarta</center></th>
+                                            <th><center style="width: 100px;">Kab Karawang</center></th>
+                                            <th><center style="width: 100px;">Kab Cianjur</center></th>
+                                            <th><center style="width: 100px;">Kab Bekasi</center></th>
+                                            <th><center style="width: 100px;">Kab Garut</center></th>
+                                            <th><center style="width: 100px;">Kab Sumedang</center></th>
+                                        </tr>
+                                        <tr class="group bg-inverse">
+                                            <th><center>No</center></th>
+                                            <td><center>Indikator</center></td>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                        </tr>
+                                    </thead>
                                     <tr>
-                                        <td rowspan="2">1</td>
-                                        <td rowspan="2">Rencana Kegiatan Komunikasi Informasi & Edukasi (KIE) terkait pengurangan dan penanganan sampah oleh Pemda kepada masyarakat </td>
-                                        <td>Ada rencana program kampanye dan sosialisasi dalam Renstra dan Renja</td>
                                         <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_masyarakat" id="nilai_5_1" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_masyarakat" id="keterangan_5_1" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_masyarakat" id="sumber_5_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_masyarakat" id="url_5_1" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_masyarakat" id="tahun_5_1" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_masyarakat" id="new_keterangan_5_1" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_5_1">
-                                            <button type="button" onclick="submit('masyarakat', 5, 1)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Belum ada rencana program kampanye dan sosialisasi dalam Renstra dan Renja</td>
-                                        <td>0</td>
+                                        <td>Rencana Kegiatan Komunikasi Informasi & Edukasi (KIE) terkait pengurangan dan penanganan sampah oleh Pemda kepada masyarakat </td>
+                                        <td><span id="kota_bandung_nilai_5_1"></span></td>
+                                        <td><span id="kota_cimahi_nilai_5_1"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_5_1"></span></td>
+                                        <td><span id="kab_bandung_nilai_5_1"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_5_1"></span></td>
+                                        <td><span id="kab_karawang_nilai_5_1"></span></td>
+                                        <td><span id="kab_cianjur_nilai_5_1"></span></td>
+                                        <td><span id="kab_bekasi_nilai_5_1"></span></td>
+                                        <td><span id="kab_garut_nilai_5_1"></span></td>
+                                        <td><span id="kab_sumedang_nilai_5_1"></span></td>
                                     </tr>
                                     <!-- 2 -->
                                     <tr>
-                                        <td rowspan="2">2</td>
-                                        <td rowspan="2">Pelaksanaan Kegiatan Komunikasi Informasi & Edukasi (KIE) terkait pengurangan dan penanganan sampah oleh Pemda kepada masyarakat </td>
-                                        <td>Ada dokumentasi kegiatan kampanye dan sosialisasi</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_masyarakat" id="nilai_5_2" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_masyarakat" id="keterangan_5_2" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_masyarakat" id="sumber_5_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_masyarakat" id="url_5_2" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_masyarakat" id="tahun_5_2" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_masyarakat" id="new_keterangan_5_2" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_5_2">
-                                            <button type="button" onclick="submit('masyarakat', 5, 2)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Belum ada dokumentasi kegiatan kampanye dan sosialisasi</td>
-                                        <td>0</td>
+                                        <td>2</td>
+                                        <td>Pelaksanaan Kegiatan Komunikasi Informasi & Edukasi (KIE) terkait pengurangan dan penanganan sampah oleh Pemda kepada masyarakat </td>
+                                        <td><span id="kota_bandung_nilai_5_2"></span></td>
+                                        <td><span id="kota_cimahi_nilai_5_2"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_5_2"></span></td>
+                                        <td><span id="kab_bandung_nilai_5_2"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_5_2"></span></td>
+                                        <td><span id="kab_karawang_nilai_5_2"></span></td>
+                                        <td><span id="kab_cianjur_nilai_5_2"></span></td>
+                                        <td><span id="kab_bekasi_nilai_5_2"></span></td>
+                                        <td><span id="kab_garut_nilai_5_2"></span></td>
+                                        <td><span id="kab_sumedang_nilai_5_2"></span></td>
                                     </tr>
                                     <!-- 3 -->
                                     <tr>
-                                        <td rowspan="2">3</td>
-                                        <td rowspan="2">Pelaksanaan Kegiatan  KIE terkait pengurangan dan penanganan sampah oleh Pemda kepada masyarakat dengan melibatkan perempuan</td>
-                                        <td>Ada dokumentasi kegiatan kampanye dan sosialisasi yang melibatkan perempuan</td>
-                                        <td>1</td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_masyarakat" id="nilai_5_3" type="number" class="form-control" placeholder=""  min="0" max="1">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_masyarakat" id="keterangan_5_3" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_masyarakat" id="sumber_5_3" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_masyarakat" id="url_5_3" type="text" class="form-control" placeholder="Link">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <input name="aspek_masyarakat" id="tahun_5_3" type="text" class="form-control" placeholder="...">
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div class="input-group input-group-sm input-group-button">
-                                                <textarea name="aspek_masyarakat" id="new_keterangan_5_3" type="text" class="form-control" placeholder="..." rows="2"></textarea>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <input type="hidden" id="id_5_3">
-                                            <button type="button" onclick="submit('masyarakat', 5, 3)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Belum ada dokumentasi kegiatan kampanye dan sosialisasi yang melibatkan perempuan</td>
-                                        <td>0</td>
+                                        <td>3</td>
+                                        <td>Pelaksanaan Kegiatan  KIE terkait pengurangan dan penanganan sampah oleh Pemda kepada masyarakat dengan melibatkan perempuan</td>
+                                        <td><span id="kota_bandung_nilai_5_3"></span></td>
+                                        <td><span id="kota_cimahi_nilai_5_3"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_5_3"></span></td>
+                                        <td><span id="kab_bandung_nilai_5_3"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_5_3"></span></td>
+                                        <td><span id="kab_karawang_nilai_5_3"></span></td>
+                                        <td><span id="kab_cianjur_nilai_5_3"></span></td>
+                                        <td><span id="kab_bekasi_nilai_5_3"></span></td>
+                                        <td><span id="kab_garut_nilai_5_3"></span></td>
+                                        <td><span id="kab_sumedang_nilai_5_3"></span></td>
                                     </tr>
 
                                 </tbody>

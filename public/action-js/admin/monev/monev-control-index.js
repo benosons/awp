@@ -53,7 +53,7 @@ $(document).ready(function(){
     loadinformasi(this.value);
   })
 
-  // loaddata();
+  loaddata();
   loadinformasi();
 
   if($('#is_open').val() == 1){
@@ -111,160 +111,13 @@ function loaddata(param, ids){
         for (let index = 0; index < data.length; index++) {
           const element = data[index];
           
-          $('#id_'+element['kode_aspek']+'_'+element['nomor']).val(element['id']);
-          $('#nilai_'+element['kode_aspek']+'_'+element['nomor']).val(element['nilai']);
-          $('#keterangan_'+element['kode_aspek']+'_'+element['nomor']).val(element['keterangan']);
-          $('#sumber_'+element['kode_aspek']+'_'+element['nomor']).val(element['sumber']);
-          $('#url_'+element['kode_aspek']+'_'+element['nomor']).val(element['url']);
-          $('#tahun_'+element['kode_aspek']+'_'+element['nomor']).val(element['tahun']);
-          $('#new_keterangan_'+element['kode_aspek']+'_'+element['nomor']).val(element['note']);
+          $('#'+element['kota']+'_'+'nilai_'+element['kode_aspek']+'_'+element['nomor']).html(element['nilai']);
           
         }
       }else{
         $('input').val('');
       }
-          
-        // if(code == '1'){
-            
-        //     var groupColumn = 1;
-        //     var table = $('#all-monev').DataTable({
-        //         destroy: true,
-        //         paging: true,
-        //         lengthChange: false,
-        //         searching: true,
-        //         ordering: true,
-        //         info: true,
-        //         autoWidth: false,
-        //         responsive: false,
-        //         pageLength: 30,
-        //         aaData: result.data,
-        //         aoColumns: [
-        //             { 'mDataProp': 'kode_indikator' },
-        //             { 'mDataProp': 'nomor_aspek'},
-        //             { 'mDataProp': 'desc_aspek'},
-        //             { 'mDataProp': 'desc_indikator', 'width': '50%'},
-        //             { 'mDataProp': 'desc_parameter', 'width': '50%'},
-        //             { 'mDataProp': 'bobot'},
-        //             { 'mDataProp': 'nilai'},
-        //             { 'mDataProp': 'keterangan'},
-        //             { 'mDataProp': 'sumber'},
-        //             { 'mDataProp': 'tahun'},
-        //             { 'mDataProp': 'catatan'},
-        //             { 'mDataProp': 'id' },
-
-
-        //         ],
-        //         'rowsGroup': [0],
-                
-        //         "columnDefs": [
-        //             // { "targets": "_all", "orderable": false },
-        //             { "visible": false, "targets": 1 },
-        //             { "visible": false, "targets": 2 },
-        //             {
-        //                 mRender: function ( data, type, row ) {
-      
-        //                   var el = row.kode_indikator.substring(2);
-      
-        //                     return el;
-        //                 },
-        //                 aTargets: [ 0 ]
-        //             },
-        //             {
-        //                 mRender: function ( data, type, row ) {
-      
-        //                   var el ='<a target="_blank" href="'+row.url+'">'+row.sumber+'</a>';
-      
-        //                     return el;
-        //                 },
-        //                 aTargets: [ 8 ]
-        //             },
-        //             {
-        //                 mRender: function ( data, type, row ) {
-      
-        //                   var el =`<div class="btn-group dropdown-split-info">
-        //                               <button type="button" class="btn btn-info btn-mini"><i class="icofont icofont-info-square"></i>Action</button>
-        //                               <button type="button" class="btn btn-info btn-mini dropdown-toggle dropdown-toggle-split waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        //                                   <span class="sr-only">Toggle primary</span>
-        //                               </button>
-        //                               <div class="dropdown-menu">
-        //                                   <a class="dropdown-item waves-effect waves-light" href="button.html#">Action</a>
-        //                                   <a class="dropdown-item waves-effect waves-light" href="button.html#">Another action</a>
-        //                                   <a class="dropdown-item waves-effect waves-light" href="button.html#">Something else here</a>
-        //                               </div>
-        //                           </div>`;
-      
-        //                     return el;
-        //                 },
-        //                 aTargets: [ 11 ]
-        //             },
-        //             // {
-        //             //     mRender: function ( data, type, row ) {
-      
-        //             //       var el = data+`%`;
-      
-        //             //         return el;
-        //             //     },
-        //             //     aTargets: [ 10 ]
-        //             // },
-        //             // {
-        //             //     mRender: function ( data, type, row ) {
-                            
-        //             //       var el = rubah(data);
-      
-        //             //         return el;
-        //             //     },
-        //             //     aTargets: [ 3, 4, 5, 6, 7, 8, 9 ]
-        //             // },
-        //             // {
-        //             //     mRender: function ( data, type, row ) {
-      
-        //             //       var el = `<button class="btn btn-info btn-mini"><i class="icofont icofont-edit"></i>Edit</button>`;
-      
-        //             //         return el;
-        //             //     },
-        //             //     aTargets: [ 11 ]
-        //             // },
-        //         ],
-        //         "order": [[ 1, 'asc' ]],
-        //          "displayLength": 25,
-        //       "drawCallback": function ( settings ) {
-        //           var api = this.api();
-        //           var rows = api.rows( {page:'current'} ).nodes();
-        //           var last=null;
-       
-        //           api.column(2, {page:'current'} ).data().each( function ( group, i ) {
-                    
-        //               if ( last !== group ) {
-        //                   $(rows).eq( i ).before(
-        //                       '<tr class="group"><td colspan="10"><center> Aspek '+group+'<center></td></tr>'
-        //                   );
-       
-        //                   last = group;
-        //               }
-        //           } );
-        //       },
-        //       // fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull){
-        //       //     var index = iDisplayIndexFull + 1;
-        //       //     $('td:eq(0)', nRow).html('#'+index);
-        //       //     return  index;
-        //       // },
-        //         fnInitComplete: function () {
-        //           if($('#is_open').val() == 1){
-        //             this.api().column(11).visible(true);
-        //             this.$('tr').each(function() {
-        //                 $(this).find(':last-child').remove();
-        //             });
-        //           }
-        //         }
-        //     });
-            
-        // }else{
-        //     var table = $('#all-monev').DataTable();
-        //     table.clear().draw();
-        // }
-        
-
-            
+             
         }
       })
     }
