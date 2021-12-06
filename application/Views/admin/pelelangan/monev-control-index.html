@@ -1,0 +1,2193 @@
+{% extends "admin/layout.html" %} {% block content %}
+<style>
+    .table td, .table th {
+        vertical-align: middle!important;
+    }
+</style>
+<div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page-header start -->
+            <div class="page-header">
+              <input hidden id="userid" value="{{userid}}">
+              <input hidden id="role" value="{{role}}">
+                <div class="page-header-title">
+                    <h4>MONEV LEMBAR KONTROL ISWMP</h4>
+                    <!-- <span>Easy to customise core stylesheets</span> -->
+                </div>
+                <div class="page-header-breadcrumb">
+                    <ul class="breadcrumb-title">
+                        <li class="breadcrumb-item">
+                            <a href="{{baseURL}}">
+                                <i class="icofont icofont-home"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="#!">Monev Lembar Kontrol</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Page-header end -->
+            <!-- Page-body start -->
+            <div class="page-body">
+                <!-- Base style - Hover table start -->
+                <div class="card">
+                    <div class="card-header" style="padding-top:2.5rem;">
+                        <!-- <h5>Base style - hover</h5> -->
+                        <!-- <span>This example shows DataTables with just the hover class specified. This class will instruct DataTables' styling to highlight a row when the mouse is hovered over it.</span> -->
+                        
+                    </div>
+                    <!-- INformasi Umum 1 -->
+                    <div class="card-block">
+                        <div class="dt-responsive table-responsive">
+                            <table id="" class="table table-bordered" style="font-size:12px;">
+                                <thead>
+                                    <tr class="bg-inverse">
+                                        <th colspan="2"><center style="width: 200px;">Informasi Umum</center></th>
+                                        <th><center style="width: 100px;">Kota Bandung</center></th>
+                                        <th><center style="width: 100px;">Kota Cimahi</center></th>
+                                        <th><center style="width: 100px;">Kab Bandung Barat</center></th>
+                                        <th><center style="width: 100px;">Kab Bandung</center></th>
+                                        <th><center style="width: 100px;">Kab Purwakarta</center></th>
+                                        <th><center style="width: 100px;">Kab Karawang</center></th>
+                                        <th><center style="width: 100px;">Kab Cianjur</center></th>
+                                        <th><center style="width: 100px;">Kab Bekasi</center></th>
+                                        <th><center style="width: 100px;">Kab Garut</center></th>
+                                        <th><center style="width: 100px;">Kab Sumedang</center></th>
+                                    </tr>
+                                    <tr class="bg-inverse">
+                                        <th><center>No</center></th>
+                                        <th><center style="width: 200px;">Informasi Umum</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
+                                        <th><center style="width: 100px;">Isian Data</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>a</td>
+                                        <td>Jumlah penduduk kota/kabupaten</td>
+                                        <td><span id="kota_bandung_isian_a"></span></td>
+                                        <td><span id="kota_cimahi_isian_a"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_a"></span></td>
+                                        <td><span id="kab_bandung_isian_a"></span></td>
+                                        <td><span id="kab_purwakarta_isian_a"></span></td>
+                                        <td><span id="kab_karawang_isian_a"></span></td>
+                                        <td><span id="kab_cianjur_isian_a"></span></td>
+                                        <td><span id="kab_bekasi_isian_a"></span></td>
+                                        <td><span id="kab_garut_isian_a"></span></td>
+                                        <td><span id="kab_sumedang_isian_a"></span></td>
+                                        
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>b</td>
+                                        <td>Jumlah timbulan sampah perkapita</td>
+                                        <td><span id="kota_bandung_isian_b"></span></td>
+                                        <td><span id="kota_cimahi_isian_b"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_b"></span></td>
+                                        <td><span id="kab_bandung_isian_b"></span></td>
+                                        <td><span id="kab_purwakarta_isian_b"></span></td>
+                                        <td><span id="kab_karawang_isian_b"></span></td>
+                                        <td><span id="kab_cianjur_isian_b"></span></td>
+                                        <td><span id="kab_bekasi_isian_b"></span></td>
+                                        <td><span id="kab_garut_isian_b"></span></td>
+                                        <td><span id="kab_sumedang_isian_b"></span></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>c</td>
+                                        <td>Densitas sampah </td>
+                                        <td><span id="kota_bandung_isian_c"></span></td>
+                                        <td><span id="kota_cimahi_isian_c"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_c"></span></td>
+                                        <td><span id="kab_bandung_isian_c"></span></td>
+                                        <td><span id="kab_purwakarta_isian_c"></span></td>
+                                        <td><span id="kab_karawang_isian_c"></span></td>
+                                        <td><span id="kab_cianjur_isian_c"></span></td>
+                                        <td><span id="kab_bekasi_isian_c"></span></td>
+                                        <td><span id="kab_garut_isian_c"></span></td>
+                                        <td><span id="kab_sumedang_isian_c"></span></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>d</td>
+                                        <td>Jumlah timbulan sampah kota/kabupaten </td>
+                                        <td><span id="kota_bandung_isian_d"></span></td>
+                                        <td><span id="kota_cimahi_isian_d"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_d"></span></td>
+                                        <td><span id="kab_bandung_isian_d"></span></td>
+                                        <td><span id="kab_purwakarta_isian_d"></span></td>
+                                        <td><span id="kab_karawang_isian_d"></span></td>
+                                        <td><span id="kab_cianjur_isian_d"></span></td>
+                                        <td><span id="kab_bekasi_isian_d"></span></td>
+                                        <td><span id="kab_garut_isian_d"></span></td>
+                                        <td><span id="kab_sumedang_isian_d"></span></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="5">e</td>
+                                        <td>Pengumpulan oleh pemerintah</td>
+                                        <td><span id="kota_bandung_isian_e_1"></span></td>
+                                        <td><span id="kota_cimahi_isian_e_1"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_e_1"></span></td>
+                                        <td><span id="kab_bandung_isian_e_1"></span></td>
+                                        <td><span id="kab_purwakarta_isian_e_1"></span></td>
+                                        <td><span id="kab_karawang_isian_e_1"></span></td>
+                                        <td><span id="kab_cianjur_isian_e_1"></span></td>
+                                        <td><span id="kab_bekasi_isian_e_1"></span></td>
+                                        <td><span id="kab_garut_isian_e_1"></span></td>
+                                        <td><span id="kab_sumedang_isian_e_1"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pengumpulan oleh non pemerintah</td>
+                                        <td><span id="kota_bandung_isian_e_2"></span></td>
+                                        <td><span id="kota_cimahi_isian_e_2"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_e_2"></span></td>
+                                        <td><span id="kab_bandung_isian_e_2"></span></td>
+                                        <td><span id="kab_purwakarta_isian_e_2"></span></td>
+                                        <td><span id="kab_karawang_isian_e_2"></span></td>
+                                        <td><span id="kab_cianjur_isian_e_2"></span></td>
+                                        <td><span id="kab_bekasi_isian_e_2"></span></td>
+                                        <td><span id="kab_garut_isian_e_2"></span></td>
+                                        <td><span id="kab_sumedang_isian_e_2"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Belum ada data pengumpulan</td>
+                                        <td><span id="kota_bandung_e_3"></span></td>
+                                        <td><span id="kota_cimahi_e_3"></span></td>
+                                        <td><span id="kab_bandung_barat_e_3"></span></td>
+                                        <td><span id="kab_bandung_e_3"></span></td>
+                                        <td><span id="kab_purwakarta_e_3"></span></td>
+                                        <td><span id="kab_karawang_e_3"></span></td>
+                                        <td><span id="kab_cianjur_e_3"></span></td>
+                                        <td><span id="kab_bekasi_e_3"></span></td>
+                                        <td><span id="kab_garut_e_3"></span></td>
+                                        <td><span id="kab_sumedang_e_3"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jumlah RW terlayani pengumpulan</td>
+                                        <td><span id="kota_bandung_e_4"></span></td>
+                                        <td><span id="kota_cimahi_e_4"></span></td>
+                                        <td><span id="kab_bandung_barat_e_4"></span></td>
+                                        <td><span id="kab_bandung_e_4"></span></td>
+                                        <td><span id="kab_purwakarta_e_4"></span></td>
+                                        <td><span id="kab_karawang_e_4"></span></td>
+                                        <td><span id="kab_cianjur_e_4"></span></td>
+                                        <td><span id="kab_bekasi_e_4"></span></td>
+                                        <td><span id="kab_garut_e_4"></span></td>
+                                        <td><span id="kab_sumedang_e_4"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total RW satu kota/kab</td>
+                                        <td><span id="kota_bandung_isian_e_5"></span></td>
+                                        <td><span id="kota_cimahi_isian_e_5"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_e_5"></span></td>
+                                        <td><span id="kab_bandung_isian_e_5"></span></td>
+                                        <td><span id="kab_purwakarta_isian_e_5"></span></td>
+                                        <td><span id="kab_karawang_isian_e_5"></span></td>
+                                        <td><span id="kab_cianjur_isian_e_5"></span></td>
+                                        <td><span id="kab_bekasi_isian_e_5"></span></td>
+                                        <td><span id="kab_garut_isian_e_5"></span></td>
+                                        <td><span id="kab_sumedang_isian_e_5"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2">f</td>
+                                        <td>Target pengolahan dalam RIS</td>
+                                        <td><span id="kota_bandung_isian_f_1"></span></td>
+                                        <td><span id="kota_cimahi_isian_f_1"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_f_1"></span></td>
+                                        <td><span id="kab_bandung_isian_f_1"></span></td>
+                                        <td><span id="kab_purwakarta_isian_f_1"></span></td>
+                                        <td><span id="kab_karawang_isian_f_1"></span></td>
+                                        <td><span id="kab_cianjur_isian_f_1"></span></td>
+                                        <td><span id="kab_bekasi_isian_f_1"></span></td>
+                                        <td><span id="kab_garut_isian_f_1"></span></td>
+                                        <td><span id="kab_sumedang_isian_f_1"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kapasitas pengolahan eksisting</td>
+                                        <td><span id="kota_bandung_isian_f_2"></span></td>
+                                        <td><span id="kota_cimahi_isian_f_2"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_f_2"></span></td>
+                                        <td><span id="kab_bandung_isian_f_2"></span></td>
+                                        <td><span id="kab_purwakarta_isian_f_2"></span></td>
+                                        <td><span id="kab_karawang_isian_f_2"></span></td>
+                                        <td><span id="kab_cianjur_isian_f_2"></span></td>
+                                        <td><span id="kab_bekasi_isian_f_2"></span></td>
+                                        <td><span id="kab_garut_isian_f_2"></span></td>
+                                        <td><span id="kab_sumedang_isian_f_2"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2">g</td>
+                                        <td>Target Pengangkutan ke TPA dalam RIS</td>
+                                        <td><span id="kota_bandung_isian_g_1"></span></td>
+                                        <td><span id="kota_cimahi_isian_g_1"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_g_1"></span></td>
+                                        <td><span id="kab_bandung_isian_g_1"></span></td>
+                                        <td><span id="kab_purwakarta_isian_g_1"></span></td>
+                                        <td><span id="kab_karawang_isian_g_1"></span></td>
+                                        <td><span id="kab_cianjur_isian_g_1"></span></td>
+                                        <td><span id="kab_bekasi_isian_g_1"></span></td>
+                                        <td><span id="kab_garut_isian_g_1"></span></td>
+                                        <td><span id="kab_sumedang_isian_g_1"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kapasitas Pengangkutan ke TPA Eksisting</td>
+                                        <td><span id="kota_bandung_isian_g_2"></span></td>
+                                        <td><span id="kota_cimahi_isian_g_2"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_g_2"></span></td>
+                                        <td><span id="kab_bandung_isian_g_2"></span></td>
+                                        <td><span id="kab_purwakarta_isian_g_2"></span></td>
+                                        <td><span id="kab_karawang_isian_g_2"></span></td>
+                                        <td><span id="kab_cianjur_isian_g_2"></span></td>
+                                        <td><span id="kab_bekasi_isian_g_2"></span></td>
+                                        <td><span id="kab_garut_isian_g_2"></span></td>
+                                        <td><span id="kab_sumedang_isian_g_2"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>h</td>
+                                        <td>Beban Pelayanan dalam RIS</td>
+                                        <td><span id="kota_bandung_isian_h"></span></td>
+                                        <td><span id="kota_cimahi_isian_h"></span></td>
+                                        <td><span id="kab_bandung_barat_isian_h"></span></td>
+                                        <td><span id="kab_bandung_isian_h"></span></td>
+                                        <td><span id="kab_purwakarta_isian_h"></span></td>
+                                        <td><span id="kab_karawang_isian_h"></span></td>
+                                        <td><span id="kab_cianjur_isian_h"></span></td>
+                                        <td><span id="kab_bekasi_isian_h"></span></td>
+                                        <td><span id="kab_garut_isian_h"></span></td>
+                                        <td><span id="kab_sumedang_isian_h"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Informasi Umum 2 -->
+                    <div class="card-block" hidden>
+                        <div class="dt-responsive table-responsive">
+                            <table id="" class="table table-bordered" style="font-size:12px;">
+                                <thead>
+                                    <tr class="bg-inverse">
+                                        <th><center>No</center></th>
+                                        <th><center style="width: 250px;">Uraian</center></th>
+                                        <th><center style="width: 100px;">Jenis Sarana Prasarana</center></th>
+                                        <th><center>Jumlah Unit</center></th>
+                                        <th><center>Satuan</center></th>
+                                        <th><center>Kapasitas</center></th>
+                                        <th><center>Satuan</center></th>
+                                        <th><center>Sumber Data</center></th>
+                                        <th><center>Tahun Data</center></th>
+                                        <th><center>Kapasitas</center></th>
+                                        <th><center>Satuan</center></th>
+                                        <th><center>Ritasi per Hari</center></th>
+                                        <th><center>Jumlah Unit</center></th>
+                                        <th><center>Kapasitas per hari (ton/hari)</center></th>
+                                        <th><center>Sumber Data</center></th>
+                                        <th><center>Tahun Data</center></th>
+                                        <th><center>Keterangan</center></th>
+                                        <th><center>Action</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="3">i</td>
+                                        <td rowspan="3">Jumlah sarana prasarana pengolahan sampah</td>
+                                        <td>Gerobak Sampah</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah1_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>m3</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas1_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>m3</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber1_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun1_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas2_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>m3</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="ritasi_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah2_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas3_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber2_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun2_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_i_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_i_1">
+                                            <button type="button" onclick="submit('informasi_umum', 'i', 1, 2)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Motor Sampah</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah1_i_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>m3</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas1_i_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>m3</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber1_i_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun1_i_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas2_i_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>m3</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="ritasi_i_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah2_i_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas3_i_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber2_i_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun2_i_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_i_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_i_2">
+                                            <button type="button" onclick="submit('informasi_umum', 'i', 2, 2)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mobil Pick Up</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah1_i_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>m3</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas1_i_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>m3</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber1_i_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun1_i_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas2_i_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>m3</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="ritasi_i_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah2_i_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas3_i_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber2_i_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun2_i_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_i_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_i_3">
+                                            <button type="button" onclick="submit('informasi_umum', 'i', 3, 2)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td rowspan="3">j</td>
+                                        <td rowspan="3">Jumlah sarana prasarana pengangkutan sampah</td>
+                                        <td>Dump Truk</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah1_j_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>m3</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas1_j_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>m3</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber1_j_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun1_j_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas2_j_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>m3</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="ritasi_j_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah2_j_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas3_j_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber2_j_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun2_j_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_j_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_j_1">
+                                            <button type="button" onclick="submit('informasi_umum', 'j', 1, 2)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Arm Roll Truk</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah1_j_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>m3</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas1_j_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>m3</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber1_j_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun1_j_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas2_j_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>m3</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="ritasi_j_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah2_j_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas3_j_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber2_j_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun2_j_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_j_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_j_2">
+                                            <button type="button" onclick="submit('informasi_umum', 'j', 2, 2)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Compactor Truk</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah1_j_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>m3</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas1_j_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>m3</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber1_j_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun1_j_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas2_j_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>m3</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="ritasi_j_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah2_j_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas3_j_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber2_j_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun2_j_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_j_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_j_3">
+                                            <button type="button" onclick="submit('informasi_umum', 'j', 3, 2)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="6">k</td>
+                                        <td rowspan="6">Jumlah sarana prasarana pengolahan sampah</td>
+                                        <td> PDU </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah1_k_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>ton/tahun</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas1_k_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>ton/tahun</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber1_k_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun1_k_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas2_k_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>ton/tahun</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="ritasi_k_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah2_k_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas3_k_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber2_k_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun2_k_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_k_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_k_1">
+                                            <button type="button" onclick="submit('informasi_umum', 'k', 1, 2)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> POO </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah1_k_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>ton/tahun</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas1_k_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>ton/tahun</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber1_k_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun1_k_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas2_k_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>ton/tahun</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="ritasi_k_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah2_k_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas3_k_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber2_k_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun2_k_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_k_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_k_2">
+                                            <button type="button" onclick="submit('informasi_umum', 'k', 2, 2)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> TPST </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah1_k_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>ton/tahun</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas1_k_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>ton/tahun</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber1_k_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun1_k_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas2_k_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>ton/tahun</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="ritasi_k_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah2_k_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas3_k_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber2_k_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun2_k_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_k_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_k_3">
+                                            <button type="button" onclick="submit('informasi_umum', 'k', 3, 2)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> TPS 3R </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah1_k_4" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>ton/tahun</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas1_k_4" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>ton/tahun</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber1_k_4" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun1_k_4" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas2_k_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>ton/tahun</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="ritasi_k_4" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah2_k_4" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas3_k_4" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber2_k_4" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun2_k_4" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_k_4" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_k_4">
+                                            <button type="button" onclick="submit('informasi_umum', 'k', 4, 2)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Bank Sampah </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah1_k_5" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>ton/tahun</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas1_k_5" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>ton/tahun</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber1_k_5" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun1_k_5" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas2_k_5" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>ton/tahun</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="ritasi_k_5" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah2_k_5" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas3_k_5" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber2_k_5" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun2_k_5" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_k_5" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_k_5">
+                                            <button type="button" onclick="submit('informasi_umum', 'k', 5, 2)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Komposting </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah1_k_6" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>ton/tahun</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas1_k_6" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>ton/tahun</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber1_k_6" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun1_k_6" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas2_k_6" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>ton/tahun</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="ritasi_k_6" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah2_k_6" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="kapasitas3_k_6" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber2_k_6" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun2_k_6" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_k_6" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_k_6">
+                                            <button type="button" onclick="submit('informasi_umum', 'k', 6, 2)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Informasi Umum 3 -->
+                    <div class="card-block" hidden>
+                        <div class="dt-responsive table-responsive">
+                            <table id="" class="table table-bordered" style="font-size:12px;">
+                                <thead>
+                                    <tr class="bg-inverse">
+                                        <th><center>No</center></th>
+                                        <th colspan="2"><center style="width: 250px;">Uraian</center></th>
+                                        <th><center>Jumlah</center></th>
+                                        <th><center>Satuan</center></th>
+                                        <th><center>Sumber Data</center></th>
+                                        <th><center>Tahun Data</center></th>
+                                        <th><center>Action</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="3">l</td>
+                                        <td rowspan="3">Jumlah SDM yang menangani pengelolaan sampah di Dinas</td>
+                                        <td>Terdiri dari SDM total Institusi (Dinas/UPT/BLUD/dll) terdiri dari pejabat struktural,petugas lapangan, pegawai honorer/pegawai tidak tetap</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah_l_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>Orang</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_l_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_l_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_l_1">
+                                            <button type="button" onclick="submit('informasi_umum', 'l', 1, 3)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Terdiri dari petugas lapangan/operasional (pegawai tetap dan tidak tetap)</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah_l_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>Orang</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_l_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_l_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_l_2">
+                                            <button type="button" onclick="submit('informasi_umum', 'l', 2, 3)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>Terdiri dari SDM total Institusi (Dinas/UPT/BLUD/dll) terdiri dari pejabat struktural</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah_l_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>Orang</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_l_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_l_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_l_3">
+                                            <button type="button" onclick="submit('informasi_umum', 'l', 3, 3)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>	
+                                    </tr>
+                                    <tr>
+                                        <td>m</td>
+                                        <td>Jumlah SDM yang mendapatkan pelatihan/training</td>
+                                        <td>Terdiri dari ASN di Dinas terkait pengelolaan sampah</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah_m" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td> Orang/tahun </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_m" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_m" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_m">
+                                            <button type="button" onclick="submit('informasi_umum', 'm', '', 3)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>n</td>
+                                        <td>Jumlah SDM khusus perempuan yang mendapatkan pelatihan/training</td>
+                                        <td>Terdiri dari SDM perempuan yang terlibat dalam pelatihan pengelolaan sampah</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah_n" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td> Orang/tahun </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_n" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_n" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_m">
+                                            <button type="button" onclick="submit('informasi_umum', 'n', '', 3)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- informasi umum 4 -->
+                    <div class="card-block" hidden>
+                        <div class="dt-responsive table-responsive">
+                            <table id="" class="table table-bordered" style="font-size:12px;">
+                                <thead>
+                                    <tr class="bg-inverse">
+                                        <th><center>No</center></th>
+                                        <th><center style="width: 250px;">Uraian</center></th>
+                                        <th><center>Jumlah</center></th>
+                                        <th><center>Satuan</center></th>
+                                        <th><center>Sumber Data</center></th>
+                                        <th><center>Tahun Data</center></th>
+                                        <th><center>Keterangan</center></th>
+                                        <th><center>Action</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>o</td>
+                                        <td>Total Alokasi APBD (PAGU) Kab/kota</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah_o" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td> Rp/tahun </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_o" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_o" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_o" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_o">
+                                            <button type="button" onclick="submit('informasi_umum', 'o', '', 4)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>p</td>
+                                        <td>PAGU Persampahan Urusan LH</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah_p" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td> Rp/tahun </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_p" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_p" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_p" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_p">
+                                            <button type="button" onclick="submit('informasi_umum', 'p', '', 4)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>q</td>
+                                        <td>PAGU Persampahan Urusan PU</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah_q" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td> Rp/tahun </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_q" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_q" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_q" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_q">
+                                            <button type="button" onclick="submit('informasi_umum', 'q', '', 4)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>r</td>
+                                        <td>Total PAGU Persampahan</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah_r" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td> Rp/tahun </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_r" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_r" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_r" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_r">
+                                            <button type="button" onclick="submit('informasi_umum', 'r', '', 4)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>s</td>
+                                        <td>Target penarikan tarif/retibusi</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah_s" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td> Rp/tahun </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_s" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_s" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_s" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_s">
+                                            <button type="button" onclick="submit('informasi_umum', 's', '', 4)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>t</td>
+                                        <td>Capaian penarikan tarif/retibusi</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="jumlah_t" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td> Rp/tahun </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="sumber_t" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="tahun_t" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="informasi_umum" id="keterangan_t" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="id_t">
+                                            <button type="button" onclick="submit('informasi_umum', 't', '', 4)" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <!-- aspek -->
+                    <div class="card-block">
+                        <div class="dt-responsive table-responsive">
+                        <!-- <div> -->
+                            
+                            <!-- <table id="all-monev" class="table table-hover table-bordered" style="font-size:12px;width: 100%;" cellspacing="0">
+                                <thead>
+                                    <tr class="bg-inverse">
+                                        <th><center>No</center></th>
+                                        <th><center>No Aspek</center></th>
+                                        <th><center>Aspek</center></th>
+                                        <th><center>Indikator</center></th>
+                                        <th><center>Parameter</center></th>
+                                        <th><center>Bobot</center></th>
+                                        <th><center>Nilai</center></th>
+                                        <th><center>Keterangan</center></th>
+                                        <th><center>Sumber</center></th>
+                                        <th><center>Tahun</center></th>
+                                        <th><center>###</center></th>
+                                        {% if isOpen != 1 %}
+                                        <th><center>###########</center></th>
+                                        {% endif %}
+                                    </tr>
+                                    
+                                </thead>
+                                
+                            </table> -->
+
+                            <table id="all" class="table table-bordered" style="font-size:12px;">
+                                <thead>
+                                    <tr class="bg-inverse">
+                                        <th colspan="2"><center style="width: 300px;">Aspek Peraturan</center></th>
+                                        <th><center style="width: 100px;">Kota Bandung</center></th>
+                                        <th><center style="width: 100px;">Kota Cimahi</center></th>
+                                        <th><center style="width: 100px;">Kab Bandung Barat</center></th>
+                                        <th><center style="width: 100px;">Kab Bandung</center></th>
+                                        <th><center style="width: 100px;">Kab Purwakarta</center></th>
+                                        <th><center style="width: 100px;">Kab Karawang</center></th>
+                                        <th><center style="width: 100px;">Kab Cianjur</center></th>
+                                        <th><center style="width: 100px;">Kab Bekasi</center></th>
+                                        <th><center style="width: 100px;">Kab Garut</center></th>
+                                        <th><center style="width: 100px;">Kab Sumedang</center></th>
+                                    </tr>
+                                    <tr class="group bg-inverse">
+                                        <th><center>No</center></th>
+                                        <td><center>Indikator</center></td>
+                                        <th><center style="width: 100px;">Nilai</center></th>
+                                        <th><center style="width: 100px;">Nilai</center></th>
+                                        <th><center style="width: 100px;">Nilai</center></th>
+                                        <th><center style="width: 100px;">Nilai</center></th>
+                                        <th><center style="width: 100px;">Nilai</center></th>
+                                        <th><center style="width: 100px;">Nilai</center></th>
+                                        <th><center style="width: 100px;">Nilai</center></th>
+                                        <th><center style="width: 100px;">Nilai</center></th>
+                                        <th><center style="width: 100px;">Nilai</center></th>
+                                        <th><center style="width: 100px;">Nilai</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- 1 -->
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Perda RPJMD memuat kebijakan pengelolaan lingkungan hidup dan/atau pengelolaan sampah</td>
+                                        <td><span id="kota_bandung_nilai_1_1"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_1"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_1"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_1"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_1"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_1"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_1"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_1"></span></td>
+                                        <td><span id="kab_garut_nilai_1_1"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_1"></span></td>
+                                    </tr>
+
+                                    <!-- 2 -->
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Ketersediaan Perda Pengelolaan Sampah RT dan SSSRT yang telah disesuaikan dengan Permendagri 7 2021</td>
+                                        <td><span id="kota_bandung_nilai_1_2"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_2"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_2"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_2"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_2"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_2"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_2"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_2"></span></td>
+                                        <td><span id="kab_garut_nilai_1_2"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_2"></span></td>
+                                    </tr>
+                                        
+                                    <!-- 3 -->
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Ketersediaan Perda Tarif/Retribusi Sampah</td>
+                                        <td><span id="kota_bandung_nilai_1_3"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_3"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_3"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_3"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_3"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_3"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_3"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_3"></span></td>
+                                        <td><span id="kab_garut_nilai_1_3"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_3"></span></td>
+                                    </tr>
+                                    <!-- 4 -->
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Ketersediaan Perkada Pengurangan Sampah</td>
+                                        <td><span id="kota_bandung_nilai_1_4"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_4"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_4"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_4"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_4"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_4"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_4"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_4"></span></td>
+                                        <td><span id="kab_garut_nilai_1_4"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_4"></span></td>
+                                    </tr>
+                                    <!-- 5 -->
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Ketersediaan Perkada Penanganan Sampah</td>
+                                        <td><span id="kota_bandung_nilai_1_5"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_5"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_5"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_5"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_5"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_5"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_5"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_5"></span></td>
+                                        <td><span id="kab_garut_nilai_1_5"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_5"></span></td>
+                                    </tr>
+                                    <!-- 6 -->
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Ketersediaan Perkada Pembatasan Sampah (khusus sampah spesifik)</td>
+                                        <td><span id="kota_bandung_nilai_1_6"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_6"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_6"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_6"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_6"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_6"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_6"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_6"></span></td>
+                                        <td><span id="kab_garut_nilai_1_6"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_6"></span></td>
+                                    </tr>
+                                    <!-- 7 -->
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Ketersediaan Perbup/Perwali Jakstrada</td>
+                                        <td><span id="kota_bandung_nilai_1_7"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_7"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_7"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_7"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_7"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_7"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_7"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_7"></span></td>
+                                        <td><span id="kab_garut_nilai_1_7"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_7"></span></td>
+                                    </tr>
+                                    <!-- 8 -->
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Ketersediaan dokumen perencanaan persampahan di daerah (SSK) yang masih berlaku</td>
+                                        <td><span id="kota_bandung_nilai_1_8"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_8"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_8"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_8"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_8"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_8"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_8"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_8"></span></td>
+                                        <td><span id="kab_garut_nilai_1_8"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_8"></span></td>
+                                    </tr>
+                                    <!-- 9 -->
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Ketersediaan dokumen perencanaan persampahan di daerah (RIS/ PTMP) yang masih berlaku</td>
+                                        <td><span id="kota_bandung_nilai_1_9"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_9"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_9"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_9"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_9"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_9"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_9"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_9"></span></td>
+                                        <td><span id="kab_garut_nilai_1_9"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_9"></span></td>
+                                    </tr>
+                                    <!-- 10 -->
+                                    <tr>
+                                        <td>10</td>
+                                        <td>Ketersediaan dokumen perencanaan persampahan di daerah (Jakstrada)</td>
+                                        <td><span id="kota_bandung_nilai_1_10"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_10"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_10"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_10"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_10"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_10"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_10"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_10"></span></td>
+                                        <td><span id="kab_garut_nilai_1_10"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_10"></span></td>
+                                    </tr>
+                                    <!-- 11 -->
+                                    <tr>
+                                        <td>11</td>
+                                        <td>Ketersediaan muatan pengarusutamaan gender dalam dokumen perencanaan persampahan</td>
+                                        <td><span id="kota_bandung_nilai_1_11"></span></td>
+                                        <td><span id="kota_cimahi_nilai_1_11"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_1_11"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_11"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_1_11"></span></td>
+                                        <td><span id="kab_karawang_nilai_1_11"></span></td>
+                                        <td><span id="kab_cianjur_nilai_1_11"></span></td>
+                                        <td><span id="kab_bekasi_nilai_1_11"></span></td>
+                                        <td><span id="kab_garut_nilai_1_11"></span></td>
+                                        <td><span id="kab_sumedang_nilai_1_11"></span></td>
+                                    </tr>
+
+                                    <!-- Aspek Kelembagaan/SDM -->
+                                    <thead>
+                                        <tr class="bg-inverse">
+                                            <th colspan="2"><center style="width: 300px;">Aspek Kelembagaan/SDM</center></th>
+                                            <th><center style="width: 100px;">Kota Bandung</center></th>
+                                            <th><center style="width: 100px;">Kota Cimahi</center></th>
+                                            <th><center style="width: 100px;">Kab Bandung Barat</center></th>
+                                            <th><center style="width: 100px;">Kab Bandung</center></th>
+                                            <th><center style="width: 100px;">Kab Purwakarta</center></th>
+                                            <th><center style="width: 100px;">Kab Karawang</center></th>
+                                            <th><center style="width: 100px;">Kab Cianjur</center></th>
+                                            <th><center style="width: 100px;">Kab Bekasi</center></th>
+                                            <th><center style="width: 100px;">Kab Garut</center></th>
+                                            <th><center style="width: 100px;">Kab Sumedang</center></th>
+                                        </tr>
+                                        <tr class="group bg-inverse">
+                                            <th><center>No</center></th>
+                                            <td><center>Indikator</center></td>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Rasio Beban Pengelolaan Sampah terhadap Jumlah SDM Operator Pengelola Sampah di OPD terkait (ton/hari/orang)</td>
+                                        <td><span id="kota_bandung_nilai_2_1"></span></td>
+                                        <td><span id="kota_cimahi_nilai_2_1"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_2_1"></span></td>
+                                        <td><span id="kab_bandung_nilai_1_11"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_2_1"></span></td>
+                                        <td><span id="kab_karawang_nilai_2_1"></span></td>
+                                        <td><span id="kab_cianjur_nilai_2_1"></span></td>
+                                        <td><span id="kab_bekasi_nilai_2_1"></span></td>
+                                        <td><span id="kab_garut_nilai_2_1"></span></td>
+                                        <td><span id="kab_sumedang_nilai_2_1"></span></td>
+                                    </tr>
+                                        
+                                    <!-- 2 -->
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Keberadaan Regulator dan Operator Pengelola Sampah</td>
+                                        <td><span id="kota_bandung_nilai_2_2"></span></td>
+                                        <td><span id="kota_cimahi_nilai_2_2"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_2_2"></span></td>
+                                        <td><span id="kab_bandung_nilai_2_2"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_2_2"></span></td>
+                                        <td><span id="kab_karawang_nilai_2_2"></span></td>
+                                        <td><span id="kab_cianjur_nilai_2_2"></span></td>
+                                        <td><span id="kab_bekasi_nilai_2_2"></span></td>
+                                        <td><span id="kab_garut_nilai_2_2"></span></td>
+                                        <td><span id="kab_sumedang_nilai_2_2"></span></td>
+                                    </tr>
+                                    <!-- 3 -->
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Persentase SDM (operasional dan manajemen) di Dinas yang telah melaksanakan training/pelatihan</td>
+                                        <td><span id="kota_bandung_nilai_2_3"></span></td>
+                                        <td><span id="kota_cimahi_nilai_2_3"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_2_3"></span></td>
+                                        <td><span id="kab_bandung_nilai_2_3"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_2_3"></span></td>
+                                        <td><span id="kab_karawang_nilai_2_3"></span></td>
+                                        <td><span id="kab_cianjur_nilai_2_3"></span></td>
+                                        <td><span id="kab_bekasi_nilai_2_3"></span></td>
+                                        <td><span id="kab_garut_nilai_2_3"></span></td>
+                                        <td><span id="kab_sumedang_nilai_2_3"></span></td>
+                                    </tr>
+                                    <!-- 4 -->
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Persentase keterlibatan perempuan dalam pelatihan</td>
+                                        <td><span id="kota_bandung_nilai_2_4"></span></td>
+                                        <td><span id="kota_cimahi_nilai_2_4"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_2_4"></span></td>
+                                        <td><span id="kab_bandung_nilai_2_4"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_2_4"></span></td>
+                                        <td><span id="kab_karawang_nilai_2_4"></span></td>
+                                        <td><span id="kab_cianjur_nilai_2_4"></span></td>
+                                        <td><span id="kab_bekasi_nilai_2_4"></span></td>
+                                        <td><span id="kab_garut_nilai_2_4"></span></td>
+                                        <td><span id="kab_sumedang_nilai_2_4"></span></td>
+                                    </tr>
+
+                                    <!-- Aspek Pendanaan/Pembiayaan -->
+                                    <thead>
+                                        <tr class="bg-inverse">
+                                            <th colspan="2"><center style="width: 300px;">Aspek Pendanaan/Pembiayaan</center></th>
+                                            <th><center style="width: 100px;">Kota Bandung</center></th>
+                                            <th><center style="width: 100px;">Kota Cimahi</center></th>
+                                            <th><center style="width: 100px;">Kab Bandung Barat</center></th>
+                                            <th><center style="width: 100px;">Kab Bandung</center></th>
+                                            <th><center style="width: 100px;">Kab Purwakarta</center></th>
+                                            <th><center style="width: 100px;">Kab Karawang</center></th>
+                                            <th><center style="width: 100px;">Kab Cianjur</center></th>
+                                            <th><center style="width: 100px;">Kab Bekasi</center></th>
+                                            <th><center style="width: 100px;">Kab Garut</center></th>
+                                            <th><center style="width: 100px;">Kab Sumedang</center></th>
+                                        </tr>
+                                        <tr class="group bg-inverse">
+                                            <th><center>No</center></th>
+                                            <td><center>Indikator</center></td>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Persentase total alokasi dana pengelolaan sampah terhadap total alokasi APBD Kota/Kab</td>
+                                        <td><span id="kota_bandung_nilai_3_1"></span></td>
+                                        <td><span id="kota_cimahi_nilai_3_1"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_3_1"></span></td>
+                                        <td><span id="kab_bandung_nilai_3_1"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_3_1"></span></td>
+                                        <td><span id="kab_karawang_nilai_3_1"></span></td>
+                                        <td><span id="kab_cianjur_nilai_3_1"></span></td>
+                                        <td><span id="kab_bekasi_nilai_3_1"></span></td>
+                                        <td><span id="kab_garut_nilai_3_1"></span></td>
+                                        <td><span id="kab_sumedang_nilai_3_1"></span></td>
+                                    </tr>
+                                    <!-- 2 -->
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Efektivitas penarikan retribusi</td>
+                                        <td><span id="kota_bandung_nilai_3_2"></span></td>
+                                        <td><span id="kota_cimahi_nilai_3_2"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_3_2"></span></td>
+                                        <td><span id="kab_bandung_nilai_3_2"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_3_2"></span></td>
+                                        <td><span id="kab_karawang_nilai_3_2"></span></td>
+                                        <td><span id="kab_cianjur_nilai_3_2"></span></td>
+                                        <td><span id="kab_bekasi_nilai_3_2"></span></td>
+                                        <td><span id="kab_garut_nilai_3_2"></span></td>
+                                        <td><span id="kab_sumedang_nilai_3_2"></span></td>
+                                    </tr>
+                                    <!-- 3 -->
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Inovasi penarikan retribusi</td>
+                                        <td><span id="kota_bandung_nilai_3_3"></span></td>
+                                        <td><span id="kota_cimahi_nilai_3_3"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_3_3"></span></td>
+                                        <td><span id="kab_bandung_nilai_3_3"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_3_3"></span></td>
+                                        <td><span id="kab_karawang_nilai_3_3"></span></td>
+                                        <td><span id="kab_cianjur_nilai_3_3"></span></td>
+                                        <td><span id="kab_bekasi_nilai_3_3"></span></td>
+                                        <td><span id="kab_garut_nilai_3_3"></span></td>
+                                        <td><span id="kab_sumedang_nilai_3_3"></span></td>
+                                    </tr>
+                                    <!-- 4 -->
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Ketersediaan bauran pendanaan persampahan Pemerintah dan Non Pemerintah</td>
+                                        <td><span id="kota_bandung_nilai_3_4"></span></td>
+                                        <td><span id="kota_cimahi_nilai_3_4"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_3_4"></span></td>
+                                        <td><span id="kab_bandung_nilai_3_4"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_3_4"></span></td>
+                                        <td><span id="kab_karawang_nilai_3_4"></span></td>
+                                        <td><span id="kab_cianjur_nilai_3_4"></span></td>
+                                        <td><span id="kab_bekasi_nilai_3_4"></span></td>
+                                        <td><span id="kab_garut_nilai_3_4"></span></td>
+                                        <td><span id="kab_sumedang_nilai_3_4"></span></td>
+                                    </tr>
+
+                                    <!-- Aspek Teknis/Sarana Prasarana -->
+                                    <thead>
+                                        <tr class="bg-inverse">
+                                            <th colspan="2"><center style="width: 300px;">Aspek Teknis/Sarana Prasarana</center></th>
+                                            <th><center style="width: 100px;">Kota Bandung</center></th>
+                                            <th><center style="width: 100px;">Kota Cimahi</center></th>
+                                            <th><center style="width: 100px;">Kab Bandung Barat</center></th>
+                                            <th><center style="width: 100px;">Kab Bandung</center></th>
+                                            <th><center style="width: 100px;">Kab Purwakarta</center></th>
+                                            <th><center style="width: 100px;">Kab Karawang</center></th>
+                                            <th><center style="width: 100px;">Kab Cianjur</center></th>
+                                            <th><center style="width: 100px;">Kab Bekasi</center></th>
+                                            <th><center style="width: 100px;">Kab Garut</center></th>
+                                            <th><center style="width: 100px;">Kab Sumedang</center></th>
+                                        </tr>
+                                        <tr class="group bg-inverse">
+                                            <th><center>No</center></th>
+                                            <td><center>Indikator</center></td>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Sisa Umur Layan TPA milik kota/kab dan/atau provinsi </td>
+                                        <td><span id="kota_bandung_nilai_4_1"></span></td>
+                                        <td><span id="kota_cimahi_nilai_4_1"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_4_1"></span></td>
+                                        <td><span id="kab_bandung_nilai_4_1"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_4_1"></span></td>
+                                        <td><span id="kab_karawang_nilai_4_1"></span></td>
+                                        <td><span id="kab_cianjur_nilai_4_1"></span></td>
+                                        <td><span id="kab_bekasi_nilai_4_1"></span></td>
+                                        <td><span id="kab_garut_nilai_4_1"></span></td>
+                                        <td><span id="kab_sumedang_nilai_4_1"></span></td>
+                                    </tr>
+                                    <!-- 2 -->
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Jenis Pengoperasian TPA (sanitary landfill/controlled/ open dumping)</td>
+                                        <td><span id="kota_bandung_nilai_4_2"></span></td>
+                                        <td><span id="kota_cimahi_nilai_4_2"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_4_2"></span></td>
+                                        <td><span id="kab_bandung_nilai_4_2"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_4_2"></span></td>
+                                        <td><span id="kab_karawang_nilai_4_2"></span></td>
+                                        <td><span id="kab_cianjur_nilai_4_2"></span></td>
+                                        <td><span id="kab_bekasi_nilai_4_2"></span></td>
+                                        <td><span id="kab_garut_nilai_4_2"></span></td>
+                                        <td><span id="kab_sumedang_nilai_4_2"></span></td>
+                                    </tr>
+                                    <!-- 3 -->
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Rasio Kelurahan Terlayani Pengumpulan Sampah</td>
+                                        <td><span id="kota_bandung_nilai_4_3"></span></td>
+                                        <td><span id="kota_cimahi_nilai_4_3"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_4_3"></span></td>
+                                        <td><span id="kab_bandung_nilai_4_3"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_4_3"></span></td>
+                                        <td><span id="kab_karawang_nilai_4_3"></span></td>
+                                        <td><span id="kab_cianjur_nilai_4_3"></span></td>
+                                        <td><span id="kab_bekasi_nilai_4_3"></span></td>
+                                        <td><span id="kab_garut_nilai_4_3"></span></td>
+                                        <td><span id="kab_sumedang_nilai_4_3"></span></td>
+                                    </tr>
+                                    <!-- 4 -->
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Rasio capaian pengolahan sampah </td>
+                                        <td><span id="kota_bandung_nilai_4_4"></span></td>
+                                        <td><span id="kota_cimahi_nilai_4_4"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_4_4"></span></td>
+                                        <td><span id="kab_bandung_nilai_4_4"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_4_4"></span></td>
+                                        <td><span id="kab_karawang_nilai_4_4"></span></td>
+                                        <td><span id="kab_cianjur_nilai_4_4"></span></td>
+                                        <td><span id="kab_bekasi_nilai_4_4"></span></td>
+                                        <td><span id="kab_garut_nilai_4_4"></span></td>
+                                        <td><span id="kab_sumedang_nilai_4_4"></span></td>
+                                    </tr>
+                                    <!-- 5 -->
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Rasio capaian pengangkutan</td>
+                                        <td><span id="kota_bandung_nilai_4_5"></span></td>
+                                        <td><span id="kota_cimahi_nilai_4_5"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_4_5"></span></td>
+                                        <td><span id="kab_bandung_nilai_4_5"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_4_5"></span></td>
+                                        <td><span id="kab_karawang_nilai_4_5"></span></td>
+                                        <td><span id="kab_cianjur_nilai_4_5"></span></td>
+                                        <td><span id="kab_bekasi_nilai_4_5"></span></td>
+                                        <td><span id="kab_garut_nilai_4_5"></span></td>
+                                        <td><span id="kab_sumedang_nilai_4_5"></span></td>
+                                    </tr>
+
+                                    <!-- Aspek Masyarakat/Pemangku Kepentingan -->
+                                    <thead>
+                                        <tr class="bg-inverse">
+                                            <th colspan="2"><center style="width: 300px;">Aspek Masyarakat/Pemangku Kepentingan</center></th>
+                                            <th><center style="width: 100px;">Kota Bandung</center></th>
+                                            <th><center style="width: 100px;">Kota Cimahi</center></th>
+                                            <th><center style="width: 100px;">Kab Bandung Barat</center></th>
+                                            <th><center style="width: 100px;">Kab Bandung</center></th>
+                                            <th><center style="width: 100px;">Kab Purwakarta</center></th>
+                                            <th><center style="width: 100px;">Kab Karawang</center></th>
+                                            <th><center style="width: 100px;">Kab Cianjur</center></th>
+                                            <th><center style="width: 100px;">Kab Bekasi</center></th>
+                                            <th><center style="width: 100px;">Kab Garut</center></th>
+                                            <th><center style="width: 100px;">Kab Sumedang</center></th>
+                                        </tr>
+                                        <tr class="group bg-inverse">
+                                            <th><center>No</center></th>
+                                            <td><center>Indikator</center></td>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                            <th><center style="width: 100px;">Nilai</center></th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Rencana Kegiatan Komunikasi Informasi & Edukasi (KIE) terkait pengurangan dan penanganan sampah oleh Pemda kepada masyarakat </td>
+                                        <td><span id="kota_bandung_nilai_5_1"></span></td>
+                                        <td><span id="kota_cimahi_nilai_5_1"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_5_1"></span></td>
+                                        <td><span id="kab_bandung_nilai_5_1"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_5_1"></span></td>
+                                        <td><span id="kab_karawang_nilai_5_1"></span></td>
+                                        <td><span id="kab_cianjur_nilai_5_1"></span></td>
+                                        <td><span id="kab_bekasi_nilai_5_1"></span></td>
+                                        <td><span id="kab_garut_nilai_5_1"></span></td>
+                                        <td><span id="kab_sumedang_nilai_5_1"></span></td>
+                                    </tr>
+                                    <!-- 2 -->
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Pelaksanaan Kegiatan Komunikasi Informasi & Edukasi (KIE) terkait pengurangan dan penanganan sampah oleh Pemda kepada masyarakat </td>
+                                        <td><span id="kota_bandung_nilai_5_2"></span></td>
+                                        <td><span id="kota_cimahi_nilai_5_2"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_5_2"></span></td>
+                                        <td><span id="kab_bandung_nilai_5_2"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_5_2"></span></td>
+                                        <td><span id="kab_karawang_nilai_5_2"></span></td>
+                                        <td><span id="kab_cianjur_nilai_5_2"></span></td>
+                                        <td><span id="kab_bekasi_nilai_5_2"></span></td>
+                                        <td><span id="kab_garut_nilai_5_2"></span></td>
+                                        <td><span id="kab_sumedang_nilai_5_2"></span></td>
+                                    </tr>
+                                    <!-- 3 -->
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Pelaksanaan Kegiatan  KIE terkait pengurangan dan penanganan sampah oleh Pemda kepada masyarakat dengan melibatkan perempuan</td>
+                                        <td><span id="kota_bandung_nilai_5_3"></span></td>
+                                        <td><span id="kota_cimahi_nilai_5_3"></span></td>
+                                        <td><span id="kab_bandung_barat_nilai_5_3"></span></td>
+                                        <td><span id="kab_bandung_nilai_5_3"></span></td>
+                                        <td><span id="kab_purwakarta_nilai_5_3"></span></td>
+                                        <td><span id="kab_karawang_nilai_5_3"></span></td>
+                                        <td><span id="kab_cianjur_nilai_5_3"></span></td>
+                                        <td><span id="kab_bekasi_nilai_5_3"></span></td>
+                                        <td><span id="kab_garut_nilai_5_3"></span></td>
+                                        <td><span id="kab_sumedang_nilai_5_3"></span></td>
+                                    </tr>
+
+                                </tbody>
+                                
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Base style - Hover table end -->
+            </div>
+            <!-- Page-body end -->
+        </div>
+    </div>
+    <div id="styleSelector">
+
+    </div>
+
+
+    <!-- Sign in modal start -->
+    <div class="modal fade" id="sign-in-modal" name="in-modal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title">Form Input Aspek</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-b-0">
+                    <div class="card-block">
+                        <h4 class="sub-title"><b>Aspek</b></h4>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <select id="pilih-aspek" name="select" class="form-control">
+                                    <option value="0">Pilih</option>
+                                    <option value="1">Peraturan</option>
+                                    <option value="2">Kelembagaan</option>
+                                    <option value="3">Pendanaan/Pembiayaan</option>
+                                    <option value="4">Teknis/Prasarana and </option>
+                                    <option value="5">Masyarakat dan Pemangku Kepentingan</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="card-block">
+                        <h4 class="sub-title"><b>Indikator</b></h4>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <select id="pilih-indikator" name="select" class="form-control">
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="card-block">
+                        <h4 class="sub-title"><b>Parameter</b></h4>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <select id="pilih-parameter" name="select" class="form-control">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-block">
+                        <div class="form-group row">
+                            <label name="komponen_1" class="col-sm-2 col-form-label">Keterangan</label>
+                            <div class="col-sm-10">
+                                <input name="keterangan" type="text" class="form-control" placeholder="Keterangan" id="keterangan">
+                            </div>
+                            
+                        </div>
+                        <div class="form-group row">
+                            <label name="komponen_1" class="col-sm-2 col-form-label">Sumber Data</label>
+                            <div class="col-sm-2">
+                                <input name="keterangan" type="text" class="form-control" placeholder="Sumber Data" id="sumber_data">
+                            </div>
+                            <div class="col-sm-8">
+                                <input name="keterangan" type="text" class="form-control" placeholder="Url" id="url">
+                            </div>
+                            
+                        </div>
+                        <div class="form-group row">
+                            <label name="komponen_1" class="col-sm-2 col-form-label">Tahun Data</label>
+                            <div class="col-sm-10">
+                                <input name="keterangan" type="text" class="form-control" placeholder="Tahun Data" id="tahun">
+                            </div>
+                            
+                        </div>
+
+                        <div class="form-group row">
+                            <label name="komponen_1" class="col-sm-2 col-form-label">Catatan</label>
+                            <div class="col-sm-10">
+                                <input name="keterangan" type="text" class="form-control" placeholder="Keterangan Lain" id="catatan">
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="ti-close"></i> Batal </button>
+                    <button type="button" class="btn btn-primary" id="save-aspek"><i class="ti-check-box"></i> Simpan </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sign in modal end -->
+
+<div id="modal_user" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Program</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form">
+					<!-- #section:elements.form -->
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_name"> Username </label>
+
+						<div class="col-sm-9">
+							<input type="text" id="user_name" placeholder="username" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_fullname"> Fullname </label>
+
+						<div class="col-sm-9">
+							<input type="text" id="user_fullname" placeholder="Full Name" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_fullname"> NIP </label>
+
+						<div class="col-sm-9">
+							<input type="text" id="user_nip" placeholder="NIP" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_role"> Role Level </label>
+
+						<div class="col-sm-9">
+						  	<select class="chosen-select form-control" id="user_role" data-placeholder="select role...">
+						  		<option value="">  </option>
+						  		<option value="10">admin</option>
+						  		<option value="20">operator</option>
+						  		<option value="30">ppk</option>
+						  		<option value="40">pptk</option>
+
+						  	</select>
+						</div>
+					</div>
+
+				</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-xs btn-danger" data-dismiss="modal"><i class="ace-icon fa fa-close"></i>close</button>
+        <button type="button" class="btn btn-xs btn-success" data-dismiss="modal"  ><i class="ace-icon fa fa-check"></i>submit</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- <script src="{{baseURL}}/assets/action-js/admin/datapengaduan.js"></script> -->
+{% endblock %}

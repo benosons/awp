@@ -92,6 +92,7 @@ $routes->add('summary', 'View::summary');
 $routes->add('jadwal', 'View::jadwal');
 $routes->add('monev', 'View::monev');
 $routes->add('monevkontrol', 'View::monevcontrol');
+$routes->add('pelelangan', 'View::pelelangan');
 
 $routes->add('auth', 'Auth::auth');
 $routes->add('reg', 'Auth::reg');

@@ -1,0 +1,947 @@
+{% extends "admin/layout.html" %} {% block content %}
+<style>
+    .table td, .table th {
+        vertical-align: middle!important;
+    }
+</style>
+<div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page-header start -->
+            <div class="page-header">
+              <input hidden id="userid" value="{{userid}}">
+              <input hidden id="role" value="{{role}}">
+                <div class="page-header-title">
+                    <h4>MONEV OUTPUT ISWMP</h4>
+                    <!-- <span>Easy to customise core stylesheets</span> -->
+                </div>
+                <div class="page-header-breadcrumb">
+                    <ul class="breadcrumb-title">
+                        <li class="breadcrumb-item">
+                            <a href="{{baseURL}}">
+                                <i class="icofont icofont-home"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="#!">Monev Output</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Page-header end -->
+            <!-- Page-body start -->
+            <div class="page-body">
+                <!-- Base style - Hover table start -->
+                <div class="card">
+                    <div class="card-header" style="padding-top:2.5rem;">
+                        <!-- <h5>Base style - hover</h5> -->
+                        <!-- <span>This example shows DataTables with just the hover class specified. This class will instruct DataTables' styling to highlight a row when the mouse is hovered over it.</span> -->
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <!-- <input id="pilih-bulan" data-dd-hide-day="true" name="dropper-default" class="form-control form-control-center" type="text" placeholder="Select your date" /> -->
+                                <div class="form-group row">
+                                    <label class="col-sm-6 col-form-label">Kabupaten/ Kota</label>
+                                    <div class="col-sm-6">
+                                        <select id="pilih-kota-kab" name="select" class="form-control">
+                                            <option value="">Pilih</option>
+                                            <option value="kota_bandung">Kota Bandung</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                            </div>
+                            <div class="col-sm-4 " hidden>
+                                <button id="btn-tambah" class="btn btn-primary pull-right" data-toggle="modal" data-target="#sign-in-modal" data-backdrop="static"><i class="icofont icofont icofont-ui-add"></i>Tambah</button>
+                            </div>
+                        
+                        </div>
+                    </div>
+                    <!-- INformasi Umum 1 -->
+                    <div class="card-block">
+                        <h5>Informasi Umum</h5>
+                        <div class="dt-responsive table-responsive">
+                            <table id="" class="table table-bordered" style="font-size:12px;">
+                                <thead>
+                                    <tr class="bg-inverse">
+                                        <th><center>No</center></th>
+                                        <th><center>Uraian</center></th>
+                                        <th><center>Isian Data</center></th>
+                                        <th><center>Satuan</center></th>
+                                        <th><center>Sumber Data</center></th>
+                                        <th><center>Tahun Data</center></th>
+                                        <th><center>Keterangan</center></th>
+                                        <th><center>Action</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>a</td>
+                                        <td>Jumlah penduduk kota/kabupaten</td>
+                                        <td class="text-right">2,444,160.00</td>
+                                        <td>jiwa</td>
+                                        <td>BPS (Susenas)</td>
+                                        <td>2020</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>b</td>
+                                        <td>Jumlah timbulan sampah perkapita</td>
+                                        <td class="text-right">3.15</td>
+                                        <td>liter/jiwa/hari</td>
+                                        <td>formulasi</td>
+                                        <td></td>
+                                        <td></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>c</td>
+                                        <td>Densitas sampah </td>
+                                        <td class="text-right">200.00</td>
+                                        <td>kg/m3</td>
+                                        <td>Data primer</td>
+                                        <td>2020</td>
+                                        <td>data didapatkan dari RIS</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>d</td>
+                                        <td>Jumlah timbulan sampah kota/kabupaten </td>
+                                        <td class="text-right">562,034.59</td>
+                                        <td>ton/tahun</td>
+                                        <td>SIPSN</td>
+                                        <td>2020</td>
+                                        <td></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="5">e</td>
+                                        <td>Pengumpulan oleh pemerintah</td>
+                                        <td class="text-right">-</td>
+                                        <td>Kelurahan</td>
+                                        <td>Data primer</td>
+                                        <td>2020</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pengumpulan oleh non pemerintah</td>
+                                        <td class="text-right">-</td>
+                                        <td>Kelurahan</td>
+                                        <td>Data primer</td>
+                                        <td>2020</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Belum ada data pengumpulan</td>
+                                        <td class="text-right">-</td>
+                                        <td>Kelurahan</td>
+                                        <td>Data primer</td>
+                                        <td>2020</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jumlah RW terlayani pengumpulan</td>
+                                        <td class="text-right">151</td>
+                                        <td>Kelurahan</td>
+                                        <td>Data primer</td>
+                                        <td>2020</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total RW satu kota/kab</td>
+                                        <td class="text-right">151</td>
+                                        <td>Kelurahan</td>
+                                        <td>Data primer</td>
+                                        <td>2020</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2">f</td>
+                                        <td>Target pengolahan dalam RIS</td>
+                                        <td class="text-right">397.00</td>
+                                        <td> ton/hari </td>
+                                        <td>RIS</td>
+                                        <td>2020</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kapasitas pengolahan eksisting</td>
+                                        <td class="text-right">46.88</td>
+                                        <td> ton/hari </td>
+                                        <td>formulasi</td>
+                                        <td>2020</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2">g</td>
+                                        <td>Target Pengangkutan ke TPA dalam RIS</td>
+                                        <td class="text-right">1,324.00</td>
+                                        <td>Ton/hari</td>
+                                        <td>RIS</td>
+                                        <td>2020</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kapasitas Pengangkutan ke TPA Eksisting</td>
+                                        <td class="text-right">1,335.00</td>
+                                        <td>Ton/hari</td>
+                                        <td>formulasi</td>
+                                        <td>2020</td>
+                                    </tr>
+                                    <tr>
+                                        <td>h</td>
+                                        <td>Beban Pelayanan dalam RIS</td>
+                                        <td class="text-right">1,628.00</td>
+                                        <td>Ton/hari</td>
+                                        <td>RIS</td>
+                                        <td>2020</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Informasi Umum 2 -->
+                    <div class="card-block">
+                        <div class="dt-responsive table-responsive">
+                            <table id="" class="table table-bordered" style="font-size:12px;">
+                                <thead>
+                                    <tr class="bg-inverse">
+                                        <th><center>No</center></th>
+                                        <th><center style="width: 250px;">Uraian</center></th>
+                                        <th><center style="width: 100px;">Jenis Sarana Prasarana</center></th>
+                                        <th><center>Jumlah Unit</center></th>
+                                        <th><center>Satuan</center></th>
+                                        <th><center>Kapasitas</center></th>
+                                        <th><center>Satuan</center></th>
+                                        <th><center>Sumber Data</center></th>
+                                        <th><center>Tahun Data</center></th>
+                                        <th><center>Kapasitas</center></th>
+                                        <th><center>Satuan</center></th>
+                                        <th><center>Ritasi per Hari</center></th>
+                                        <th><center>Jumlah Unit</center></th>
+                                        <th><center>Kapasitas per hari (ton/hari)</center></th>
+                                        <th><center>Sumber Data</center></th>
+                                        <th><center>Tahun Data</center></th>
+                                        <th><center>Keterangan</center></th>
+                                        <th><center>Action</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="3">i</td>
+                                        <td rowspan="3">Jumlah sarana prasarana pengolahan sampah</td>
+                                        <td>Gerobak Sampah</td>
+                                        <td>0</td>
+                                        <td>m3</td>
+                                        <td></td>
+                                        <td>m3</td>
+                                        <td>SIINSAN</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>m3</td>
+                                        <td></td>
+                                        <td>0</td>
+                                        <td></td>
+                                        <td>SIINSAN</td>
+                                        <td></td>
+                                        <td>data sudah ada </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Motor Sampah</td>
+                                        <td>12</td>
+                                        <td>m3</td>
+                                        <td>1.00</td>
+                                        <td>m3</td>
+                                        <td>SIINSAN</td>
+                                        <td></td>
+                                        <td>1.00</td>
+                                        <td>m3</td>
+                                        <td></td>
+                                        <td>12</td>
+                                        <td></td>
+                                        <td>SIINSAN</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mobil Pick Up</td>
+                                        <td>2</td>
+                                        <td>m3</td>
+                                        <td>3.00</td>
+                                        <td>m3</td>
+                                        <td>SIINSAN</td>
+                                        <td></td>
+                                        <td>3.00</td>
+                                        <td>m3</td>
+                                        <td></td>
+                                        <td>2</td>
+                                        <td></td>
+                                        <td>SIINSAN</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td rowspan="3">j</td>
+                                        <td rowspan="3">Jumlah sarana prasarana pengangkutan sampah</td>
+                                        <td>Dump Truk</td>
+                                        <td>33</td>
+                                        <td>m3</td>
+                                        <td></td>
+                                        <td>m3</td>
+                                        <td>SIINSAN</td>
+                                        <td>2021</td>
+                                        <td></td>
+                                        <td>m3</td>
+                                        <td></td>
+                                        <td>33</td>
+                                        <td></td>
+                                        <td>SIINSAN</td>
+                                        <td>2021</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Arm Roll Truk</td>
+                                        <td>74</td>
+                                        <td>m3</td>
+                                        <td></td>
+                                        <td>m3</td>
+                                        <td>SIINSAN</td>
+                                        <td>2021</td>
+                                        <td></td>
+                                        <td>m3</td>
+                                        <td></td>
+                                        <td>74</td>
+                                        <td></td>
+                                        <td>SIINSAN</td>
+                                        <td>2021</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Compactor Truk</td>
+                                        <td>2</td>
+                                        <td>m3</td>
+                                        <td>6.00</td>
+                                        <td>m3</td>
+                                        <td>SIINSAN</td>
+                                        <td></td>
+                                        <td>6.00</td>
+                                        <td>m3</td>
+                                        <td></td>
+                                        <td>2</td>
+                                        <td></td>
+                                        <td>SIINSAN</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="6">k</td>
+                                        <td rowspan="6">Jumlah sarana prasarana pengolahan sampah</td>
+                                        <td> PDU </td>
+                                        <td>1</td>
+                                        <td>ton/tahun</td>
+                                        <td>1,744.70</td>
+                                        <td>ton/tahun</td>
+                                        <td>SIPSN</td>
+                                        <td>2020</td>
+                                        <td>1,744.70</td>
+                                        <td>ton/tahun</td>
+                                        <td></td>
+                                        <td>1</td>
+                                        <td></td>
+                                        <td>SIPSN</td>
+                                        <td>2020</td>
+                                        <td>SIINSAN</td>
+                                    </tr>
+                                    <tr>
+                                        <td> POO </td>
+                                        <td>4</td>
+                                        <td>ton/tahun</td>
+                                        <td>1,292.10</td>
+                                        <td>ton/tahun</td>
+                                        <td></td>
+                                        <td>2020</td>
+                                        <td>1,292.10</td>
+                                        <td>ton/tahun</td>
+                                        <td></td>
+                                        <td>4</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2020</td>
+                                        <td>SIINSAN</td>
+                                    </tr>
+                                    <tr>
+                                        <td> TPST </td>
+                                        <td>1</td>
+                                        <td>ton/tahun</td>
+                                        <td>208.05</td>
+                                        <td>ton/tahun</td>
+                                        <td>SIPSN</td>
+                                        <td>2020</td>
+                                        <td>208.05</td>
+                                        <td>ton/tahun</td>
+                                        <td></td>
+                                        <td>1</td>
+                                        <td></td>
+                                        <td>SIPSN</td>
+                                        <td>2020</td>
+                                        <td>SIINSAN</td>
+                                    </tr>
+                                    <tr>
+                                        <td> TPS 3R </td>
+                                        <td>6</td>
+                                        <td>ton/tahun</td>
+                                        <td>304.48</td>
+                                        <td>ton/tahun</td>
+                                        <td>SIINSAN</td>
+                                        <td>2020</td>
+                                        <td>304.48</td>
+                                        <td>ton/tahun</td>
+                                        <td></td>
+                                        <td>6</td>
+                                        <td></td>
+                                        <td>SIINSAN</td>
+                                        <td>2020</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td> Bank Sampah </td>
+                                        <td>2</td>
+                                        <td>ton/tahun</td>
+                                        <td>1,397.95</td>
+                                        <td>ton/tahun</td>
+                                        <td>SIPSN</td>
+                                        <td>2020</td>
+                                        <td>1,397.95</td>
+                                        <td>ton/tahun</td>
+                                        <td></td>
+                                        <td>2</td>
+                                        <td></td>
+                                        <td>SIPSN</td>
+                                        <td>2020</td>
+                                        <td>SIINSAN</td>
+                                    </tr>
+                                    <tr>
+                                        <td> Komposting </td>
+                                        <td>159</td>
+                                        <td>ton/tahun</td>
+                                        <td>68,196.43</td>
+                                        <td>ton/tahun</td>
+                                        <td>SIPSN</td>
+                                        <td>2020</td>
+                                        <td>68,196.43</td>
+                                        <td>ton/tahun</td>
+                                        <td></td>
+                                        <td>159</td>
+                                        <td></td>
+                                        <td>SIPSN</td>
+                                        <td>2020</td>
+                                        <td>SIINSAN</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <!-- aspek -->
+                    <div class="card-block">
+                        <div class="dt-responsive table-responsive">
+
+                            <table id="all" class="table table-bordered" style="font-size:12px;">
+                                <thead>
+                                    <tr class="bg-inverse">
+                                        <th><center>No</center></th>
+                                        <th><center style="width: 300px;">INDIKATOR</center></th>
+                                        <th><center style="width: 200px;">PARAMETER</center></th>
+                                        <th><center>BOBOT</center></th>
+                                        <th><center style="width: 50px;">NILAI</center></th>
+                                        <th><center style="width: 200px;">KETERANGAN</center></th>
+                                        <th><center style="width: 200px;">SUMBER</center></th>
+                                        <th><center style="width: 50px;">TAHUN</center></th>
+                                        <th><center>Keterangan</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="group bg-default">
+                                        <td colspan="10"><center>Aspek Peraturan<center></center></center></td>
+                                        <!-- <td ><center>11<center></center></center></td>
+                                        <td colspan="4"></td> -->
+                                    </tr>
+                                    <!-- 1 -->
+                                    <tr>
+                                        <td rowspan="2">1</td>
+                                        <td rowspan="2">Perda RPJMD memuat kebijakan pengelolaan lingkungan hidup dan/atau pengelolaan sampah</td>
+                                        <td>Perda RPJMD telah memuat kebijakan pengelolaan lingkungan hidup dan/atau pengelolaan sampah</td>
+                                        <td>1</td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="nilai_1_1"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="keterangan_1_1"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <a name="aspek_peraturan" id="sumber_1_1"></a>
+                                        </td>
+                                        <td rowspan="2">
+                                                <a name="aspek_peraturan" id="tahun_1_1"></a>
+                                        </td>
+                                        <td rowspan="2">
+                                                <a name="aspek_peraturan" id="new_keterangan_1_1" ></a>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>Perda RPJMD belum memuat kebijakan pengelolaan lingkungan hidup dan/atau pengelolaan sampah</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!-- 2 -->
+                                    <tr>
+                                        <td rowspan="2">2</td>
+                                        <td rowspan="2">Ketersediaan Perda Pengelolaan Sampah RT dan SSSRT yang telah disesuaikan dengan Permendagri 7 2021</td>
+                                        <td>Tersedia Perda mengenai pengelolaan sampah rumah tangga dan sampah sejenis sampah rumah tangga</td>
+                                        <td>1</td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="nilai_1_2"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="keterangan_1_2"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <a name="aspek_peraturan" id="sumber_1_2"></a>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="tahun_1_2"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="new_keterangan_1_2" ></span>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>Belum tersedia Perda mengenai pengelolaan sampah rumah tangga dan  sampah sejenis sampah rumah tangga</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!-- 3 -->
+                                    <tr>
+                                        <td rowspan="2">3</td>
+                                        <td rowspan="2">Ketersediaan Perda Tarif/Retribusi Sampah</td>
+                                        <td>Tersedia Perda mengenai tarif/retribusi sampah yang telah disesuaikan dengan Permendagri 7 2021</td>
+                                        <td>1</td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="nilai_1_3"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="keterangan_1_3" ></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <a name="aspek_peraturan" id="sumber_1_3"></a>
+    
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="tahun_1_3"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="new_keterangan_1_3"></span>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>Tidak tersedianya Perda mengenai tarif/retribusi sampah dan/atau belum disesuaikan dengan Permendagri 7 2021</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!-- 4 -->
+                                    <tr>
+                                        <td rowspan="2">4</td>
+                                        <td rowspan="2">Ketersediaan Perkada Pengurangan Sampah</td>
+                                        <td>Tersedia Perbup / Perwali yang memuat pengaturan operasional pengurangan sampah</td>
+                                        <td>1</td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="nilai_1_4"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="keterangan_1_4"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <a name="aspek_peraturan" id="sumber_1_4" ></a>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="tahun_1_4"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="new_keterangan_1_4"></span>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>Belum tersedia Perbup / Perwali yang memuat pengaturan operasional pengurangan sampah </td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!-- 5 -->
+                                    <tr>
+                                        <td rowspan="2">5</td>
+                                        <td rowspan="2">Ketersediaan Perkada Penanganan Sampah</td>
+                                        <td>Tersedia Perbup / Perwali yang memuat pengaturan operasional penanganan sampah</td>
+                                        <td>1</td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="nilai_1_5"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="keterangan_1_5"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <a name="aspek_peraturan" id="sumber_1_5"></a>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="tahun_1_5"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="new_keterangan_1_5"></span>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>Belum tersedia Perbup / Perwali yang memuat pengaturan operasional penanganan sampah</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!-- 6 -->
+                                    <tr>
+                                        <td rowspan="2">6</td>
+                                        <td rowspan="2">Ketersediaan Perkada Pembatasan Sampah (khusus sampah spesifik)</td>
+                                        <td>Tersedia Perbup / Perwali yang memuat pengaturan pembatasan sampah khusus dan sampah spesifik</td>
+                                        <td>1</td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="nilai_1_6"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="keterangan_1_6"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <a name="aspek_peraturan" id="sumber_1_6"></a>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="tahun_1_6"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="new_keterangan_1_6"></span>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Belum tersedia Perbup / Perwali yang memuat pengaturan pembatasan sampah khusus dan sampah spesifik</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!-- 7 -->
+                                    <tr>
+                                        <td rowspan="2">7</td>
+                                        <td rowspan="2">Ketersediaan Perbup/Perwali Jakstrada</td>
+                                        <td>Tersedia Perbup / Perwali yang memuat pengaturan Jakstrada Pengelolaan Sampah</td>
+                                        <td>1</td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="nilai_1_7"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="keterangan_1_7" ></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <a name="aspek_peraturan" id="sumber_1_7"></a>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="tahun_1_7"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="new_keterangan_1_7"></span>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>Belum tersedia Perbup / Perwali yang memuat pengaturan Jakstrada Pengelolaan Sampah</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!-- 8 -->
+                                    <tr>
+                                        <td rowspan="2">8</td>
+                                        <td rowspan="2">Ketersediaan dokumen perencanaan persampahan di daerah (SSK) yang masih berlaku</td>
+                                        <td>Tersedia dokumen perencanaan persampahan di daerah (SSK) final yang masih berlaku</td>
+                                        <td>1</td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="nilai_1_8"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="keterangan_1_8"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <a name="aspek_peraturan" id="sumber_1_8"></a>
+                                            
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="tahun_1_8"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="new_keterangan_1_8"></span>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>Belum tersedia dokumen perencanaan persampahan di daerah (SSK) dan/atau SSK yang sudah tidak berlaku</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!-- 9 -->
+                                    <tr>
+                                        <td rowspan="2">9</td>
+                                        <td rowspan="2">Ketersediaan dokumen perencanaan persampahan di daerah (RIS/ PTMP) yang masih berlaku</td>
+                                        <td>Tersedia dokumen perencanaan persampahan di daerah (RIS/ PTMP) yang masih berlaku</td>
+                                        <td>1</td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="nilai_1_9"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="keterangan_1_9"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <a name="aspek_peraturan" id="sumber_1_9"></a>
+                                            
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="tahun_1_9"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="new_keterangan_1_9"></span>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>Belum tersedia dokumen perencanaan persampahan di daerah (SSK) dan/atau SSK yang sudah tidak berlaku</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!-- 10 -->
+                                    <tr>
+                                        <td rowspan="2">10</td>
+                                        <td rowspan="2">Ketersediaan dokumen perencanaan persampahan di daerah (Jakstrada)</td>
+                                        <td>Tersedia dokumen perencanaan persampahan di daerah (Jakstrada)</td>
+                                        <td>1</td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="nilai_1_10" ></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="keterangan_1_10"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <a name="aspek_peraturan" id="sumber_1_10"></a>
+                     
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="tahun_1_10"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="new_keterangan_1_10"></span>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>Belum tersedia dokumen perencanaan persampahan di daerah (Jakstrada)</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!-- 11 -->
+                                    <tr>
+                                        <td rowspan="2">11</td>
+                                        <td rowspan="2">Ketersediaan muatan pengarusutamaan gender dalam dokumen perencanaan persampahan</td>
+                                        <td>Terakomodasinya isu gender dan upaya penanganannya dalam dokumen kebijakan dan perencanaan persampahan kota/kab </td>
+                                        <td>1</td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="nilai_1_11"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="keterangan_1_11"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <a name="aspek_peraturan" id="sumber_1_11"></a>
+                 
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="tahun_1_11"></span>
+                                        </td>
+                                        <td rowspan="2">
+                                                <span name="aspek_peraturan" id="new_keterangan_1_11"></span>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>Belum terakomodasinya isu gender dan upaya penanganannya dalam dokumen kebijakan dan perencanaan persampahan kota/kab </td>
+                                        <td>0</td>
+                                    </tr>
+
+                                </tbody>
+                                
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Base style - Hover table end -->
+            </div>
+            <!-- Page-body end -->
+        </div>
+    </div>
+    <div id="styleSelector">
+
+    </div>
+
+
+    <!-- Sign in modal start -->
+    <div class="modal fade" id="sign-in-modal" name="in-modal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title">Form Input Aspek</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-b-0">
+                    <div class="card-block">
+                        <h4 class="sub-title"><b>Aspek</b></h4>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <select id="pilih-aspek" name="select" class="form-control">
+                                    <option value="0">Pilih</option>
+                                    <option value="1">Peraturan</option>
+                                    <option value="2">Kelembagaan</option>
+                                    <option value="3">Pendanaan/Pembiayaan</option>
+                                    <option value="4">Teknis/Prasarana and </option>
+                                    <option value="5">Masyarakat dan Pemangku Kepentingan</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="card-block">
+                        <h4 class="sub-title"><b>Indikator</b></h4>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <select id="pilih-indikator" name="select" class="form-control">
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="card-block">
+                        <h4 class="sub-title"><b>Parameter</b></h4>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <select id="pilih-parameter" name="select" class="form-control">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-block">
+                        <div class="form-group row">
+                            <label name="komponen_1" class="col-sm-2 col-form-label">Keterangan</label>
+                            <div class="col-sm-10">
+                                <input name="keterangan" type="text" class="form-control" placeholder="Keterangan" id="keterangan">
+                            </div>
+                            
+                        </div>
+                        <div class="form-group row">
+                            <label name="komponen_1" class="col-sm-2 col-form-label">Sumber Data</label>
+                            <div class="col-sm-2">
+                                <input name="keterangan" type="text" class="form-control" placeholder="Sumber Data" id="sumber_data">
+                            </div>
+                            <div class="col-sm-8">
+                                <input name="keterangan" type="text" class="form-control" placeholder="Url" id="url">
+                            </div>
+                            
+                        </div>
+                        <div class="form-group row">
+                            <label name="komponen_1" class="col-sm-2 col-form-label">Tahun Data</label>
+                            <div class="col-sm-10">
+                                <input name="keterangan" type="text" class="form-control" placeholder="Tahun Data" id="tahun">
+                            </div>
+                            
+                        </div>
+
+                        <div class="form-group row">
+                            <label name="komponen_1" class="col-sm-2 col-form-label">Catatan</label>
+                            <div class="col-sm-10">
+                                <input name="keterangan" type="text" class="form-control" placeholder="Keterangan Lain" id="catatan">
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="ti-close"></i> Batal </button>
+                    <button type="button" class="btn btn-primary" id="save-aspek"><i class="ti-check-box"></i> Simpan </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sign in modal end -->
+
+<div id="modal_user" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Program</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form">
+					<!-- #section:elements.form -->
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_name"> Username </label>
+
+						<div class="col-sm-9">
+							<input type="text" id="user_name" placeholder="username" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_fullname"> Fullname </label>
+
+						<div class="col-sm-9">
+							<input type="text" id="user_fullname" placeholder="Full Name" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_fullname"> NIP </label>
+
+						<div class="col-sm-9">
+							<input type="text" id="user_nip" placeholder="NIP" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="user_role"> Role Level </label>
+
+						<div class="col-sm-9">
+						  	<select class="chosen-select form-control" id="user_role" data-placeholder="select role...">
+						  		<option value="">  </option>
+						  		<option value="10">admin</option>
+						  		<option value="20">operator</option>
+						  		<option value="30">ppk</option>
+						  		<option value="40">pptk</option>
+
+						  	</select>
+						</div>
+					</div>
+
+				</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-xs btn-danger" data-dismiss="modal"><i class="ace-icon fa fa-close"></i>close</button>
+        <button type="button" class="btn btn-xs btn-success" data-dismiss="modal"  ><i class="ace-icon fa fa-check"></i>submit</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- <script src="{{baseURL}}/assets/action-js/admin/datapengaduan.js"></script> -->
+{% endblock %}
