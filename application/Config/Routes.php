@@ -112,6 +112,7 @@ $routes->post('loadinstansi', 'Jsondata::loadinstansi');
 $routes->post('saveRealisasi', 'Jsondata::saveRealisasi');
 $routes->post('saveAspek', 'Jsondata::saveAspek');
 $routes->post('saveInformasi', 'Jsondata::saveInformasi');
+$routes->post('savePelelangan', 'Jsondata::savePelelangan');
 $routes->post('cekperiode', 'Jsondata::cekperiode');
 $routes->post('loadsoe', 'Jsondata::loadsoe');
 $routes->post('loadmonev', 'Jsondata::loadmonev');
@@ -120,6 +121,7 @@ $routes->post('loadperiode', 'Jsondata::loadperiode');
 $routes->post('loadjadwal', 'Jsondata::loadjadwal');
 $routes->post('addjadwal', 'Jsondata::addjadwal');
 $routes->post('loadaspek', 'Jsondata::loadaspek');
+$routes->post('loadpelelangan', 'Jsondata::loadpelelangan');
 
 
 

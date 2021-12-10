@@ -1582,6 +1582,45 @@ class Jsondata extends \CodeIgniter\Controller
 		}
 	}
 
+	public function loadpelelangan()
+	{
+		try
+		{
+				$request  = $this->request;
+				$param 	  = $request->getVar('param');
+				$kode		 	  = $request->getVar('kode');
+				$role 		= $this->data['role'];
+				$userid		= $this->data['userid'];
+				
+					$model = new \App\Models\DataModel();
+					$modelfiles = new \App\Models\FilesModel();
+					
+					$data = $model->getpelelangan($param, $kode);
+
+					if($data){
+						$response = [
+							'status'   => 'sukses',
+							'code'     => '1',
+							'data' 		 => $data
+						];
+					}else{
+						$response = [
+						    'status'   => 'gagal',
+						    'code'     => '0',
+						    'data'     => 'tidak ada data',
+						];
+					}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
 	public function loadinstansi()
 	{
 		try
@@ -2418,6 +2457,56 @@ class Jsondata extends \CodeIgniter\Controller
 			}
 
 			$res = $model->saveData('data_informasi_umum', $data);
+			$id  = $model->insertID();
+		}
+
+
+		$response = [
+				'status'   => 'sukses',
+				'code'     => '0',
+				'data' 		 => 'terkirim'
+		];
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+
+	}
+
+	public function savePelelangan(){
+
+		$request  = $this->request;
+		$param 	  = $request->getVar('param');
+		$role 		= $this->data['role'];
+		$userid		= $this->data['userid'];
+		$model 	  = new \App\Models\DataModel();
+		
+		if($request->getVar('id')){
+			$datas = [
+				'pemenuhan' => $request->getVar('pemenuhan'),
+				'alokasi' => $request->getVar('alokasi'),
+				'progress' => $request->getVar('progress'),
+				'realisasi' => $request->getVar('realisasi'),
+				'kode' => $request->getVar('kode'),
+				'update_by' => $userid,
+				'update_Date' => $this->now
+			];
+			;
+			$res = $model->updatepelelangan($request->getVar('id'), $datas);
+		}else{
+			$data = [
+						'pemenuhan' => $request->getVar('pemenuhan'),
+						'alokasi' => $request->getVar('alokasi'),
+						'progress' => $request->getVar('progress'),
+						'realisasi' => $request->getVar('realisasi'),
+						'kode' => $request->getVar('kode'),
+						'create_by' => $userid,
+						'update_by' => $userid,
+						'create_date' => $this->now,
+						'update_Date' => $this->now,
+
+
+			];
+			$res = $model->saveData('data_pelelangan', $data);
 			$id  = $model->insertID();
 		}
 

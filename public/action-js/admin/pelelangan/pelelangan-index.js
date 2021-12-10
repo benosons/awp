@@ -40,6 +40,7 @@ $(document).ready(function(){
 
   // loaddata();
   // loadaspek('aspek')
+  loadpelelangan('')
   $('#pilih-aspek').on('change', function(){
     loadaspek('indikator', this.value)
   });
@@ -59,14 +60,45 @@ $(document).ready(function(){
     $('#btn-tambah').hide();
   }
 
+  $('[name="pelelangan"]').on('change', function(){
+    var thisid = this.id;
+    var split = thisid.split("_");
+    var param = split[0];
+    var kode  = split[1];
+    var pelaksanaan = 0;
+    var jadwal = 0;
+
+      if($('#alokasi_'+kode).val() && $('#realisasi_'+kode).val()){
+        var hari = parseInt($('#alokasi_'+kode).val())-parseInt($('#realisasi_'+kode).val());
+        var persentase = hari/parseInt($('#alokasi_'+kode).val());
+        jadwal += Math.round((parseInt($('#alokasi_'+kode).val())/parseInt($('#realisasi_'+kode).val()))*100);
+        $('#persentase_'+kode).html(Math.ceil(persentase*100)+'%');
+        $('#hari_'+kode).html(hari);
+        $('#jadwal_'+kode).html(jadwal+'%');
+
+      }
+
+      if($('#progress_'+kode).val() && $('#pemenuhan_'+kode).val()){
+        pelaksanaan += (parseInt($('#progress_'+kode).val())/parseInt($('#pemenuhan_'+kode).val()))*100;
+        $('#pelaksanaan_'+kode).html(pelaksanaan+'%');
+      }
+
+      if(pelaksanaan && jadwal){
+        var rata = ((pelaksanaan+jadwal)/2)/100;
+        $('#rata_'+kode).html(rata.toFixed(2));
+      }
+    
+  })
+  
+
 });
 
-function loadaspek(param, kode){
+function loadpelelangan(param, kode){
 
   $.ajax({
       type: 'post',
       dataType: 'json',
-      url: 'loadaspek',
+      url: 'loadpelelangan',
       data : {
               param      : param,
               kode         : kode,
@@ -74,19 +106,78 @@ function loadaspek(param, kode){
       success: function(result){
           let data = result.data;
           let code = result.code;
-          var opt = '<option value="0">Pilih</option>';
+
+          var sum_pemenuhan = 0;
+          var sum_alokasi = 0;
+          var sum_progress = 0;
+          var sum_realisasi = 0;
+          var sum_hari = 0;
+
+          var avg_persentase = 0;
+          var array_persentase = [];
+
+          var avg_pelaksanaan = 0;
+          var array_pelaksanaan = [];
+
+          var avg_jadwal = 0;
+          var array_jadwal = [];
+
+          var avg_rata = 0;
+          var array_rata = [];
+
           for (let index = 0; index < data.length; index++) {
-            opt += '<option value="'+data[index]['kode']+'">'+data[index]['desc']+'</option>';
+            let kode = data[index]['kode'];
+            $('#pemenuhan_'+kode).val(data[index]['pemenuhan']);
+            $('#alokasi_'+kode).val(data[index]['alokasi']);
+            $('#progress_'+kode).val(data[index]['progress']);
+            $('#realisasi_'+kode).val(data[index]['realisasi']);
+
+            sum_pemenuhan += parseInt(data[index]['pemenuhan']);
+            sum_alokasi += parseInt(data[index]['alokasi']);
+            sum_progress += parseInt(data[index]['progress']);
+            sum_realisasi += parseInt(data[index]['realisasi']);
+            
+          }
+          $('[name="pelelangan"]').trigger('change');
+
+          $('#sum_pemenuhan').html(sum_pemenuhan);
+          $('#sum_alokasi').html(sum_alokasi);
+          $('#sum_progress').html(sum_progress);
+          $('#sum_realisasi').html(sum_realisasi);
+
+          
+          for (let i = 1; i <= 16; i++) {
+          
+            if(!isNaN(($('#hari_'+i).html()))){
+              sum_hari += parseInt($('#hari_'+i).html());
+            }
+
+            if(!isNaN(($('#persentase_'+i).html().replace("%","")))){
+              avg_persentase += parseInt($('#persentase_'+i).html().replace("%",""));
+              array_persentase.push($('#persentase_'+i).html());
+            }
+
+            if(!isNaN(($('#pelaksanaan_'+i).html().replace("%","")))){
+              avg_pelaksanaan += parseInt($('#pelaksanaan_'+i).html().replace("%",""));
+              array_pelaksanaan.push($('#pelaksanaan_'+i).html());
+            }
+
+            if(!isNaN(($('#jadwal_'+i).html().replace("%","")))){
+              avg_jadwal += parseInt($('#jadwal_'+i).html().replace("%",""));
+              array_jadwal.push($('#jadwal_'+i).html());
+            }
+
+            if(!isNaN(($('#rata_'+i).html().replace("%","")))){
+              avg_rata += parseInt($('#rata_'+i).html());
+              array_rata.push($('#rata_'+i).html());
+            }
           }
 
-          if(param == 'aspek'){
-            $('#pilih-aspek').html(opt);
-          }else if(param == 'indikator'){
-            $('#pilih-indikator').html(opt);
-          }else if(param == 'parameter'){
-            $('#pilih-parameter').html(opt);
-          }
-
+          $('#sum_hari').html(sum_hari);
+          $('#avg_persentase').html(avg_persentase/array_persentase.length+'%');
+          $('#avg_pelaksanaan').html(avg_pelaksanaan/array_pelaksanaan.length+'%');
+          $('#avg_jadwal').html(avg_jadwal/array_jadwal.length+'%');
+          $('#avg_rata').html((avg_rata/array_rata.length).toFixed(2));
             
         }
       })
@@ -366,174 +457,30 @@ function save(formData){
     });
   };
 
-function submit(param, aspek, number, group){
+function submit(kode){
   
-  if(param == 'informasi_umum'){
-    var formData = new FormData();
-    if(number){
-      if(group == '1'){
-        formData.append('id', $('#id_'+aspek+'_'+number).val());
-        formData.append('isian', $('#isian_'+aspek+'_'+number).val());
-        formData.append('sumber', $('#sumber_'+aspek+'_'+number).val());
-        formData.append('tahun', $('#tahun_'+aspek+'_'+number).val());
-        formData.append('keterangan', $('#keterangan_'+aspek+'_'+number).val());
-        formData.append('tipe', param);
-        formData.append('kode', aspek);
-        formData.append('nomor', number);
-        formData.append('kota', $('#pilih-kota-kab').val());
-        formData.append('group', group);
-      }else if(group == '2'){
-        
-        formData.append('id', $('#id_'+aspek+'_'+number).val());
-        formData.append('jumlah1', $('#jumlah1_'+aspek+'_'+number).val());
-        formData.append('kapasitas1', $('#kapasitas1_'+aspek+'_'+number).val());
-        formData.append('sumber1', $('#sumber1_'+aspek+'_'+number).val());
-        formData.append('tahun1', $('#tahun1_'+aspek+'_'+number).val());
-        formData.append('kapasitas2', $('#kapasitas2_'+aspek+'_'+number).val());
-        formData.append('ritasi', $('#ritasi_'+aspek+'_'+number).val());
-        formData.append('jumlah2', $('#jumlah2_'+aspek+'_'+number).val());
-        formData.append('kapasitas3', $('#kapasitas3_'+aspek+'_'+number).val());
-        formData.append('sumber2', $('#sumber2_'+aspek+'_'+number).val());
-        formData.append('tahun2', $('#tahun2_'+aspek+'_'+number).val());
-        formData.append('keterangan', $('#keterangan_'+aspek+'_'+number).val());
-        formData.append('tipe', param);
-        formData.append('kode', aspek);
-        formData.append('nomor', number);
-        formData.append('kota', $('#pilih-kota-kab').val());
-        formData.append('group', group);
-      }else if(group == '3'){
-        formData.append('id', $('#id_'+aspek+'_'+number).val());
-        formData.append('jumlah', $('#jumlah_'+aspek+'_'+number).val());
-        formData.append('sumber', $('#sumber_'+aspek+'_'+number).val());
-        formData.append('tahun', $('#tahun_'+aspek+'_'+number).val());
-        formData.append('tipe', param);
-        formData.append('kode', aspek);
-        formData.append('nomor', number);
-        formData.append('kota', $('#pilih-kota-kab').val());
-        formData.append('group', group);
-      }
-    }else{
-      if(group == '1'){
-        formData.append('id', $('#id_'+aspek).val());
-        formData.append('isian', $('#isian_'+aspek).val());
-        formData.append('sumber', $('#sumber_'+aspek).val());
-        formData.append('tahun', $('#tahun_'+aspek).val());
-        formData.append('keterangan', $('#keterangan_'+aspek).val());
-        formData.append('tipe', param);
-        formData.append('kode', aspek);
-        formData.append('nomor', '');
-        formData.append('kota', $('#pilih-kota-kab').val());
-        formData.append('group', group);
-      }else if(group == '2'){
-        formData.append('id', $('#id_'+aspek).val());
-        formData.append('jumlah1', $('#jumlah1_'+aspek).val());
-        formData.append('kapasitas1', $('#kapasitas1_'+aspek).val());
-        formData.append('sumber1', $('#sumber1_'+aspek).val());
-        formData.append('tahun1', $('#tahun1_'+aspek).val());
-        formData.append('kapasitas2', $('#kapasitas2_'+aspek).val());
-        formData.append('ritasi', $('#ritasi_'+aspek).val());
-        formData.append('jumlah2', $('#jumlah2_'+aspek).val());
-        formData.append('kapasitas3', $('#kapasitas3_'+aspek).val());
-        formData.append('sumber2', $('#sumber2_'+aspek).val());
-        formData.append('tahun2', $('#tahun2_'+aspek).val());
-        formData.append('keterangan', $('#keterangan_'+aspek).val());
-        formData.append('tipe', param);
-        formData.append('kode', aspek);
-        formData.append('nomor', '');
-        formData.append('kota', $('#pilih-kota-kab').val());
-        formData.append('group', group);
-      }else if(group == '3'){
-        formData.append('id', $('#id_'+aspek).val());
-        formData.append('jumlah', $('#jumlah_'+aspek).val());
-        formData.append('sumber', $('#sumber_'+aspek).val());
-        formData.append('tahun', $('#tahun_'+aspek).val());
-        formData.append('tipe', param);
-        formData.append('kode', aspek);
-        formData.append('nomor', '');
-        formData.append('kota', $('#pilih-kota-kab').val());
-        formData.append('group', group);
-      }else if(group == '4'){
-        formData.append('id', $('#id_'+aspek).val());
-        formData.append('jumlah', $('#jumlah_'+aspek).val());
-        formData.append('sumber', $('#sumber_'+aspek).val());
-        formData.append('tahun', $('#tahun_'+aspek).val());
-        formData.append('keterangan', $('#keterangan_'+aspek).val());
-        formData.append('tipe', param);
-        formData.append('kode', aspek);
-        formData.append('nomor', '');
-        formData.append('kota', $('#pilih-kota-kab').val());
-        formData.append('group', group);
-      }
-    }
+      var formData = new FormData();
+      formData.append('id', $('#id_'+kode).val());
 
-    if($('#pilih-kota-kab').val() == ''){
-        
-      bootbox.alert({
-          message: "Silahkan pilih Kota/ Kabupaten!",
-          size: 'small',
-          buttons: {
-            ok: {
-              label: '<i class="fa fa-check"></i> Ok',
-              className: 'btn-success btn-mini',
-            }
-          }
-      });
-
-    }else{
+      formData.append('pemenuhan', $('#pemenuhan_'+kode).val());
+      formData.append('alokasi', $('#alokasi_'+kode).val());
+      formData.append('progress', $('#progress_'+kode).val());
+      formData.append('realisasi', $('#realisasi_'+kode).val());
+      formData.append('kode', kode);
 
       $.ajax({
           type: 'post',
           processData: false,
           contentType: false,
-          url: 'saveInformasi',
+          url: 'savePelelangan',
           data : formData,
           success: function(result){
             location.reload();
           }
         });
-  }
 
-  }else{
-      var formData = new FormData();
-          formData.append('id', $('#id_'+aspek+'_'+number).val());
-          formData.append('aspek', param);
-          formData.append('kode_aspek', aspek);
-          formData.append('nomor', number);
-          formData.append('kota', $('#pilih-kota-kab').val());
-          formData.append('nilai',$('#nilai_'+aspek+'_'+number).val());
-          formData.append('keterangan',$('#keterangan_'+aspek+'_'+number).val());
-          formData.append('sumber',$('#sumber_'+aspek+'_'+number).val());
-          formData.append('tahun',$('#tahun_'+aspek+'_'+number).val());
-          formData.append('note',$('#new_keterangan_'+aspek+'_'+number).val());
-          formData.append('url',$('#url_'+aspek+'_'+number).val());
-      
-      if($('#pilih-kota-kab').val() == ''){
-        
-            bootbox.alert({
-                message: "Silahkan pilih Kota/ Kabupaten!",
-                size: 'small',
-                buttons: {
-                  ok: {
-                    label: '<i class="fa fa-check"></i> Ok',
-                    className: 'btn-success btn-mini',
-                  }
-                }
-            });
 
-          }else{
 
-            $.ajax({
-                type: 'post',
-                processData: false,
-                contentType: false,
-                url: 'saveAspek',
-                data : formData,
-                success: function(result){
-                  location.reload();
-                }
-              });
-      }
-    }
   };
 
   function action(mode, id, status){

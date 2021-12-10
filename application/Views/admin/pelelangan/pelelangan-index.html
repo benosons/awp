@@ -51,6 +51,8 @@
                                         <th colspan="2"><center>Kinerja Penjadwalan</center></th>
                                         <th colspan="2"><center>Performance Index</center></th>
                                         <th colspan="2"><center>Status Pelaksanaan</center></th>
+                                        <th rowspan="2"><center>Action</center></th>
+
                                     </tr>
                                     <tr class="bg-inverse">
                                         <th><center>Pemenuhan Kegiatan</center></th>
@@ -60,23 +62,25 @@
                                         <th><center>Hari</center></th>
                                         <th><center>Persentase</center></th>
                                         <th><center>Indeks Capaian Pelaksanaan</center></th>
-                                        <th><center>Indeks Capain Jadwal</center></th>
+                                        <th><center>Indeks Capaian Jadwal</center></th>
                                         <th><center>Indeks Rata-rata</center></th>
                                         <th><center>Deskripsi</center></th>
                                     </tr>
                                     <tr class="bg-warning">
                                         <th colspan="2"><center>1</center></th>
                                         <th><center>ID-DIT. SANITASI--180474-CS-QCBS/ Paket Perencanaan Pembangunan TPST Tahap II ISWMP</center></th>
-                                        <th><center>16</center></th>
-                                        <th><center>64</center></th>
-                                        <th><center>16</center></th>
-                                        <th><center>103</center></th>
-                                        <th><center>-9</center></th>
-                                        <th><center>-46%</center></th>
-                                        <th><center>100%</center></th>
-                                        <th><center>86%</center></th>
-                                        <th><center>0,96</center></th>
-                                        <th><center>Masih Aman</center></th>
+                                        <th><center><span id="sum_pemenuhan"></span></center></th>
+                                        <th><center><span id="sum_alokasi"></span></center></th>
+                                        <th><center><span id="sum_progress"></span></center></th>
+                                        <th><center><span id="sum_realisasi"></span></center></th>
+                                        <th><center><span id="sum_hari"></span></center></th>
+                                        <th><center><span id="avg_persentase"></span></center></th>
+                                        <th><center><span id="avg_pelaksanaan"></span></center></th>
+                                        <th><center><span id="avg_jadwal"></span></center></th>
+                                        <th><center><span id="avg_rata"></span></center></th>
+                                        <th><center></center></th>
+                                        <th><center></center></th>
+                                        <th><center></center></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -84,226 +88,561 @@
                                         <td></td>
                                         <td>1</td>
                                         <td>Term of Reference</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>0</td>
-                                        <td>0%</td>
-                                        <td>100%</td>
-                                        <td>100%</td>
-                                        <td>1,00</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="pemenuhan_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="alokasi_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="progress_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="realisasi_1" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td><span id="hari_1">Hari</span></td>
+                                        <td><span id="persentase_1">persentase</span></td>
+                                        <td><span id="pelaksanaan_1">pelaksanaan</span></td>
+                                        <td><span id="jadwal_1">jadwal</span></td>
+                                        <td><span id="rata_1">rata-rata</span></td>
+                                        <td></td>
+                                        <td>
+                                            <input type="hidden" id="id_1">
+                                            <button type="button" onclick="submit('1')" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td>2</td>
-                                        <td>Term of Reference</td>
-                                        <td>1</td>
-                                        <td>8</td>
-                                        <td>1</td>
-                                        <td>10</td>
-                                        <td>-2</td>
-                                        <td>-25%</td>
-                                        <td>100%</td>
-                                        <td>80%</td>
-                                        <td>0,90</td>
+                                        <td>Announcement</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="pemenuhan_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="alokasi_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="progress_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="realisasi_2" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td><span id="hari_2">Hari</span></td>
+                                        <td><span id="persentase_2">persentase</span></td>
+                                        <td><span id="pelaksanaan_2">pelaksanaan</span></td>
+                                        <td><span id="jadwal_2">jadwal</span></td>
+                                        <td><span id="rata_2">rata-rata</span></td>
+                                        <td></td>
+                                        <td>
+                                            <input type="hidden" id="id_2">
+                                            <button type="button" onclick="submit('2')" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td>3</td>
-                                        <td>Announcement
-Submission of EOI</td>
-                                        <td>1</td>
-                                        <td>14</td>
-                                        <td>1</td>
-                                        <td>16</td>
-                                        <td>-2</td>
-                                        <td>-14%</td>
-                                        <td>100%</td>
-                                        <td>88%</td>
-                                        <td>0,94</td>
+                                        <td>Submission of EOI</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="pemenuhan_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="alokasi_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="progress_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="realisasi_3" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td><span id="hari_3">Hari</span></td>
+                                        <td><span id="persentase_3">persentase</span></td>
+                                        <td><span id="pelaksanaan_3">pelaksanaan</span></td>
+                                        <td><span id="jadwal_3">jadwal</span></td>
+                                        <td><span id="rata_3">rata-rata</span></td>
+                                        <td></td>
+                                        <td>
+                                            <input type="hidden" id="id_3">
+                                            <button type="button" onclick="submit('3')" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td>4</td>
                                         <td>Shortlist Appointment</td>
-                                        <td>1</td>
-                                        <td>11</td>
-                                        <td>1</td>
-                                        <td>12</td>
-                                        <td>-1</td>
-                                        <td>-9%</td>
-                                        <td>100%</td>
-                                        <td>92%</td>
-                                        <td>0,96</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="pemenuhan_4" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="alokasi_4" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="progress_4" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="realisasi_4" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td><span id="hari_4">Hari</span></td>
+                                        <td><span id="persentase_4">persentase</span></td>
+                                        <td><span id="pelaksanaan_4">pelaksanaan</span></td>
+                                        <td><span id="jadwal_4">jadwal</span></td>
+                                        <td><span id="rata_4">rata-rata</span></td>
+                                        <td></td>
+                                        <td>
+                                            <input type="hidden" id="id_4">
+                                            <button type="button" onclick="submit('4')" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td>5</td>
                                         <td>Short List Announcement & Issuance of RFP</td>
-                                        <td>1</td>
-                                        <td>10</td>
-                                        <td>1</td>
-                                        <td>7</td>
-                                        <td>3</td>
-                                        <td>30%</td>
-                                        <td>100%</td>
-                                        <td>143%</td>
-                                        <td>1,21</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="pemenuhan_5" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="alokasi_5" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="progress_5" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="realisasi_5" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td><span id="hari_5">Hari</span></td>
+                                        <td><span id="persentase_5">persentase</span></td>
+                                        <td><span id="pelaksanaan_5">pelaksanaan</span></td>
+                                        <td><span id="jadwal_5">jadwal</span></td>
+                                        <td><span id="rata_5">rata-rata</span></td>
+                                        <td></td>
+                                        <td>
+                                            <input type="hidden" id="id_5">
+                                            <button type="button" onclick="submit('5')" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td>6</td>
                                         <td>Clarification Request Priod</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>0</td>
-                                        <td>0%</td>
-                                        <td>100%</td>
-                                        <td>100%</td>
-                                        <td>1,00</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="pemenuhan_6" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="alokasi_6" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="progress_6" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="realisasi_6" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td><span id="hari_6">Hari</span></td>
+                                        <td><span id="persentase_6">persentase</span></td>
+                                        <td><span id="pelaksanaan_6">pelaksanaan</span></td>
+                                        <td><span id="jadwal_6">jadwal</span></td>
+                                        <td><span id="rata_6">rata-rata</span></td>
+                                        <td></td>
+                                        <td>
+                                            <input type="hidden" id="id_6">
+                                            <button type="button" onclick="submit('6')" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td>7</td>
                                         <td>Submission of Technical and Financial Proposals</td>
-                                        <td>1</td>
-                                        <td>12</td>
-                                        <td>1</td>
-                                        <td>11</td>
-                                        <td>1</td>
-                                        <td>8%</td>
-                                        <td>100%</td>
-                                        <td>109%</td>
-                                        <td>1,05</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="pemenuhan_7" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="alokasi_7" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="progress_7" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="realisasi_7" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td><span id="hari_7">Hari</span></td>
+                                        <td><span id="persentase_7">persentase</span></td>
+                                        <td><span id="pelaksanaan_7">pelaksanaan</span></td>
+                                        <td><span id="jadwal_7">jadwal</span></td>
+                                        <td><span id="rata_7">rata-rata</span></td>
+                                        <td></td>
+                                        <td>
+                                            <input type="hidden" id="id_7">
+                                            <button type="button" onclick="submit('7')" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td>8</td>
                                         <td>Evaluation of Technical Proposals</td>
-                                        <td>1</td>
-                                        <td>10</td>
-                                        <td>1</td>
-                                        <td>12</td>
-                                        <td>-2</td>
-                                        <td>-20%</td>
-                                        <td>100%</td>
-                                        <td>83%</td>
-                                        <td>0,92</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="pemenuhan_8" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="alokasi_8" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="progress_8" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="realisasi_8" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td><span id="hari_8">Hari</span></td>
+                                        <td><span id="persentase_8">persentase</span></td>
+                                        <td><span id="pelaksanaan_8">pelaksanaan</span></td>
+                                        <td><span id="jadwal_8">jadwal</span></td>
+                                        <td><span id="rata_8">rata-rata</span></td>
+                                        <td></td>
+                                        <td>
+                                            <input type="hidden" id="id_8">
+                                            <button type="button" onclick="submit('8')" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td>9</td>
                                         <td>Technical Rank Announcement</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>-1</td>
-                                        <td>-100%</td>
-                                        <td>100%</td>
-                                        <td>50%</td>
-                                        <td>0,75</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="pemenuhan_9" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="alokasi_9" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="progress_9" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="realisasi_9" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td><span id="hari_9">Hari</span></td>
+                                        <td><span id="persentase_9">persentase</span></td>
+                                        <td><span id="pelaksanaan_9">pelaksanaan</span></td>
+                                        <td><span id="jadwal_9">jadwal</span></td>
+                                        <td><span id="rata_9">rata-rata</span></td>
+                                        <td></td>
+                                        <td>
+                                            <input type="hidden" id="id_9">
+                                            <button type="button" onclick="submit('9')" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td>10</td>
                                         <td>Opening of Financial Proposals</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>-1</td>
-                                        <td>-100%</td>
-                                        <td>100%</td>
-                                        <td>50%</td>
-                                        <td>0,75</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="pemenuhan_10" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="alokasi_10" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="progress_10" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="realisasi_10" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td><span id="hari_10">Hari</span></td>
+                                        <td><span id="persentase_10">persentase</span></td>
+                                        <td><span id="pelaksanaan_10">pelaksanaan</span></td>
+                                        <td><span id="jadwal_10">jadwal</span></td>
+                                        <td><span id="rata_10">rata-rata</span></td>
+                                        <td></td>
+                                        <td>
+                                            <input type="hidden" id="id_10">
+                                            <button type="button" onclick="submit('10')" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td>11</td>
                                         <td>Evaluation of Financial Proposals</td>
-                                        <td>1</td>
-                                        <td>5</td>
-                                        <td>1</td>
-                                        <td>3</td>
-                                        <td>2</td>
-                                        <td>40%</td>
-                                        <td>100%</td>
-                                        <td>167%</td>
-                                        <td>1,33</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="pemenuhan_11" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="alokasi_11" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="progress_11" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="realisasi_11" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td><span id="hari_11">Hari</span></td>
+                                        <td><span id="persentase_11">persentase</span></td>
+                                        <td><span id="pelaksanaan_11">pelaksanaan</span></td>
+                                        <td><span id="jadwal_11">jadwal</span></td>
+                                        <td><span id="rata_11">rata-rata</span></td>
+                                        <td></td>
+                                        <td>
+                                            <input type="hidden" id="id_11">
+                                            <button type="button" onclick="submit('11')" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td>12</td>
                                         <td>Combined Evaluation</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>1</td>
-                                        <td>5</td>
-                                        <td>-3</td>
-                                        <td>-150%</td>
-                                        <td>100%</td>
-                                        <td>40%</td>
-                                        <td>0,70</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="pemenuhan_12" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="alokasi_12" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="progress_12" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="realisasi_12" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td><span id="hari_12">Hari</span></td>
+                                        <td><span id="persentase_12">persentase</span></td>
+                                        <td><span id="pelaksanaan_12">pelaksanaan</span></td>
+                                        <td><span id="jadwal_12">jadwal</span></td>
+                                        <td><span id="rata_12">rata-rata</span></td>
+                                        <td></td>
+                                        <td>
+                                            <input type="hidden" id="id_12">
+                                            <button type="button" onclick="submit('12')" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td>13</td>
                                         <td>Final Ranking</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>4</td>
-                                        <td>-3</td>
-                                        <td>-300%</td>
-                                        <td>100%</td>
-                                        <td>25%</td>
-                                        <td>0,63</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="pemenuhan_13" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="alokasi_13" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="progress_13" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="realisasi_13" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td><span id="hari_13">Hari</span></td>
+                                        <td><span id="persentase_13">persentase</span></td>
+                                        <td><span id="pelaksanaan_13">pelaksanaan</span></td>
+                                        <td><span id="jadwal_13">jadwal</span></td>
+                                        <td><span id="rata_13">rata-rata</span></td>
+                                        <td></td>
+                                        <td>
+                                            <input type="hidden" id="id_13">
+                                            <button type="button" onclick="submit('13')" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td>14</td>
                                         <td>Contract Negotiation</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>-1</td>
-                                        <td>-100%</td>
-                                        <td>100%</td>
-                                        <td>50%</td>
-                                        <td>0,75</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="pemenuhan_14" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="alokasi_14" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="progress_14" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="realisasi_14" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td><span id="hari_14">Hari</span></td>
+                                        <td><span id="persentase_14">persentase</span></td>
+                                        <td><span id="pelaksanaan_14">pelaksanaan</span></td>
+                                        <td><span id="jadwal_14">jadwal</span></td>
+                                        <td><span id="rata_14">rata-rata</span></td>
+                                        <td></td>
+                                        <td>
+                                            <input type="hidden" id="id_14">
+                                            <button type="button" onclick="submit('14')" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td>15</td>
                                         <td>Contract Sigining & Announcement</td>
-                                        <td>1</td>
-                                        <td>15</td>
-                                        <td>1</td>
-                                        <td>14</td>
-                                        <td>1</td>
-                                        <td>7%</td>
-                                        <td>100%</td>
-                                        <td>107%</td>
-                                        <td>1,04</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="pemenuhan_15" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="alokasi_15" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="progress_15" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="realisasi_15" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td><span id="hari_15">Hari</span></td>
+                                        <td><span id="persentase_15">persentase</span></td>
+                                        <td><span id="pelaksanaan_15">pelaksanaan</span></td>
+                                        <td><span id="jadwal_15">jadwal</span></td>
+                                        <td><span id="rata_15">rata-rata</span></td>
+                                        <td></td>
+                                        <td>
+                                            <input type="hidden" id="id_15">
+                                            <button type="button" onclick="submit('15')" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td>16</td>
                                         <td>Contract Completion</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>0</td>
-                                        <td>0%</td>
-                                        <td>100%</td>
-                                        <td>100%</td>
-                                        <td>1,00</td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="pemenuhan_16" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="alokasi_16" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="progress_16" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group input-group-sm input-group-button">
+                                                <input name="pelelangan" id="realisasi_16" type="text" class="form-control" placeholder="...">
+                                            </div>
+                                        </td>
+                                        <td><span id="hari_16">Hari</span></td>
+                                        <td><span id="persentase_16">persentase</span></td>
+                                        <td><span id="pelaksanaan_16">pelaksanaan</span></td>
+                                        <td><span id="jadwal_16">jadwal</span></td>
+                                        <td><span id="rata_16">rata-rata</span></td>
+                                        <td></td>
+                                        <td>
+                                            <input type="hidden" id="id_16">
+                                            <button type="button" onclick="submit('16')" class="btn btn-primary btn-mini waves-effect waves-light"><i class="icofont icofont-check"></i></button>
+                                        </td>
                                     </tr>
                                     
                                 </tbody>

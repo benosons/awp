@@ -272,6 +272,15 @@ class DataModel extends Model{
           return  $query->getResult();
     }
 
+    public function getpelelangan($param, $value)
+    {
+      $builder = $this->db->table('data_pelelangan');
+      $query   = $builder->get();
+      // echo $this->db->getLastQuery();die;
+      
+      return  $query->getResult();
+    }
+
     public function cekmonev($kode, $kode_parent)
     {
           $builder = $this->db->table('data_monev');
@@ -285,6 +294,17 @@ class DataModel extends Model{
     {
       
       $builder = $this->db->table('data_monev');
+      $query   = $builder->where('id', $id);
+      $query->update($data);
+      // echo $this->db->getLastQuery();die;
+
+      return true;
+    }
+
+    public function updatepelelangan($id, $data)
+    {
+      
+      $builder = $this->db->table('data_pelelangan');
       $query   = $builder->where('id', $id);
       $query->update($data);
       // echo $this->db->getLastQuery();die;
