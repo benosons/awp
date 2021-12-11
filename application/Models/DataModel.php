@@ -149,11 +149,11 @@ class DataModel extends Model{
       return  $query->getResult();
     }
 
-    public function getmonev($param = null, $ids = null)
+    public function getmonev($param = null, $ids = null, $periode = null)
     {
       $builder = $this->db->table('data_monev');
       if($param){
-        $builder->where('kota', $param);
+        $builder->where(['kota' => $param, 'periode' => $periode]);
       }
       $builder->orderBy('kode_aspek ASC');
       $query = $builder->get();
@@ -161,11 +161,11 @@ class DataModel extends Model{
       return  $query->getResult();
     }
 
-    public function getinformasi($param = null, $ids = null)
+    public function getinformasi($param = null, $ids = null, $periode = null)
     {
       $builder = $this->db->table('data_informasi_umum');
       if($param){
-        $builder->where('kota', $param);
+        $builder->where(['kota' => $param, 'periode' => $periode]);
       }
       $builder->orderBy('kode ASC');
       $query = $builder->get();

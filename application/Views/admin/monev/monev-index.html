@@ -3,6 +3,9 @@
     .table td, .table th {
         vertical-align: middle!important;
     }
+    .text-black {
+        color:black;
+    }
 </style>
 <div class="main-body">
         <div class="page-wrapper">
@@ -35,7 +38,7 @@
                         <!-- <h5>Base style - hover</h5> -->
                         <!-- <span>This example shows DataTables with just the hover class specified. This class will instruct DataTables' styling to highlight a row when the mouse is hovered over it.</span> -->
                         <div class="row">
-                            <div class="col-sm-4">
+                            <div class="col-sm-5">
                                 <!-- <input id="pilih-bulan" data-dd-hide-day="true" name="dropper-default" class="form-control form-control-center" type="text" placeholder="Select your date" /> -->
                                 <div class="form-group row">
                                     <label class="col-sm-6 col-form-label">Kabupaten/ Kota</label>
@@ -55,12 +58,29 @@
                                         </select>
                                     </div>
                                 </div>
+                                
+                            </div>
+                            <div class="col-sm-3">
+                                <!-- <input id="pilih-bulan" data-dd-hide-day="true" name="dropper-default" class="form-control form-control-center" type="text" placeholder="Select your date" /> -->
+                                <div class="form-group row">
+                                    <label class="col-sm-6 col-form-label">Periode</label>
+                                    <div class="col-sm-6">
+                                        <select id="pilih-periode" name="select" class="form-control">
+                                            <option value="">Pilih</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
                             </div>
 
-                            <div class="col-sm-4">
+                            <div class="col-sm-2">
                             </div>
-                            <div class="col-sm-4 " hidden>
-                                <button id="btn-tambah" class="btn btn-primary pull-right" data-toggle="modal" data-target="#sign-in-modal" data-backdrop="static"><i class="icofont icofont icofont-ui-add"></i>Tambah</button>
+                            <div class="col-sm-2">
+                                <button id="btn-load" class="btn btn-primary pull-right"><i class="icofont icofont icofont-search"></i>Tampilkan</button>
                             </div>
                         
                         </div>
@@ -1695,9 +1715,10 @@
                                 </thead>
                                 <tbody>
                                     <tr class="group bg-default">
-                                        <td colspan="10"><center>Aspek Peraturan<center></center></center></td>
+                                        <td colspan="4"><center class="text-black">Aspek Peraturan</center></td>
                                         <!-- <td ><center>11<center></center></center></td>
                                         <td colspan="4"></td> -->
+                                        <td colspan="6" class="text-black">10</td>
                                     </tr>
                                     <!-- 1 -->
                                     <tr>
@@ -2172,12 +2193,19 @@
                                         <td>Belum terakomodasinya isu gender dan upaya penanganannya dalam dokumen kebijakan dan perencanaan persampahan kota/kab </td>
                                         <td>0</td>
                                     </tr>
+                                    <tr class="group bg-default">
+                                        <td colspan="4"><center class="text-black">Jumlah</center></td>
+                                        <!-- <td ><center>11<center></center></center></td>
+                                        <td colspan="4"></td> -->
+                                        <td colspan="6" class="text-black"><span id="sum_nilai_1">10000</span></td>
+                                    </tr>
 
                                     <!-- Aspek Kelembagaan/SDM -->
                                     <tr class="group bg-default">
-                                        <td colspan="10"><center>Aspek Kelembagaan/SDM</center></td>
+                                        <td colspan="4"><center class="text-black">Aspek Kelembagaan/SDM</center></td>
                                         <!-- <td ><center>11<center></center></center></td>
                                         <td colspan="4"></td> -->
+                                        <td colspan="6" class="text-black">3</td>
                                     </tr>
                                     <tr>
                                         <td rowspan="2">1</td>
@@ -2350,12 +2378,19 @@
                                         <td>Tidak adanya keterlibatan perempuan dalam pelatihan pengelolaan sampah </td>
                                         <td>0</td>
                                     </tr>
+                                    <tr class="group bg-default">
+                                        <td colspan="4"><center class="text-black">Jumlah</center></td>
+                                        <!-- <td ><center>11<center></center></center></td>
+                                        <td colspan="4"></td> -->
+                                        <td colspan="6" class="text-black"><span id="sum_nilai_2">10000</span></td>
+                                    </tr>
 
                                     <!-- Aspek Kelembagaan/SDM -->
                                     <tr class="group bg-default">
-                                        <td colspan="10"><center>Aspek Pendanaan/Pembiayaan</center></td>
+                                        <td colspan="4" class="text-black"><center>Aspek Pendanaan/Pembiayaan</center></td>
                                         <!-- <td ><center>11<center></center></center></td>
                                         <td colspan="4"></td> -->
+                                        <td colspan="6" class="text-black">4</td>
                                     </tr>
                                     <tr>
                                         <td rowspan="2">1</td>
@@ -2530,12 +2565,19 @@
                                         <td>Belum ada dana non pemerintah yang ditujukan untuk kegiatan pengelolaan sampah</td>
                                         <td>0</td>
                                     </tr>
+                                    <tr class="group bg-default">
+                                        <td colspan="4"><center class="text-black">Jumlah</center></td>
+                                        <!-- <td ><center>11<center></center></center></td>
+                                        <td colspan="4"></td> -->
+                                        <td colspan="6" class="text-black"><span id="sum_nilai_3">10000</span></td>
+                                    </tr>
 
                                     <!-- Aspek Teknis/Sarana Prasarana -->
                                     <tr class="group bg-default">
-                                        <td colspan="10"><center>Aspek Teknis/Sarana Prasarana</center></td>
+                                        <td colspan="4" class="text-black"><center>Aspek Teknis/Sarana Prasarana</center></td>
                                         <!-- <td ><center>11<center></center></center></td>
                                         <td colspan="4"></td> -->
+                                        <td colspan="6" class="text-black">4</td>
                                     </tr>
                                     <tr>
                                         <td rowspan="2">1</td>
@@ -2751,12 +2793,19 @@
                                         <td><0,7</td>
                                         <td>0</td>
                                     </tr>
+                                    <tr class="group bg-default">
+                                        <td colspan="4"><center class="text-black">Jumlah</center></td>
+                                        <!-- <td ><center>11<center></center></center></td>
+                                        <td colspan="4"></td> -->
+                                        <td colspan="6" class="text-black"><span id="sum_nilai_5">10000</span></td>
+                                    </tr>
 
                                     <!-- Aspek Masyarakat/Pemangku Kepentingan -->
                                     <tr class="group bg-default">
-                                        <td colspan="10"><center>Aspek Masyarakat/Pemangku Kepentingan</center></td>
+                                        <td colspan="4" class="text-black"><center>Aspek Masyarakat/Pemangku Kepentingan</center></td>
                                         <!-- <td ><center>11<center></center></center></td>
                                         <td colspan="4"></td> -->
+                                        <td colspan="6" class="text-black">2</td>
                                     </tr>
                                     <tr>
                                         <td rowspan="2">1</td>

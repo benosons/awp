@@ -1706,13 +1706,14 @@ class Jsondata extends \CodeIgniter\Controller
 				$request  = $this->request;
 				$param 	  = $request->getVar('param');
 				$id		 	  = $request->getVar('id');
+				$periode		 	  = $request->getVar('periode');
 				$role 		= $this->data['role'];
 				$userid		= $this->data['userid'];
 				
 					$model = new \App\Models\DataModel();
 					$modelfiles = new \App\Models\FilesModel();
 
-					$data = $model->getmonev($param, $id);
+					$data = $model->getmonev($param, $id, $periode);
 
 					if($data){
 						$response = [
@@ -1745,19 +1746,20 @@ class Jsondata extends \CodeIgniter\Controller
 				$request  = $this->request;
 				$param 	  = $request->getVar('param');
 				$id		 	  = $request->getVar('id');
+				$periode		 	  = $request->getVar('periode');
 				$role 		= $this->data['role'];
 				$userid		= $this->data['userid'];
 				
 					$model = new \App\Models\DataModel();
 					$modelfiles = new \App\Models\FilesModel();
 
-					$data = $model->getinformasi($param, $id);
+					$data = $model->getinformasi($param, $id, $periode);
 
 					if($data){
 						$response = [
 							'status'   => 'sukses',
 							'code'     => '1',
-							'data' 		 => $data
+							'data' 		=> $data
 						];
 					}else{
 						$response = [
@@ -2323,6 +2325,7 @@ class Jsondata extends \CodeIgniter\Controller
 					'update_date' => $this->now,
 					'kota' => $request->getVar('kota'),
 					'group' => $request->getVar('group'),
+					'periode' => $request->getVar('periode'),
 				];
 			}else if($request->getVar('group') == '2'){
 				$datas = [
@@ -2344,6 +2347,7 @@ class Jsondata extends \CodeIgniter\Controller
 					'update_date' => $this->now,
 					'kota' => $request->getVar('kota'),
 					'group' => $request->getVar('group'),
+					'periode' => $request->getVar('periode'),
 				];
 
 				
@@ -2360,6 +2364,7 @@ class Jsondata extends \CodeIgniter\Controller
 					'update_date' => $this->now,
 					'kota' => $request->getVar('kota'),
 					'group' => $request->getVar('group'),
+					'periode' => $request->getVar('periode'),
 				];
 			}else if($request->getVar('group') == '4'){
 				$datas = [
@@ -2374,6 +2379,7 @@ class Jsondata extends \CodeIgniter\Controller
 					'update_date' => $this->now,
 					'kota' => $request->getVar('kota'),
 					'group' => $request->getVar('group'),
+					'periode' => $request->getVar('periode'),
 				];
 			}
 			
@@ -2396,6 +2402,7 @@ class Jsondata extends \CodeIgniter\Controller
 					'update_date' => $this->now,
 					'kota' => $request->getVar('kota'),
 					'group' => $request->getVar('group'),
+					'periode' => $request->getVar('periode'),
 
 				];
 			}else if($request->getVar('group') == '2'){
@@ -2420,6 +2427,7 @@ class Jsondata extends \CodeIgniter\Controller
 					'update_date' => $this->now,
 					'kota' => $request->getVar('kota'),
 					'group' => $request->getVar('group'),
+					'periode' => $request->getVar('periode'),
 				];
 
 			}else if($request->getVar('group') == '3'){
@@ -2437,6 +2445,7 @@ class Jsondata extends \CodeIgniter\Controller
 					'update_date' => $this->now,
 					'kota' => $request->getVar('kota'),
 					'group' => $request->getVar('group'),
+					'periode' => $request->getVar('periode'),
 				];
 			}else if($request->getVar('group') == '4'){
 				$data = [
@@ -2453,6 +2462,7 @@ class Jsondata extends \CodeIgniter\Controller
 					'update_date' => $this->now,
 					'kota' => $request->getVar('kota'),
 					'group' => $request->getVar('group'),
+					'periode' => $request->getVar('periode'),
 				];
 			}
 

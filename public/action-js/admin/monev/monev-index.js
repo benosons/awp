@@ -48,9 +48,14 @@ $(document).ready(function(){
     loadaspek('parameter', this.value)
   })
 
-  $('#pilih-kota-kab').on('change', function(){
-    loaddata(this.value);
-    loadinformasi(this.value);
+  // $('#pilih-kota-kab').on('change', function(){
+  //   loaddata(this.value);
+  //   loadinformasi(this.value);
+  // })
+  
+  $('#btn-load').on('click', function(){
+    loaddata($('#pilih-kota-kab').val(), '', $('#pilih-periode').val());
+    loadinformasi($('#pilih-kota-kab').val(), '', $('#pilih-periode').val());
   })
 
 
@@ -92,7 +97,7 @@ function loadaspek(param, kode){
       })
     }
 
-function loaddata(param, ids){
+function loaddata(param, ids, periode){
 
   $.ajax({
       type: 'post',
@@ -101,12 +106,19 @@ function loaddata(param, ids){
       data : {
               param      : param,
               id         : ids,
+              periode    : periode,
       },
       success: function(result){
           let data = result.data;
           let code = result.code;
 
       if(code == 1){
+        var sum_nilai_1 = 0;
+        var sum_nilai_2 = 0;
+        var sum_nilai_3 = 0;
+        var sum_nilai_4 = 0;
+        var sum_nilai_5 = 0;
+
         for (let index = 0; index < data.length; index++) {
           const element = data[index];
           
@@ -117,8 +129,26 @@ function loaddata(param, ids){
           $('#url_'+element['kode_aspek']+'_'+element['nomor']).val(element['url']);
           $('#tahun_'+element['kode_aspek']+'_'+element['nomor']).val(element['tahun']);
           $('#new_keterangan_'+element['kode_aspek']+'_'+element['nomor']).val(element['note']);
+
+          if(element['kode_aspek'] == 1){
+            sum_nilai_1 += parseInt(element['nilai']);
+          }else if(element['kode_aspek'] == 2){
+            sum_nilai_2 += parseInt(element['nilai']);
+          }else if(element['kode_aspek'] == 3){
+            sum_nilai_3 += parseInt(element['nilai']);
+          }else if(element['kode_aspek'] == 4){
+            sum_nilai_4 += parseInt(element['nilai']);
+          }else if(element['kode_aspek'] == 5){
+            sum_nilai_5 += parseInt(element['nilai']);
+          }
           
         }
+
+        $('#sum_nilai_1').html(sum_nilai_1);
+        $('#sum_nilai_2').html(sum_nilai_2);
+        $('#sum_nilai_3').html(sum_nilai_3);
+        $('#sum_nilai_4').html(sum_nilai_4);
+        $('#sum_nilai_5').html(sum_nilai_5);
       }else{
         $('input').val('');
       }
@@ -268,7 +298,7 @@ function loaddata(param, ids){
       })
     }
 
-function loadinformasi(param, ids){
+function loadinformasi(param, ids, periode){
 
       $.ajax({
           type: 'post',
@@ -277,6 +307,7 @@ function loadinformasi(param, ids){
           data : {
                   param      : param,
                   id         : ids,
+                  periode    : periode,
           },
           success: function(result){
               let data = result.data;
@@ -370,6 +401,7 @@ function submit(param, aspek, number, group){
   
   if(param == 'informasi_umum'){
     var formData = new FormData();
+    formData.append('periode', $('#pilih-periode').val());
     if(number){
       if(group == '1'){
         formData.append('id', $('#id_'+aspek+'_'+number).val());
@@ -495,6 +527,7 @@ function submit(param, aspek, number, group){
 
   }else{
       var formData = new FormData();
+          formData.append('periode', $('#pilih-periode').val());
           formData.append('id', $('#id_'+aspek+'_'+number).val());
           formData.append('aspek', param);
           formData.append('kode_aspek', aspek);
