@@ -662,6 +662,46 @@ class Jsondata extends \CodeIgniter\Controller
 		}
 	}
 
+	public function loadlahan()
+	{
+		try
+		{
+				$request  = $this->request;
+				$param 	  = $request->getVar('param');
+				$id		 	  = $request->getVar('id');
+				$periode		 	  = $request->getVar('periode');
+				$role 		= $this->data['role'];
+				$userid		= $this->data['userid'];
+				
+					$model = new \App\Models\DataModel();
+					$modelfiles = new \App\Models\FilesModel();
+
+					$data = $model->getlahan($param, $id, $periode);
+
+					if($data){
+						$response = [
+							'status'   => 'sukses',
+							'code'     => '1',
+							'data' 		=> $data
+						];
+					}else{
+						$response = [
+						    'status'   => 'gagal',
+						    'code'     => '0',
+						    'data'     => 'tidak ada data',
+						];
+					}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
 	public function loadnip()
 	{
 		try
@@ -2288,6 +2328,59 @@ class Jsondata extends \CodeIgniter\Controller
 
 			];
 			$res = $model->saveData('data_monev', $data);
+			$id  = $model->insertID();
+		}
+
+
+		$response = [
+				'status'   => 'sukses',
+				'code'     => '0',
+				'data' 		 => 'terkirim'
+		];
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+
+	}
+
+	public function saveLahan(){
+
+		$request  = $this->request;
+		$param 	  = $request->getVar('param');
+		$role 		= $this->data['role'];
+		$userid		= $this->data['userid'];
+		$model 	  = new \App\Models\DataModel();
+		
+		if($request->getVar('id')){
+			$datas = [
+				'kota_kab' => $request->getVar('kota_kab'),
+				'lokasi' => $request->getVar('lokasi'),
+				'desa_kel' => $request->getVar('desa_kel'),
+				'kecamatan' => $request->getVar('kecamatan'),
+				'luas' => $request->getVar('luas'),
+				'status' => $request->getVar('status'),
+				'keterangan' => $request->getVar('keterangan'),
+				'update_by' => $userid,
+				'update_date' => $this->now
+			];
+			;
+			$res = $model->updateLahan($request->getVar('id'), $datas);
+		}else{
+			$data = [
+				'kota_kab' => $request->getVar('kota_kab'),
+				'lokasi' => $request->getVar('lokasi'),
+				'desa_kel' => $request->getVar('desa_kel'),
+				'kecamatan' => $request->getVar('kecamatan'),
+				'luas' => $request->getVar('luas'),
+				'status' => $request->getVar('status'),
+				'keterangan' => $request->getVar('keterangan'),
+				'create_by' => $userid,
+				'update_by' => $userid,
+				'create_date' => $this->now,
+				'update_date' => $this->now,
+
+			];
+			$res = $model->saveData('data_lahan', $data);
 			$id  = $model->insertID();
 		}
 

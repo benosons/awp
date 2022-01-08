@@ -1,0 +1,164 @@
+{% extends "admin/layout.html" %} {% block content %}
+<style>
+    .table td, .table th {
+        vertical-align: middle!important;
+    }
+    .text-black {
+        color:black;
+    }
+</style>
+<div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page-header start -->
+            <div class="page-header">
+              <input hidden id="userid" value="{{userid}}">
+              <input hidden id="role" value="{{role}}">
+                <div class="page-header-title">
+                    <h4>INFORMASI LAHAN</h4>
+                    <!-- <span>Easy to customise core stylesheets</span> -->
+                </div>
+                <div class="page-header-breadcrumb">
+                    <ul class="breadcrumb-title">
+                        <li class="breadcrumb-item">
+                            <a href="{{baseURL}}">
+                                <i class="icofont icofont-home"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="#!">Module RC</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Page-header end -->
+            <!-- Page-body start -->
+            <div class="page-body">
+                <!-- Base style - Hover table start -->
+                <div class="card">
+                    <div class="card-header" style="padding-top:2.5rem;">
+                        <!-- <h5>Base style - hover</h5> -->
+                        <!-- <span>This example shows DataTables with just the hover class specified. This class will instruct DataTables' styling to highlight a row when the mouse is hovered over it.</span> -->
+                        <div class="row">
+
+                            <div class="col-sm-10">
+                            </div>
+                            <div class="col-sm-2">
+                                <button id="" class="btn btn-primary pull-right" data-toggle="modal" data-target="#tambah-modal" data-backdrop="static"><i class="icofont icofont icofont-plus"></i>Tambah Data</button>
+                            </div>
+                        
+                        </div>
+                    </div>
+                    
+                    <div class="card-block">
+                        <div class="dt-responsive table-responsive">
+                            <table id="all-lahan" class="table table-bordered" style="font-size:12px;">
+                                <thead>
+                                    <tr class="bg-inverse">
+                                        <th><center>No</center></th>
+                                        <th><center>Kabupaten/Kota</center></th>
+                                        <th><center>Lokasi</center></th>
+                                        <th><center>Kel/Desa</center></th>
+                                        <th><center>Kecamatan</center></th>
+                                        <th><center>Luas Lahan (m2)</center></th>
+                                        <th><center>Status Usulan</center></th>
+                                        <th><center>Keterangan</center></th>
+                                        <th><center>Action</center></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Base style - Hover table end -->
+            </div>
+            <!-- Page-body end -->
+        </div>
+    </div>
+    <div id="styleSelector">
+
+    </div>
+
+    <div class="modal fade" id="tambah-modal" name="in-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Form Lahan Keseluruhan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-b-0">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Kabupaten/ Kota</label>
+                        <div class="col-sm-8">
+                            <select id="kota_kab" name="select" class="form-control">
+                                <option value="">Pilih</option>
+                                <option value="kota_bandung">Kota Bandung</option>
+                                <option value="kota_cimahi">Kota Cimahi</option>
+                                <option value="kab_bandung_barat">Kab Bandung Barat</option>
+                                <option value="kab_bandung">Kab Bandung</option>
+                                <option value="kab_purwakarta">Kab Purwakarta</option>
+                                <option value="kab_karawang">Kab Karawang</option>
+                                <option value="kab_cianjur">Kab Cianjur</option>
+                                <option value="kab_bekasi">Kab Bekasi</option>
+                                <option value="kab_garut">Kab Garut</option>
+                                <option value="kab_sumedang">Kab Sumedang</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Lokasi</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="lokasi" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Kel/Desa</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="desa_kel" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Kecamatan</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="kecamatan" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Luas Lahan (m2)</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="luas" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Status Usulan</label>
+                        <div class="col-sm-8">
+                            <select id="status" name="select" class="form-control">
+                                <option value="">Pilih</option>
+                                <option value="Pembatalan Klarifikasi 1">Pembatalan Klarifikasi 1</option>
+                                <option value="Pembatalan Klarifikasi 2">Pembatalan Klarifikasi 2</option>
+                                <option value="Pembatalan Klarifikasi 3">Pembatalan Klarifikasi 3</option>
+                                <option value="Pembangunan Tahap 1">Pembangunan Tahap 1</option>
+                                <option value="Pembangunan Tahap 2">Pembangunan Tahap 2</option>
+                                <option value="Pembangunan Tahap 3">Pembangunan Tahap 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Keterangan</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="keterangan" class="form-control" placeholder="">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="ti-close"></i> Batal </button>
+                    <button type="button" class="btn btn-primary" id="save-lahan"><i class="ti-check-box"></i> Simpan </button>
+                    <button type="button" class="btn btn-primary" id="update-"><i class="ti-check-box"></i> Update </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<!-- <script src="{{baseURL}}/assets/action-js/admin/datapengaduan.js"></script> -->
+{% endblock %}

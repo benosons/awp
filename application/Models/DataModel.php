@@ -161,6 +161,18 @@ class DataModel extends Model{
       return  $query->getResult();
     }
 
+    public function getlahan($param = null, $ids = null, $periode = null)
+    {
+      $builder = $this->db->table('data_lahan');
+      if($param){
+        $builder->where(['kota' => $param, 'periode' => $periode]);
+      }
+      $builder->orderBy('id ASC');
+      $query = $builder->get();
+      // echo $this->db->getLastQuery();die;
+      return  $query->getResult();
+    }
+
     public function getinformasi($param = null, $ids = null, $periode = null)
     {
       $builder = $this->db->table('data_informasi_umum');
