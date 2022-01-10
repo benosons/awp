@@ -125,6 +125,7 @@ $routes->post('loadjadwal', 'Jsondata::loadjadwal');
 $routes->post('addjadwal', 'Jsondata::addjadwal');
 $routes->post('loadaspek', 'Jsondata::loadaspek');
 $routes->post('loadpelelangan', 'Jsondata::loadpelelangan');
+$routes->post('deletelahan', 'Jsondata::deletelahan');
 
 
 

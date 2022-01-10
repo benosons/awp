@@ -136,7 +136,6 @@ function loaddata(param, ids, periode){
                     { 'mDataProp': 'keterangan'},
                     { 'mDataProp': 'id' },
 
-
                 ],
                 'rowsGroup': [0],
                 
@@ -150,9 +149,8 @@ function loaddata(param, ids, periode){
                                           <span class="sr-only"></span>
                                       </button>
                                       <div class="dropdown-menu">
-                                          <a class="dropdown-item waves-effect waves-light" href="button.html#">Action</a>
-                                          <a class="dropdown-item waves-effect waves-light" href="button.html#">Another action</a>
-                                          <a class="dropdown-item waves-effect waves-light" href="button.html#">Something else here</a>
+                                          <a class="dropdown-item waves-effect waves-light" onclick="editdong('`+row.id+`','`+row.kota_kab+`','`+row.lokasi+`','`+row.desa_kel+`','`+row.kecamatan+`','`+row.luas+`','`+row.status+`','`+row.keterangan+`')">Edit</a>
+                                          <a class="dropdown-item waves-effect waves-light"onclick="deletedong('`+row.id+`')">Delete</a>
                                       </div>
                                   </div></center>`;
       
@@ -275,7 +273,7 @@ function save(formData){
       url: 'saveLahan',
       data : formData,
       success: function(result){
-        // location.reload();
+        location.reload();
       }
     });
   };
@@ -452,42 +450,54 @@ function submit(param, aspek, number, group){
     }
   };
 
-  function action(mode, id, status){
-    if(mode == 'delete'){
+  function deletedong(id){
       bootbox.confirm({
-        message: "Are you sure to <b>Delete</b> ?",
+        message: "Anda yakin <b>Hapus</b> data ini ?",
         buttons: {
          confirm: {
-             label: '<i class="fa fa-check"></i> Yes',
+             label: '<i class="fa fa-check"></i> Ya',
              className: 'btn-success btn-xs',
          },
          cancel: {
-             label: '<i class="fa fa-times"></i> No',
+             label: '<i class="fa fa-times"></i> Tidak',
              className: 'btn-danger btn-xs',
          }
        },
         callback : function(result) {
   			if(result) {
-            isAction(mode, id, status);
+          var formData = new FormData();
+          formData.append('id', id);
+          $.ajax({
+              type: 'post',
+              processData: false,
+              contentType: false,
+              url: 'deletelahan',
+              data : formData,
+              success: function(result){
+                location.reload();
+              }
+            });
     			}
     		}
     });
-  }else{
-    isAction(mode, id, status);
-  }
+  
 }
 
-  function isAction(mode, id, status){
+  function updatelahan(){
     var formData = new FormData();
-    formData.append('mode', mode);
-    formData.append('id', id);
-    formData.append('status', status);
-    formData.append('table', 'data_kegiatan');
+    formData.append('id', $('#idnya').val());
+    formData.append('kota_kab', $('#kota_kab').val());
+    formData.append('lokasi', $('#lokasi').val());
+    formData.append('desa_kel', $('#desa_kel').val());
+    formData.append('kecamatan', $('#kecamatan').val());
+    formData.append('luas', $('#luas').val());
+    formData.append('status', $('#status').val());
+    formData.append('keterangan', $('#keterangan').val());
     $.ajax({
         type: 'post',
         processData: false,
         contentType: false,
-        url: 'actionData',
+        url: 'saveLahan',
         data : formData,
         success: function(result){
           location.reload();
@@ -516,28 +526,36 @@ function submit(param, aspek, number, group){
         })
       }
 
-      function cekperiode(param){
+      function editdong(id,kota_kab,lokasi,desa_kel,kecamatan,luas,status,keterangan){
+        $('#tambah-modal').modal('show');
 
-        $.ajax({
-            type: 'post',
-            dataType: 'json',
-            url: 'cekperiode',
-            data : {
-                    param      : param,
-            },
-            success: function(result){
-                let code = result.code;
-                    if(code == '1'){
-                        $("#isExist").css("display", "block");
-                        window.isExist = 1;
-                        setTimeout(function(){
-                            $("#isExist").css("display", "none");
-                            $('#save-realisasi').prop("disabled", false);
-                        },2000);
-                    }else{
-                        window.isExist = 0;
-                        $('#save-realisasi').prop("disabled", false);
-                    }
-                }
-            })
-          }
+        $('#idnya').val(id);
+        $('#kota_kab').val(kota_kab);
+        $('#lokasi').val(lokasi);
+        $('#desa_kel').val(desa_kel);
+        $('#kecamatan').val(kecamatan);
+        $('#luas').val(luas);
+        $('#status').val(status);
+        $('#keterangan').val(keterangan);
+
+        $('#save-lahan').hide();
+        $('#update-lahan').show();
+      }
+
+      function tambahdong(){
+        $('#tambah-modal').modal('show');
+
+        $('#idnya').val('');
+        $('#kota_kab').val('');
+        $('#lokasi').val('');
+        $('#desa_kel').val('');
+        $('#kecamatan').val('');
+        $('#luas').val('');
+        $('#status').val('');
+        $('#keterangan').val('');
+
+        $('#save-lahan').show();
+        $('#update-lahan').hide();
+      }
+
+      

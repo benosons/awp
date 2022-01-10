@@ -3335,4 +3335,28 @@ class Jsondata extends \CodeIgniter\Controller
 		}
 	}
 
+	public function deletelahan(){
+
+		$request  = $this->request;
+		$mode 	  = $request->getVar('mode');
+		$id 	  	= $request->getVar('id');
+		$status 	= $request->getVar('status');
+		$role 		= $this->data['role'];
+		$userid		= $this->data['userid'];
+
+		$model 	  = new \App\Models\DataModel();
+
+		
+		$res = $model->deletelahan($id);
+		$response = [
+				'status'   => 'sukses',
+				'code'     => '0',
+				'data' 		 => 'terhapus'
+		];
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+
+	}
+
 }

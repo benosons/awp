@@ -76,6 +76,13 @@ class DataModel extends Model{
         return  $query->delete();
     }
 
+    public function deletelahan($id = null)
+    {
+        $builder = $this->db->table('data_lahan');
+        $query   = $builder->where('id', $id);
+        return  $query->delete();
+    }
+
     public function updateData($id, $data)
     {
       $builder = $this->db->table('data');
@@ -306,6 +313,17 @@ class DataModel extends Model{
     {
       
       $builder = $this->db->table('data_monev');
+      $query   = $builder->where('id', $id);
+      $query->update($data);
+      // echo $this->db->getLastQuery();die;
+
+      return true;
+    }
+
+    public function updateLahan($id, $data)
+    {
+      
+      $builder = $this->db->table('data_lahan');
       $query   = $builder->where('id', $id);
       $query->update($data);
       // echo $this->db->getLastQuery();die;
