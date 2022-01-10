@@ -33,6 +33,8 @@ $(document).ready(function(){
             formData.append('luas', $('#luas').val());
             formData.append('status', $('#status').val());
             formData.append('keterangan', $('#keterangan').val());
+            formData.append('indikator', $('#indikator').val());
+            formData.append('link', $('#link').val());
         
         save(formData);    
   })
@@ -134,6 +136,8 @@ function loaddata(param, ids, periode){
                     { 'mDataProp': 'luas'},
                     { 'mDataProp': 'status'},
                     { 'mDataProp': 'keterangan'},
+                    { 'mDataProp': 'indikator'},
+                    { 'mDataProp': 'link'},
                     { 'mDataProp': 'id' },
 
                 ],
@@ -149,15 +153,29 @@ function loaddata(param, ids, periode){
                                           <span class="sr-only"></span>
                                       </button>
                                       <div class="dropdown-menu">
-                                          <a class="dropdown-item waves-effect waves-light" onclick="editdong('`+row.id+`','`+row.kota_kab+`','`+row.lokasi+`','`+row.desa_kel+`','`+row.kecamatan+`','`+row.luas+`','`+row.status+`','`+row.keterangan+`')">Edit</a>
+                                          <a class="dropdown-item waves-effect waves-light" onclick="editdong('`+row.id+`','`+row.kota_kab+`','`+row.lokasi+`','`+row.desa_kel+`','`+row.kecamatan+`','`+row.luas+`','`+row.status+`','`+row.keterangan+`','`+row.indikator+`','`+row.link+`')">Edit</a>
                                           <a class="dropdown-item waves-effect waves-light"onclick="deletedong('`+row.id+`')">Delete</a>
                                       </div>
                                   </div></center>`;
       
                             return el;
                         },
-                        aTargets: [ 8 ]
+                        aTargets: [ 10 ]
                     },
+                    {
+                      mRender: function ( data, type, row ) {
+    
+                        if(row.link.includes('https://') || row.link.includes('http://')){
+                          var alink = row.link;
+                        }else{
+                          var alink = 'https://'+row.link;
+                        }
+                        var el =`<center><a target="_blank" href="`+alink+`">`+row.link+`</a></center>`;
+    
+                          return el;
+                      },
+                      aTargets: [ 9 ]
+                  },
                     
                 ],
                 "order": [[ 1, 'asc' ]],
@@ -178,82 +196,6 @@ function loaddata(param, ids, periode){
         }
       })
     }
-
-function loadinformasi(param, ids, periode){
-
-      $.ajax({
-          type: 'post',
-          dataType: 'json',
-          url: 'loadinformasi',
-          data : {
-                  param      : param,
-                  id         : ids,
-                  periode    : periode,
-          },
-          success: function(result){
-              let data = result.data;
-              let code = result.code;
-    
-            if(code == 1){
-              for (let index = 0; index < data.length; index++) {
-                const element = data[index];
-
-                if(element['nomor']){
-                  if(element['group'] == '1'){
-                    $('#id_'+element['kode']+'_'+element['nomor']).val(element['id']);
-                    $('#isian_'+element['kode']+'_'+element['nomor']).val(element['isian']);
-                    $('#sumber_'+element['kode']+'_'+element['nomor']).val(element['sumber']);
-                    $('#tahun_'+element['kode']+'_'+element['nomor']).val(element['tahun']);
-                    $('#keterangan_'+element['kode']+'_'+element['nomor']).val(element['keterangan']);
-                  }else if(element['group'] == '2'){
-                    $('#id_'+element['kode']+'_'+element['nomor']).val(element['id']);
-                    $('#jumlah1_'+element['kode']+'_'+element['nomor']).val(element['jumlah1']);
-                    $('#kapasitas1_'+element['kode']+'_'+element['nomor']).val(element['kapasitas1']);
-                    $('#sumber1_'+element['kode']+'_'+element['nomor']).val(element['sumber1']);
-                    $('#tahun1_'+element['kode']+'_'+element['nomor']).val(element['tahun1']);
-                    $('#kapasitas2_'+element['kode']+'_'+element['nomor']).val(element['kapasitas2']);
-                    $('#ritasi_'+element['kode']+'_'+element['nomor']).val(element['ritasi']);
-                    $('#jumlah2_'+element['kode']+'_'+element['nomor']).val(element['jumlah2']);
-                    $('#kapasitas3_'+element['kode']+'_'+element['nomor']).val(element['kapasitas3']);
-                    $('#sumber2_'+element['kode']+'_'+element['nomor']).val(element['sumber2']);
-                    $('#tahun2_'+element['kode']+'_'+element['nomor']).val(element['tahun2']);
-                    $('#keterangan_'+element['kode']+'_'+element['nomor']).val(element['keterangan']);
-                  }else if(element['group'] == '3'){
-                    $('#id_'+element['kode']+'_'+element['nomor']).val(element['id']);
-                    $('#jumlah_'+element['kode']+'_'+element['nomor']).val(element['jumlah']);
-                    $('#sumber_'+element['kode']+'_'+element['nomor']).val(element['sumber']);
-                    $('#tahun_'+element['kode']+'_'+element['nomor']).val(element['tahun']);
-                  }
-                }else{
-                  if(element['group'] == '1'){
-                    $('#id_'+element['kode']).val(element['id']);
-                    $('#isian_'+element['kode']).val(element['isian']);
-                    $('#sumber_'+element['kode']).val(element['sumber']);
-                    $('#tahun_'+element['kode']).val(element['tahun']);
-                    $('#keterangan_'+element['kode']).val(element['keterangan']);
-                  }else if(element['group'] == '3'){
-                    $('#id_'+element['kode']).val(element['id']);
-                    $('#jumlah_'+element['kode']).val(element['jumlah']);
-                    $('#sumber_'+element['kode']).val(element['sumber']);
-                    $('#tahun_'+element['kode']).val(element['tahun']);
-                  }else if(element['group'] == '4'){
-                    $('#id_'+element['kode']).val(element['id']);
-                    $('#jumlah_'+element['kode']).val(element['jumlah']);
-                    $('#sumber_'+element['kode']).val(element['sumber']);
-                    $('#tahun_'+element['kode']).val(element['tahun']);
-                    $('#keterangan_'+element['kode']).val(element['keterangan']);
-                  }
-                }
-              }
-            }else{
-              
-              $('input').val('');
-            }            
-    
-                
-            }
-          })
-    }    
 
 
 function rubah(angka){
@@ -278,177 +220,6 @@ function save(formData){
     });
   };
 
-function submit(param, aspek, number, group){
-  
-  if(param == 'informasi_umum'){
-    var formData = new FormData();
-    formData.append('periode', $('#pilih-periode').val());
-    if(number){
-      if(group == '1'){
-        formData.append('id', $('#id_'+aspek+'_'+number).val());
-        formData.append('isian', $('#isian_'+aspek+'_'+number).val());
-        formData.append('sumber', $('#sumber_'+aspek+'_'+number).val());
-        formData.append('tahun', $('#tahun_'+aspek+'_'+number).val());
-        formData.append('keterangan', $('#keterangan_'+aspek+'_'+number).val());
-        formData.append('tipe', param);
-        formData.append('kode', aspek);
-        formData.append('nomor', number);
-        formData.append('kota', $('#pilih-kota-kab').val());
-        formData.append('group', group);
-      }else if(group == '2'){
-        
-        formData.append('id', $('#id_'+aspek+'_'+number).val());
-        formData.append('jumlah1', $('#jumlah1_'+aspek+'_'+number).val());
-        formData.append('kapasitas1', $('#kapasitas1_'+aspek+'_'+number).val());
-        formData.append('sumber1', $('#sumber1_'+aspek+'_'+number).val());
-        formData.append('tahun1', $('#tahun1_'+aspek+'_'+number).val());
-        formData.append('kapasitas2', $('#kapasitas2_'+aspek+'_'+number).val());
-        formData.append('ritasi', $('#ritasi_'+aspek+'_'+number).val());
-        formData.append('jumlah2', $('#jumlah2_'+aspek+'_'+number).val());
-        formData.append('kapasitas3', $('#kapasitas3_'+aspek+'_'+number).val());
-        formData.append('sumber2', $('#sumber2_'+aspek+'_'+number).val());
-        formData.append('tahun2', $('#tahun2_'+aspek+'_'+number).val());
-        formData.append('keterangan', $('#keterangan_'+aspek+'_'+number).val());
-        formData.append('tipe', param);
-        formData.append('kode', aspek);
-        formData.append('nomor', number);
-        formData.append('kota', $('#pilih-kota-kab').val());
-        formData.append('group', group);
-      }else if(group == '3'){
-        formData.append('id', $('#id_'+aspek+'_'+number).val());
-        formData.append('jumlah', $('#jumlah_'+aspek+'_'+number).val());
-        formData.append('sumber', $('#sumber_'+aspek+'_'+number).val());
-        formData.append('tahun', $('#tahun_'+aspek+'_'+number).val());
-        formData.append('tipe', param);
-        formData.append('kode', aspek);
-        formData.append('nomor', number);
-        formData.append('kota', $('#pilih-kota-kab').val());
-        formData.append('group', group);
-      }
-    }else{
-      if(group == '1'){
-        formData.append('id', $('#id_'+aspek).val());
-        formData.append('isian', $('#isian_'+aspek).val());
-        formData.append('sumber', $('#sumber_'+aspek).val());
-        formData.append('tahun', $('#tahun_'+aspek).val());
-        formData.append('keterangan', $('#keterangan_'+aspek).val());
-        formData.append('tipe', param);
-        formData.append('kode', aspek);
-        formData.append('nomor', '');
-        formData.append('kota', $('#pilih-kota-kab').val());
-        formData.append('group', group);
-      }else if(group == '2'){
-        formData.append('id', $('#id_'+aspek).val());
-        formData.append('jumlah1', $('#jumlah1_'+aspek).val());
-        formData.append('kapasitas1', $('#kapasitas1_'+aspek).val());
-        formData.append('sumber1', $('#sumber1_'+aspek).val());
-        formData.append('tahun1', $('#tahun1_'+aspek).val());
-        formData.append('kapasitas2', $('#kapasitas2_'+aspek).val());
-        formData.append('ritasi', $('#ritasi_'+aspek).val());
-        formData.append('jumlah2', $('#jumlah2_'+aspek).val());
-        formData.append('kapasitas3', $('#kapasitas3_'+aspek).val());
-        formData.append('sumber2', $('#sumber2_'+aspek).val());
-        formData.append('tahun2', $('#tahun2_'+aspek).val());
-        formData.append('keterangan', $('#keterangan_'+aspek).val());
-        formData.append('tipe', param);
-        formData.append('kode', aspek);
-        formData.append('nomor', '');
-        formData.append('kota', $('#pilih-kota-kab').val());
-        formData.append('group', group);
-      }else if(group == '3'){
-        formData.append('id', $('#id_'+aspek).val());
-        formData.append('jumlah', $('#jumlah_'+aspek).val());
-        formData.append('sumber', $('#sumber_'+aspek).val());
-        formData.append('tahun', $('#tahun_'+aspek).val());
-        formData.append('tipe', param);
-        formData.append('kode', aspek);
-        formData.append('nomor', '');
-        formData.append('kota', $('#pilih-kota-kab').val());
-        formData.append('group', group);
-      }else if(group == '4'){
-        formData.append('id', $('#id_'+aspek).val());
-        formData.append('jumlah', $('#jumlah_'+aspek).val());
-        formData.append('sumber', $('#sumber_'+aspek).val());
-        formData.append('tahun', $('#tahun_'+aspek).val());
-        formData.append('keterangan', $('#keterangan_'+aspek).val());
-        formData.append('tipe', param);
-        formData.append('kode', aspek);
-        formData.append('nomor', '');
-        formData.append('kota', $('#pilih-kota-kab').val());
-        formData.append('group', group);
-      }
-    }
-
-    if($('#pilih-kota-kab').val() == ''){
-        
-      bootbox.alert({
-          message: "Silahkan pilih Kota/ Kabupaten!",
-          size: 'small',
-          buttons: {
-            ok: {
-              label: '<i class="fa fa-check"></i> Ok',
-              className: 'btn-success btn-mini',
-            }
-          }
-      });
-
-    }else{
-
-      $.ajax({
-          type: 'post',
-          processData: false,
-          contentType: false,
-          url: 'saveInformasi',
-          data : formData,
-          success: function(result){
-            location.reload();
-          }
-        });
-  }
-
-  }else{
-      var formData = new FormData();
-          formData.append('periode', $('#pilih-periode').val());
-          formData.append('id', $('#id_'+aspek+'_'+number).val());
-          formData.append('aspek', param);
-          formData.append('kode_aspek', aspek);
-          formData.append('nomor', number);
-          formData.append('kota', $('#pilih-kota-kab').val());
-          formData.append('nilai',$('#nilai_'+aspek+'_'+number).val());
-          formData.append('keterangan',$('#keterangan_'+aspek+'_'+number).val());
-          formData.append('sumber',$('#sumber_'+aspek+'_'+number).val());
-          formData.append('tahun',$('#tahun_'+aspek+'_'+number).val());
-          formData.append('note',$('#new_keterangan_'+aspek+'_'+number).val());
-          formData.append('url',$('#url_'+aspek+'_'+number).val());
-      
-      if($('#pilih-kota-kab').val() == ''){
-        
-            bootbox.alert({
-                message: "Silahkan pilih Kota/ Kabupaten!",
-                size: 'small',
-                buttons: {
-                  ok: {
-                    label: '<i class="fa fa-check"></i> Ok',
-                    className: 'btn-success btn-mini',
-                  }
-                }
-            });
-
-          }else{
-
-            $.ajax({
-                type: 'post',
-                processData: false,
-                contentType: false,
-                url: 'saveAspek',
-                data : formData,
-                success: function(result){
-                  location.reload();
-                }
-              });
-      }
-    }
-  };
 
   function deletedong(id){
       bootbox.confirm({
@@ -493,6 +264,9 @@ function submit(param, aspek, number, group){
     formData.append('luas', $('#luas').val());
     formData.append('status', $('#status').val());
     formData.append('keterangan', $('#keterangan').val());
+    formData.append('indikator', $('#indikator').val());
+    formData.append('link', $('#link').val());
+
     $.ajax({
         type: 'post',
         processData: false,
@@ -526,7 +300,7 @@ function submit(param, aspek, number, group){
         })
       }
 
-      function editdong(id,kota_kab,lokasi,desa_kel,kecamatan,luas,status,keterangan){
+      function editdong(id,kota_kab,lokasi,desa_kel,kecamatan,luas,status,keterangan,indikator, link){
         $('#tambah-modal').modal('show');
 
         $('#idnya').val(id);
@@ -537,6 +311,8 @@ function submit(param, aspek, number, group){
         $('#luas').val(luas);
         $('#status').val(status);
         $('#keterangan').val(keterangan);
+        $('#indikator').val(indikator);
+        $('#link').val(link);
 
         $('#save-lahan').hide();
         $('#update-lahan').show();
@@ -553,6 +329,8 @@ function submit(param, aspek, number, group){
         $('#luas').val('');
         $('#status').val('');
         $('#keterangan').val('');
+        $('#indikator').val('');
+        $('#link').val('');
 
         $('#save-lahan').show();
         $('#update-lahan').hide();

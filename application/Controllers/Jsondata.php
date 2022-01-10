@@ -2360,6 +2360,8 @@ class Jsondata extends \CodeIgniter\Controller
 				'luas' => $request->getVar('luas'),
 				'status' => $request->getVar('status'),
 				'keterangan' => $request->getVar('keterangan'),
+				'indikator' => $request->getVar('indikator'),
+				'link' => $request->getVar('link'),
 				'update_by' => $userid,
 				'update_date' => $this->now
 			];
@@ -2374,6 +2376,8 @@ class Jsondata extends \CodeIgniter\Controller
 				'luas' => $request->getVar('luas'),
 				'status' => $request->getVar('status'),
 				'keterangan' => $request->getVar('keterangan'),
+				'indikator' => $request->getVar('indikator'),
+				'link' => $request->getVar('link'),
 				'create_by' => $userid,
 				'update_by' => $userid,
 				'create_date' => $this->now,
