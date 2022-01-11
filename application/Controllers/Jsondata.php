@@ -2355,13 +2355,22 @@ class Jsondata extends \CodeIgniter\Controller
 			$datas = [
 				'kota_kab' => $request->getVar('kota_kab'),
 				'lokasi' => $request->getVar('lokasi'),
+				'koordinat' => $request->getVar('koordinat'),
 				'desa_kel' => $request->getVar('desa_kel'),
 				'kecamatan' => $request->getVar('kecamatan'),
 				'luas' => $request->getVar('luas'),
 				'status' => $request->getVar('status'),
+				'status_1' => $request->getVar('status_1'),
 				'keterangan' => $request->getVar('keterangan'),
-				'indikator' => $request->getVar('indikator'),
-				'link' => $request->getVar('link'),
+				'link_surat_minat' => $request->getVar('link_surat_minat'),
+				'link_sertifikat' => $request->getVar('link_sertifikat'),
+				'link_surat_aset' => $request->getVar('link_surat_aset'),
+				'link_surat_penyediaan' => $request->getVar('link_surat_penyediaan'),
+				'link_surat_kesiapan' => $request->getVar('link_surat_kesiapan'),
+				'link_surat_kesesuaian' => $request->getVar('link_surat_kesesuaian'),
+				'link_dokumen_lingkungan' => $request->getVar('link_dokumen_lingkungan'),
+				'link_dokumen_sra' => $request->getVar('link_dokumen_sra'),
+
 				'update_by' => $userid,
 				'update_date' => $this->now
 			];
@@ -2369,15 +2378,25 @@ class Jsondata extends \CodeIgniter\Controller
 			$res = $model->updateLahan($request->getVar('id'), $datas);
 		}else{
 			$data = [
+
 				'kota_kab' => $request->getVar('kota_kab'),
 				'lokasi' => $request->getVar('lokasi'),
+				'koordinat' => $request->getVar('koordinat'),
 				'desa_kel' => $request->getVar('desa_kel'),
 				'kecamatan' => $request->getVar('kecamatan'),
 				'luas' => $request->getVar('luas'),
 				'status' => $request->getVar('status'),
+				'status_1' => $request->getVar('status_1'),
 				'keterangan' => $request->getVar('keterangan'),
-				'indikator' => $request->getVar('indikator'),
-				'link' => $request->getVar('link'),
+				'link_surat_minat' => $request->getVar('link_surat_minat'),
+				'link_sertifikat' => $request->getVar('link_sertifikat'),
+				'link_surat_aset' => $request->getVar('link_surat_aset'),
+				'link_surat_penyediaan' => $request->getVar('link_surat_penyediaan'),
+				'link_surat_kesiapan' => $request->getVar('link_surat_kesiapan'),
+				'link_surat_kesesuaian' => $request->getVar('link_surat_kesesuaian'),
+				'link_dokumen_lingkungan' => $request->getVar('link_dokumen_lingkungan'),
+				'link_dokumen_sra' => $request->getVar('link_dokumen_sra'),
+
 				'create_by' => $userid,
 				'update_by' => $userid,
 				'create_date' => $this->now,

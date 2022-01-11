@@ -26,15 +26,23 @@ $(document).ready(function(){
 
   $('#save-lahan').on('click', function(){
         var formData = new FormData();
+
             formData.append('kota_kab', $('#kota_kab').val());
             formData.append('lokasi', $('#lokasi').val());
+            formData.append('koordinat', $('#koordinat').val());
             formData.append('desa_kel', $('#desa_kel').val());
             formData.append('kecamatan', $('#kecamatan').val());
             formData.append('luas', $('#luas').val());
             formData.append('status', $('#status').val());
-            formData.append('keterangan', $('#keterangan').val());
-            formData.append('indikator', $('#indikator').val());
-            formData.append('link', $('#link').val());
+            formData.append('status_1', $('#status_1').val());
+            formData.append('keterangan', $('#keterangan').text());
+            formData.append('link_surat_minat', $('#link_surat_minat').val());
+            formData.append('link_sertifikat', $('#link_sertifikat').val());
+            formData.append('link_surat_aset', $('#link_surat_aset').val());
+            formData.append('link_surat_kesiapan', $('#link_surat_kesiapan').val());
+            formData.append('link_surat_kesesuaian', $('#link_surat_kesesuaian').val());
+            formData.append('link_dokumen_lingkungan', $('#link_dokumen_lingkungan').val());
+            formData.append('link_dokumen_sra', $('#link_dokumen_sra').val());
         
         save(formData);    
   })
@@ -115,7 +123,6 @@ function loaddata(param, ids, periode){
           
         if(code == '1'){
             
-            var groupColumn = 1;
             var table = $('#all-lahan').DataTable({
                 destroy: true,
                 paging: true,
@@ -128,17 +135,25 @@ function loaddata(param, ids, periode){
                 pageLength: 30,
                 aaData: result.data,
                 aoColumns: [
-                    { 'mDataProp': 'id' },
-                    { 'mDataProp': 'kota_kab' },
-                    { 'mDataProp': 'lokasi'},
-                    { 'mDataProp': 'desa_kel'},
-                    { 'mDataProp': 'kecamatan'},
-                    { 'mDataProp': 'luas'},
-                    { 'mDataProp': 'status'},
-                    { 'mDataProp': 'keterangan'},
-                    { 'mDataProp': 'indikator'},
-                    { 'mDataProp': 'link'},
-                    { 'mDataProp': 'id' },
+                    {'mDataProp': 'id'},
+                    {'mDataProp': 'kota_kab'},
+                    {'mDataProp': 'lokasi'},
+                    {'mDataProp': 'koordinat'},
+                    {'mDataProp': 'desa_kel'},
+                    {'mDataProp': 'kecamatan'},
+                    {'mDataProp': 'luas'},
+                    {'mDataProp': 'status'},
+                    {'mDataProp': 'status_1'},
+                    {'mDataProp': 'keterangan'},
+                    {'mDataProp': 'link_surat_minat'},
+                    {'mDataProp': 'link_sertifikat'},
+                    {'mDataProp': 'link_surat_aset'},
+                    {'mDataProp': 'link_surat_penyediaan'},
+                    {'mDataProp': 'link_surat_kesiapan'},
+                    {'mDataProp': 'link_surat_kesesuaian'},
+                    {'mDataProp': 'link_dokumen_lingkungan'},
+                    {'mDataProp': 'link_dokumen_sra'},
+                    {'mDataProp': 'id'},
 
                 ],
                 'rowsGroup': [0],
@@ -147,34 +162,146 @@ function loaddata(param, ids, periode){
                     // { "targets": "_all", "orderable": false },
                     {
                         mRender: function ( data, type, row ) {
-      
+                          console.log(row);
                           var el =`<center><div class="btn-group dropdown-split-info">
                                       <button type="button" class="btn btn-info btn-mini dropdown-toggle dropdown-toggle-split waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                           <span class="sr-only"></span>
                                       </button>
                                       <div class="dropdown-menu">
-                                          <a class="dropdown-item waves-effect waves-light" onclick="editdong('`+row.id+`','`+row.kota_kab+`','`+row.lokasi+`','`+row.desa_kel+`','`+row.kecamatan+`','`+row.luas+`','`+row.status+`','`+row.keterangan+`','`+row.indikator+`','`+row.link+`')">Edit</a>
+                                          <a class="dropdown-item waves-effect waves-light" onclick="editdong(
+                                            '`+row.id+`','`+row.kota_kab+`','`+row.lokasi+`','`+row.koordinat+`','`+row.desa_kel+`','`+row.kecamatan+`','`+row.luas+`','`+row.status+`','`+row.status_1+`','`+row.keterangan+`','`+row.link_surat_minat+`','`+row.link_sertifikat+`','`+row.link_surat_aset+`','`+row.link_surat_penyediaan+`','`+row.link_surat_kesiapan+`','`+row.link_surat_kesesuaian+`','`+row.link_dokumen_lingkungan+`','`+row.link_dokumen_sra+`')">Edit</a>
                                           <a class="dropdown-item waves-effect waves-light"onclick="deletedong('`+row.id+`')">Delete</a>
                                       </div>
                                   </div></center>`;
       
                             return el;
                         },
-                        aTargets: [ 10 ]
+                        aTargets: [ 18 ]
                     },
                     {
                       mRender: function ( data, type, row ) {
-    
-                        if(row.link.includes('https://') || row.link.includes('http://')){
-                          var alink = row.link;
+                        if(row.link_surat_minat.includes('https://') || row.link_surat_minat.includes('http://')){
+                          var alink = row.link_surat_minat;
                         }else{
-                          var alink = 'https://'+row.link;
+                          var alink = 'https://'+row.link_surat_minat;
                         }
-                        var el =`<center><a target="_blank" href="`+alink+`">`+row.link+`</a></center>`;
+                        var el =`<center><a target="_blank" href="`+alink+`">`+row.link_surat_minat+`</a></center>`;
     
                           return el;
                       },
-                      aTargets: [ 9 ]
+                      aTargets: [ 10]
+                  },
+                    {
+                      mRender: function ( data, type, row ) {
+    
+                        if(row.link_sertifikat.includes('https://') || row.link_sertifikat.includes('http://')){
+                          var alink = row.link_sertifikat;
+                        }else{
+                          var alink = 'https://'+row.link_sertifikat;
+                        }
+                        var el =`<center><a target="_blank" href="`+alink+`">`+row.link_sertifikat+`</a></center>`;
+    
+                          return el;
+                      },
+                      aTargets: [ 11 ]
+                  },
+                    {
+                      mRender: function ( data, type, row ) {
+    
+                        if(row.link_surat_aset.includes('https://') || row.link_surat_aset.includes('http://')){
+                          var alink = row.link_surat_aset;
+                        }else{
+                          var alink = 'https://'+row.link_surat_aset;
+                        }
+                        var el =`<center><a target="_blank" href="`+alink+`">`+row.link_surat_aset+`</a></center>`;
+    
+                          return el;
+                      },
+                      aTargets: [ 12 ]
+                  },
+                    {
+                      mRender: function ( data, type, row ) {
+    
+                        if(row.link_surat_penyediaan.includes('https://') || row.link_surat_penyediaan.includes('http://')){
+                          var alink = row.link_surat_penyediaan;
+                        }else{
+                          var alink = 'https://'+row.link_surat_penyediaan;
+                        }
+                        var el =`<center><a target="_blank" href="`+alink+`">`+row.link_surat_penyediaan+`</a></center>`;
+    
+                          return el;
+                      },
+                      aTargets: [ 13 ]
+                  },
+                    {
+                      mRender: function ( data, type, row ) {
+                        
+                        if(row.link_surat_kesiapan.includes('https://') || row.link_surat_kesiapan.includes('http://')){
+                          var alink = row.link_surat_kesiapan;
+                        }else{
+                          var alink = 'https://'+row.link_surat_kesiapan;
+                        }
+                        var el =`<center><a target="_blank" href="`+alink+`">`+row.link_surat_kesiapan+`</a></center>`;
+    
+                          return el;
+                      },
+                      aTargets: [ 14 ]
+                  },
+                    {
+                      mRender: function ( data, type, row ) {
+    
+                        if(row.link_surat_kesesuaian.includes('https://') || row.link_surat_kesesuaian.includes('http://')){
+                          var alink = row.link_surat_kesesuaian;
+                        }else{
+                          var alink = 'https://'+row.link_surat_kesesuaian;
+                        }
+                        var el =`<center><a target="_blank" href="`+alink+`">`+row.link_surat_kesesuaian+`</a></center>`;
+    
+                          return el;
+                      },
+                      aTargets: [ 15 ]
+                  },
+                    {
+                      mRender: function ( data, type, row ) {
+    
+                        if(row.link_surat_kesesuaian.includes('https://') || row.link_surat_kesesuaian.includes('http://')){
+                          var alink = row.link_surat_kesesuaian;
+                        }else{
+                          var alink = 'https://'+row.link_surat_kesesuaian;
+                        }
+                        var el =`<center><a target="_blank" href="`+alink+`">`+row.link_surat_kesesuaian+`</a></center>`;
+    
+                          return el;
+                      },
+                      aTargets: [ 16 ]
+                  },
+                    {
+                      mRender: function ( data, type, row ) {
+    
+                        if(row.link_dokumen_lingkungan.includes('https://') || row.link_dokumen_lingkungan.includes('http://')){
+                          var alink = row.link_dokumen_lingkungan;
+                        }else{
+                          var alink = 'https://'+row.link_dokumen_lingkungan;
+                        }
+                        var el =`<center><a target="_blank" href="`+alink+`">`+row.link_dokumen_lingkungan+`</a></center>`;
+    
+                          return el;
+                      },
+                      aTargets: [ 17 ]
+                  },
+                    {
+                      mRender: function ( data, type, row ) {
+    
+                        if(row.link_dokumen_sra.includes('https://') || row.link_dokumen_sra.includes('http://')){
+                          var alink = row.link_dokumen_sra;
+                        }else{
+                          var alink = 'https://'+row.link_dokumen_sra;
+                        }
+                        var el =`<center><a target="_blank" href="`+alink+`">`+row.link_dokumen_sra+`</a></center>`;
+    
+                          return el;
+                      },
+                      aTargets: [ 18 ]
                   },
                     
                 ],
@@ -257,15 +384,24 @@ function save(formData){
   function updatelahan(){
     var formData = new FormData();
     formData.append('id', $('#idnya').val());
+
     formData.append('kota_kab', $('#kota_kab').val());
     formData.append('lokasi', $('#lokasi').val());
+    formData.append('koordinat', $('#koordinat').val());
     formData.append('desa_kel', $('#desa_kel').val());
     formData.append('kecamatan', $('#kecamatan').val());
     formData.append('luas', $('#luas').val());
     formData.append('status', $('#status').val());
-    formData.append('keterangan', $('#keterangan').val());
-    formData.append('indikator', $('#indikator').val());
-    formData.append('link', $('#link').val());
+    formData.append('status_1', $('#status_1').val());
+    formData.append('keterangan', $('#keterangan').text());
+    formData.append('link_surat_minat', $('#link_surat_minat').val());
+    formData.append('link_sertifikat', $('#link_sertifikat').val());
+    formData.append('link_surat_aset', $('#link_surat_aset').val());
+    formData.append('link_surat_penyediaan', $('#link_surat_penyediaan').val());
+    formData.append('link_surat_kesiapan', $('#link_surat_kesiapan').val());
+    formData.append('link_surat_kesesuaian', $('#link_surat_kesesuaian').val());
+    formData.append('link_dokumen_lingkungan', $('#link_dokumen_lingkungan').val());
+    formData.append('link_dokumen_sra', $('#link_dokumen_sra').val());
 
     $.ajax({
         type: 'post',
@@ -300,19 +436,28 @@ function save(formData){
         })
       }
 
-      function editdong(id,kota_kab,lokasi,desa_kel,kecamatan,luas,status,keterangan,indikator, link){
+      function editdong(id,kota_kab,lokasi,koordinat,desa_kel,kecamatan,luas,status,status_1,keterangan,link_surat_minat,link_sertifikat,link_surat_aset,link_surat_penyediaan,link_surat_kesiapan,link_surat_kesesuaian,link_dokumen_lingkungan,link_dokumen_sra){
         $('#tambah-modal').modal('show');
 
         $('#idnya').val(id);
+
         $('#kota_kab').val(kota_kab);
         $('#lokasi').val(lokasi);
+        $('#koordinat').val(koordinat);
         $('#desa_kel').val(desa_kel);
         $('#kecamatan').val(kecamatan);
         $('#luas').val(luas);
         $('#status').val(status);
-        $('#keterangan').val(keterangan);
-        $('#indikator').val(indikator);
-        $('#link').val(link);
+        $('#status_1').val(status_1);
+        $('#keterangan').text(keterangan);
+        $('#link_surat_minat').val(link_surat_minat);
+        $('#link_sertifikat').val(link_sertifikat);
+        $('#link_surat_aset').val(link_surat_aset);
+        $('#link_surat_penyediaan').val(link_surat_penyediaan);
+        $('#link_surat_kesiapan').val(link_surat_kesiapan);
+        $('#link_surat_kesesuaian').val(link_surat_kesesuaian);
+        $('#link_dokumen_lingkungan').val(link_dokumen_lingkungan);
+        $('#link_dokumen_sra').val(link_dokumen_sra);
 
         $('#save-lahan').hide();
         $('#update-lahan').show();
@@ -324,13 +469,21 @@ function save(formData){
         $('#idnya').val('');
         $('#kota_kab').val('');
         $('#lokasi').val('');
+        $('#koordinat').val('');
         $('#desa_kel').val('');
         $('#kecamatan').val('');
         $('#luas').val('');
         $('#status').val('');
-        $('#keterangan').val('');
-        $('#indikator').val('');
-        $('#link').val('');
+        $('#status_1').val('');
+        $('#keterangan').text('');
+        $('#link_surat_minat').val('');
+        $('#link_sertifikat').val('');
+        $('#link_surat_aset').val('');
+        $('#link_surat_penyediaan').val('');
+        $('#link_surat_kesiapan').val('');
+        $('#link_surat_kesesuaian').val('');
+        $('#link_dokumen_lingkungan').val('');
+        $('#link_dokumen_sra').val('');
 
         $('#save-lahan').show();
         $('#update-lahan').hide();
