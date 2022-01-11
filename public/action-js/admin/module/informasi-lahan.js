@@ -35,10 +35,11 @@ $(document).ready(function(){
             formData.append('luas', $('#luas').val());
             formData.append('status', $('#status').val());
             formData.append('status_1', $('#status_1').val());
-            formData.append('keterangan', $('#keterangan').text());
+            formData.append('keterangan', $('#keterangan').val());
             formData.append('link_surat_minat', $('#link_surat_minat').val());
             formData.append('link_sertifikat', $('#link_sertifikat').val());
             formData.append('link_surat_aset', $('#link_surat_aset').val());
+            formData.append('link_surat_penyediaan', $('#link_surat_penyediaan').val());
             formData.append('link_surat_kesiapan', $('#link_surat_kesiapan').val());
             formData.append('link_surat_kesesuaian', $('#link_surat_kesesuaian').val());
             formData.append('link_dokumen_lingkungan', $('#link_dokumen_lingkungan').val());
@@ -162,7 +163,6 @@ function loaddata(param, ids, periode){
                     // { "targets": "_all", "orderable": false },
                     {
                         mRender: function ( data, type, row ) {
-                          console.log(row);
                           var el =`<center><div class="btn-group dropdown-split-info">
                                       <button type="button" class="btn btn-info btn-mini dropdown-toggle dropdown-toggle-split waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                           <span class="sr-only"></span>
@@ -221,7 +221,7 @@ function loaddata(param, ids, periode){
                   },
                     {
                       mRender: function ( data, type, row ) {
-    
+                        console.log(row.link_surat_penyediaan);
                         if(row.link_surat_penyediaan.includes('https://') || row.link_surat_penyediaan.includes('http://')){
                           var alink = row.link_surat_penyediaan;
                         }else{
@@ -334,7 +334,7 @@ function rubah(angka){
 }
 
 function save(formData){
-
+  
   $.ajax({
       type: 'post',
       processData: false,
@@ -393,7 +393,7 @@ function save(formData){
     formData.append('luas', $('#luas').val());
     formData.append('status', $('#status').val());
     formData.append('status_1', $('#status_1').val());
-    formData.append('keterangan', $('#keterangan').text());
+    formData.append('keterangan', $('#keterangan').val());
     formData.append('link_surat_minat', $('#link_surat_minat').val());
     formData.append('link_sertifikat', $('#link_sertifikat').val());
     formData.append('link_surat_aset', $('#link_surat_aset').val());
@@ -475,7 +475,7 @@ function save(formData){
         $('#luas').val('');
         $('#status').val('');
         $('#status_1').val('');
-        $('#keterangan').text('');
+        $('#keterangan').val('');
         $('#link_surat_minat').val('');
         $('#link_sertifikat').val('');
         $('#link_surat_aset').val('');

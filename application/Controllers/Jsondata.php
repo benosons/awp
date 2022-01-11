@@ -2403,6 +2403,7 @@ class Jsondata extends \CodeIgniter\Controller
 				'update_date' => $this->now,
 
 			];
+
 			$res = $model->saveData('data_lahan', $data);
 			$id  = $model->insertID();
 		}
