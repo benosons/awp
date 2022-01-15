@@ -492,7 +492,6 @@ function save(formData){
 
 
       function menurc(id){
-        alert(id)
         var baseUrl = $('#is_baseURL').val();
         window.location.href = baseUrl.replace("public", "rc?ids="+id);
 
