@@ -702,6 +702,46 @@ class Jsondata extends \CodeIgniter\Controller
 		}
 	}
 
+	public function loadpenilaian()
+	{
+		try
+		{
+				$request  = $this->request;
+				$param 	  = $request->getVar('param');
+				$id		 	  = $request->getVar('id');
+				$periode		 	  = $request->getVar('periode');
+				$role 		= $this->data['role'];
+				$userid		= $this->data['userid'];
+				
+					$model = new \App\Models\DataModel();
+					$modelfiles = new \App\Models\FilesModel();
+
+					$data = $model->getpenilaian($param, $id);
+
+					if($data){
+						$response = [
+							'status'   => 'sukses',
+							'code'     => '1',
+							'data' 		=> $data
+						];
+					}else{
+						$response = [
+						    'status'   => 'gagal',
+						    'code'     => '0',
+						    'data'     => 'tidak ada data',
+						];
+					}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
 	public function loadnip()
 	{
 		try
@@ -2405,6 +2445,136 @@ class Jsondata extends \CodeIgniter\Controller
 			];
 
 			$res = $model->saveData('data_lahan', $data);
+			$id  = $model->insertID();
+		}
+
+
+		$response = [
+				'status'   => 'sukses',
+				'code'     => '0',
+				'data' 		 => 'terkirim'
+		];
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+
+	}
+
+	public function savePenilaian(){
+
+		$request  = $this->request;
+		$param 	  = $request->getVar('param');
+		$role 		= $this->data['role'];
+		$userid		= $this->data['userid'];
+		$model 	  = new \App\Models\DataModel();
+		
+		if($request->getVar('id')){
+			$datas = [
+				'id_lahan' => $request->getVar('id_lahan'),
+				'nilai_a1' => $request->getVar('nilai_a1'),
+				'link_a1' => $request->getVar('link_a1'),
+				'keterangan_a1' => $request->getVar('keterangan_a1'),
+				'nilai_b1' => $request->getVar('nilai_b1'),
+				'link_b1' => $request->getVar('link_b1'),
+				'keterangan_b1' => $request->getVar('keterangan_b1'),
+				'nilai_b2' => $request->getVar('nilai_b2'),
+				'link_b2' => $request->getVar('link_b2'),
+				'keterangan_b2' => $request->getVar('keterangan_b2'),
+				'nilai_b3' => $request->getVar('nilai_b3'),
+				'link_b3' => $request->getVar('link_b3'),
+				'keterangan_b3' => $request->getVar('keterangan_b3'),
+				'nilai_b4' => $request->getVar('nilai_b4'),
+				'link_b4' => $request->getVar('link_b4'),
+				'keterangan_b4' => $request->getVar('keterangan_b4'),
+				'nilai_c1' => $request->getVar('nilai_c1'),
+				'link_c1' => $request->getVar('link_c1'),
+				'keterangan_c1' => $request->getVar('keterangan_c1'),
+				'nilai_c2' => $request->getVar('nilai_c2'),
+				'link_c2' => $request->getVar('link_c2'),
+				'keterangan_c2' => $request->getVar('keterangan_c2'),
+				'nilai_c3' => $request->getVar('nilai_c3'),
+				'link_c3' => $request->getVar('link_c3'),
+				'keterangan_c3' => $request->getVar('keterangan_c3'),
+				'nilai_c4' => $request->getVar('nilai_c4'),
+				'link_c4' => $request->getVar('link_c4'),
+				'keterangan_c4' => $request->getVar('keterangan_c4'),
+				'nilai_c5' => $request->getVar('nilai_c5'),
+				'link_c5' => $request->getVar('link_c5'),
+				'keterangan_c5' => $request->getVar('keterangan_c5'),
+				'nilai_d1' => $request->getVar('nilai_d1'),
+				'link_d1' => $request->getVar('link_d1'),
+				'keterangan_d1' => $request->getVar('keterangan_d1'),
+				'nilai_d2' => $request->getVar('nilai_d2'),
+				'link_d2' => $request->getVar('link_d2'),
+				'keterangan_d2' => $request->getVar('keterangan_d2'),
+				'nilai_e1' => $request->getVar('nilai_e1'),
+				'link_e1' => $request->getVar('link_e1'),
+				'keterangan_e1' => $request->getVar('keterangan_e1'),
+				'nilai_f1' => $request->getVar('nilai_f1'),
+				'link_f1' => $request->getVar('link_f1'),
+				'keterangan_f1' => $request->getVar('keterangan_f1'),
+
+				'update_by' => $userid,
+				'update_date' => $this->now
+			];
+			;
+			$res = $model->updatepenilaian($request->getVar('id'), $datas);
+		}else{
+
+			
+
+			$data = [
+				
+				'id_lahan' => $request->getVar('id_lahan'),
+				'nilai_a1' => $request->getVar('nilai_a1'),
+				'link_a1' => $request->getVar('link_a1'),
+				'keterangan_a1' => $request->getVar('keterangan_a1'),
+				'nilai_b1' => $request->getVar('nilai_b1'),
+				'link_b1' => $request->getVar('link_b1'),
+				'keterangan_b1' => $request->getVar('keterangan_b1'),
+				'nilai_b2' => $request->getVar('nilai_b2'),
+				'link_b2' => $request->getVar('link_b2'),
+				'keterangan_b2' => $request->getVar('keterangan_b2'),
+				'nilai_b3' => $request->getVar('nilai_b3'),
+				'link_b3' => $request->getVar('link_b3'),
+				'keterangan_b3' => $request->getVar('keterangan_b3'),
+				'nilai_b4' => $request->getVar('nilai_b4'),
+				'link_b4' => $request->getVar('link_b4'),
+				'keterangan_b4' => $request->getVar('keterangan_b4'),
+				'nilai_c1' => $request->getVar('nilai_c1'),
+				'link_c1' => $request->getVar('link_c1'),
+				'keterangan_c1' => $request->getVar('keterangan_c1'),
+				'nilai_c2' => $request->getVar('nilai_c2'),
+				'link_c2' => $request->getVar('link_c2'),
+				'keterangan_c2' => $request->getVar('keterangan_c2'),
+				'nilai_c3' => $request->getVar('nilai_c3'),
+				'link_c3' => $request->getVar('link_c3'),
+				'keterangan_c3' => $request->getVar('keterangan_c3'),
+				'nilai_c4' => $request->getVar('nilai_c4'),
+				'link_c4' => $request->getVar('link_c4'),
+				'keterangan_c4' => $request->getVar('keterangan_c4'),
+				'nilai_c5' => $request->getVar('nilai_c5'),
+				'link_c5' => $request->getVar('link_c5'),
+				'keterangan_c5' => $request->getVar('keterangan_c5'),
+				'nilai_d1' => $request->getVar('nilai_d1'),
+				'link_d1' => $request->getVar('link_d1'),
+				'keterangan_d1' => $request->getVar('keterangan_d1'),
+				'nilai_d2' => $request->getVar('nilai_d2'),
+				'link_d2' => $request->getVar('link_d2'),
+				'keterangan_d2' => $request->getVar('keterangan_d2'),
+				'nilai_e1' => $request->getVar('nilai_e1'),
+				'link_e1' => $request->getVar('link_e1'),
+				'keterangan_e1' => $request->getVar('keterangan_e1'),
+				'nilai_f1' => $request->getVar('nilai_f1'),
+				'link_f1' => $request->getVar('link_f1'),
+				'keterangan_f1' => $request->getVar('keterangan_f1'),
+				'create_by' => $userid,
+				'update_by' => $userid,
+				'create_date' => $this->now,
+				'update_date' => $this->now,
+			];
+
+			$res = $model->saveData('data_penilaian', $data);
 			$id  = $model->insertID();
 		}
 

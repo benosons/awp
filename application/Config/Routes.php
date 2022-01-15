@@ -94,6 +94,7 @@ $routes->add('monev', 'View::monev');
 $routes->add('monevkontrol', 'View::monevcontrol');
 $routes->add('pelelangan', 'View::pelelangan');
 $routes->add('lahan', 'View::lahan');
+$routes->add('rc', 'View::rc');
 
 $routes->add('auth', 'Auth::auth');
 $routes->add('reg', 'Auth::reg');
@@ -115,6 +116,7 @@ $routes->post('saveAspek', 'Jsondata::saveAspek');
 $routes->post('saveInformasi', 'Jsondata::saveInformasi');
 $routes->post('savePelelangan', 'Jsondata::savePelelangan');
 $routes->post('saveLahan', 'Jsondata::saveLahan');
+$routes->post('savePenilaian', 'Jsondata::savePenilaian');
 $routes->post('cekperiode', 'Jsondata::cekperiode');
 $routes->post('loadsoe', 'Jsondata::loadsoe');
 $routes->post('loadmonev', 'Jsondata::loadmonev');
@@ -125,6 +127,7 @@ $routes->post('loadjadwal', 'Jsondata::loadjadwal');
 $routes->post('addjadwal', 'Jsondata::addjadwal');
 $routes->post('loadaspek', 'Jsondata::loadaspek');
 $routes->post('loadpelelangan', 'Jsondata::loadpelelangan');
+$routes->post('loadpenilaian', 'Jsondata::loadpenilaian');
 $routes->post('deletelahan', 'Jsondata::deletelahan');
 
 

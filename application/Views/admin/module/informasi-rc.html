@@ -1,0 +1,675 @@
+{% extends "admin/layout.html" %} {% block content %}
+<style>
+    .table td, .table th {
+        vertical-align: middle!important;
+    }
+    .text-black {
+        color:black;
+    }
+</style>
+<div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page-header start -->
+            <div class="page-header">
+              <input hidden id="userid" value="{{userid}}">
+              <input hidden id="role" value="{{role}}">
+              <input hidden id="id_lahan" value="{{ids}}">
+                <div class="page-header-title">
+                    <h4>INDIKATOR PENILAIAN PRIORITAS</h4>
+                    <!-- <span>Easy to customise core stylesheets</span> -->
+                </div>
+                <div class="page-header-breadcrumb">
+                    <ul class="breadcrumb-title">
+                        <li class="breadcrumb-item">
+                            <a href="{{baseURL}}">
+                                <i class="icofont icofont-home"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="#!">Module RC</a>
+                        <li class="breadcrumb-item"><a href="#!">Informasi Lahan</a>
+                        <li class="breadcrumb-item"><a href="#!">RC</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Page-header end -->
+            <!-- Page-body start -->
+            <div class="page-body">
+                <!-- Base style - Hover table start -->
+                <div class="card">
+                    <div class="card-header" style="padding-top:2.5rem;">
+                        <!-- <h5>Base style - hover</h5> -->
+                        <!-- <span>This example shows DataTables with just the hover class specified. This class will instruct DataTables' styling to highlight a row when the mouse is hovered over it.</span> -->
+                        <div class="row">
+
+                            <div class="col-sm-2">
+                                <button id="" class="btn btn-warning pull-right" onclick="window.location.href='lahan'"><i class="icofont icofont icofont-arrow-left"></i>Kembali</button>
+                            </div>
+                            <div class="col-sm-8">
+                            </div>
+                            <div class="col-sm-2">
+                                <button id="save-penilaian" class="btn btn-success pull-right" ><i class="icofont icofont icofont-check"></i>Simpan</button>
+                            </div>
+                        
+                        </div>
+                    </div>
+                    
+                    <div class="card-block">
+                        <div class="dt-responsive table-responsive">
+                            <table cellspacing="0" border="0">
+                                <colgroup width="40"></colgroup>
+                                <colgroup width="198"></colgroup>
+                                <colgroup width="328"></colgroup>
+                                <colgroup width="79"></colgroup>
+                                <colgroup width="102"></colgroup>
+                                <colgroup width="148"></colgroup>
+                                <colgroup width="127"></colgroup>
+                                <colgroup width="89"></colgroup>
+                                <tr>
+                                    <td style="border-bottom: 1px solid #000000" colspan=3 height="37" align="left" valign=middle><b><font face="Calibri" size=3 color="#000000">II. INDIKATOR PENILAIAN PRIORITAS</font></b></td>
+                                    <td align="center" valign=middle><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td align="center" valign=middle><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td align="center" valign=middle><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td align="center" valign=middle><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td align="center" valign=middle><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 height="51" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">NO</font></b></td>
+                                    <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">INDIKATOR</font></b></td>
+                                    <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">PARAMETER</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">NILAI HARKAT</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">SKOR</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">BUKTI DOKUMEN</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">Keterangan</font></b></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">Nilai</font></b></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="19" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">A</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">KESIAPAN KELEMBAGAAN </font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">Bobot</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><font face="Calibri" size=3 color="#000000"><br></font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#C5D9F1"><font face="Calibri" size=3 color="#000000"><br></font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 height="376" align="center" valign=middle><b><font face="Calibri" size=3 color="#000000">A.1</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="left" valign=middle><b><font face="Calibri" size=3 color="#000000">Kesiapan lembaga pengelola</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Sudah terdapat UPTD khusus yang menangani operasionalisasi pengolahan sampah yang sudah menerapkan PPK BLUD</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#00B050" sdval="4" sdnum="1033;"><font face="Calibri" size=3 color="#000000">4</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle><font face="Calibri" size=3 color="#000000"> <input min="0" max="4" type="number" class="form-control" id="nilai_a1"> </font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" color="#000000"> <input type="text" class="form-control" id="link_a1"> </font></i></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=5 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=3 color="#000000"><textarea class="form-control" id="keterangan_a1"></textarea></font></i></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Sudah terdapat UPTD khusus yang menangani operasionalisasi pengolahan sampah</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#92D050" sdval="3" sdnum="1033;"><font face="Calibri" size=3 color="#000000">3</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Sedang dalam proses pembentukan UPTD khusus yang menangani operasionalisasi pengolahan sampah</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFF00" sdval="2" sdnum="1033;"><font face="Calibri" size=3 color="#000000">2</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Belum ada institusi pengelola, tetapi ada surat kesanggupan membentuk institusi pengelola dari Kepala Daerah</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFC000" sdval="1" sdnum="1033;"><font face="Calibri" size=3 color="#000000">1</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Belum ada institusi pengelola atau belum ada surat kesanggupan membentuk institusi pengelola</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF0000" sdval="0" sdnum="1033;"><font face="Calibri" size=3 color="#000000">0</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 height="33" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" size=3 color="#000000">JUMLAH</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000" id="total_poin_a">Total poin</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">B</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">AKSESIBILITAS</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">Bobot</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><font face="Calibri" color="#000000"><br></font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#C5D9F1"><font face="Calibri" color="#000000"><br></font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 height="105" align="center" valign=middle><b><font face="Calibri" size=3 color="#000000">B.1</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="left" valign=middle bgcolor="#FFFFFF"><b><font face="Calibri" size=3 color="#000000">Ketersediaan akses jalan ke lokasi </font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Ada akses jaringan jalan, kondisi jalan layak (kualitas jalan aspal/beton) dan mudah dijangkau</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#00B050" sdval="4" sdnum="1033;"><font face="Calibri" size=3 color="#000000">4</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle><font face="Calibri" color="#000000"><input type="number" class="form-control" id="nilai_b1" name="nilai_b"></font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><input type="text" class="form-control" id="link_b1"> </font></i></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=5 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><textarea class="form-control" id="keterangan_b1"></textarea> </font></i></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">ada akses jaringan jalan, kondisi jalan tidak layak (kualitas jalan bukan aspal/beton) tapi mudah dijangkau</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#92D050" sdval="3" sdnum="1033;"><font face="Calibri" size=3 color="#000000">3</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Ada akses jaringan jalan, tapi kondisi jalan tidak layak (kualitas jalan bukan aspal/beton) dan/atau sulit dijangkau</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFF00" sdval="2" sdnum="1033;"><font face="Calibri" size=3 color="#000000">2</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Belum ada akses jaringan jalan tetapi ada rencana pengembangan jalan</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFC000" sdval="1" sdnum="1033;"><font face="Calibri" size=3 color="#000000">1</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Belum ada akses jaringan jalan </font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF0000" sdval="0" sdnum="1033;"><font face="Calibri" size=3 color="#000000">0</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 height="105" align="center" valign=middle><b><font face="Calibri" size=3 color="#000000">B.2</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Calibri" size=3 color="#000000">Lebar Jalan</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">&gt;5 m</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#00B050" sdval="4" sdnum="1033;"><font face="Calibri" size=3 color="#000000">4</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle><font face="Calibri" color="#000000"><input type="number" class="form-control" id="nilai_b2" name="nilai_b"></font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><input type="text" class="form-control" id="link_b2"> </font></i></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=5 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><textarea class="form-control" id="keterangan_b2"></textarea> </font></i></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">4 - 5 m</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#92D050" sdval="3" sdnum="1033;"><font face="Calibri" size=3 color="#000000">3</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">3 - 4 m</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFF00" sdval="2" sdnum="1033;"><font face="Calibri" size=3 color="#000000">2</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle sdnum="1033;1033;D-MMM"><font face="Calibri" size=3 color="#000000">2-3 m</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFC000" sdval="1" sdnum="1033;"><font face="Calibri" size=3 color="#000000">1</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">&lt; 2 m</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF0000" sdval="0" sdnum="1033;"><font face="Calibri" size=3 color="#000000">0</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 height="215" align="center" valign=middle><b><font face="Calibri" size=3 color="#000000">B.3</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="left" valign=middle bgcolor="#FFFFFF"><b><font face="Calibri" size=3 color="#000000">Ketersediaan jaringan listrik di lokasi </font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Ada akses jaringan listrik dan instalasi listrik sudah terpasang</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#00B050" sdval="4" sdnum="1033;"><font face="Calibri" size=3 color="#000000">4</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle><font face="Calibri" color="#000000"><input type="number" class="form-control" id="nilai_b3" name="nilai_b"></font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><input type="text" class="form-control" id="link_b3"> </font></i></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=5 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><textarea class="form-control" id="keterangan_b3"></textarea> </font></i></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Sudah ada akses jaringan listrik</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#92D050" sdval="3" sdnum="1033;"><font face="Calibri" size=3 color="#000000">3</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Belum ada akses jaringan listrik tetapi sanggup menyediakan jaringan listrik pada saat konstruksi dimulai</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFF00" sdval="2" sdnum="1033;"><font face="Calibri" size=3 color="#000000">2</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Belum ada akses jaringan listrik tetapi ada rencana pengembangan jaringan dan instalasi listriknya</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFC000" sdval="1" sdnum="1033;"><font face="Calibri" size=3 color="#000000">1</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Belum ada akses jaringan listrik </font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF0000" sdval="0" sdnum="1033;"><font face="Calibri" size=3 color="#000000">0</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 height="193" align="center" valign=middle><b><font face="Calibri" size=3 color="#000000">B.4</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="left" valign=middle bgcolor="#FFFFFF"><b><font face="Calibri" size=3 color="#000000">Badan Air Penerima</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Memiliki akses langsung dengan badan air penerima</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#00B050" sdval="4" sdnum="1033;"><font face="Calibri" size=3 color="#000000">4</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle><font face="Calibri" color="#000000"><input type="number" class="form-control" id="nilai_b4" name="nilai_b"></font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><input type="text" class="form-control" id="link_b4"> </font></i></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=3 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><textarea class="form-control" id="keterangan_b4"></textarea> </font></i></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Badan air penerima terhalangi lahan bukan milik TPST tetapi masih ada akses untuk outlet ke badan air penerima</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFF00" sdval="2" sdnum="1033;"><font face="Calibri" size=3 color="#000000">2</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Badan air penerima terhalangi lahan bukan milik TPST dan tidak ada akses untuk outlet ke badan air penerima</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF0000" sdval="0" sdnum="1033;"><font face="Calibri" size=3 color="#000000">0</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 height="21" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" size=3 color="#000000">JUMLAH</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000" id="total_poin_b">Total poin</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">C</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">ASPEK SOSIAL</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">Bobot</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 height="356" align="center" valign=middle><b><font face="Calibri" size=3 color="#000000">C.1</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="left" valign=middle bgcolor="#FFFFFF"><b><font face="Calibri" size=3 color="#000000">Partisipasi Masyarakat</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Dukungan langsung dengan inisiatif dari masyarakat dan/atau sudah ada infrastruktur sampah eksisting</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#00B050" sdval="4" sdnum="1033;"><font face="Calibri" size=3 color="#000000">4</font></td>
+                                    <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle><font face="Calibri" color="#000000"><input type="number" class="form-control" id="nilai_c1" name="nilai_c"></font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><input type="text" class="form-control" id="link_c1"> </font></i></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=5 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><textarea class="form-control" id="keterangan_c1"></textarea> </font></i></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Menerima berdasarkan hasil sosialisasi dan edukasi</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#92D050" sdval="3" sdnum="1033;"><font face="Calibri" size=3 color="#000000">3</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Sudah dilakukan sosialisasi dan masyarakat menerima dengan syarat</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFF00" sdval="2" sdnum="1033;"><font face="Calibri" size=3 color="#000000">2</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Sudah dilakukan sosialisasi namun masyarakat menolak</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFC000" sdval="1" sdnum="1033;"><font face="Calibri" size=3 color="#000000">1</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Belum dilakukan sosialisasi (ada potensi penerimaan maupun penolakkan)</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF0000" sdval="0" sdnum="1033;"><font face="Calibri" size=3 color="#000000">0</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 height="142" align="center" valign=middle><b><font face="Calibri" size=3 color="#000000">C.2</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="left" valign=middle bgcolor="#FFFFFF"><b><font face="Calibri" size=3 color="#000000">Jarak terdekat dengan Aktivitas Masyarakat (Sekolah, Puskesmas, Tempat Ibadah, Pemukiman)</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">&gt; 200 m</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#00B050" sdval="4" sdnum="1033;"><font face="Calibri" size=3 color="#000000">4</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle><font face="Calibri" color="#000000"><input type="number" class="form-control" id="nilai_c2" name="nilai_c"></font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><input type="text" class="form-control" id="link_c2"> </font></i></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=5 align="left" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><textarea class="form-control" id="keterangan_c2"></textarea> </font></i></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">150 - 200 m</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#92D050" sdval="3" sdnum="1033;"><font face="Calibri" size=3 color="#000000">3</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">100 - 150 m</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFF00" sdval="2" sdnum="1033;"><font face="Calibri" size=3 color="#000000">2</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">50 - 100 m</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFC000" sdval="1" sdnum="1033;"><font face="Calibri" size=3 color="#000000">1</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Berbatasan langsung dengan aktivitas masyarakat</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF0000" sdval="0" sdnum="1033;"><font face="Calibri" size=3 color="#000000">0</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 height="120" align="center" valign=bottom><b><font face="Calibri" size=3 color="#000000">C.3</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="left" valign=bottom bgcolor="#FFFFFF"><b><font face="Calibri" size=3 color="#000000">Resistensi terhadap lokasi lahan garapan</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom><font face="Calibri" size=3 color="#000000">lahan kosong</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#00B050" sdval="4" sdnum="1033;"><font face="Calibri" color="#000000">4</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle><font face="Calibri" color="#000000"><input type="number" class="form-control" id="nilai_c3" name="nilai_c"></font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" color="#000000"><input type="text" class="form-control" id="link_c3"> </font></i></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=5 align="left" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><textarea class="form-control" id="keterangan_c3"></textarea> </font></i></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom><font face="Calibri" size=3 color="#000000">Lahan digarap pemda (ada aktivitas eksisting)</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#92D050" sdval="3" sdnum="1033;"><font face="Calibri" color="#000000">3</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom><font face="Calibri" size=3 color="#000000">lahan produktif, ada penggarap mengizinkan</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#FFFF00" sdval="2" sdnum="1033;"><font face="Calibri" color="#000000">2</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom><font face="Calibri" size=3 color="#000000">lahan produktif, ada penggarap mengizinkan dengan syarat penggantian</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#FFC000" sdval="1" sdnum="1033;"><font face="Calibri" color="#000000">1</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom><font face="Calibri" size=3 color="#000000">ada penggarap dan penggarap tidak mengizinkan</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#FF0000" sdval="0" sdnum="1033;"><font face="Calibri" color="#000000">0</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 height="120" align="center" valign=bottom><b><font face="Calibri" size=3 color="#000000">C.4</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=bottom bgcolor="#FFFFFF"><b><font face="Calibri" size=3 color="#000000">Bangunan di atas lahan</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom><font face="Calibri" size=3 color="#000000">Tidak ada Bangunan di atas Lahan</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#00B050" sdval="4" sdnum="1033;"><font face="Calibri" color="#000000">4</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle><font face="Calibri" color="#000000"><input type="number" class="form-control" id="nilai_c4" name="nilai_c"></font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" color="#000000"><input type="text" class="form-control" id="link_c4"> </font></i></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=5 align="left" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><textarea class="form-control" id="keterangan_c4"></textarea> </font></i></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom><font face="Calibri" size=3 color="#000000">Terdapat Bangunan Pemerintah dan dapat di lakukan penghapusan aset</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#92D050" sdval="3" sdnum="1033;"><font face="Calibri" color="#000000">3</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom><font face="Calibri" size=3 color="#000000">Terdapat Bangunan Tanpa Izin</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#FFFF00" sdval="2" sdnum="1033;"><font face="Calibri" color="#000000">2</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom><font face="Calibri" size=3 color="#000000">Terdapat Bangunan Tanpa Izin dengan Syarat Penggantian</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#FFC000" sdval="1" sdnum="1033;"><font face="Calibri" color="#000000">1</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom><font face="Calibri" size=3 color="#000000">Terdapat Bangunan yang Tidak dapat dibongkar</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#FF0000" sdval="0" sdnum="1033;"><font face="Calibri" color="#000000">0</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 height="120" align="center" valign=bottom><b><font face="Calibri" size=3 color="#000000">C.5</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=bottom bgcolor="#FFFFFF"><b><font face="Calibri" size=3 color="#000000">Kawan Lahan Rencana TPST Banjir</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom><font face="Calibri" size=3 color="#000000">Tidak termasuk Kawasan Banjir</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#00B050" sdval="4" sdnum="1033;"><font face="Calibri" size=3 color="#000000">4</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle><font face="Calibri" color="#000000"><input type="number" class="form-control" id="nilai_c5" name="nilai_c"></font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><input type="text" class="form-control" id="link_c5"></font></i></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=5 align="left" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><textarea class="form-control" id="keterangan_c5"></textarea> </font></i></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom><font face="Calibri" size=3 color="#000000">Kawasan Banjir 50 Tahunan</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#92D050" sdval="3" sdnum="1033;"><font face="Calibri" size=3 color="#000000">3</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom><font face="Calibri" size=3 color="#000000">Kawasan Banjir 10 Tahunan</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#FFFF00" sdval="2" sdnum="1033;"><font face="Calibri" size=3 color="#000000">2</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom><font face="Calibri" size=3 color="#000000">Kawasan Banjir 5 Tahunan</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#FFC000" sdval="1" sdnum="1033;"><font face="Calibri" size=3 color="#000000">1</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom><font face="Calibri" size=3 color="#000000">Kawasan Banjir 2 Tahunan</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#FF0000" sdval="0" sdnum="1033;"><font face="Calibri" size=3 color="#000000">0</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 height="21" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" size=3 color="#000000">JUMLAH</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000" id="total_poin_c">Total poin</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">D</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">KESESUAIAN DENGAN DOKUMEN PERENCANAAN DAERAH</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">Bobot</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 height="145" align="center" valign=middle><b><font face="Calibri" size=3 color="#000000">D.1</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="left" valign=middle><b><font face="Calibri" size=3 color="#000000">Kesesuaian Dokumen SSK Kabupaten/Kota</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Kegiatan sudah tercantum dalam SSK terupdate 5 tahun terakhir</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#00B050" sdval="4" sdnum="1033;"><font face="Calibri" size=3 color="#000000">4</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle><font face="Calibri" color="#000000"><input type="number" class="form-control" id="nilai_d1" name="nilai_d"></font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><input type="text" class="form-control" id="link_d1"> </font></i></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=3 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><textarea class="form-control" id="keterangan_d1"></textarea> </font></i></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Kegiatan sudah tercantum dalam SSK tapi belum dimutahirkan dalam 5 tahun terakhir </font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFF00" sdval="2" sdnum="1033;"><font face="Calibri" size=3 color="#000000">2</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Kegiatan tidak tercantum dalam SSK</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF0000" sdval="0" sdnum="1033;"><font face="Calibri" size=3 color="#000000">0</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 height="195" align="center" valign=middle><b><font face="Calibri" size=3 color="#000000">D.2</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="left" valign=middle><b><font face="Calibri" size=3 color="#000000">Kesesuaian Dokumen Rencana Induk (Masterplan/PTMP) Kabupaten/Kota</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Lokasi kegiatan sudah tercantum dalam Masterplan/ PTMP persampahan terupdate 5 tahun terakhir</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#00B050" sdval="4" sdnum="1033;"><font face="Calibri" size=3 color="#000000">4</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle><font face="Calibri" color="#000000"><input type="number" class="form-control" id="nilai_d2" name="nilai_d"></font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><input type="text" class="form-control" id="link_d2"></font></i></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=3 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><textarea class="form-control" id="keterangan_d2"></textarea></font></i></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Lokasi kegiatan sudah tercantum dalam Masterplan/ PTMP persampahan tapi belum direview dalam 5 tahun terakhir </font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFF00" sdval="2" sdnum="1033;"><font face="Calibri" size=3 color="#000000">2</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Belum ada dokumen Masterplan/ PTMP</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF0000" sdval="0" sdnum="1033;"><font face="Calibri" size=3 color="#000000">0</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 height="21" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" size=3 color="#000000">JUMLAH</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000" id="total_poin_d">Total poin</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">E</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">RENCANA WILAYAH PELAYANAN</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">Bobot</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 height="438" align="center" valign=middle><b><font face="Calibri" size=3 color="#000000">E.1</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="left" valign=middle><b><font face="Calibri" size=3 color="#000000">Lokasi Rencana Infrastruktur</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Lokasi infrastruktur dan seluruh wilayah pelayanannya berada di dalam batas administrasi DAS Citarum </font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#00B050" sdval="4" sdnum="1033;"><font face="Calibri" size=3 color="#000000">4</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle><font face="Calibri" color="#000000"><input type="number" class="form-control" id="nilai_e1"></font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><input type="text" class="form-control" id="link_e1"></font></i></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=5 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><textarea class="form-control" id="keterangan_e1"></textarea></font></i></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Lokasi infrastruktur di dalam batas administrasi DAS Citarum dan sebagian wilayah pelayanannya berada di luar batas administrasi DAS Citarum</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#92D050" sdval="3" sdnum="1033;"><font face="Calibri" size=3 color="#000000">3</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Lokasi infrastruktur berada di luar batas administrasi DAS Citarum tetapi sebagian wilayah pelayanannya berada di dalam batas administrasi DAS Citarum</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFF00" sdval="2" sdnum="1033;"><font face="Calibri" size=3 color="#000000">2</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Lokasi infrastruktur berada di dalam batas administrasi DAS Citarum dan wilayah pelayanannya berada di luar batas administrasi DAS Citarum</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFC000" sdval="1" sdnum="1033;"><font face="Calibri" size=3 color="#000000">1</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Lokasi infrastruktur dan wilayah pelayanannya berada di luar batas administrasi DAS Citarum</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF0000" sdval="0" sdnum="1033;"><font face="Calibri" size=3 color="#000000">0</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 height="21" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" size=3 color="#000000">JUMLAH</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000" id="total_poin_e">Total poin</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">F</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">LUAS LAHAN</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" size=3 color="#000000">Bobot</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#C5D9F1"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 height="196" align="center" valign=middle><b><font face="Calibri" size=3 color="#000000">F.1</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="left" valign=middle><b><font face="Calibri" size=3 color="#000000">Luas Lahan</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Luas lahan &gt; 5000 m2</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#00B050" sdval="4" sdnum="1033;"><font face="Calibri" size=3 color="#000000">4</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle><font face="Calibri" color="#000000"><input type="number" class="form-control" id="nilai_f1"></font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><input type="text" class="form-control" id="link_f1"></font></i></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=5 align="center" valign=middle bgcolor="#FFFFFF"><i><font face="Calibri" size=1 color="#000000"><textarea class="form-control" id="keterangan_f1"></textarea></font></i></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Luas lahan 3000 - 5000 m2</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#92D050" sdval="3" sdnum="1033;"><font face="Calibri" size=3 color="#000000">3</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Luas lahan 1500 - 3000 m2</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFF00" sdval="2" sdnum="1033;"><font face="Calibri" size=3 color="#000000">2</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Luas lahan 1000 - 1500 m2</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFC000" sdval="1" sdnum="1033;"><font face="Calibri" size=3 color="#000000">1</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Calibri" size=3 color="#000000">Luas lahan &lt; 1000 m2</font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF0000" sdval="0" sdnum="1033;"><font face="Calibri" size=3 color="#000000">0</font></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 height="29" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" size=3 color="#000000">JUMLAH</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000" id="total_poin_f">Total poin</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 height="28" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" size=3 color="#000000">TOTAL SKOR</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000" id="total_poin_all">Sum Total Poin</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#BFBFBF"><b><font face="Calibri" color="#000000"><br></font></b></td>
+                                    </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Base style - Hover table end -->
+            </div>
+            <!-- Page-body end -->
+        </div>
+    </div>
+    <div id="styleSelector">
+
+    </div>
+
+    <div class="modal fade" id="tambah-modal" name="in-modal" data-backdrop="static">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Form Lahan Keseluruhan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-b-0">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Kabupaten/ Kota</label>
+                        <div class="col-sm-8">
+                            <select id="kota_kab" name="select" class="form-control">
+                                <option value="">Pilih</option>
+
+                                <option value="Kota bandung ">Kota bandung </option>
+                                <option value="Kota Cimahi">Kota Cimahi </option>
+                                <option value="Kab. Bandung">Kab. Bandung</option>
+                                <option value="Kab. Bandung barat">Kab. Bandung barat</option>
+                                <option value="Kab. Purwakarta">Kab. Purwakarta</option>
+                                <option value="Kab. Karawang">Kab. Karawang</option>
+                                <option value="Kab. Cianjur">Kab. Cianjur</option>
+                                <option value="Kab. Bekasi">Kab. Bekasi</option>
+                                <option value="Lainnya">Lainnya</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Lokasi</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="lokasi" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Koordinat</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="koordinat" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Kel/Desa</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="desa_kel" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Kecamatan</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="kecamatan" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Luas Lahan (m2)</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="luas" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Status Usulan</label>
+                        <div class="col-sm-8">
+                            <select id="status" name="select" class="form-control">
+                                <option value="">Pilih</option>
+                                <option value="Usulan 1">Usulan 1</option>
+                                <option value="Usulan 2">Usulan 2</option>
+                                <option value="Usulan 3">Usulan 3</option>
+                                <option value="Usulan 4">Usulan 4</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Status Pembatalan/Pembangunan</label>
+                        <div class="col-sm-8">
+                            <select id="status_1" name="select" class="form-control">
+                                <option value="">Pilih</option>
+                                <option value="Pembatalan Klarifikasi 1" >Pembatalan Klarifikasi 1</option>
+                                <option value="Pembatalan Klarifikasi 2" >Pembatalan Klarifikasi 2</option>
+                                <option value="Pembatalan Klarifikasi 3" >Pembatalan Klarifikasi 3</option>
+                                <option value="Pembangunan Tahap 1" >Pembangunan Tahap 1</option>
+                                <option value="Pembangunan Tahap 2" >Pembangunan Tahap 2</option>
+                                <option value="Pembangunan Tahap 3" >Pembangunan Tahap 3</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Keterangan</label>
+                        <div class="col-sm-8">
+                            <textarea type="text" id="keterangan" class="form-control" placeholder=""></textarea>
+                            <input type="hidden" id="idnya" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Link Surat Minat</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="link_surat_minat" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Link Sertifikat</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="link_sertifikat" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Link Surat Menerima Aset</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="link_surat_aset" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Link Surat Penyediaan</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="link_surat_penyediaan" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Link Surat Kesiapan</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="link_surat_kesiapan" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Link Surat Kesesuaian</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="link_surat_kesesuaian" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Link Dokumen Lingkungan</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="link_dokumen_lingkungan" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Link Dokumen Sosial Rapid Assessment</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="link_dokumen_sra" class="form-control" placeholder="">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="ti-close"></i> Batal </button>
+                    <button type="button" class="btn btn-primary" id="save-lahan"><i class="ti-check-box"></i> Simpan </button>
+                    <button type="button" class="btn btn-primary" id="update-lahan" onclick="updatelahan()"><i class="ti-check-box"></i> Update </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<!-- <script src="{{baseURL}}/assets/action-js/admin/datapengaduan.js"></script> -->
+{% endblock %}

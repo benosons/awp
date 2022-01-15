@@ -170,7 +170,8 @@ function loaddata(param, ids, periode){
                                       <div class="dropdown-menu">
                                           <a class="dropdown-item waves-effect waves-light" onclick="editdong(
                                             '`+row.id+`','`+row.kota_kab+`','`+row.lokasi+`','`+row.koordinat+`','`+row.desa_kel+`','`+row.kecamatan+`','`+row.luas+`','`+row.status+`','`+row.status_1+`','`+row.keterangan+`','`+row.link_surat_minat+`','`+row.link_sertifikat+`','`+row.link_surat_aset+`','`+row.link_surat_penyediaan+`','`+row.link_surat_kesiapan+`','`+row.link_surat_kesesuaian+`','`+row.link_dokumen_lingkungan+`','`+row.link_dokumen_sra+`')">Edit</a>
-                                          <a class="dropdown-item waves-effect waves-light"onclick="deletedong('`+row.id+`')">Delete</a>
+                                          <a class="dropdown-item waves-effect waves-light" onclick="deletedong('`+row.id+`')">Delete</a>
+                                          <a class="dropdown-item waves-effect waves-light" onclick="menurc('`+row.id+`')" >RC</a>
                                       </div>
                                   </div></center>`;
       
@@ -487,6 +488,14 @@ function save(formData){
 
         $('#save-lahan').show();
         $('#update-lahan').hide();
+      }
+
+
+      function menurc(id){
+        alert(id)
+        var baseUrl = $('#is_baseURL').val();
+        window.location.href = baseUrl.replace("public", "rc?ids="+id);
+
       }
 
       

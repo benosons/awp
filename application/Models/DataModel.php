@@ -180,6 +180,18 @@ class DataModel extends Model{
       return  $query->getResult();
     }
 
+    public function getpenilaian($param = null, $ids = null)
+    {
+      $builder = $this->db->table('data_penilaian');
+      if($param){
+        $builder->where(['id_lahan' => $param]);
+      }
+      $builder->orderBy('id ASC');
+      $query = $builder->get();
+      // echo $this->db->getLastQuery();die;
+      return  $query->getResult();
+    }
+
     public function getinformasi($param = null, $ids = null, $periode = null)
     {
       $builder = $this->db->table('data_informasi_umum');
@@ -324,6 +336,17 @@ class DataModel extends Model{
     {
       
       $builder = $this->db->table('data_lahan');
+      $query   = $builder->where('id', $id);
+      $query->update($data);
+      // echo $this->db->getLastQuery();die;
+
+      return true;
+    }
+
+    public function updatepenilaian($id, $data)
+    {
+      
+      $builder = $this->db->table('data_penilaian');
       $query   = $builder->where('id', $id);
       $query->update($data);
       // echo $this->db->getLastQuery();die;

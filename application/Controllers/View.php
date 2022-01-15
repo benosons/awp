@@ -280,6 +280,7 @@ class View extends \CodeIgniter\Controller
 		helper('form');
 		$request  = $this->request;
 		$param 	  = $request->getGet('param');
+		$this->data['baseURL'] = $this->data['baseURL'];
 		if($param == 1){
 			$this->data['isOpen'] = 1;
 			$this->data['script'] = $this->data['baseURL'].'/action-js/admin/module/informasi-lahan-user.js';
@@ -289,6 +290,28 @@ class View extends \CodeIgniter\Controller
 				$this->data['isOpen'] = 0;
 				$this->data['script'] = $this->data['baseURL'].'/action-js/admin/module/informasi-lahan.js';
 				return \Twig::instance()->display('admin/module/informasi-lahan.html', $this->data);
+			}else{
+				return redirect('home');
+			}
+		}
+	}
+
+	public function rc()
+	{
+		helper('form');
+		$request  = $this->request;
+		$param 	  = $request->getGet('param');
+		$ids = $request->getVar('ids');
+		$this->data['ids'] = $ids;
+		if($param == 1){
+			$this->data['isOpen'] = 1;
+			$this->data['script'] = $this->data['baseURL'].'/action-js/admin/module/informasi-lahan-user.js';
+			return \Twig::instance()->display('admin/module/informasi-lahan-user.html', $this->data);
+		}else if($param == 0){
+			if($this->logged){
+				$this->data['isOpen'] = 0;
+				$this->data['script'] = $this->data['baseURL'].'/action-js/admin/module/informasi-rc.js';
+				return \Twig::instance()->display('admin/module/informasi-rc.html', $this->data);
 			}else{
 				return redirect('home');
 			}
